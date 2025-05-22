@@ -14,11 +14,11 @@ Read documents of Apache [shardingsphere](https://shardingsphere.apache.org/) se
 
 Actually, what I need is the ability for selecting a database shard implicitly. When I write `select t_user from...`, it is rewritten to `select t_user[0-7] from...`. Here's some alternative options I found:
 
-### 1\. hibernate interceptor
+### 1. hibernate interceptor
 
 Refer to javadoc of `StatementInspector` class.
 
-```
+```java
     @Bean
     public HibernatePropertiesCustomizer hibernatePropertiesCustomizer() {
         return (properties) -> {
@@ -27,14 +27,13 @@ Refer to javadoc of `StatementInspector` class.
             });
         };
     }
-
 ```
 
-### 2\. datasource proxy
+### 2. datasource proxy
 
 See: [https://jdbc-observations.github.io/datasource-proxy/docs/current/user-guide/#built-in-support](https://jdbc-observations.github.io/datasource-proxy/docs/current/user-guide/#built-in-support)
 
-```
+```java
     public ProxyDataSourceInterceptor(DataSource dataSource) {
         this.dataSource = ProxyDataSourceBuilder.create(dataSource)
                 .logQueryBySlf4j(SLF4JLogLevel.INFO)
@@ -43,10 +42,9 @@ See: [https://jdbc-observations.github.io/datasource-proxy/docs/current/user-gui
                 })
                 .build();
     }
-
 ```
 
-### 3\. spring boot 3
+### 3. spring boot 3
 
 See: [https://spring.io/blog/2022/05/02/ever-wanted-to-rewrite-a-query-in-spring-data-jpa](https://spring.io/blog/2022/05/02/ever-wanted-to-rewrite-a-query-in-spring-data-jpa)
 

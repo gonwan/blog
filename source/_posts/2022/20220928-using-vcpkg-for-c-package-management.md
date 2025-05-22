@@ -12,83 +12,78 @@ tags:
 
 Verified on CentOS7 and Windows 10.
 
-### 1\. Install v2ray and run proxy
+### 1. Install v2ray and run proxy
 
+```bash
+$ nohup ./v2ray run config.json &
+$ export http_proxy="socks5://localhost:xxxxx"
+$ export https_proxy="socks5://localhost:xxxxx"
 ```
-nohup ./v2ray run config.json &
-export http_proxy="socks5://localhost:xxxxx"
-export https_proxy="socks5://localhost:xxxxx"
 
-```
+v2ray unblocks github access from mainland China. Install v2ray clients and set IE proxy **only** on Windows, bootstrap.bat & vcpkg.exe picks it automatically.
 
-v2ray unblocks github access from mainland China. Install v2ray clients and set IE proxy \_only\_ on Windows, bootstrap.bat & vcpkg.exe picks it automatically.
-
-### 2\. Download vcpkg from github and bootstrap
+### 2. Download vcpkg from github and bootstrap
 
 Download from: [https://github.com/microsoft/vcpkg/releases](https://github.com/microsoft/vcpkg/releases)
 
-```
-cd vcpkg-2022.08.15
-./bootstrap-vcpkg.sh
-
-```
-
-Export \`vcpkg-2022.08.15\` directory as \`${VCPKG\_ROOT}\`.
-
-### 3\. Install drogon framework for demo
-
-The drogon framework is a high performance application framework, including client & server supports. vcpkg builds static(\*.a) library by default, use \`x64-linux-dynamic\` for dynamic(\*.so) library. The repo version requires g++-8 to build, install from CentOS SCL:
-
-```
-yum install centos-release-scl
-yum install devtoolset-8
-echo '. /opt/rh/devtoolset-8/enable' | tee -a /etc/profile
-. /etc/profile
-# export CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
-# export CXX=/opt/rh/devtoolset-8/root/usr/bin/g++
-
+```bash
+$ cd vcpkg-2022.08.15
+$ ./bootstrap-vcpkg.sh
 ```
 
-To build with g++-7, manually install \`boost-filesystem\` package in vcpkg, and edit \`${VCPKG\_ROOT}/ports/drogon/portfile.cmake\` and comment out:
+Export `vcpkg-2022.08.15` directory as `${VCPKG_ROOT}`.
+
+### 3. Install drogon framework for demo
+
+The drogon framework is a high performance application framework, including client & server supports. vcpkg builds static(\*.a) library by default, use `x64-linux-dynamic` for dynamic(\*.so) library. The repo version requires g++-8 to build, install from CentOS SCL:
+
+```bash
+$ yum install centos-release-scl
+$ yum install devtoolset-8
+$ echo '. /opt/rh/devtoolset-8/enable' | tee -a /etc/profile
+$ . /etc/profile
+$ # export CC=/opt/rh/devtoolset-8/root/usr/bin/gcc
+$ # export CXX=/opt/rh/devtoolset-8/root/usr/bin/g++
+```
+
+To build with g++-7, manually install `boost-filesystem` package in vcpkg, and edit `${VCPKG_ROOT}/ports/drogon/portfile.cmake` and comment out:
 
 ```
 ...
     #-DCMAKE_DISABLE_FIND_PACKAGE_Boost=ON
 ...
-
 ```
 
 On Windows, open the command line for Visual Studio develop environment.
 
-```
-./vcpkg search drogon
+```bash
+$ ./vcpkg search drogon
 # linux, drogon[postgres] dynamic build is not well supported on linux
-./vcpkg install drogon[ctl,mysql,orm,redis] --triplet=x64-linux-dynamic
+$ ./vcpkg install drogon[ctl,mysql,orm,redis] --triplet=x64-linux-dynamic
 # windows
-vcpkg install drogon[ctl,mysql,orm,redis] --triplet=x64-windows
-
+$ vcpkg install drogon[ctl,mysql,orm,redis] --triplet=x64-windows
 ```
 
 If openssl build fails, run:
 
-```
-yum install perl-IPC-Cmd perl-Data-Dumper
+```bash
+$ yum install perl-IPC-Cmd perl-Data-Dumper
 ```
 
 If other errors, try to update to recent github ports. In my case, \`libmariadb\` build failed, that have been [fixed](https://github.com/microsoft/vcpkg/pull/26704) in master.
 
-### 4\. Export drogon framework
+### 4. Export drogon framework
 
-```
-./vcpkg export drogon:x64-linux-dynamic --zip
+```bash
+$ ./vcpkg export drogon:x64-linux-dynamic --zip
 # Zip archive exported at: ${VCPKG_ROOT}/vcpkg-export-20220928-102415.zip
 # To use the exported libraries in CMake projects use:
 #    -DCMAKE_TOOLCHAIN_FILE=[...]/scripts/buildsystems/vcpkg.cmake
 ```
 
-### 5\. Add a demo program
+### 5. Add a demo program
 
-```
+```cpp
 // drogon_server.cpp
 #include <drogon/drogon.h>
 using namespace drogon;
@@ -124,7 +119,7 @@ int main()
 }
 ```
 
-```
+```cmake
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.15)
 project(drogon_server CXX)
@@ -137,20 +132,20 @@ target_link_libraries(drogon_server PRIVATE Drogon::Drogon)
 
 Linux dynamic build is community supported, invoke cmake with:
 
-```
+```bash
 # linux
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-linux-dynamic
+$ cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-linux-dynamic
 # windows
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
+$ cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
 ```
 
 Now build with make or Visual Studio.
 
-### 6\. Stick to a specific version
+### 6. Stick to a specific version
 
-add a \`vcpkg.json\` file:
+add a `vcpkg.json` file:
 
-```
+```json
 {
   "name": "drogon-server",
   "version-string": "0.1.0",
@@ -166,31 +161,30 @@ add a \`vcpkg.json\` file:
 }
 ```
 
-It sticks to drogon 1.8.0 and openssl 1.1.1n. \`${VCPKG\_ROOT}\` now required to be a git repository. In your project directory, install specific versions of libraries by running:
+It sticks to drogon 1.8.0 and openssl 1.1.1n. \`${VCPKG_ROOT}\` now required to be a git repository. In your project directory, install specific versions of libraries by running:
 
-```
+```bash
 # linux
-./vcpkg --feature-flags="versions" install --triplet=x64-linux-dynamic
+$ ./vcpkg --feature-flags="versions" install --triplet=x64-linux-dynamic
 # windows
-vcpkg --feature-flags="versions" install --triplet=x64-windows
-
+$ vcpkg --feature-flags="versions" install --triplet=x64-windows
 ```
 
 Run cmake:
 
-```
+```bash
 # linux
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-linux-dynamic
+$ cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-linux-dynamic
 # windows
-cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
-cd build
-make
+$ cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-windows
+$ cd build
+$ make
 ```
 
 Now ldd output shows openssl 1.1 (default build is 3.0):
 
-```
-ldd drogon_server
+```bash
+$ ldd drogon_server
         linux-vdso.so.1 =>  (0x00007ffc1bf9c000)
         libdrogon.so.1 => ./vcpkg_installed/x64-linux-dynamic/debug/lib/libdrogon.so.1 (0x00007fbbd2329000)
         libtrantor.so.1 => ./vcpkg_installed/x64-linux-dynamic/debug/lib/libtrantor.so.1 (0x00007fbbd1ea0000)
@@ -213,8 +207,8 @@ ldd drogon_server
         libcares.so.2 => ./vcpkg_installed/x64-linux-dynamic/debug/lib/libcares.so.2 (0x00007fbbcf205000)
 ```
 
-The only difference is the existence of \`vcpkg.json\` file, when using versioning.
+The only difference is the existence of `vcpkg.json` file, when using versioning.
 
-### 7\. Binary caching
+### 7. Binary caching
 
-If you change the root path of vcpkg, better clean up the cache, or build may fail. It's \`$HOME/.cache/vcpkg/archives\` under Linux, and \`%LOCALAPPDATA%\\vcpkg\\archives\` under Windows.
+If you change the root path of vcpkg, better clean up the cache, or build may fail. It's `$HOME/.cache/vcpkg/archives` under Linux, and `%LOCALAPPDATA%\vcpkg\archives` under Windows.

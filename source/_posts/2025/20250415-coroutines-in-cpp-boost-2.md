@@ -14,7 +14,7 @@ Also see my previous article: [Coroutines in C++/Boost](https://www.gonwan.com/2
 
 C++ finally has a native implementation in C++20. The principal difference between coroutines and routines is that a coroutine enables explicit **suspend** and **resume** of its progress via additional operations by preserving execution state and thus provides an enhanced control flow (maintaining the execution context).
 
-### 1\. Asymmetric vs Symmetric
+### 1. Asymmetric vs Symmetric
 
 From `boost`:
 
@@ -26,7 +26,7 @@ So C++20 coroutines are asymmetric ones. A coroutine only knows its parent. With
 
 C++23 generators are also asymmetric. They are resumed repeatedly to _generate_ a series of return values.
 
-### 2\. Stackless vs Stackful
+### 2. Stackless vs Stackful
 
 Again From `boost`:
 
@@ -46,7 +46,7 @@ Here's a summary of how coroutine is implemented in most popular programming lan
 | --- | --- | --- |
 | Java | (Y2023) Virtual threads in Java 21 | n/a |
 | C | n/a | n/a |
-| C++ | n/a | (Y2020) co\_await, co\_yield, co\_return in C++ 20 |
+| C++ | n/a | (Y2020) co_await, co_yield, co_return in C++ 20 |
 | Python | n/a | (Y2015) async, await/yield in Python 3.5 |
 | C# | n/a | (Y2012) async, await/yield in C# 5.0 |
 | Javascript | n/a | (Y2017) async, await/yield in ES 2017 |
@@ -59,4 +59,6 @@ Here's a summary of how coroutine is implemented in most popular programming lan
 
 ### Reference
 
-\- [Boost.Coroutine2](https://www.boost.org/doc/libs/1_88_0/libs/coroutine2/doc/html/coroutine2/intro.html) - [Fibers under the magnifying glass](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1364r0.pdf) - [Stackful Coroutine Made Fast](https://photonlibos.github.io/blog/stackful-coroutine-made-fast)
+- [Boost.Coroutine2](https://www.boost.org/doc/libs/1_88_0/libs/coroutine2/doc/html/coroutine2/intro.html)
+- [Fibers under the magnifying glass](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p1364r0.pdf)
+- [Stackful Coroutine Made Fast](https://photonlibos.github.io/blog/stackful-coroutine-made-fast)

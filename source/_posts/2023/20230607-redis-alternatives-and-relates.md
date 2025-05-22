@@ -11,26 +11,26 @@ tags:
   - "tendis"
 ---
 
-### 1\. Tendis
+### 1. Tendis
 
 From Tencent, based on RocksDB as persistent storage. Binlog to support resuming transport when running replication.
 
-### 2\. Kvrocks
+### 2. Kvrocks
 
 Apache project, poor document. Have seen no advantage over Tendis so far. Also based on RocksDB.
 
-### 3\. KeyDB
+### 3. KeyDB
 
 Redis fork, multi-threading adopted.
 
-### 4\. Codis
+### 4. Codis
 
 A Redis proxy, clients are not required to know the cluster protocol.
 
-### 5\. redis-cluster-proxy
+### 5. redis-cluster-proxy
 
 A Redis proxy, clients are not required to know the cluster protocol.
 
-### 6\. RedisShake
+### 6. RedisShake
 
 Redis data synchronization(Cross DC). Launch multiple process if sync source is a cluster setup. Used for one-shot full sync scenario, not recommanded for long-time incremental sync.

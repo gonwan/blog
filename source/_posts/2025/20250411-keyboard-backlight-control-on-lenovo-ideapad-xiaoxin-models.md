@@ -14,7 +14,7 @@ Ever found the keyboard backlight annoying? It keeps turning on when booting Win
 
 Just did some reverse engineering to find how to control keyboard backlight programmatically. The principal is simple, use `\\.\EnergyDrv` device exposed by Lenovo ACPI energy management driver. It is capable of controlling all keyboard backlight levels. Also other capabilities available :) . See code:
 
-```
+```c
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>

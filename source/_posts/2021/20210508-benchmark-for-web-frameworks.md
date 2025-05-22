@@ -15,9 +15,9 @@ tags:
 
 See [Techempower](https://www.techempower.com/benchmarks/). This repository contains homemade java benchmarks using `spring-mvc`, `spring-webflux` and `netty-http`/`netty-tcp` servers based on `reactor-netty`. [gin](https://github.com/TechEmpower/FrameworkBenchmarks/tree/master/frameworks/Go/gin) and [gnet](https://github.com/TechEmpower/FrameworkBenchmarks/tree/master/frameworks/Go/gnet) are also included. [wrk](https://github.com/wg/wrk) is used as client. [gobench](https://github.com/cmpxchg16/gobench/) is also considered but it is not so good as `wrk`.
 
-```
+```bash
 # benchmarking plaintext
-# ./wrk -c 1000 -t 30 -d 30s http://10.xx.xx.xx:8124/text
+$ ./wrk -c 1000 -t 30 -d 30s http://10.xx.xx.xx:8124/text
 ```
 
 ### Environment 1

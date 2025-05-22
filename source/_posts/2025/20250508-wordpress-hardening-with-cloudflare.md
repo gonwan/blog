@@ -15,7 +15,7 @@ tags:
 
 Now the site is under protection of Cloudflare. Some settings:
 
-### 1\. Cloudflare as CDN
+### 1. Cloudflare as CDN
 
 Cloudflare DNS to configured to proxy the original server. The DNS is also served as CDN. It also adds IPv6, HTTP2 & HTTP3 support. Cloudflare IPs are whitelisted in the inbound rules of my upstream VPS. `mod_remoteip` is enabled in Apache2, and configure with `RemoteIPHeader X-Forwarded-For` for logging.
 
@@ -33,8 +33,8 @@ Preserve query string: true
 
 **NOTE**: wordpress does redirect root URL to www URL internally, to align with the `Site Address` settings in `Settings/General`. It can be observed by:
 
-```
-# curl -I "https://gonwan.com/" --resolve "gonwan.com:443:<original ip>"
+```bash
+$ curl -I "https://gonwan.com/" --resolve "gonwan.com:443:<original ip>"
 HTTP/1.1 301 Moved Permanently
 Date: Sun, 8 May 2025 17:42:48 GMT
 Server: gws
@@ -45,7 +45,7 @@ Content-Type: text/html; charset=UTF-8
 
 I just delegated this job to Cloudflare.
 
-### 2\. Security Settings
+### 2. Security Settings
 
 #### 2.1 Security Headers
 
@@ -93,7 +93,7 @@ Here, we block 3 crawlers. Actually only `Baidu` spider is required, it ignores 
 
 This is a rate limiting rule. Only 1 rule can be used for a free Cloudflare plan. We limit malicious access to `php` and uncommon resource file types. Cloudflare does have DDOS protection in the free plan. I just add one more.
 
-### 3\. Cache Settings
+### 3. Cache Settings
 
 #### 3.1 Configure Default Browser Cache TTL
 
@@ -150,7 +150,7 @@ Status code TTL: 401-404 --> 1month, 200 --> 7days
 
 Error pages are also cached here. Minor pages are like `/tags/...` and `/category/...`. They are updated in 7 days.
 
-### 4\. Conclusion
+### 4. Conclusion
 
 With all configurations above, the cache hit rate is about 70% - 90% in average. All configurations are monitored and adjusted this week. Wordpress is a legacy monolithic application. It is all-purpose and it can do almost anything regarding content management with plugins. It mixes frontend and backend. It mixes content service and content administration. All those mess make it tricky to setup and tweak correctly.
 
