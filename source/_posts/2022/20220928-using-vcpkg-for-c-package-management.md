@@ -70,7 +70,7 @@ If openssl build fails, run:
 $ yum install perl-IPC-Cmd perl-Data-Dumper
 ```
 
-If other errors, try to update to recent github ports. In my case, \`libmariadb\` build failed, that have been [fixed](https://github.com/microsoft/vcpkg/pull/26704) in master.
+If other errors, try to update to recent github ports. In my case, `libmariadb` build failed, that have been [fixed](https://github.com/microsoft/vcpkg/pull/26704) in master.
 
 ### 4. Export drogon framework
 
@@ -161,7 +161,7 @@ add a `vcpkg.json` file:
 }
 ```
 
-It sticks to drogon 1.8.0 and openssl 1.1.1n. \`${VCPKG_ROOT}\` now required to be a git repository. In your project directory, install specific versions of libraries by running:
+It sticks to drogon 1.8.0 and openssl 1.1.1n. `${VCPKG_ROOT}` now required to be a git repository. In your project directory, install specific versions of libraries by running:
 
 ```bash
 # linux

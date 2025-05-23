@@ -16,7 +16,7 @@ Nowadays, Redis has become one of the most popular cache solution in the Interne
 
 In order to fix this problem, many companies & websites have decided to add a cache layer between the application layer (i.e., the backend code which handles the business logic) and the storage layer (i.e., the SQL database). This cache layer is usually implemented using an in-memory cache. This is because, as stated in many textbooks, the performance bottleneck of traditional SQL databases is usually I/O to secondary storage (i.e., the hard disk). As the price of main memory (RAM) has gone down in the past decade, it is now feasible to store (at least part of) the data in main memory to improve performance. One popular choice is Redis.
 
-![](images/ram_cost.png "The cost of RAM in the past decades")
+![](../../images/2022/ram_cost.png "The cost of RAM in the past decades")
 
 Certainly, most systems would only store the _so-called_ “hot data” in the cache layer (i.e., main memory). This is according to the **Pareto Principle** (also known as **80/20 rule**), _for many events, roughly 80% of the effects come from 20% of the causes_. To be cost-efficient, we just need to store that _20%_ in the cache layer. To identify the “hot data”, we could specify an _eviction policy_ (such as LFU or LRU) to determine which data to expire.
 
@@ -53,7 +53,7 @@ The algorithm for cache aside pattern is:
     - Create, update or delete the data to MySQL;
     - Delete the entry in Redis _(always delete rather than update the cache, the new value will be inserted when next cache miss)_.
 
-![](images/cache_aside_1.png "Cache Aside Algorithm")![](images/cache_aside_2.png "Cache Aside Algorithm")
+![](../../images/2022/cache_aside_1.png "Cache Aside Algorithm")![](../../images/2022/cache_aside_2.png "Cache Aside Algorithm")
 
 This approach would mostly work for common use cases. In fact, cache aside is the de facto standard for implementing consistency between MySQL and Redis. The famous paper, _Scaling Memecache at Facebook_ also described such an approach. However, there does exist some problems with this approach as well:
 
@@ -157,7 +157,7 @@ In conclusion, none of the approaches above can guarantee _strong consistency_.
 
 However, all the approaches above have attempted to achieve _eventual consistency_, of which the last one (introduced by [canal](https://github.com/alibaba/canal)) being the best. Some of the algorithms above are improvements to some others. To describe their hierarchy, the following tree diagram is drawn. In the diagram, each node would in general achieve better consistency that its children (if any).
 
-![](images/redis_mysql_hierarchy.png "Hierarchy Diagram of Consistency between MySQL and Redis")
+![](../../images/2022/redis_mysql_hierarchy.png "Hierarchy Diagram of Consistency between MySQL and Redis")
 
 We conclude there would always be a tradeoff between 100% correctness and performance. Sometimes, 99.9% correctness is already enough for real-world use cases. In future researches, we remind that people should remember to not defeat the original objectives of the topic. For example, we cannot sacrifice performance when discussing the consistency between MySQL and Redis.
 

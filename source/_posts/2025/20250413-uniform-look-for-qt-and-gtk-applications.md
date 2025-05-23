@@ -56,6 +56,6 @@ Copy those 2 file into `~/.config/qt5ct/color`, open `qt5ct`:
 - Go to Icon Theme --> Select your Gnome/Cinnamon icon theme.
 - Open `~/.config/qt5ct/qt5ct.conf`, change `standard_dialogs=default` to `standard_dialogs=gtk3`.
 
-See the difference: ![vlc_default](images/54449026882_2469a9f5a2_h.jpg) ![vlc_themed](images/54450087324_98e70a8d2f_h.jpg)
+See the difference: ![vlc_default](../../images/2025/vlc_default.png) ![vlc_themed](../../images/2025/vlc_themed.png)
 
 **Updated May 4, 2025**, there is a refined `arc-theme` called [Qogir](https://github.com/vinceliuice/Qogir-theme), which provides Qt & KDE themes as well. The [Qt theme](https://github.com/pijulius/qogir-adwaita-qt) is based on [awaita-qt](https://github.com/FedoraQt/adwaita-qt).
