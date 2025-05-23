@@ -1,6 +1,6 @@
 ---
 title: "Hacking QTerm"
-date: "2010-07-13"
+date: "2010-07-13 18:36:00"
 categories: 
   - "cc"
 tags: 

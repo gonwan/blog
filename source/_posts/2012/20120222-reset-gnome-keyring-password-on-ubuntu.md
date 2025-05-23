@@ -1,6 +1,6 @@
 ---
 title: "Reset GNOME Keyring Password on Ubuntu"
-date: "2012-02-22"
+date: "2012-02-22 08:21:00"
 categories: 
   - "tools"
 tags: 

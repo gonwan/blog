@@ -1,6 +1,6 @@
 ---
 title: "Ubuntu to Mainline Kernel Version Mapping"
-date: "2010-05-14"
+date: "2010-05-14 15:52:00"
 categories: 
   - "linux"
 tags: 

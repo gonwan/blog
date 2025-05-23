@@ -1,6 +1,6 @@
 ---
 title: "Remote Control in GDM Stage"
-date: "2010-07-16"
+date: "2010-07-16 17:44:00"
 categories: 
   - "tools"
 tags: 

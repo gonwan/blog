@@ -1,6 +1,6 @@
 ---
 title: "Upgrading Ubuntu 24.04 Network Configuration"
-date: "2025-04-12"
+date: "2025-04-12 20:07:45"
 categories: 
   - "linux"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "X11 Forwarding over SSH"
-date: "2011-10-03"
+date: "2011-10-03 12:30:00"
 categories: 
   - "tools"
 tags: 

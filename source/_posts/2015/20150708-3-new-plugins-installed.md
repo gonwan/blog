@@ -1,6 +1,6 @@
 ---
 title: "3 New Plugins Installed"
-date: "2015-07-08"
+date: "2015-07-08 13:17:34"
 categories: 
   - "tools"
 tags: 

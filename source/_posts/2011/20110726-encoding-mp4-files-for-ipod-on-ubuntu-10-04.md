@@ -1,6 +1,6 @@
 ---
 title: "Encoding MP4 Files for iPod on Ubuntu 10.04"
-date: "2011-07-26"
+date: "2011-07-26 13:12:00"
 categories: 
   - "tools"
 tags: 

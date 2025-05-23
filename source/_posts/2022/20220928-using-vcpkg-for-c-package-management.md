@@ -1,6 +1,6 @@
 ---
 title: "Using vcpkg for C++ Package Management"
-date: "2022-09-28"
+date: "2022-09-28 09:05:58"
 categories: 
   - "cc"
   - "linux"

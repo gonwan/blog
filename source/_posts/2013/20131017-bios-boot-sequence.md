@@ -1,6 +1,6 @@
 ---
 title: "BIOS Boot Sequence"
-date: "2013-10-17"
+date: "2013-10-17 11:41:00"
 categories: 
   - "linux"
 tags: 

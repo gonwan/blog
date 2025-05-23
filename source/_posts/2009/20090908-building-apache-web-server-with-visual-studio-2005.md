@@ -1,6 +1,6 @@
 ---
 title: "Building Apache Web Server with Visual Studio 2005"
-date: "2009-09-08"
+date: "2009-09-08 05:13:00"
 categories: 
   - "windows"
 tags: 

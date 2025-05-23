@@ -1,6 +1,6 @@
 ---
 title: "OOP Using GObject (8) - An interface"
-date: "2011-03-11"
+date: "2011-03-11 18:29:00"
 categories: 
   - "cc"
 tags: 

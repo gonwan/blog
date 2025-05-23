@@ -1,6 +1,6 @@
 ---
 title: "Two-phase Lookup in C++ Templates"
-date: "2014-12-12"
+date: "2014-12-12 07:44:16"
 categories: 
   - "cc"
 tags: 

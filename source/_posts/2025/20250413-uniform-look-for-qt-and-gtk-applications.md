@@ -1,6 +1,6 @@
 ---
 title: "Uniform look for Qt and GTK applications"
-date: "2025-04-13"
+date: "2025-04-13 01:07:17"
 categories: 
   - "linux"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Docker Compose for MySQL High Availablity"
-date: "2020-12-10"
+date: "2020-12-10 07:58:26"
 categories: 
   - "database"
 tags: 

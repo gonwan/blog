@@ -1,6 +1,6 @@
 ---
 title: "OO Impelementation in Java"
-date: "2011-03-13"
+date: "2011-03-13 10:40:00"
 categories: 
   - "java"
 tags: 

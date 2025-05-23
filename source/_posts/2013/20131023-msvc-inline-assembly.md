@@ -1,6 +1,6 @@
 ---
 title: "MSVC Inline Assembly"
-date: "2013-10-23"
+date: "2013-10-23 07:48:00"
 categories: 
   - "cc"
 tags: 
@@ -8,7 +8,7 @@ tags:
   - "msvc"
 ---
 
-MSVC's inline assembly is easier to use, as compared to [gcc's version](http://www.gonwan.com/?p=17). It is easier to write right code than wrong one, I think. Still a simple add function is used to illustrate:
+MSVC's inline assembly is easier to use, as compared to [gcc's version](http://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is easier to write right code than wrong one, I think. Still a simple add function is used to illustrate:
 
 ```
 int add1(int a, int b)

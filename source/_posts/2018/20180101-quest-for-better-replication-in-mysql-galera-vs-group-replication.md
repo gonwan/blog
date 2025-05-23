@@ -1,6 +1,6 @@
 ---
 title: "Quest for Better Replication in MySQL: Galera vs. Group Replication"
-date: "2018-01-01"
+date: "2018-01-01 09:00:21"
 categories: 
   - "database"
 tags: 

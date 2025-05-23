@@ -1,6 +1,6 @@
 ---
 title: "Solving iBooks Not Syncing in macOS"
-date: "2018-03-01"
+date: "2018-03-01 09:26:12"
 tags: 
   - "macos"
 ---

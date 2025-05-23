@@ -1,6 +1,6 @@
 ---
 title: "Zip Compression Bug in JDK was Fixed"
-date: "2009-05-14"
+date: "2009-05-14 11:03:00"
 categories: 
   - "java"
 ---

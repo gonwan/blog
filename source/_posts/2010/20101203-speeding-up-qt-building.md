@@ -1,6 +1,6 @@
 ---
 title: "Speeding up Qt Building"
-date: "2010-12-03"
+date: "2010-12-03 08:46:00"
 categories: 
   - "tools"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Installing Ubuntu 10.04"
-date: "2010-04-30"
+date: "2010-04-30 12:23:00"
 categories: 
   - "linux"
 tags: 

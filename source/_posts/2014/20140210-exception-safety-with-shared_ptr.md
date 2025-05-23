@@ -1,6 +1,6 @@
 ---
 title: "Exception Safety with shared_ptr"
-date: "2014-02-10"
+date: "2014-02-10 07:16:00"
 categories: 
   - "cc"
 tags: 

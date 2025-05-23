@@ -1,6 +1,6 @@
 ---
 title: "Building & Debugging OpenJDK8 from Source on macOS High Sierra"
-date: "2017-12-01"
+date: "2017-12-01 06:56:45"
 categories: 
   - "java"
 tags: 

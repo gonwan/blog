@@ -1,6 +1,6 @@
 ---
 title: "MySQL with C++ and Python"
-date: "2015-03-26"
+date: "2015-03-26 08:08:03"
 categories: 
   - "database"
 tags: 

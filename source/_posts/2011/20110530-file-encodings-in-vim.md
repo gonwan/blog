@@ -1,6 +1,6 @@
 ---
 title: "File Encodings in Vim"
-date: "2011-05-30"
+date: "2011-05-30 17:15:00"
 categories: 
   - "linux"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Vim Tips in Ubuntu 10.04"
-date: "2011-05-22"
+date: "2011-05-22 17:11:00"
 categories: 
   - "linux"
 tags: 

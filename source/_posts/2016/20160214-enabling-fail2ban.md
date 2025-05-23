@@ -1,6 +1,6 @@
 ---
 title: "Enabling Fail2ban"
-date: "2016-02-14"
+date: "2016-02-14 06:43:44"
 categories: 
   - "tools"
 tags: 

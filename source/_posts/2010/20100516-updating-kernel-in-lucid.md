@@ -1,6 +1,6 @@
 ---
 title: "Updating Kernel in Lucid"
-date: "2010-05-16"
+date: "2010-05-16 15:58:00"
 categories: 
   - "linux"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Configuring Ubuntu Themes in Linuxmint 17"
-date: "2014-08-12"
+date: "2014-08-12 17:12:06"
 categories: 
   - "linux"
 tags: 

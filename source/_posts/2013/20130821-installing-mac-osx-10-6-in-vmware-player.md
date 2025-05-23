@@ -1,6 +1,6 @@
 ---
 title: "Installing Mac OSX 10.6 in VMware Player"
-date: "2013-08-21"
+date: "2013-08-21 12:54:00"
 categories: 
   - "tools"
 tags: 

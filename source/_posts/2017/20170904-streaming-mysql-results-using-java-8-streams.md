@@ -1,6 +1,6 @@
 ---
 title: "Streaming MySQL Results Using Java 8 Streams"
-date: "2017-09-04"
+date: "2017-09-04 07:17:16"
 categories: 
   - "java"
 tags: 

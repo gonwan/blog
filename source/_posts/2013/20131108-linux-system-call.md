@@ -1,6 +1,6 @@
 ---
 title: "Linux System Call"
-date: "2013-11-08"
+date: "2013-11-08 06:51:00"
 categories: 
   - "os"
 tags: 

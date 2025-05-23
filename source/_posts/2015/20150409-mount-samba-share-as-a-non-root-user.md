@@ -1,6 +1,6 @@
 ---
 title: "Mount Samba Share as a Non-root User"
-date: "2015-04-09"
+date: "2015-04-09 07:03:12"
 categories: 
   - "linux"
 tags: 

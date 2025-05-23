@@ -1,6 +1,6 @@
 ---
 title: "Retrieve BIOS Info Programmatically in Linux"
-date: "2011-08-08"
+date: "2011-08-08 17:25:00"
 categories: 
   - "cc"
 tags: 

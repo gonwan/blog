@@ -1,6 +1,6 @@
 ---
 title: "Jump Instruments and EFLAGS"
-date: "2013-10-29"
+date: "2013-10-29 12:25:00"
 categories: 
   - "cc"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Updating Kernel in Hardy"
-date: "2010-05-17"
+date: "2010-05-17 17:38:00"
 categories: 
   - "linux"
 tags: 

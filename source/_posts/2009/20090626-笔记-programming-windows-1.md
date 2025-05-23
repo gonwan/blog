@@ -1,6 +1,6 @@
 ---
 title: "笔记 - Programming Windows (1)"
-date: "2009-06-26"
+date: "2009-06-26 11:25:00"
 categories: 
   - "windows"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "GCC Inline Assembly"
-date: "2013-10-22"
+date: "2013-10-22 07:48:00"
 categories: 
   - "cc"
 tags: 

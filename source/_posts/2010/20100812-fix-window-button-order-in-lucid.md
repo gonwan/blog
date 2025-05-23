@@ -1,6 +1,6 @@
 ---
 title: "Fix Window Button Order in Lucid"
-date: "2010-08-12"
+date: "2010-08-12 07:05:00"
 categories: 
   - "tools"
 tags: 

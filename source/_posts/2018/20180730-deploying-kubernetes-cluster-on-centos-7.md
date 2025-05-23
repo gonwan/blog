@@ -1,6 +1,6 @@
 ---
 title: "Deploying Kubernetes Cluster on CentOS 7"
-date: "2018-07-30"
+date: "2018-07-30 13:02:04"
 categories: 
   - "linux"
 tags: 

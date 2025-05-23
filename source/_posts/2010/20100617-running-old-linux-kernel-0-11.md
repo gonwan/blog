@@ -1,6 +1,6 @@
 ---
 title: "Running Old Linux Kernel 0.11"
-date: "2010-06-17"
+date: "2010-06-17 17:53:00"
 categories: 
   - "linux"
 tags: 

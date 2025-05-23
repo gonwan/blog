@@ -1,6 +1,6 @@
 ---
 title: "MSVC CRT Initialization"
-date: "2014-02-13"
+date: "2014-02-13 08:46:00"
 categories: 
   - "cc"
 tags: 

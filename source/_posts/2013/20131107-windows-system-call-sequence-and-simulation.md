@@ -1,6 +1,6 @@
 ---
 title: "Windows System Call Sequence and Simulation"
-date: "2013-11-07"
+date: "2013-11-07 10:40:00"
 categories: 
   - "os"
 tags: 
@@ -294,7 +294,7 @@ Compile the code with:
 
 The assembly code of `NtCreateFile()`, `NtWriteFile()` and `NtClose()` are copied directly from `ntdll.dll`. For `NtCreate()`, `25h` is the system service number that will be used to index into the `KiServiceTable`(SSDT, System Service Dispatch Table) to locate the kernel function that handles the call.
 
-System service numbers vary between Windows versions. This is why they are not recommend to be used directly to invoke system calls. I only demonstrate the approach here. For Windows XP, the values of the three numbers are `25h`, `112h` and `19h`. While for Windows 7, they are `42h`, `18ch` and `32h`. Change them yourself if you're running Windows 7. For a complete list of system service numbers, refer [here](http://j00ru.vexillium.org/?p=1010) or dissemble your `ntdll.dll` manually :). The output executable is a tiny one, only 3KB in size, since it eliminates the usage of CRT. Moreover, it has an empty list of import functions!
+System service numbers vary between Windows versions. This is why they are not recommend to be used directly to invoke system calls. I only demonstrate the approach here. For Windows XP, the values of the three numbers are `25h`, `112h` and `19h`. While for Windows 7, they are `42h`, `18ch` and `32h`. Change them yourself if you're running Windows 7. For a complete list of system service numbers, refer [here](http://j00ru.vexillium.org/2011/11/refreshed-windows-system-call-table-released/) or dissemble your `ntdll.dll` manually :). The output executable is a tiny one, only 3KB in size, since it eliminates the usage of CRT. Moreover, it has an empty list of import functions!
 
 At 7ffe0300h is a pointer to the following code:
 

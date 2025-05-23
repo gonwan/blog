@@ -1,6 +1,6 @@
 ---
 title: "Learning Bash Scripts (1)"
-date: "2011-08-28"
+date: "2011-08-28 10:17:00"
 categories: 
   - "linux"
 tags: 

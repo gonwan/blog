@@ -1,6 +1,6 @@
 ---
 title: "OOP Using GObject (9) - A Dynamic Type"
-date: "2011-03-12"
+date: "2011-03-12 10:20:00"
 categories: 
   - "cc"
 tags: 

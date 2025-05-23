@@ -1,6 +1,6 @@
 ---
 title: "Using WebDAV in Apache"
-date: "2011-02-13"
+date: "2011-02-13 17:40:00"
 categories: 
   - "tools"
 tags: 

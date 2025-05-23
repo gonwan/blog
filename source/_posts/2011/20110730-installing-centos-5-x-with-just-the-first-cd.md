@@ -1,6 +1,6 @@
 ---
 title: "Installing CentOS 5.x with Just the First CD"
-date: "2011-07-30"
+date: "2011-07-30 20:28:00"
 categories: 
   - "linux"
 tags: 

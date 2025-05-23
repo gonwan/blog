@@ -1,6 +1,6 @@
 ---
 title: "Using Ubuntu Debug Packages in GDB"
-date: "2010-07-07"
+date: "2010-07-07 03:05:00"
 categories: 
   - "linux"
 tags: 

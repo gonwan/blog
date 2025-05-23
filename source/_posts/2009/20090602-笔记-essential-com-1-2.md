@@ -1,6 +1,6 @@
 ---
 title: "笔记 - Essential COM (1.2)"
-date: "2009-06-02"
+date: "2009-06-02 14:22:00"
 categories: 
   - "cc"
 tags: 

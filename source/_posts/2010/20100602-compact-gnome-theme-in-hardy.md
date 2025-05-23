@@ -1,6 +1,6 @@
 ---
 title: "Compact Gnome Theme in Hardy"
-date: "2010-06-02"
+date: "2010-06-02 16:49:00"
 categories: 
   - "tools"
 tags: 

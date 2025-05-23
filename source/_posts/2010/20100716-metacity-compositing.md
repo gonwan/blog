@@ -1,6 +1,6 @@
 ---
 title: "Metacity Compositing"
-date: "2010-07-16"
+date: "2010-07-16 17:13:00"
 categories: 
   - "tools"
 tags: 

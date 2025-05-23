@@ -1,6 +1,6 @@
 ---
 title: "Packaging a Qt Application"
-date: "2011-01-17"
+date: "2011-01-17 16:44:00"
 categories: 
   - "linux"
 tags: 

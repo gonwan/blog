@@ -1,6 +1,6 @@
 ---
 title: "Using SVN in Ubuntu"
-date: "2010-07-09"
+date: "2010-07-09 12:15:00"
 categories: 
   - "tools"
 tags: 

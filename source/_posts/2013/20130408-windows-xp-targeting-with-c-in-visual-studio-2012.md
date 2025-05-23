@@ -1,6 +1,6 @@
 ---
 title: "Windows XP Targeting with C++ in Visual Studio 2012"
-date: "2013-04-08"
+date: "2013-04-08 12:45:00"
 categories: 
   - "windows"
 tags: 

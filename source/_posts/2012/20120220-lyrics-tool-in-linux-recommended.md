@@ -1,6 +1,6 @@
 ---
 title: "Lyrics Tool in Linux Recommended"
-date: "2012-02-20"
+date: "2012-02-20 17:45:00"
 categories: 
   - "tools"
 tags: 

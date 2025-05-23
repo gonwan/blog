@@ -1,6 +1,6 @@
 ---
 title: "Symbian Development on Linux"
-date: "2011-01-19"
+date: "2011-01-19 17:33:00"
 categories: 
   - "linux"
 tags: 

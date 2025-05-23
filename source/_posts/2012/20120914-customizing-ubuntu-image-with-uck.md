@@ -1,6 +1,6 @@
 ---
 title: "Customizing Ubuntu Image with UCK"
-date: "2012-09-14"
+date: "2012-09-14 18:19:00"
 categories: 
   - "tools"
 tags: 

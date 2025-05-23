@@ -1,6 +1,6 @@
 ---
 title: "Notes on SQL Rewriting"
-date: "2023-03-31"
+date: "2023-03-31 08:30:22"
 categories: 
   - "java"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Coroutines in Python"
-date: "2016-01-11"
+date: "2016-01-11 12:52:41"
 categories: 
   - "python"
 tags: 

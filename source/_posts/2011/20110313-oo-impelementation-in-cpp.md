@@ -1,6 +1,6 @@
 ---
 title: "OO Impelementation in C++"
-date: "2011-03-13"
+date: "2011-03-13 09:51:00"
 categories: 
   - "cc"
 tags: 

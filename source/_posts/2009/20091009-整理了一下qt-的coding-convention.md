@@ -1,6 +1,6 @@
 ---
 title: "整理了一下Qt 的coding convention"
-date: "2009-10-09"
+date: "2009-10-09 06:20:00"
 categories: 
   - "cc"
 tags: 

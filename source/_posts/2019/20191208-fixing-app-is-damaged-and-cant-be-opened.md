@@ -1,6 +1,6 @@
 ---
 title: "Fixing \"App Is Damaged and Can’t Be Opened\""
-date: "2019-12-08"
+date: "2019-12-08 10:20:18"
 tags: 
   - "macos"
 ---

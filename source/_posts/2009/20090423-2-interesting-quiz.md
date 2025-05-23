@@ -1,6 +1,6 @@
 ---
 title: "2 Interesting Quiz"
-date: "2009-04-23"
+date: "2009-04-23 11:27:00"
 ---
 
 1\. Rate your life [http://www.monkeyquiz.com/life/rate\_my\_life.html](http://www.monkeyquiz.com/life/rate_my_life.html)

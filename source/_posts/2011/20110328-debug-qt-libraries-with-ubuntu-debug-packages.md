@@ -1,6 +1,6 @@
 ---
 title: "Debug Qt Libraries with Ubuntu Debug Packages"
-date: "2011-03-28"
+date: "2011-03-28 09:51:00"
 categories: 
   - "cc"
 tags: 
@@ -10,7 +10,7 @@ tags:
   - "ubuntu"
 ---
 
-In previous [articles](http://www.gonwan.com/?p=71), I was not able to use Qt's debug package provided by Ubuntu. Now, I will explain how to use them.
+In previous [articles](http://www.gonwan.com/2010/07/07/using-ubuntu-debug-packages-in-gdb-2/), I was not able to use Qt's debug package provided by Ubuntu. Now, I will explain how to use them.
 
 Our simple application:
 

@@ -1,6 +1,6 @@
 ---
 title: "Enabing Pretty Permalinks"
-date: "2015-12-28"
+date: "2015-12-28 05:20:54"
 categories: 
   - "tools"
 tags: 

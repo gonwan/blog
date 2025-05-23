@@ -1,6 +1,6 @@
 ---
 title: "Batch Insert with MySQL"
-date: "2017-12-27"
+date: "2017-12-27 10:42:47"
 categories: 
   - "database"
 tags: 

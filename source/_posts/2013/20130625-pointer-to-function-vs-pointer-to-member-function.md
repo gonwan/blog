@@ -1,6 +1,6 @@
 ---
 title: "Pointer-to-function Vs Pointer-to-member-function"
-date: "2013-06-25"
+date: "2013-06-25 05:53:00"
 categories: 
   - "cc"
 ---

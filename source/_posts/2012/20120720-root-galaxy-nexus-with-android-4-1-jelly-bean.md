@@ -1,6 +1,6 @@
 ---
 title: "Root Galaxy Nexus with Android 4.1 Jelly Bean"
-date: "2012-07-20"
+date: "2012-07-20 05:53:00"
 categories: 
   - "tools"
 tags: 

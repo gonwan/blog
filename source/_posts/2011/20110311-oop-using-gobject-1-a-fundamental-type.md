@@ -1,6 +1,6 @@
 ---
 title: "OOP Using GObject (1) - A Fundamental Type"
-date: "2011-03-11"
+date: "2011-03-11 06:20:00"
 categories: 
   - "cc"
 tags: 

@@ -1,6 +1,6 @@
 ---
 title: "Keyboard Backlight Control on Lenovo Ideapad & Xiaoxin Models"
-date: "2025-04-11"
+date: "2025-04-11 21:52:56"
 categories: 
   - "cc"
   - "tools"

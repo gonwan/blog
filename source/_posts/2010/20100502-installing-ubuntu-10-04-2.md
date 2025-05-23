@@ -1,6 +1,6 @@
 ---
 title: "Installing Ubuntu 10.04 (2)"
-date: "2010-05-02"
+date: "2010-05-02 12:23:00"
 categories: 
   - "linux"
 tags: 

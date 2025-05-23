@@ -1,6 +1,6 @@
 ---
 title: "WordPress Hardening with Cloudflare"
-date: "2025-05-08"
+date: "2025-05-08 22:35:41"
 categories: 
   - "linux"
   - "tools"

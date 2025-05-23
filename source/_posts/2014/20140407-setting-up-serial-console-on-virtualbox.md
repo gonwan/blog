@@ -1,6 +1,6 @@
 ---
 title: "Setting up Serial Console on VirtualBox"
-date: "2014-04-07"
+date: "2014-04-07 10:00:00"
 categories: 
   - "tools"
 tags: 

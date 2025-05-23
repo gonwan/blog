@@ -1,6 +1,6 @@
 ---
 title: "Job Open: gonwan's girlfriend"
-date: "2009-09-05"
+date: "2009-09-05 15:36:00"
 ---
 
 Brief     I'm now working for ASUS Computer Inc. as a senior software engineer. My wage is about 5k - 8k per month. No house nor car is available.     In spare time, I read books. Learning is important. I also watch animes to relax myself. I like singing. My favorite singer is Fish Leong. Every week, I play badminton or do other sports. But I'm not very good at sports, just for fun. "Living with passion" is my motto.     Lastly, I do not have a plan for marriage in recent two years.

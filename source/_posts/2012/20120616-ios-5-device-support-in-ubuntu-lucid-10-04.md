@@ -1,6 +1,6 @@
 ---
 title: "iOS 5 Device Support in Ubuntu Lucid 10.04"
-date: "2012-06-16"
+date: "2012-06-16 04:40:00"
 categories: 
   - "tools"
 tags: 

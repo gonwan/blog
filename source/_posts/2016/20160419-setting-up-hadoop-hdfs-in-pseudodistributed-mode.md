@@ -1,6 +1,6 @@
 ---
 title: "Setting up Hadoop HDFS in Pseudodistributed Mode"
-date: "2016-04-19"
+date: "2016-04-19 10:11:19"
 categories: 
   - "java"
 tags: 

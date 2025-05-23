@@ -1,6 +1,6 @@
 ---
 title: "Consistency between Redis Cache and SQL Database"
-date: "2022-07-11"
+date: "2022-07-11 08:51:22"
 categories: 
   - "java"
 tags: 

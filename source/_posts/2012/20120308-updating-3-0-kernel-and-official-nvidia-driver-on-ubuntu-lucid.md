@@ -1,6 +1,6 @@
 ---
 title: "Updating 3.0 Kernel and Official Nvidia Driver on Ubuntu Lucid"
-date: "2012-03-08"
+date: "2012-03-08 07:42:00"
 categories: 
   - "linux"
 tags: 

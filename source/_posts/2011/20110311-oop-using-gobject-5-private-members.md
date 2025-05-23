@@ -1,6 +1,6 @@
 ---
 title: "OOP Using GObject (5) - Private Members"
-date: "2011-03-11"
+date: "2011-03-11 09:39:00"
 categories: 
   - "cc"
 tags: 

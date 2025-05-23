@@ -1,6 +1,6 @@
 ---
 title: "Test Using Google Doc"
-date: "2009-07-28"
+date: "2009-07-28 06:23:00"
 categories: 
   - "tools"
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Database Access Layer in C++"
-date: "2015-04-15"
+date: "2015-04-15 08:03:07"
 categories: 
   - "cc"
 tags: 
