@@ -105,9 +105,9 @@ main:
     ret
 ```
 
-There \_are\_ `abs()` and `memcpy()` now. General MSVC intrinsic can be found [here](http://msdn.microsoft.com/en-us/library/tzkfha43%28v=vs.100%29.aspx).
+There _are_ `abs()` and `memcpy()` now. General MSVC intrinsic can be found [here](http://msdn.microsoft.com/en-us/library/tzkfha43%28v=vs.100%29.aspx).
 
-Intrinsic is easier than [inline assembly](http://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is used to increase performance in most cases. Both gcc and MSVC provide intrinsic support for Intel's MMX, SSE and SSE2 instrument set. Code snippet to use MMX:
+Intrinsic is easier than [inline assembly](https://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is used to increase performance in most cases. Both gcc and MSVC provide intrinsic support for Intel's MMX, SSE and SSE2 instrument set. Code snippet to use MMX:
 
 ```
 /*

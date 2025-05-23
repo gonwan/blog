@@ -10,7 +10,7 @@ tags:
   - "ubuntu"
 ---
 
-In previous [articles](http://www.gonwan.com/2010/07/07/using-ubuntu-debug-packages-in-gdb-2/), I was not able to use Qt's debug package provided by Ubuntu. Now, I will explain how to use them.
+In previous [articles](https://www.gonwan.com/2010/07/07/using-ubuntu-debug-packages-in-gdb-2/), I was not able to use Qt's debug package provided by Ubuntu. Now, I will explain how to use them.
 
 Our simple application:
 
@@ -35,20 +35,20 @@ QT -= gui
 CONFIG += console debug_and_release
 ```
 
-1\. Build your debug version of application:
+1. Build your debug version of application:
 
 ```
 # qmake-qt4
 # make debug
 ```
 
-2\. Install Qt's debug package:
+2. Install Qt's debug package:
 
 ```
 # sudo apt-get install libqt4-debug
 ```
 
-3\. Install the Qt source:
+3. Install the Qt source:
 
 ```
 # sudo apt-get source libqt4-debug

@@ -172,7 +172,7 @@ public class NewObject {
 
 }
 
-To use our `setProperty()`/`getProperty()` method, all classes should derive from the `NewObject` class. To be consistent with the JavaBean convention, we assume that the getter/setter function to be "get"/"set" + capitalize\_first\_letter\_of(member-variable-name).
+To use our `setProperty()`/`getProperty()` method, all classes should derive from the `NewObject` class. To be consistent with the JavaBean convention, we assume that the getter/setter function to be "get"/"set" + capitalize_first_letter_of(member-variable-name).
 
 `Property` annotation and `PropertyAccess` enum are defined to indicate properties:
 

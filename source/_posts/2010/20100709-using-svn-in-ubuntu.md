@@ -27,7 +27,7 @@ This will create a default configuration directory for SVN in ~/.subversion/. In
 
 Note, kdesvn will use SVN configuration files when perform operations. Now, we need to edit them.
 
-### 1\. Proxy
+### 1. Proxy
 
 ```
 # gedit ~/.subversion/servers &
@@ -42,7 +42,7 @@ http-proxy-port =
 
 It seems that we can use separate settings for different host groups. This is not verified, leaves to you.
 
-### 2\. Password
+### 2. Password
 
 SVN 1.6 added gnome/gnome-keyring and kde/kwallet credentials management support. Some additional options were introduced.
 

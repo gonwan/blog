@@ -10,7 +10,7 @@ tags:
 
 This is a quick note to chapter 4 of [C++ Concurrency in Action](http://www.amazon.com/C-Concurrency-Action-Practical-Multithreading/dp/1933988770/).
 
-### 1\. std::thread
+### 1. std::thread
 
 In C++11, It's quite simple to create a separate thread using `std::thread`. Following code will simply output "hello world" or "world hello":
 
@@ -32,7 +32,7 @@ int main() {
 }
 ```
 
-### 2\. std::mutex and std::condition\_variable
+### 2. std::mutex and std::condition_variable
 
 If you need synchronization between threads, there are `std::mutex` and `std::condition_variable`. The semantics are the same with that in pthread library. Here's a simple producer/consumer demo:
 
@@ -83,7 +83,7 @@ int main() {
 }
 ```
 
-### 3\. std::future with std::async()
+### 3. std::future with std::async()
 
 C++11 also simplifies our work with one-off events with `std::future`. `std::future` provides a mechanism to access the result of asynchronous operations. It can be used with `std::async()`, `std::packaged_task` and `std::promise`. Starting with `std::async()`:
 
@@ -117,7 +117,7 @@ int main() {
 
 When testing With gcc-4.8, `foo()` is not called. But with VC++2013, it does output "hello".
 
-### 4\. std::future with std::packaged\_task
+### 4. std::future with std::packaged_task
 
 With `std::async()`, we cannot control when our callback function is invoked. That's what `std::packaged_task` is designed to deal with. It's just a wrapper to callables. We can request an associated `std::future` from it. And when a `std::packaged_task` is invoked and finished, the associated future will be ready:
 
@@ -165,7 +165,7 @@ int main() {
 
 In `waiter()` and `waiter2()`, `future::get()` blocks until the associating `std::packaged_task` completes. You will always get "in pt" before "after f.get()" and "in pt2" before "after f2.get()". They are synchronized.
 
-### 5\. std::future with std::promise
+### 5. std::future with std::promise
 
 You may also need to get notified in the middle of a task. `std::promise` can help you. It works like a lightweight event.
 

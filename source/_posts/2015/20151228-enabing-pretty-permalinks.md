@@ -15,7 +15,7 @@ According to the official [tutorial](http://codex.wordpress.org/Using_Permalinks
 # sudo a2enmod rewrite
 ```
 
-2\. Enable `FollowSymLinks` option, which is default. 3. Enable `FileInfo` directives. Edit `/etc/apache2/sites-available/yoursite.com.conf`, add:
+2. Enable `FollowSymLinks` option, which is default. 3. Enable `FileInfo` directives. Edit `/etc/apache2/sites-available/yoursite.com.conf`, add:
 
 ```
   
@@ -24,7 +24,7 @@ According to the official [tutorial](http://codex.wordpress.org/Using_Permalinks
   
 ```
 
-4\. Restart apache:
+4. Restart apache:
 
 ```
 # sudo service apache2 restart

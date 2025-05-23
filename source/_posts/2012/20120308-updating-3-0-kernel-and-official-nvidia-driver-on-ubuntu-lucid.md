@@ -10,7 +10,7 @@ tags:
 
 Ubuntu Lucid(10.04) originally ships with 2.6.32 kernel. But on my T420 thinkpad, the wireless card is not recognized and graphics card is not functional well. Then I switched to 2.6.38 backport kernel, and installed [bumblebee](https://launchpad.net/~bumblebee/+archive/stable) package to utilize the Nvidia Optimus Technology. Now the [3.0.0-16](https://launchpad.net/ubuntu/+source/linux/3.0.0-16.29) backport kernel is out, it contains the fix for "rework ASPM disable code", and it should do a better job in power saving even using the discrete Nvidia card. Moreover, it's the new LTS kernel, so I decided to update to the 3.0 kernel. Please follow the steps if you are interested:
 
-### 1\. Add X-Updates PPA
+### 1. Add X-Updates PPA
 
 ```
 # sudo apt-add-repository ppa:ubuntu-x-swat/x-updates
@@ -20,7 +20,7 @@ Ubuntu Lucid(10.04) originally ships with 2.6.32 kernel. But on my T420 thinkpad
 
 These commands install official nvidia driver. Currently, it's the 295.20 version.
 
-### 2\. Enable Nvidia Driver
+### 2. Enable Nvidia Driver
 
 ```
 # sudo update-alternatives --config gl_conf
@@ -41,7 +41,7 @@ Just ignore them, seems to be safe.
 
 This will generate new /etc/X11/xorg.conf file for your Nvidia card. If you cannot find the command, the original location is: /usr/lib/nvidia-current/bin/nvidia-xconfig
 
-### 3\. Fix ld Bindings
+### 3. Fix ld Bindings
 
 ```
 # echo "/usr/lib/nvidia-current/tls" | sudo tee -a /etc/ld.so.conf.d/GL.conf > /dev/null
@@ -65,7 +65,7 @@ Now, update ld runtime bindings and reboot.
 # sudo reboot
 ```
 
-### 4\. Verify
+### 4. Verify
 
 ```
 # sudo apt-get install mesa-utils

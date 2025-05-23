@@ -8,7 +8,7 @@ tags:
   - "multithreading"
 ---
 
-[http://vladimir\_prus.blogspot.com/2005/07/spurious-wakeups.html](http://vladimir_prus.blogspot.com/2005/07/spurious-wakeups.html)
+[http://vladimir_prus.blogspot.com/2005/07/spurious-wakeups.html](http://vladimir_prus.blogspot.com/2005/07/spurious-wakeups.html)
 
 One of the two basic synchronisation primitives in multithreaded programming is called "condition variables". Here's a small example:
 
@@ -52,4 +52,4 @@ Can the same trick be used to conditions? No, because the moment we return from 
 
 So much for spurious wakeups on Linux. But I'm still very interested to know what the original reasons were.
 
-\============================== Also see the explanation for spurious wakeups on the linux man page: [pthread\_cond\_signal](http://linux.die.net/man/3/pthread_cond_signal). Last note: `PulseEvent()` in windows(manual-reset) = `pthread_cond_signal()` in linux, while `SetEvent()` in windows(auto-reset) = `pthread_cond_broadcast()` in linux, see [here](http://blogs.msdn.com/b/csliu/archive/2009/03/20/windows-unix-and-ansi-c-api-comparison.aspx) and [here](http://www.cs.wustl.edu/~schmidt/win32-cv-1.html). And spurious wakeups are also possible on windows when using [condition variables](http://msdn.microsoft.com/en-us/library/windows/desktop/ms682052%28v=vs.85%29.aspx).
+\============================== Also see the explanation for spurious wakeups on the linux man page: [pthread_cond_signal](http://linux.die.net/man/3/pthread_cond_signal). Last note: `PulseEvent()` in windows(manual-reset) = `pthread_cond_signal()` in linux, while `SetEvent()` in windows(auto-reset) = `pthread_cond_broadcast()` in linux, see [here](http://blogs.msdn.com/b/csliu/archive/2009/03/20/windows-unix-and-ansi-c-api-comparison.aspx) and [here](http://www.cs.wustl.edu/~schmidt/win32-cv-1.html). And spurious wakeups are also possible on windows when using [condition variables](http://msdn.microsoft.com/en-us/library/windows/desktop/ms682052%28v=vs.85%29.aspx).

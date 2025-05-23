@@ -9,7 +9,7 @@ tags:
   - "ubuntu"
 ---
 
-### 1\. Comments
+### 1. Comments
 
 When creating a shell script file, you must specify the shell you are using in the first line of the file. The format for this is:
 
@@ -22,7 +22,7 @@ who
 
 In a normal shell script line, the pound sign(#) is used as a comment line. A comment line in a shell script isn't processed by the shell. However, the first line of a shell script file is a special case, and the pound sign followed by the exclamation point tells the hell what shell to run the script under (yes, you can be using a bash shell and run your script using another shell).
 
-### 2\. Display
+### 2. Display
 
 The `echo` command can display a simple text string if you add the string following the command.
 
@@ -64,7 +64,7 @@ Just like system variables, user variables can be referenced using the dollar si
 
 The backtick allows you to assign the output of a shell command to a variable.
 
-### 3\. Redirect I/O
+### 3. Redirect I/O
 
 \>: output redirect >>: output redirect append data <: input redirect <<: inline input redirect
 
@@ -80,7 +80,7 @@ The backtick allows you to assign the output of a shell command to a variable.
 
 The inline input redirection symbol is the double less-than symbol (<<). Besides this symbol, you must specify a text marker that delineates the beginning and end of the data used for input. You can use any string value for the text marker, but it must be the same at the beginning of the data and the end of the data.
 
-### 4\. Math Expression
+### 4. Math Expression
 
 ```
 #!/bin/bash
@@ -104,7 +104,7 @@ Bash also provides a much easier way of performing mathematical equations. In ba
 
 The bash shell mathematical operators support only integer arithmetic. The most popular solution uses the built-in bash calculator, called `bc`.
 
-### 5\. Structured Commands
+### 5. Structured Commands
 
 #### 5.1 if/else
 

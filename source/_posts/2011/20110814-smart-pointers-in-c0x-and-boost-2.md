@@ -8,11 +8,11 @@ tags:
   - "c0x"
 ---
 
-### 1\. Environment
+### 1. Environment
 
 \- windows xp - gcc-4.4 - boost-1.43
 
-### 2\. auto\_ptr
+### 2. auto_ptr
 
 A smart pointer is an abstract data type that simulates a pointer while providing additional features, such as automatic garbage collection or bounds checking. There's `auto_ptr` in C++03 library for general use. But it's not so easy to deal with it. You may encounter pitfalls or limitations. The main drawback of `auto_ptr` is that it has the transfer-of-ownership semantic. I just walk through it. Please read comments in code carefully:
 
@@ -68,7 +68,7 @@ void test_auto_ptr_errors() {
 }
 ```
 
-### 3\. unique\_ptr
+### 3. unique_ptr
 
 To resolve the drawbacks, C++0x deprecates usage of `auto_ptr`, and `unique_ptr` is the replacement. `unique_ptr` makes use of a new C++ langauge feature called _rvalue reference_ which is similar to our current (left) reference (_&_), but spelled (_&&_). GCC implemented this feature in 4.3, but `unique_ptr` is only available begin from 4.4.
 
@@ -147,7 +147,7 @@ void test_unique_ptr_custom_deleter() {
 
 **NOTE**: To compile the code, you must specify the `-std=c++0x` flag.
 
-### 4\. shared\_ptr
+### 4. shared_ptr
 
 A `shared_ptr` is used to represent shared ownership; that is, when two pieces of code needs access to some data but neither has exclusive ownership (in the sense of being responsible for destroying the object). A `shared_ptr` is a kind of counted pointer where the object pointed to is deleted when the use count goes to zero.
 
@@ -235,7 +235,7 @@ void test_shared_ptr_containers() {
 
 **NOTE**: `shared_ptr` is available in both TR1 and Boost library. You can use either of them, for their interfaces are compatible. In addition, there are [dual C++0x and TR1 implementation](http://gcc.gnu.org/onlinedocs/libstdc++/manual/shared_ptr.html). The TR1 implementation is considered relatively stable, so is unlikely to change unless bug fixes require it.
 
-### 5\. weak\_ptr
+### 5. weak_ptr
 
 `weak_ptr` objects are used for breaking cycles in data structures. See snippet:
 
@@ -259,7 +259,7 @@ void test_weak_ptr() {
 
 If we use uncomment to use `shared_ptr`, _head_ is not freed since there still one reference to it when exiting the function. By using `weak_ptr`, this code works fine.
 
-### 6\. scoped\_ptr
+### 6. scoped_ptr
 
 `scoped_ptr` template is a simple solution for simple needs. It supplies a basic "resource acquisition is initialization" facility, without shared-ownership or transfer-of-ownership semantics.
 

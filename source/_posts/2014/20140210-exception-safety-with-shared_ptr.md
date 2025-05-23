@@ -64,4 +64,4 @@ in B::B().
 in A::~A().
 ```
 
-Exception safety is ensured, when using `shared_ptr`. Memory allocated by m\_a is freed even when an exception is thrown. The trick is: the destructor of class `shared_ptr` is invoked after the destructor of class `C`.**
+Exception safety is ensured, when using `shared_ptr`. Memory allocated by m_a is freed even when an exception is thrown. The trick is: the destructor of class `shared_ptr` is invoked after the destructor of class `C`.**

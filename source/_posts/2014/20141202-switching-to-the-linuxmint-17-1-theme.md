@@ -11,7 +11,7 @@ Just upgraded to Linuxmint 17.1. Themes in the distribution were greatly improve
 
 No broken visual glitch any more in eclipse. And it seems the new themes include fixes for the black background color for tooltips issue. See eclipse FAQ [here](http://wiki.eclipse.org/IRC_FAQ#Black_background_color_for_tooltips_on_Linux.2FUbuntu.2FGTK).
 
-You can compare with the previous screenshot: [Configuring Ubuntu Themes in Linuxmint 17](http://www.gonwan.com/2014/08/12/configuring-ubuntu-themes-in-linuxmint-17/). The only fix I want to apply is to make the theme look brighter. First, go to `/usr/share/themes/Mint-X-Aqua`. For gtk3 applications, patch with:
+You can compare with the previous screenshot: [Configuring Ubuntu Themes in Linuxmint 17](https://www.gonwan.com/2014/08/12/configuring-ubuntu-themes-in-linuxmint-17/). The only fix I want to apply is to make the theme look brighter. First, go to `/usr/share/themes/Mint-X-Aqua`. For gtk3 applications, patch with:
 
 ```
 --- gtk-3.0/gtk-main.css.bak	2014-12-02 14:06:03.864745990 +0800

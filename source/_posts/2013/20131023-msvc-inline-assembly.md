@@ -8,7 +8,7 @@ tags:
   - "msvc"
 ---
 
-MSVC's inline assembly is easier to use, as compared to [gcc's version](http://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is easier to write right code than wrong one, I think. Still a simple add function is used to illustrate:
+MSVC's inline assembly is easier to use, as compared to [gcc's version](https://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is easier to write right code than wrong one, I think. Still a simple add function is used to illustrate:
 
 ```
 int add1(int a, int b)
@@ -31,7 +31,7 @@ int add2(int a, int b)
 
 `__asm` keyword is used to specify a inline assembly block. From MSDN, there is another `asm` keyword which is not recommended:
 
-> Visual C++ support for the Standard C++ asm keyword is limited to the fact that the compiler will not generate an error on the keyword. However, an asm block will not generate any meaningful code. Use \_\_asm instead of asm.
+> Visual C++ support for the Standard C++ asm keyword is limited to the fact that the compiler will not generate an error on the keyword. However, an asm block will not generate any meaningful code. Use __asm instead of asm.
 
 Symbols in C/C++ code can be used directly in inline assembly. This is much more convenient than gcc. And it is also not necessary to load parameters into registers before usage as in gcc. MSVC does the job right even in optimization case.
 
@@ -97,7 +97,7 @@ _TEXT ENDS
 
 As you see, MSVC automatically preserves `ebx` for us. From MSDN:
 
-> When using \_\_asm to write assembly language in C/C++ functions, you don't need to preserve the EAX, EBX, ECX, EDX, ESI, or EDI registers.
+> When using __asm to write assembly language in C/C++ functions, you don't need to preserve the EAX, EBX, ECX, EDX, ESI, or EDI registers.
 
 Let's see the case when stdcall calling convention is used:
 

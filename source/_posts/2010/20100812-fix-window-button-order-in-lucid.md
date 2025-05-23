@@ -28,7 +28,7 @@ This will set your window button order. And every time you switch to "Radiance" 
 # sudo gedit /usr/share/themes/Radiance/metacity-1/metacity-theme-1.xml
 ```
 
-Search "menu\_focused\_normal", there are four lines regarding graphics drawing of menu: "menu\_focused\_normal", "menu\_focused\_prelight", "menu\_unfocused\_prelight", "menu\_unfocused\_prelight". Add first line into "menu\_focused\_\*" and remove the image tag, and use second line to replace the image tag in "menu\_unfocused\_\*" too.
+Search "menu_focused_normal", there are four lines regarding graphics drawing of menu: "menu_focused_normal", "menu_focused_prelight", "menu_unfocused_prelight", "menu_unfocused_prelight". Add first line into "menu_focused_\*" and remove the image tag, and use second line to replace the image tag in "menu_unfocused_\*" too.
 
 OK, you're done.
 

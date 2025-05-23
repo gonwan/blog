@@ -62,7 +62,7 @@ curl_easy_init () at easy.c:372
 (gdb)
 ```
 
-It prints the backtrace now, though I'm not so accustomed to console debugging. I add the LD\_LIBRARY\_PATH environment to let our test program find our homemade version of libcurl.so.4. In fact, we can run ldd like following lines. You see the re-direction?
+It prints the backtrace now, though I'm not so accustomed to console debugging. I add the LD_LIBRARY_PATH environment to let our test program find our homemade version of libcurl.so.4. In fact, we can run ldd like following lines. You see the re-direction?
 
 ```
 # ldd ./testcurl | grep libcurl
@@ -91,7 +91,7 @@ int main() {
 }
 ```
 
-Build the project in debug mode. And now, here's the magic: Go to Project tab --> Run Settings --> Run Environment, append our homemade Qt library path to LD\_LIBRARY\_PATH. In my example, it's /home/gonwan/testgdb/qt4-x11-4.6.2/lib. Ok, you're almost done! Go back to the Edit tab, set a breakpoint at line 4 (or line 3 as you like), press F5 to start debugging the project. Then continue pressing F11, you will find GDB has stepped into Qt source code! Let me take a screenshot:
+Build the project in debug mode. And now, here's the magic: Go to Project tab --> Run Settings --> Run Environment, append our homemade Qt library path to LD_LIBRARY_PATH. In my example, it's /home/gonwan/testgdb/qt4-x11-4.6.2/lib. Ok, you're almost done! Go back to the Edit tab, set a breakpoint at line 4 (or line 3 as you like), press F5 to start debugging the project. Then continue pressing F11, you will find GDB has stepped into Qt source code! Let me take a screenshot:
 
 [![qtcreator_qt4debug](images/4771327153_243000e8de_z.jpg)](http://www.flickr.com/photos/gonwan1985/4771327153 "qtcreator_qt4debug by Binhao Qian, on Flickr")
 

@@ -24,7 +24,7 @@ Then copy a local vim configure file:
 # vi ~/.vimrc
 ```
 
-### 1\. Line Number
+### 1. Line Number
 
 Add line into the .vimrc file:
 
@@ -46,7 +46,7 @@ Related help:
 :help 'number'
 ```
 
-### 2\. Tab-space Conversion
+### 2. Tab-space Conversion
 
 From the Vim help:
 
@@ -92,7 +92,7 @@ The auto-indent feature is also useful:
 set autoindent
 ```
 
-When setting expandtab, a real tab can be input by <Ctrl-v>\_<Tab>
+When setting expandtab, a real tab can be input by <Ctrl-v>_<Tab>
 
 Related help:
 
@@ -104,7 +104,7 @@ Related help:
 :help retab
 ```
 
-### 3\. Option 'modeline':
+### 3. Option 'modeline':
 
 If you start editing a new file, and the 'modeline' option is on, a number of lines at the beginning and end of the file are checked for modelines. This is simply enabled by adding:
 
@@ -134,7 +134,7 @@ Read related help by typing:
 :help modeline
 ```
 
-### 4\. Using Taglist:
+### 4. Using Taglist:
 
 There are lots of useful scripts in the Vim website that we can use. But Actually, Ubuntu repository also has some of them included:
 
@@ -209,7 +209,7 @@ When editing a supported file type, Show the taglist window can be opened by one
 :TlistToggle
 ```
 
-Move your cursor between windows by <Ctrl-w>\_w as usual. You may want to add a shortcut to toggle this feature. Add lines to your .vimrc file per official document:
+Move your cursor between windows by <Ctrl-w>_w as usual. You may want to add a shortcut to toggle this feature. Add lines to your .vimrc file per official document:
 
 ```
 nnoremap   :TlistUpdate
@@ -225,7 +225,7 @@ More help:
 :help taglist-options
 ```
 
-### 5\. Using OmniCppComplete:
+### 5. Using OmniCppComplete:
 
 Vim include basic support for code completion. The simplest way is to use <Ctrl-p>. Vim will search your include headers and do insertion. See the screenshot:
 
@@ -260,7 +260,7 @@ set completeopt=longest,menu
 map  :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .
 ```
 
-Omni completion can be issued by <Ctrl-x>\_<Ctrl-o>.
+Omni completion can be issued by <Ctrl-x>_<Ctrl-o>.
 
 Screenshot showing function prototype:
 

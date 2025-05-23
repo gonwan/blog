@@ -11,15 +11,15 @@ tags:
 
     This article applies to Ubuntu 8.04/10.04. I referred to the instruction here: [http://ubuntuforums.org/showthread.php?t=51003](http://ubuntuforums.org/showthread.php?t=51003). And I'll use my [qastrologer](http://code.google.com/p/qansieditor/source/browse/trunk/qastrologer/) project to demo the building procedure.
 
-1\. Install build tool packages:
+1. Install build tool packages:
 
 ```
 # sudo apt-get install build-essential dh-make debhelper devscripts
 ```
 
-2\. Get the source package, exact it into ~/packages/qastrologer. The directory structure should like: ~/packages/qastrologer/qastrologer-<version>/<source>. The <source> directory contains your \*.pro file.
+2. Get the source package, exact it into ~/packages/qastrologer. The directory structure should like: ~/packages/qastrologer/qastrologer-<version>/<source>. The <source> directory contains your \*.pro file.
 
-3\. Add install section in \*.pro file. Otherwise, the built package contains not binary:
+3. Add install section in \*.pro file. Otherwise, the built package contains not binary:
 
 ```
 unix {
@@ -35,9 +35,9 @@ unix {
 }
 ```
 
-I referred to the guild here: [http://wiki.maemo.org/Packaging\_a\_Qt\_application](http://wiki.maemo.org/Packaging_a_Qt_application). For more information on how to use the INSTALLS macro, refer to the Qt document: [http://doc.trolltech.com/4.7/qmake-environment-reference.html#installs](http://doc.trolltech.com/4.7/qmake-environment-reference.html#installs)
+I referred to the guild here: [http://wiki.maemo.org/Packaging_a_Qt_application](http://wiki.maemo.org/Packaging_a_Qt_application). For more information on how to use the INSTALLS macro, refer to the Qt document: [http://doc.trolltech.com/4.7/qmake-environment-reference.html#installs](http://doc.trolltech.com/4.7/qmake-environment-reference.html#installs)
 
-4\. Run dh\_make. This will create the basic debian package structure.
+4. Run dh_make. This will create the basic debian package structure.
 
 ```
 # dh_make -s -c gpl --createorig
@@ -45,7 +45,7 @@ I referred to the guild here: [http://wiki.maemo.org/Packaging\_a\_Qt\_applicati
 
 We are generating a single binary package and licensed with GPL. After running the command, a "debian" subdirectory is created. Now we need to fill in more useful infomations.
 
-5\. "rules" file:
+5. "rules" file:
 
 It is the most important build script. The cdbs already have support for building QMake projects. Our "rules" file is simple:
 
@@ -64,7 +64,7 @@ Last line ensures we use Qt4. I referred to the source of minitube project. You 
 # sudo apt-get source minitube
 ```
 
-6\. "control" file:
+6. "control" file:
 
 This file controls build and binary dependency. For my qastrologer, the default values are enough. You may want to have some minor changes in "Section"/"Priority"/"Maintainer" values. Since I want to keep my package installs from 8.04 to 10.04 and above, I must specify the minimum dependencies manually to use Qt 4.3. So my "control" file looks like:
 
@@ -86,9 +86,9 @@ Description: Qt-based astrologer application
 
 Note, the default "control" file uses "${shlibs:Depends}" and "${misc:Depends}" macros to generate binary dependencies automatically. Refer to the man page of debhelper to get more information.
 
-7\. Fill in "changelog" and "copyright" files.
+7. Fill in "changelog" and "copyright" files.
 
-8\. Build the package:
+8. Build the package:
 
 For full build of the package (build source, deb, clean...) run:
 

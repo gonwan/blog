@@ -9,7 +9,7 @@ tags:
 
 Backup here:
 
-#### 1\. C++
+#### 1. C++
 
 ```
 /*
@@ -76,7 +76,7 @@ int main()
 }
 ```
 
-#### 2\. Python
+#### 2. Python
 
 ```
 #!/usr/bin/python

@@ -11,7 +11,7 @@ tags:
 
 GDI 的目标是提供一种设备无关的绘图方式, 要支持不同的monitor 和graphics card.
 
-### 1\. WM\_PAINT 消息
+### 1. WM_PAINT 消息
 
 我们还是以以下的window procedure 代码为例:
 
@@ -41,17 +41,17 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 ```
 
-这次关注的让然是WM\_PAINT 消息的处理. 首先我们调用BeginPaint() 函数返回一个HDC 的handle. DC(Device Context) 可以理解成跟设备联系起来的, 可以在上面绘图的一个东西. 这里的设备一般指的是monitor, 但是也可以是printer. 得到这个handle 之后, 我们就可以在DC 上绘图了, DrawText() 函数就在HC 的正中间画了一个字符串. 最后就是EndPaint() 函数来说明绘图结束. 这里有2 个概念.
+这次关注的让然是WM_PAINT 消息的处理. 首先我们调用BeginPaint() 函数返回一个HDC 的handle. DC(Device Context) 可以理解成跟设备联系起来的, 可以在上面绘图的一个东西. 这里的设备一般指的是monitor, 但是也可以是printer. 得到这个handle 之后, 我们就可以在DC 上绘图了, DrawText() 函数就在HC 的正中间画了一个字符串. 最后就是EndPaint() 函数来说明绘图结束. 这里有2 个概念.
 
-第一个概念叫做invalid region. 当一个被遮盖的窗口被重新显示的时候, 实际上要重画的只是被遮盖的部分. 而这些被遮盖的需要重画的部分就叫做invalid region. windows 会给窗口发WM\_PAINT 消息来让窗口重画. 在代码中ps 变量(PAINTSTRUCT 结构)的rcPaint 域实际上包含了这个invalid region 的信息. 当我们调用BeginPaint() 的时候,实际上把这个invalid region 给validate 了. 不然的话, windows 检测到还有invalid region 没被重画就会不断的发送WM\_PAINT 消息, CPU 会100% 的.
+第一个概念叫做invalid region. 当一个被遮盖的窗口被重新显示的时候, 实际上要重画的只是被遮盖的部分. 而这些被遮盖的需要重画的部分就叫做invalid region. windows 会给窗口发WM_PAINT 消息来让窗口重画. 在代码中ps 变量(PAINTSTRUCT 结构)的rcPaint 域实际上包含了这个invalid region 的信息. 当我们调用BeginPaint() 的时候,实际上把这个invalid region 给validate 了. 不然的话, windows 检测到还有invalid region 没被重画就会不断的发送WM_PAINT 消息, CPU 会100% 的.
 
 第二个概念叫做clipping region. 当我们调用BeginPaint() 的时候, 实际还把一个invalid region 转换成了一个clipping region. 什么意思呢? 就是之后的GDI 调用的绘图都会只限于这个clipping region 中. 如果某个GDI 调用画在了这个clipping region之外, 实际是不会有调用开销的, 这也是windows GDI 的一个优化. 虽然我觉得GDI 还是很慢的=v= (GDI+ 更慢...).
 
-除了调用BeginPaint(), EndPaint() 来得到DC 外, 还可以通过调用GetDC() 这个API. 比如在处理一个鼠标消息, 可能需要在屏幕上画点什么的时候. 不过有这样几点需要注意: 1) BeginPaint(), EndPaint() 只能被用在WM\_PAINT 消息中. 2) GetDC() 不会去把invalid region 给validate, 我们需要手动调用ValidateRect() 或ValidateRgn() 这2 个API. 完了之后, 记得调用ReleaseDC().
+除了调用BeginPaint(), EndPaint() 来得到DC 外, 还可以通过调用GetDC() 这个API. 比如在处理一个鼠标消息, 可能需要在屏幕上画点什么的时候. 不过有这样几点需要注意: 1) BeginPaint(), EndPaint() 只能被用在WM_PAINT 消息中. 2) GetDC() 不会去把invalid region 给validate, 我们需要手动调用ValidateRect() 或ValidateRgn() 这2 个API. 完了之后, 记得调用ReleaseDC().
 
-有的时候, 我们需要手动刷新一个window. 也有两种方法: 1) 调用InvalidateRect() 函数. 这种方法是post 一个WM\_PAINT 消息到当前window 的message queue 中, 等待刷新. 一个message queue 中不会出现多个WM\_PAINT 消息, windows 会自动合并. 2) 调用UpdateWindow() 函数来强制刷新window, 相当于send 一个WM\_PAINT 消息来直接调用window procedure 中的处理代码.
+有的时候, 我们需要手动刷新一个window. 也有两种方法: 1) 调用InvalidateRect() 函数. 这种方法是post 一个WM_PAINT 消息到当前window 的message queue 中, 等待刷新. 一个message queue 中不会出现多个WM_PAINT 消息, windows 会自动合并. 2) 调用UpdateWindow() 函数来强制刷新window, 相当于send 一个WM_PAINT 消息来直接调用window procedure 中的处理代码.
 
-### 2\. GDI Objects
+### 2. GDI Objects
 
 现在来看一下DC 的使用. 一个DC 可以有很多的属性. 有以下5 种: Bitmap, Brush, Font, Pen, Region. Bitmap 可以理解成DC 中的画布(canvas), 所有画在DC 上的元素实际都是画在Bitmap 这个属性中的. Brush 表示的是绘图的背景属性, 可以是单色, 渐变色, 或是一个图案(pattern). Font 自然是字体, 包括大小, 颜色, 粗细等. Pen 表示的是画笔的属性, 包括颜色, 粗细, 线段起始点, 拐点的一些绘画属性. Region 表示一个区域, 可以理解为Bitmap 这个canvas 上的一个clipping region.
 
@@ -74,11 +74,11 @@ DeleteObject(SelectObject(hdc, hbrhOrig));
 
 另外, 有一个logic object 的概念. 当我们调用CreateXXX() 函数的时候, 得到的GDI object 实际已经跟特定的DC 相关联了, 但是有时候, 我们并不要实际的GDI object, 而只是需要一个包含这些信息的一个数据结构. 于是我们就可以使用所谓的logic object. 以Font 为例. 在GDI 中CreateFont() 这个API 可以说是最麻烦的一个API 了, 光参数就有14 个. 相应的, 还有另外一个API 叫做CreateFontIndirect(), 它的参数是一个LOGFONT 结构, 其中的域对应了CreateFont() 的14 个参数, 所以可以用这两个API 完成同样的工作. 其它四种GDI object 也有类似的logic object.
 
-### 3\. GDI 坐标映射
+### 3. GDI 坐标映射
 
-到目前为止, 我们并没有设置过GDI 中的任何坐标. 所以我们到底是在用什么单位(unit) 来绘图的呢? 在GDI 中, 默认的坐标映射模式是MM\_TEXT. 需要指出的是, 我们在GDI 函数中传入的数字都是逻辑坐标(logic coordinates), 而GDI 会根据当前的映射模式来重新加算设备相关的视点坐标(viewport coordinates).
+到目前为止, 我们并没有设置过GDI 中的任何坐标. 所以我们到底是在用什么单位(unit) 来绘图的呢? 在GDI 中, 默认的坐标映射模式是MM_TEXT. 需要指出的是, 我们在GDI 函数中传入的数字都是逻辑坐标(logic coordinates), 而GDI 会根据当前的映射模式来重新加算设备相关的视点坐标(viewport coordinates).
 
-其它的映射模式包括: MM\_LOMETRIC, MM\_HIMETRIC, MM\_LOENGLISH, MM\_HIENGLISH, MM\_TWIPS, MM\_ISOTROPIC, MM\_ANISOTROPIC. 前5 个映射模式只是逻辑坐标的不同, 而x 轴和y 轴坐标都是等比例映射缩放的, 后两种映射模式允许非等比例的坐标映射. 具体的映射规则请查阅MSDN, 因为非常非常的麻烦, 丸子只给出一个映射的计算公式, 其中(xWinOrg, yWinOrg) 是逻辑坐标的原点, (xViewOrg, yViewOrg) 是视点坐标的原点:
+其它的映射模式包括: MM_LOMETRIC, MM_HIMETRIC, MM_LOENGLISH, MM_HIENGLISH, MM_TWIPS, MM_ISOTROPIC, MM_ANISOTROPIC. 前5 个映射模式只是逻辑坐标的不同, 而x 轴和y 轴坐标都是等比例映射缩放的, 后两种映射模式允许非等比例的坐标映射. 具体的映射规则请查阅MSDN, 因为非常非常的麻烦, 丸子只给出一个映射的计算公式, 其中(xWinOrg, yWinOrg) 是逻辑坐标的原点, (xViewOrg, yViewOrg) 是视点坐标的原点:
 
 - _xViewport = (xWindow - xWinOrg) \* xViewExt/xWinExt + xViewOrg_
 - _yViewport = (yWindow - yWinOrg) \* yViewExt/yWinExt + yViewOrg_
@@ -87,7 +87,7 @@ DeleteObject(SelectObject(hdc, hbrhOrig));
 
 根据丸子的经验, 为了计算坐标更容易, 一般只需要调用SetViewportOrgEx() 来设置视点坐标就可以了, 其它API 函数基本可以不用的.
 
-### 4\. DIB和DDB
+### 4. DIB和DDB
 
 DIB(Device-Independent Bitmap) 设备独立的位图, DDB(Device-Dependent Bitmap) 设备相关的位图.
 

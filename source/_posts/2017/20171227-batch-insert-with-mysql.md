@@ -75,7 +75,7 @@ public class TUser {
 
 My benchmark runs to batch insert 2000 records in 1/2/4/8/16/32 concurrent threads.
 
-### 1\. IDENTITY
+### 1. IDENTITY
 
 When using `GenerationType.IDENTITY`, result looks like:
 
@@ -92,7 +92,7 @@ As mentioned, Hibernate/JPA disables batch insert when using IDENTITY. Look into
 
 The generated key is eventually retrieved from `java.sql.Statement#getGeneratedKeys()`. And [datasource-proxy](https://github.com/ttddyy/datasource-proxy) is used to display the underlining SQL generated.
 
-### 2\. TABLE
+### 2. TABLE
 
 Now switch to `GenerationType.TABLE`. Just uncomment the corresponding `@GeneratedValue` and `@TableGenerator` annotation. Result looks like:
 
@@ -136,7 +136,7 @@ Finished: threads=16, records_per_threads=2000, duration_in_ms=2926
 Finished: threads=32, records_per_threads=2000, duration_in_ms=6388
 ```
 
-### 3\. SEQUENCE
+### 3. SEQUENCE
 
 Last switch to `GenerationType.SEQUENCE`. [Sequence](https://mariadb.com/kb/en/library/sequences/) is a new feature added in MariaDB 10.3 series. Create a sequence in MariaDB with:
 
@@ -208,7 +208,7 @@ Finished: threads=32, records_per_threads=2000, duration_in_ms=1545
 
 Dramatically improved when compared to the table generator. A sequence generator uses cache in memory(default 1000), and is optimized to eliminate lock when generating IDs.
 
-### 4\. Summary
+### 4. Summary
 
 |  | 1 thread | 2 threads | 4 threads | 8 threads | 16 threads | 32 threads |
 | --- | --- | --- | --- | --- | --- | --- |

@@ -12,7 +12,7 @@ Well, new to the big data world.
 
 Following Appendix A in the book _[Hadoop: The Definitive Guide, 4th Ed](http://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632/)_, just get it to work. I'm running Ubuntu 14.04.
 
-1\. Download and unpack the hadoop package, and set environment variables in your `~/.bashrc`.
+1. Download and unpack the hadoop package, and set environment variables in your `~/.bashrc`.
 
 ```
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
@@ -34,7 +34,7 @@ This command was run using /home/gonwan/hadoop-2.5.2/share/hadoop/common/hadoop-
 
 The 2.5.2 distribution package is build in 64bit for `*.so` files, use the 2.4.1 package if you want 32bit ones.
 
-2\. Edit config files in `$HADOOP_HOME/etc/hadoop`:
+2. Edit config files in `$HADOOP_HOME/etc/hadoop`:
 
 ```
 
@@ -58,7 +58,7 @@ The 2.5.2 distribution package is build in 64bit for `*.so` files, use the 2.4.1
 
 ```
 
-3\. Config SSH: Hadoop needs to start daemons on hosts of a cluster via SSH connection. A public key is generated to avoid password input.
+3. Config SSH: Hadoop needs to start daemons on hosts of a cluster via SSH connection. A public key is generated to avoid password input.
 
 ```
 # ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
@@ -71,13 +71,13 @@ Verify with:
 # ssh localhost
 ```
 
-4\. Format HDFS filesystem:
+4. Format HDFS filesystem:
 
 ```
 # hdfs namenode -format
 ```
 
-5\. Start HDFS:
+5. Start HDFS:
 
 ```
 # start-dfs.sh
@@ -98,7 +98,7 @@ Verify running with `jps` command:
 2828 SecondaryNameNode
 ```
 
-6\. Some tests:
+6. Some tests:
 
 ```
 # hadoop fs -ls /
@@ -110,13 +110,13 @@ Found 2 items
 drwxr-xr-x   - gonwan supergroup          0 2016-04-19 16:06 /test
 ```
 
-7\. Stop HDFS:
+7. Stop HDFS:
 
 ```
 # stop-dfs.sh
 ```
 
-8\. If there is an error like:
+8. If there is an error like:
 
 ```
 Error: JAVA_HOME is not set and could not be found.
@@ -124,4 +124,4 @@ Error: JAVA_HOME is not set and could not be found.
 
 Just edit `$HADOOP_HOME/etc/hadoop/hadoop-env.sh` and export `JAVA_HOME` explicitly again here. It does happen under Debian. Not knowing why the environment variable is not passed over SSH.
 
-9\. You can also set `HADOOP_CONF_DIR` to use a separate config directory for convenience. But make sure you have the whole directory copied from the Hadoop package. Otherwise, nasty errors may occur.
+9. You can also set `HADOOP_CONF_DIR` to use a separate config directory for convenience. But make sure you have the whole directory copied from the Hadoop package. Otherwise, nasty errors may occur.

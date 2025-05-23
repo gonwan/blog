@@ -94,7 +94,7 @@ int main()
 
 **Updated Apr 20, 2015**:
 
-1\. Under RHEL5/CentOS5, I got errors like:
+1. Under RHEL5/CentOS5, I got errors like:
 
 ```
 ./test_oracle: error while loading shared libraries: /home/gonwan/oracle11_64/lib/libnnz11.so: cannot restore segment prot after reloc: Permission denied
@@ -106,4 +106,4 @@ It's due to SELinux security feature. Simply workaround it with:
 # chcon -t texrel_shlib_t *.so*
 ```
 
-2\. Oracle uses `oraociei11.dll` or `libociei.so` for client data. They are both large files(110+MB), since they support multiple languages. Instead, you can use `oraociicus11.dll`(30+MB) or `libociicus.so`(10-MB). These files contain only English support.
+2. Oracle uses `oraociei11.dll` or `libociei.so` for client data. They are both large files(110+MB), since they support multiple languages. Instead, you can use `oraociicus11.dll`(30+MB) or `libociicus.so`(10-MB). These files contain only English support.

@@ -8,7 +8,7 @@ tags:
   - "kernel"
 ---
 
-Continue with [Updating Kernel in Lucid](http://www.gonwan.com/2010/05/19/updating-kernel-in-lucid-3/), I want to decrease overview build time this time. My benchmark is run in Ubuntu 10.04 installed in Virtualbox. My CPU is i5-2540M at 2.6GHz.
+Continue with [Updating Kernel in Lucid](https://www.gonwan.com/2010/05/19/updating-kernel-in-lucid-3/), I want to decrease overview build time this time. My benchmark is run in Ubuntu 10.04 installed in Virtualbox. My CPU is i5-2540M at 2.6GHz.
 
 I'm learning kernel code these days. A minimal kernel will save a lot of build time. As you see, it took 64min to build 2772 modules when running `oldconfig` target:
 

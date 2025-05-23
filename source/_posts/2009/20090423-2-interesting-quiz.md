@@ -3,7 +3,7 @@ title: "2 Interesting Quiz"
 date: "2009-04-23 11:27:00"
 ---
 
-1\. Rate your life [http://www.monkeyquiz.com/life/rate\_my\_life.html](http://www.monkeyquiz.com/life/rate_my_life.html)
+1. Rate your life [http://www.monkeyquiz.com/life/rate_my_life.html](http://www.monkeyquiz.com/life/rate_my_life.html)
 
 My Result:
 
@@ -25,6 +25,6 @@ My Result:
 
 **Finance:** Your finance rating is a score that rates your current financial health and stability. You have a rather good financial score, which is not all that common these days. Keep doing what works. Avoid common pitfalls and save for the future. You will be glad you did. [Read advice from other quiz-takers on improving your finances.](http://www.blogger.com/advice-mind.html)
 
-2\. Personal DNA [http://www.personaldna.com/](http://www.personaldna.com/)
+2. Personal DNA [http://www.personaldna.com/](http://www.personaldna.com/)
 
 My Complete Result: [http://www.personaldna.com/report.php?k=ikPtYodDIuissfZ-PF-ACCDD-19a7](http://www.personaldna.com/report.php?k=ikPtYodDIuissfZ-PF-ACCDD-19a7)

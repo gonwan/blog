@@ -74,7 +74,7 @@ add3:
     ret
 ```
 
-Our inline assembly is surrounded by #APP and #NO\_APP comments. Redundant gcc directives are already removed, the remaining are just function prolog/epilog code. `add2()` and `add3()` works fine using default gcc flags. But it is not the case when -O2 optimize flag is passed. From the output of `gcc -S -O2`(try it yourself), I found these 2 function calls are inlined in their caller, no function call at all. These 2 issues prevent the inline assembly from working: - Depending on %eax to be the return value. But it is silently ignored in -O2. - Depending on 12(%ebp) and 8(%ebp) as parameters of function. But it is not guaranteed that parameters are there in -O2. To solve issue 1, an explicit return should be used:
+Our inline assembly is surrounded by #APP and #NO_APP comments. Redundant gcc directives are already removed, the remaining are just function prolog/epilog code. `add2()` and `add3()` works fine using default gcc flags. But it is not the case when -O2 optimize flag is passed. From the output of `gcc -S -O2`(try it yourself), I found these 2 function calls are inlined in their caller, no function call at all. These 2 issues prevent the inline assembly from working: - Depending on %eax to be the return value. But it is silently ignored in -O2. - Depending on 12(%ebp) and 8(%ebp) as parameters of function. But it is not guaranteed that parameters are there in -O2. To solve issue 1, an explicit return should be used:
 
 ```
 int add4(int a, int b)

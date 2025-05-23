@@ -90,7 +90,7 @@ module AP_MODULE_DECLARE_DATA helloworld_module =
 };
 ```
 
-这个module 的用途是打印接受到的request 的header 信息. 需要知道的有两部分: module 的声明, module 的hook 函数. Apache 模块的都是通过"module" 这个struct 来声明导出的, 在这个struct 中会初始化这个模块的各个函数指针. 在我们的代码中, 中间5 个值都是NULL, 它们是用来安装配置文件相关的hook 的, 暂时不用. 最后一个hook 则指向一个相当于运行时的hook 函数, 在这个函数, 即"helloworld\_hooks" 中, 我们指定Apache 的那些处理过程会被我们hook 到. 这里我们使用了ap\_hook\_handler 这个函数, 它表明我们的模块是一个generator handler. 它的参数helloworld\_handler 依然是一个函数指针, 表示具体的处理过程. 其它的代码都是html 的生成, 先随便看看吧.
+这个module 的用途是打印接受到的request 的header 信息. 需要知道的有两部分: module 的声明, module 的hook 函数. Apache 模块的都是通过"module" 这个struct 来声明导出的, 在这个struct 中会初始化这个模块的各个函数指针. 在我们的代码中, 中间5 个值都是NULL, 它们是用来安装配置文件相关的hook 的, 暂时不用. 最后一个hook 则指向一个相当于运行时的hook 函数, 在这个函数, 即"helloworld_hooks" 中, 我们指定Apache 的那些处理过程会被我们hook 到. 这里我们使用了ap_hook_handler 这个函数, 它表明我们的模块是一个generator handler. 它的参数helloworld_handler 依然是一个函数指针, 表示具体的处理过程. 其它的代码都是html 的生成, 先随便看看吧.
 
 接下来是编译的问题. 如果用VC 的话, 那么就是简单的把apache, apr, apr-util 的include 和lib 的路径加进去, 基本就通过编译了. 不过有的module 可能会依赖其它module, 个么这个也自己加. 我写了一个简单的Makefile 来编译, 如下:
 
@@ -135,6 +135,6 @@ LoadModule helloworld_module modules/mod_helloworld.so
 
 ```
 
-LoadModule 指令用来加载模块, 第一个参数是在代码中导出(export) 的模块名, 第二个参数是模块的路径. 然后来设置映射关系, 凡是URL 是/helloworld 开头的, 都用helloworld 这个handle 来处理, 而helloworld 这个handle, 实际上只是我们在代码中字符串比较用的, 参见helloworld\_handler 这个函数.
+LoadModule 指令用来加载模块, 第一个参数是在代码中导出(export) 的模块名, 第二个参数是模块的路径. 然后来设置映射关系, 凡是URL 是/helloworld 开头的, 都用helloworld 这个handle 来处理, 而helloworld 这个handle, 实际上只是我们在代码中字符串比较用的, 参见helloworld_handler 这个函数.
 
 以上.

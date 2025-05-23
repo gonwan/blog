@@ -38,7 +38,7 @@ bool test_std_string()
 
 **NOTE**: Under Linux, we print the string directly since the default console encoding is UTF-8, and we can view the string. While under Window, the console **DOES NOT** support UTF-8(codepage 65001) encoding. Printing to it simply causes typo. We just convert it to a `std::wstring` and use `MessageBox()` API to check the result. I will cover the encoding issue in windows console in my next post, maybe.
 
-I began to investigate the problem, since I cannot find a solution to read/write a UTF-8 string to XML file using [boost::property\_tree](http://www.boost.org/doc/libs/1_54_0/doc/html/property_tree.html). Actually, it's a bug and is already fixed in boost 1.47 and later versions. Unfortunately, Ubuntu 12.04 came with boost 1.46.1. When reading non-ASCII characters, some bytes are incorrectly skipped. The failure function is `boost::property_tree::detail::rapidxml::internal::get_index()`. My test code looks like:
+I began to investigate the problem, since I cannot find a solution to read/write a UTF-8 string to XML file using [boost::property_tree](http://www.boost.org/doc/libs/1_54_0/doc/html/property_tree.html). Actually, it's a bug and is already fixed in boost 1.47 and later versions. Unfortunately, Ubuntu 12.04 came with boost 1.46.1. When reading non-ASCII characters, some bytes are incorrectly skipped. The failure function is `boost::property_tree::detail::rapidxml::internal::get_index()`. My test code looks like:
 
 ```
 static const char g_xml[] = "\n"

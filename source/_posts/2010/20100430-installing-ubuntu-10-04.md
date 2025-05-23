@@ -12,7 +12,7 @@ Sorry for leaving this blog outdated for so long. Since go out of [GFW](http://e
 
 There's something to mention about installation.
 
-### 0\. installation
+### 0. installation
 
 I installed lucid from harddisk. There's an lock issue when modifying the partition table. We should umount the iso first:
 
@@ -20,7 +20,7 @@ I installed lucid from harddisk. There's an lock issue when modifying the partit
 # sudo umount -l /isodevice
 ```
 
-### 1\. grub
+### 1. grub
 
 The original grub installation will not probe Windows OSes. See [here](https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/570765). So you must do it manually.
 
@@ -28,15 +28,15 @@ The original grub installation will not probe Windows OSes. See [here](https://b
 # sudo /usr/sbin/grub-mkconfig > /boot/grub/grub.cfg
 ```
 
-### 2\. qterm
+### 2. qterm
 
 The iBus IME issue seems to be fixed in this version. But the "Home" and "End" key do not work correctly. This is a [resolved bug](http://sourceforge.net/tracker/?func=detail&aid=2951516&group_id=79581&atid=557094). So, change the key type to "linux" may workaround.
 
-### 3\. emphathy
+### 3. emphathy
 
 Pidgin is replaced with emphathy. Emphathy is not as powerful as pidgin. But it integrates better with Gnome's notification area.
 
-### 4\. totem/rhythmbox
+### 4. totem/rhythmbox
 
 These are video/audio players. Please install essential codecs. Otherwise, almost nothing could be played and seek function is not available.
 
@@ -48,15 +48,15 @@ These are video/audio players. Please install essential codecs. Otherwise, almos
 
 Now, almost all media formats can be played. Also, media plugins in firefox works.
 
-### 5\. fglrx
+### 5. fglrx
 
 This is the graphics driver for ATI cards. You may experience better performance and effects. But after I installed it, I could not play Warcraft III using wine. So I reverted to the original default graphics driver, and it works. [![ubuntu1004_warcraft3](images/4565244995_b44b0b6316.jpg)](http://www.flickr.com/photos/49942740@N00/4565244995/) To play other 3D games, make sure your have turned off compiz firstly.
 
-### 6\. gimp
+### 6. gimp
 
 The gimp is not installed by defaut, so...
 
-### 7\. acpid
+### 7. acpid
 
 I'm running on a Thinkpad T60 machine. The brightness function key works correctly, but the volume button does not. Then I found that the hotkey mask should be enabled: [http://swiss.ubuntuforums.org/showthread.php?t=1328016](http://swiss.ubuntuforums.org/showthread.php?t=1328016) [http://www.thinkwiki.org/wiki/thinkpad-acpi](http://www.thinkwiki.org/wiki/thinkpad-acpi) After all, I add following line in the startup script, /etc/rc.local:
 
@@ -66,7 +66,7 @@ I'm running on a Thinkpad T60 machine. The brightness function key works correct
 
 Then the volume button works. The play/pause/stop/prev/next buttons also work in rhythmbox.
 
-### 8\. fstab
+### 8. fstab
 
 I want to mount all windows partitions when boot. So /etc/fstab file should be edited automatically using pysdm:
 
@@ -86,7 +86,7 @@ For ntfs partitions, default option is OK. For fat32 partitins, add the "utf8=1"
 /dev/sda9 /media/BACKUP vfat rw,nosuid,nodev,uhelper=udisks,uid=1000,gid=1000,shortname=mixed,dmask=0077,utf8=1,flush 0 0
 ```
 
-### 9\. restricted packages
+### 9. restricted packages
 
 ```
 # sudo apt-get install ubuntu-restricted-extras
@@ -94,12 +94,12 @@ For ntfs partitions, default option is OK. For fat32 partitins, add the "utf8=1"
 
 This will install some other useful packages. The open-source java packages are included but not necessary. Unmark them and install sun's packages instead.
 
-### 10\. modify reserved space
+### 10. modify reserved space
 
 ```
 # sudo tune2fs -m 3 /dev/sda2
 ```
 
-### 11\. ctrl+alt+backspace
+### 11. ctrl+alt+backspace
 
 See [here](http://www.ubuntugeek.com/enable-ctrl-alt-backspace-in-ubuntukubuntu-10-04lucid-lynx.html): Since Ubuntu 9.04, the Ctrl-Alt-Backspace key combination to force a restart of X is now disabled by default, to eliminate the problem of accidentally triggering the key combination. In addition, the Ctrl-Alt-Backspace option is now configured as an X keymap (XKB) option, replacing the X server "DontZap" option and allowing per-user configuration of this setting. As a result, enabling or disabling the Ctrl+Alt+Backspace shortcut can now be done easily from the desktop. - Enabling Ctrl-Alt-Backspace for Ubuntu 10.04 \*\* Select "System" -> "Preferences" -> "Keyboard". \*\* Select the "Layouts" tab and click on the "Layout Options" button. \*\* Select "Key sequence to kill the X server" and enable "Control + Alt + Backspace". - Enabling Ctrl-Alt-Backspace for Kubuntu 10.04 \*\* Click on the Application launcher and select "System Settings". \*\* Click on "Regional & Language". \*\* Select "Keyboard Layout". \*\* Click on "Enable keyboard layouts" (in the Layout tab). \*\* Select the "Advanced" tab. Then select "Key sequence to kill the X server" and enable "Control + Alt + Backspace".

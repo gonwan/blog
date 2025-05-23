@@ -11,7 +11,7 @@ tags:
 
 This post covers the loop usage of bash shell. **NOTE**: read inline comments carefully :)
 
-### 1\. for loop
+### 1. for loop
 
 ```
 #!/bin/bash
@@ -71,7 +71,7 @@ done
 IFS=$IFSHOLD
 ```
 
-### 2\. while loop
+### 2. while loop
 
 ```
 #!/bin/bash
@@ -83,7 +83,7 @@ while [ $var1 -gt 0 ]; do
 done
 ```
 
-### 3\. until loop
+### 3. until loop
 
 ```
 #!/bin/bash
@@ -95,7 +95,7 @@ until [ $var1 -eq 0 ]; do
 done
 ```
 
-### 4\. break & continue
+### 4. break & continue
 
 ```
 #!/bin/bash
@@ -137,7 +137,7 @@ done
 
 There may be times when you're in an inner loop but need to stop the outer loop. The break command includes a single command line parameter value: `break n` where n indicates the level of the loop to break out of. By default, n is 1, indicating to break out of the current loop. If you set n to a value of 2, the break command will stop the next level of the outer loop.
 
-### 5\. redirect & pipe
+### 5. redirect & pipe
 
 Finally, you can either pipe or redirect the output of a loop within your shell script.
 

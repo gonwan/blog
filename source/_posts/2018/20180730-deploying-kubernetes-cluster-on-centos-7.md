@@ -10,7 +10,7 @@ tags:
 
 It is painful to deploying a Kubernetes cluster in mainland China. The installation requires access to Google servers, which is not so easy for every one. Fortunately, there are mirrors or alternative ways. I'll use Docker v1.13 and Kubernetes v1.11 in the article.
 
-#### 1\. Install Docker
+#### 1. Install Docker
 
 CentOS SCL should be enabled first.
 
@@ -19,7 +19,7 @@ CentOS SCL should be enabled first.
 # yum install docker
 ```
 
-#### 2\. Install Kubernetes
+#### 2. Install Kubernetes
 
 ##### 2.1 Add the Aliyun mirror for Kubernetes packages
 
@@ -188,7 +188,7 @@ Join the node to our Kubernetes master by running the command line in the `kubea
 
 ```
 
-##### 3\. Verify Kubernetes cluster status
+##### 3. Verify Kubernetes cluster status
 
 Verify nodes with:
 
@@ -230,7 +230,7 @@ If something goes wrong, and you cannot restore from it, simply reset the master
 # kubeadm reset
 ```
 
-##### 4\. Install Kubernetes Dashboard
+##### 4. Install Kubernetes Dashboard
 
 By default, all user pods are allocated on Kubernetes nodes(slaves). Pull the dashboard image in advance on the node machine:
 
@@ -283,7 +283,7 @@ subjects:
 # kubectl create -f dashboard-admin.yaml
 ```
 
-##### 5\. Troubleshoting
+##### 5. Troubleshoting
 
 In my office environment, errors occur and the `coredns` are always in `CrashLoopBackOff` status:
 
@@ -349,14 +349,14 @@ EOF
 }
 ```
 
-2\. flannel script updated:
+2. flannel script updated:
 
 ```
 # flannel v0.16.1
 # kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml
 ```
 
-3\. kubernetes dashboard script updated:
+3. kubernetes dashboard script updated:
 
 ```
 # kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml

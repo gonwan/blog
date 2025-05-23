@@ -13,11 +13,11 @@ This post provides a detailed view of the MSDN article [CRT Initialization](http
 
 > The CRT obtains the list of function pointers from the Visual C++ compiler. When the compiler sees a global initializer, it generates a dynamic initializer in the .CRT$XCU section (where CRT is the section name and XCU is the group name). To obtain a list of those dynamic initializers run the command dumpbin /all main.obj, and then search the .CRT$XCU section (when main.cpp is compiled as a C++ file, not a C file).
 > 
-> The CRT defines two pointers: - \_\_xc\_a in .CRT$XCA - \_\_xc\_z in .CRT$XCZ
+> The CRT defines two pointers: - __xc_a in .CRT$XCA - __xc_z in .CRT$XCZ
 > 
-> Both groups do not have any other symbols defined except \_\_xc\_a and \_\_xc\_z. Now, when the linker reads various .CRT groups, it combines them in one section and orders them alphabetically. This means that the user-defined global initializers (which the Visual C++ compiler puts in .CRT$XCU) will always come after .CRT$XCA and before .CRT$XCZ.
+> Both groups do not have any other symbols defined except __xc_a and __xc_z. Now, when the linker reads various .CRT groups, it combines them in one section and orders them alphabetically. This means that the user-defined global initializers (which the Visual C++ compiler puts in .CRT$XCU) will always come after .CRT$XCA and before .CRT$XCZ.
 > 
-> So, the CRT library uses both \_\_xc\_a and \_\_xc\_z to determine the start and end of the global initializers list because of the way in which they are laid out in memory after the image is loaded.
+> So, the CRT library uses both __xc_a and __xc_z to determine the start and end of the global initializers list because of the way in which they are laid out in memory after the image is loaded.
 
 Let's run our VS debugger to further investigate the CRT implementation. I'm using VS2010, and a global instance of class `A` is declared and initialized:
 

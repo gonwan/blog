@@ -11,19 +11,19 @@ tags:
 
 It seems a little easier when building Lucid kernel from ubuntu source.
 
-1\. Tools:
+1. Tools:
 
 ```
 # sudo apt-get install fakeroot kernel-wedge build-essential makedumpfile kernel-package
 ```
 
-2\. Sources:
+2. Sources:
 
 ```
 # sudo apt-get source linux-source-2.6.32
 ```
 
-3\. Customize:
+3. Customize:
 
 cd into "linux-2.6.32" root.
 
@@ -67,7 +67,7 @@ Simply add the x permission to all scripts, it's a [known bug](https://bugs.laun
 # chmod +x debian/scripts/misc/*
 ```
 
-4\. Build:
+4. Build:
 
 ```
 # fakeroot debian/rules clean
@@ -92,18 +92,18 @@ get_debug_info: Can't create a handle for a new debug session.
 makedumpfile Failed.
 ```
 
-Add option "no\_dumpfile=true" to the last command line. And there will be no vmcoreinfo-2.6.32-22-core2 file.
+Add option "no_dumpfile=true" to the last command line. And there will be no vmcoreinfo-2.6.32-22-core2 file.
 
-5\. Done:
+5. Done:
 
 I found that Lucid has 2675 driver modules while Hardy has only 1921. It seems the kernel was greatly enhanced between the two releases.
 
-My T60 has a Duo Core 1.83G CPU. It took about 90 minutes to finish. The kernel also consumed about 4G storage T.T. After all, two \*.deb files were generated: \*) linux-headers-2.6.32-22-core2\_2.6.32-22.33\_i386.deb \*) linux-image-2.6.32-22-core2\_2.6.32-22.33\_i386.deb
+My T60 has a Duo Core 1.83G CPU. It took about 90 minutes to finish. The kernel also consumed about 4G storage T.T. After all, two \*.deb files were generated: \*) linux-headers-2.6.32-22-core2_2.6.32-22.33_i386.deb \*) linux-image-2.6.32-22-core2_2.6.32-22.33_i386.deb
 
-6\. Others:
+6. Others:
 
 Since the build process used so much storage, I was monitor my available disk space from time to time using "df" utility. I found the "free space" is about 500M larger than "available space". What happened? Then I found the answer here: [http://ubuntuforums.org/showthread.php?t=328786&page=3](http://ubuntuforums.org/showthread.php?t=328786&page=3) . We can use "tune2fs" utility to set the size of reserved space:
 
 > Set the percentage of the filesystem which may only be allocated by privileged processes. Reserving some number of filesystem blocks for use by privileged processes is done to avoid filesystem fragmentation, and to allow system daemons, such as syslogd(8), to continue to function correctly after non-privileged processes are prevented from writing to the filesystem. Normally, the default percentage of reserved blocks is 5%.
 
-7\. Reference: - [https://help.ubuntu.com/community/Kernel/Compile](https://help.ubuntu.com/community/Kernel/Compile) - [http://blog.avirtualhome.com/2010/05/05/how-to-compile-a-ubuntu-lucid-kernel/](http://blog.avirtualhome.com/2010/05/05/how-to-compile-a-ubuntu-lucid-kernel/)
+7. Reference: - [https://help.ubuntu.com/community/Kernel/Compile](https://help.ubuntu.com/community/Kernel/Compile) - [http://blog.avirtualhome.com/2010/05/05/how-to-compile-a-ubuntu-lucid-kernel/](http://blog.avirtualhome.com/2010/05/05/how-to-compile-a-ubuntu-lucid-kernel/)

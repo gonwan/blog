@@ -8,7 +8,7 @@ tags:
   - "msvc"
 ---
 
-In C++, pre/post-main function call can be implemented using a global class instance. Its constructor and destructor are invoked automatically before and after the main function. But in C, no such mechanism. Actually, there's a glib [implementation](https://git.gnome.org/browse/glib/tree/glib/gconstructor.h) that can help. You may want to read my previous post about [CRT sections](http://www.gonwan.com/2014/02/13/msvc-crt-initialization/) of MSVC. I just copy the code and do some renaming:
+In C++, pre/post-main function call can be implemented using a global class instance. Its constructor and destructor are invoked automatically before and after the main function. But in C, no such mechanism. Actually, there's a glib [implementation](https://git.gnome.org/browse/glib/tree/glib/gconstructor.h) that can help. You may want to read my previous post about [CRT sections](https://www.gonwan.com/2014/02/13/msvc-crt-initialization/) of MSVC. I just copy the code and do some renaming:
 
 ```
 #include 

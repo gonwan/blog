@@ -10,7 +10,7 @@ tags:
 
 Here's some trivial note on using GObject library.
 
-### 1\. Private members
+### 1. Private members
 
 Recall our definition of `Base` type:
 
@@ -95,7 +95,7 @@ static void fake_base_instance_init(FakeBase *instance, gpointer data) {
 
 The private member is malloc in `class_init()` callback, and is ready to use after invoking `instance_init()`. When we will use property mechanism to get/set these private field later.
 
-### 2\. Naming convention
+### 2. Naming convention
 
 Official document: [http://library.gnome.org/devel/gobject/stable/gtype-conventions.html](http://library.gnome.org/devel/gobject/stable/gtype-conventions.html). Just follow it to make your code more readable.
 

@@ -13,7 +13,7 @@ While reading _Understanding the JVM - Advanced Features and Best Practices, Sec
 
 The code provides a better build experience, and compiles on my Linux box almost out of box. But remember, do not use a gcc compiler >= gcc-6. It defaults to C++14 and breaks the build. On macOS, the build scripts seem only support gcc. Actually, a clang compiler is required to build the objc code.
 
-1\. So the first step after downloading and unzipping the code, modify the configure script:
+1. So the first step after downloading and unzipping the code, modify the configure script:
 
 ```
 # cd openjdk
@@ -26,7 +26,7 @@ Comment out the lines(2 appearances):
 as_fn_error $? "GCC compiler is required. Try setting --with-tools-dir." "$LINENO" 5
 ```
 
-2\. Now install freetype and run configure:
+2. Now install freetype and run configure:
 
 ```
 # brew install freetype
@@ -55,7 +55,7 @@ Build performance summary:
 
 ```
 
-3\. Apply the following patch to fix build errors. Partially picked from an official OpenJDK10 [changeset](http://hg.openjdk.java.net/jdk10/jdk10/hotspot/rev/316854ef2fa2):
+3. Apply the following patch to fix build errors. Partially picked from an official OpenJDK10 [changeset](http://hg.openjdk.java.net/jdk10/jdk10/hotspot/rev/316854ef2fa2):
 
 ```
 diff -ru openjdk.old/hotspot/src/share/vm/opto/lcm.cpp openjdk/hotspot/src/share/vm/opto/lcm.cpp
@@ -114,7 +114,7 @@ diff -ru openjdk.old/jdk/src/macosx/native/sun/osxapp/ThreadUtilities.m openjdk/
 # patch -p1 < ../openjdk8.patch
 ```
 
-4\. Start the build:
+4. Start the build:
 
 ```
 # export USE_CLANG=true
@@ -139,7 +139,7 @@ End   2017-12-01 13:41:30
 -------------------------
 ```
 
-5\. Debugging with lldb:
+5. Debugging with lldb:
 
 The output binary lie in `openjdk/build/macosx-x86_64-normal-server-slowdebug/jdk`. The output of `java -version`:
 

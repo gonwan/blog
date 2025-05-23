@@ -18,23 +18,23 @@ As mentioned [here](http://labs.qt.nokia.com/2010/11/09/qt-4-7-1-released/), The
 
 Now, we will have our Linux tutorial for Ubuntu.
 
-1\. Download and install the following packages (32-bit versions only): \* [gcce-4.4.172-r1.deb](http://pepper.troll.no/s60prereleases/linux-packages/gcce-4.4.172-r1.deb) \* [s60-sdk-5.0.deb](http://pepper.troll.no/s60prereleases/linux-packages/s60-sdk-5.0.deb) \* [runonphone-4.7.1.deb](http://pepper.troll.no/s60prereleases/linux-packages/runonphone-4.7.1.deb) \* [qt-symbian-libs-4.7.1-r1.deb](http://pepper.troll.no/s60prereleases/linux-packages/qt-symbian-libs-4.7.1-r1.deb) (Old version: [qt-symbian-libs-4.7.1.deb](http://pepper.troll.no/s60prereleases/linux-packages/qt-symbian-libs-4.7.1.deb))
+1. Download and install the following packages (32-bit versions only): \* [gcce-4.4.172-r1.deb](http://pepper.troll.no/s60prereleases/linux-packages/gcce-4.4.172-r1.deb) \* [s60-sdk-5.0.deb](http://pepper.troll.no/s60prereleases/linux-packages/s60-sdk-5.0.deb) \* [runonphone-4.7.1.deb](http://pepper.troll.no/s60prereleases/linux-packages/runonphone-4.7.1.deb) \* [qt-symbian-libs-4.7.1-r1.deb](http://pepper.troll.no/s60prereleases/linux-packages/qt-symbian-libs-4.7.1-r1.deb) (Old version: [qt-symbian-libs-4.7.1.deb](http://pepper.troll.no/s60prereleases/linux-packages/qt-symbian-libs-4.7.1.deb))
 
-2\. Install App TRK on your phone. It's a debug service. Find \*.sisx files [here](http://tools.ext.nokia.com/trk/). Check the TRKPackages.xml file to get correct version for your phone. For my C5-03, I used s60\_5\_0\_app\_trk\_3\_2\_7.sisx.
+2. Install App TRK on your phone. It's a debug service. Find \*.sisx files [here](http://tools.ext.nokia.com/trk/). Check the TRKPackages.xml file to get correct version for your phone. For my C5-03, I used s60_5_0_app_trk_3_2_7.sisx.
 
-3\. Install Qt libs for Symbian. They can be found at Qt's ftp site: [ftp://ftp.qt.nokia.com/pub/qt/symbian/](ftp://ftp.qt.nokia.com/pub/qt/symbian/). I installed version 4.7.1 as the developing library. Here's what exactly each \*.sis package contains:
+3. Install Qt libs for Symbian. They can be found at Qt's ftp site: [ftp://ftp.qt.nokia.com/pub/qt/symbian/](ftp://ftp.qt.nokia.com/pub/qt/symbian/). I installed version 4.7.1 as the developing library. Here's what exactly each \*.sis package contains:
 
-> \* fluidlauncher.sis Contains around 10 different Qt demos. Depends on Qt and Open C. \* qt.sis Contains the Qt libraries Symbian Signed for Nokia phones. Depends on Open C. \* qt\_selfsigned.sis A self-signed version of the above library. Works on other phones such as the Samsung i8910. \* qtwebkit.sis Contains the QtWebKit library Symbian Signed for Nokia phones. Depends on Qt. \* qtwebkit\_selfsigned.sis A self-signed version of the above library. Works on other phones such as the Samsung i8910. \* qt\_demos.sis Contains qt.sis, qtwebkit.sis, fluidlauncher.sis and Open C all in one convenient package. No other dependencies. \* qt\_installer.sis Contains qt.sis, qtwebkit.sis and Open C all in one convenient package. No other dependencies.
+> \* fluidlauncher.sis Contains around 10 different Qt demos. Depends on Qt and Open C. \* qt.sis Contains the Qt libraries Symbian Signed for Nokia phones. Depends on Open C. \* qt_selfsigned.sis A self-signed version of the above library. Works on other phones such as the Samsung i8910. \* qtwebkit.sis Contains the QtWebKit library Symbian Signed for Nokia phones. Depends on Qt. \* qtwebkit_selfsigned.sis A self-signed version of the above library. Works on other phones such as the Samsung i8910. \* qt_demos.sis Contains qt.sis, qtwebkit.sis, fluidlauncher.sis and Open C all in one convenient package. No other dependencies. \* qt_installer.sis Contains qt.sis, qtwebkit.sis and Open C all in one convenient package. No other dependencies.
 
-Installing qt\_installer.sis is enough.
+Installing qt_installer.sis is enough.
 
-4\. Configure your QtCreator, add QtSimulator and QtSymbian versions. The Qt4 page should be something like:
+4. Configure your QtCreator, add QtSimulator and QtSymbian versions. The Qt4 page should be something like:
 
 [![qt_symbian_1](images/5370531978_ea924b3a87_z.jpg)](http://www.flickr.com/photos/gonwan1985/5370531978 "qt_symbian_1 by Binhao Qian, on Flickr")
 
-5\. Now, create a simple GUI application and add desktop/simulator/device targets, so that you can run on all of them. [![qt_symbian_2](images/5370550738_966729e563_o.png)](http://www.flickr.com/photos/gonwan1985/5370550738 "qt_symbian_2 by Binhao Qian, on Flickr")
+5. Now, create a simple GUI application and add desktop/simulator/device targets, so that you can run on all of them. [![qt_symbian_2](images/5370550738_966729e563_o.png)](http://www.flickr.com/photos/gonwan1985/5370550738 "qt_symbian_2 by Binhao Qian, on Flickr")
 
-6\. Run on phone.
+6. Run on phone.
 
 When App TRK is installed, connect the phone to the PC using the USB cable. Select "PCSuite" as connection type. Then run App TRK on the phone, and make sure that the connection type is USB. This can be changed under the Settings menu entry. If necessary, choose Connect from the menu.
 

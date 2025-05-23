@@ -7,7 +7,7 @@ tags:
   - "msvc"
 ---
 
-The article is originally inspired by this one: [http://www.openrce.org/articles/full\_view/23](http://www.openrce.org/articles/full_view/23). The undocumented parameters in MSVC++ compiler are: /d1reportSingleClassLayout<classname> and /d1reportAllClassLayout.
+The article is originally inspired by this one: [http://www.openrce.org/articles/full_view/23](http://www.openrce.org/articles/full_view/23). The undocumented parameters in MSVC++ compiler are: /d1reportSingleClassLayout<classname> and /d1reportAllClassLayout.
 
 A simple example:
 
