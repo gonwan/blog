@@ -31,8 +31,8 @@ More info: [https://www.percona.com/live/18/sessions/orchestrator-high-availabil
 
 ### Run
 
-```
-# docker-compose up -d
+```bash
+$ docker-compose up -d
 ```
 
 | Component | Address | External Address |
@@ -50,12 +50,12 @@ Open [http://localhost:14000](http://localhost:14000) to visit Orchestrator.
 
 Connect to MySQL via HAProxy:
 
-```
-# mysql -hlocalhost -uroot -psecret_valley
+```bash
+$ mysql -hlocalhost -uroot -psecret_valley
 ```
 
 Verify cluster failover with:
 
-```
+```bash
 mysql> select @@hostname;
 ```

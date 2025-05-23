@@ -12,8 +12,8 @@ I read this [article](http://motersho.com/blog/index.php/2010/03/08/fix-minimize
 
 Then I tried to modify the theme files. Take "Radiance" theme as example:
 
-```
-# sudo gedit /usr/share/themes/Radiance/index.theme
+```bash
+$ sudo gedit /usr/share/themes/Radiance/index.theme
 ```
 
 Change the last line into:
@@ -24,8 +24,8 @@ ButtonLayout=menu:minimize,maximize,close
 
 This will set your window button order. And every time you switch to "Radiance" theme, no confirm dialog will prompt to tell that the button order will be changed. Then:
 
-```
-# sudo gedit /usr/share/themes/Radiance/metacity-1/metacity-theme-1.xml
+```bash
+$ sudo gedit /usr/share/themes/Radiance/metacity-1/metacity-theme-1.xml
 ```
 
 Search "menu_focused_normal", there are four lines regarding graphics drawing of menu: "menu_focused_normal", "menu_focused_prelight", "menu_unfocused_prelight", "menu_unfocused_prelight". Add first line into "menu_focused_\*" and remove the image tag, and use second line to replace the image tag in "menu_unfocused_\*" too.

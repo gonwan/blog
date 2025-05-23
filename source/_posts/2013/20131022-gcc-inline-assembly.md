@@ -10,7 +10,7 @@ tags:
 
 Inline assembly is used in Linux kernel to optimize performance or access hardware. So I decided to check it first. Before digging deeper, you may wanna read the [GCC Inline Assembly HOWTO](http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html) to get a general understanding. In C, a simple add function looks like:
 
-```
+```cpp
 int add1(int a, int b)
 {
     return a + b;
@@ -19,7 +19,7 @@ int add1(int a, int b)
 
 Its inline assembly version may be:
 
-```
+```cpp
 int add2(int a, int b)
 {
     __asm__ __volatile__ ("movl 12(%ebp), %eax\n\t"
@@ -31,7 +31,7 @@ int add2(int a, int b)
 
 Or simpler:
 
-```
+```cpp
 int add3(int a, int b)
 {
     __asm__ __volatile__ ("movl 12(%ebp), %eax\n\t"
@@ -42,8 +42,8 @@ int add3(int a, int b)
 
 Here's its generated code by gcc:
 
-```
-# gcc -S testasm_linux.c -o testasm_linux.s
+```bash
+$ gcc -S testasm_linux.c -o testasm_linux.s
 ```
 
 Output:
@@ -76,7 +76,7 @@ add3:
 
 Our inline assembly is surrounded by #APP and #NO_APP comments. Redundant gcc directives are already removed, the remaining are just function prolog/epilog code. `add2()` and `add3()` works fine using default gcc flags. But it is not the case when -O2 optimize flag is passed. From the output of `gcc -S -O2`(try it yourself), I found these 2 function calls are inlined in their caller, no function call at all. These 2 issues prevent the inline assembly from working: - Depending on %eax to be the return value. But it is silently ignored in -O2. - Depending on 12(%ebp) and 8(%ebp) as parameters of function. But it is not guaranteed that parameters are there in -O2. To solve issue 1, an explicit return should be used:
 
-```
+```cpp
 int add4(int a, int b)
 {
     int res;
@@ -91,7 +91,7 @@ int add4(int a, int b)
 
 To solve issue 2, parameters are required to be loaded in registers first:
 
-```
+```cpp
 int add5(int a, int b)
 {
     int res;
@@ -106,7 +106,7 @@ int add5(int a, int b)
 
 `add5()` now works in -O2. The default calling convention is cdecl for gcc. %eax, %ecx and %edx can be used from scratch in a function. It's the function caller's duty to preserve these registers. These registers are so-called scratch registers. So what if we specify to use other registers other than these scratch registers, like %esi and %edi?
 
-```
+```cpp
 int add6(int a, int b)
 {
     int res;
@@ -153,7 +153,7 @@ add6:
 
 It seems that code generation of gcc in default optimize level is not so efficient:) But you should actually noticed that %esi and %edi are pushed onto stack before their usage, and popped out when finishing. These code generation is automatically done by gcc, since you have specified to use %esi("S") and %edi("D") in input list of the inline assembly. Actually, the code can be simpler by specify %eax as both input and output:
 
-```
+```cpp
 int add7(int a, int b)
 {
     int res;
@@ -167,7 +167,7 @@ int add7(int a, int b)
 
 We can tell gcc to use a general register("r") available in current context in inline assembly:
 
-```
+```cpp
 int add8(int a, int b)
 {
     int res;
@@ -209,7 +209,7 @@ add8:
 
 %eax is moved to %eax? gcc selected %eax and %edx as general registers to use.  The code accidentally does the right job, but it is still a potential pitfall. Clobber list can be used to avoid this:
 
-```
+```cpp
 int add9(int a, int b)
 {
     int res;

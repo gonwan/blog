@@ -16,10 +16,10 @@ In this article, I will try to define a fundamental type using in GObject.Here's
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
-#include 
-#include 
-
+```cpp
+#include <stdio.h>
+#include <glib-object.h>
+ 
 int main() {
     /* Initialize type system */
     g_type_init();
@@ -52,14 +52,14 @@ int main() {
     printf("Is value abstract? %s\n", G_TYPE_IS_VALUE_ABSTRACT(my_type_id) ? "yes" : "no");
     printf("Is value type: %s\n", G_TYPE_IS_VALUE_TYPE(my_type_id) ? "yes" : "no");
     printf("Has value table: %s\n", G_TYPE_HAS_VALUE_TABLE(my_type_id) ? "yes" : "no");
-
+ 
     return 0;
 }
 ```
 
 My fundamental type is created by calling `g_type_register_fundamental()` function. A `GTypeInfo` and a `GTypeFundamentalInfo` struct are passed as parameters. And here comes the linux Makefile. You can use pkg-config to replace my include and lib paths:
 
-```
+```makefile
 CC      := gcc
 CFLAGS  := -ansi -Wall
 INCPATH := -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include

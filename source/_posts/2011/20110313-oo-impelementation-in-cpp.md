@@ -14,13 +14,13 @@ Now, let's start. Since C++ supports inheritance and polymorphism in language le
 
 **NOTE**: To use Qt's object mechanism, your class should inherit `QObject` class and include the `Q_OBJECT` macro.
 
-```
+```cpp
 // qfakebase.h
 #ifndef QFAKEBASE_H
 #define QFAKEBASE_H
 
-#include 
-#include 
+#include <QtCore/QObject>
+#include <QtCore/QString>
 
 
 namespace Fake {
@@ -69,10 +69,10 @@ signals:
 #endif // QFAKEBASE_H
 ```
 
-```
+```cpp
 // qfakebase.cpp
 #include "qfakebase.h"
-#include 
+#include <stdio.h>
 
 
 namespace Fake {
@@ -139,16 +139,16 @@ void QBase::emitBasePrintString(QString str) {
 
 Just note the forward declaration of `QBasePrivate` private class. It is define in \*.c file, and cannot be used by client applications. We defined a `d_ptr` protected member variable of this type to hold all private data values. Qt library provideds a series of easy-to-use macros to support this scheme to implementation:
 
-```
+```cpp
 // qglobal.h
 #define Q_DECLARE_PRIVATE(Class) \
-    inline Class##Private* d_func() { return reinterpret_cast(d_ptr); } \
-    inline const Class##Private* d_func() const { return reinterpret_cast(d_ptr); } \
+    inline Class##Private* d_func() { return reinterpret_cast<Class##Private *>(d_ptr); } \
+    inline const Class##Private* d_func() const { return reinterpret_cast<const Class##Private *>(d_ptr); } \
     friend class Class##Private;
 
 #define Q_DECLARE_PUBLIC(Class) \
-    inline Class* q_func() { return static_cast(q_ptr); } \
-    inline const Class* q_func() const { return static_cast(q_ptr); } \
+    inline Class* q_func() { return static_cast<Class *>(q_ptr); } \
+    inline const Class* q_func() const { return static_cast<const Class *>(q_ptr); } \
     friend class Class;
 
 #define Q_D(Class) Class##Private * const d = d_func()
@@ -157,13 +157,13 @@ Just note the forward declaration of `QBasePrivate` private class. It is define 
 
 Qt library supports properties and meta info. properties are defined with `Q_PROPERTY`macro, while class meta info are defined with `Q_CLASSINFO`. Both of them can be inherited by derived classes. Last is Qt's event-driven mechanism: signals/slots. Since they are also based on `QObject`, we had to define a test class to include all slots:
 
-```
+```cpp
 // mytestclass.h
 #ifndef MYTESTCLASS_H
 #define MYTESTCLASS_H
 
-#include 
-#include 
+#include <QtCore/QObject>
+#include <stdio.h>
 
 
 /*
@@ -197,11 +197,11 @@ public slots:
 
 Test code:
 
-```
-#include 
-#include 
-#include 
-#include 
+```cpp
+#include <stdio.h>
+#include <QtCore/QMetaClassInfo>
+#include <QtCore/QObject>
+#include <QtCore/QVariant>
 #include "qfakebase.h"
 #include "qfakederived.h"
 #include "mytestclass.h"

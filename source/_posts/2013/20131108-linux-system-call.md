@@ -11,8 +11,8 @@ tags:
 
 The HelloWorld application is much simpler than the Windows one. Just put parameters into registers from %eax to %edx, and trigger a 0x80 interrupt.
 
-```
-# gcc -nostdlib syscall_linux.s -o syscall_linux
+```bash
+$ gcc -nostdlib syscall_linux.s -o syscall_linux
 .global _start
 
 .text

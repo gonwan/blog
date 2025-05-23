@@ -12,7 +12,7 @@ Properties are supported by the GObject library. To use it, you should override 
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 enum {
     PROP_0,
     PROP_BASE_ID,
@@ -73,7 +73,7 @@ static void fake_base_class_init(FakeBaseClass *klass, gpointer data) {
 
 All APIs are clear and easy to use, please refer to the official document. Last but not least, properties can be inherited by derived classes. Here's my test code:
 
-```
+```cpp
 int main() {
     // ...
     /* Base object */

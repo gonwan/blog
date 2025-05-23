@@ -12,7 +12,7 @@ tags:
 
 Adopting to using Spring Data JPA these day, there is a [post](https://vladmihalcea.com/2017/10/17/9-high-performance-tips-when-using-mysql-with-jpa-and-hibernate/) saying: _IDENTITY generator disables JDBC batch inserts_. To figure out the impact, create a table with 10 data fields and an auto-increment id for testing. I am using MySQL 5.7.20 / MariaDB 10.3.3 / Spring Data JPA 1.11.8 / Hibernate 5.0.12.
 
-```
+```sql
 CREATE TABLE `t_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `field1` varchar(255) DEFAULT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `t_user` (
 
 And generate the persistence entity, add `@GeneratedValue` annotation:
 
-```
+```java
 package com.gonwan.spring.generated;
 
 import javax.persistence.*;
@@ -113,7 +113,7 @@ spring.jpa.hibernate.use-new-id-generator-mappings=true
 
 I began to think that was the whole story for batch, and the `datasource-proxy` interceptor also traced down the batch SQL. But after I looked into dumped TCP packages using [wireshark](https://www.wireshark.org/), I found the final SQL was still not in batch format. Say, they were in:
 
-```
+```sql
 insert into `t_user` (field1, ...) values ('value1_1', ...);
 insert into `t_user` (field1, ...) values ('value1_2', ...);
 insert into `t_user` (field1, ...) values ('value1_3', ...);
@@ -121,7 +121,7 @@ insert into `t_user` (field1, ...) values ('value1_3', ...);
 
 Instead of:
 
-```
+```sql
 insert into `t_user` (field1, ...) values ('value1_1', ...), ('value1_2', ...), ('value1_3', ...);
 ```
 
@@ -140,7 +140,7 @@ Finished: threads=32, records_per_threads=2000, duration_in_ms=6388
 
 Last switch to `GenerationType.SEQUENCE`. [Sequence](https://mariadb.com/kb/en/library/sequences/) is a new feature added in MariaDB 10.3 series. Create a sequence in MariaDB with:
 
-```
+```sql
 CREATE SEQUENCE `s_user` START WITH 1 INCREMENT BY 100;
 ```
 
@@ -148,7 +148,7 @@ Generally, the increment should match the one specified in `@SequenceGenerator`,
 
 Hibernate apparently does not support the new feature, I dealt with it by adding a new dialect:
 
-```
+```java
 package com.gonwan.spring;
 
 import org.hibernate.dialect.MySQL5Dialect;

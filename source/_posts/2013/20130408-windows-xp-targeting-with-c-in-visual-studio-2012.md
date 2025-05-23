@@ -20,15 +20,15 @@ In update 1, the static and dynamic link libraries for the CRT, STL and MFC have
 
 Except the library update, there's none real difference when selecting "v110" or "v110_xp" toolchain. I wrote a simple HelloWorld application and compare the two generated binary.
 
-```
-# hexdump hello_vs2012.exe > vs2012.txt
-# hexdump hello_vs2012_xp.exe > vs2012_xp.txt
-# diff -ru vs2012.txt vs2012_xp.txt
+```bash
+$ hexdump hello_vs2012.exe > vs2012.txt
+$ hexdump hello_vs2012_xp.exe > vs2012_xp.txt
+$ diff -ru vs2012.txt vs2012_xp.txt
 ```
 
 And the output:
 
-```
+```diff
 --- vs2012.txt 2013-04-08 17:25:32.253623916 +0800
 +++ vs2012_xp.txt 2013-04-08 17:25:41.321624132 +0800
 @@ -12,11 +12,11 @@
@@ -50,8 +50,8 @@ And the output:
 
 The first difference represents the timestamps of the two binary. The other two differences standard for "Operating System Version" and "Subsystem Version". We have 5.1 for Windows XP, 6.0 for Windows Vista and later. That's all. And we can easily build a Windows XP binary from the command line with only one additional linker switch:
 
-```
-# cl hello.cpp /link /subsystem:console,5.01
+```bash
+$ cl hello.cpp /link /subsystem:console,5.01
 ```
 
 I also built a simple MFC application(dynamic link to MFC) with Windows XP target in VS2012. It runs fine under Windows XP with MFC DLLs copied in the same directory. From VS2010, the SxS assembly is not used any more. All you need to do is copy the dependent DLLs to the application directory and run.

@@ -14,7 +14,7 @@ Following Appendix A in the book _[Hadoop: The Definitive Guide, 4th Ed](http://
 
 1. Download and unpack the hadoop package, and set environment variables in your `~/.bashrc`.
 
-```
+```bash
 export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
 export HADOOP_HOME=~/hadoop-2.5.2
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
@@ -22,8 +22,8 @@ export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 Verify with:
 
-```
-# hadoop version
+```bash
+$ hadoop version
 Hadoop 2.5.2
 Subversion https://git-wip-us.apache.org/repos/asf/hadoop.git -r cc72e9b000545b86b75a61f4835eb86d57bfafc0
 Compiled by jenkins on 2014-11-14T23:45Z
@@ -36,51 +36,51 @@ The 2.5.2 distribution package is build in 64bit for `*.so` files, use the 2.4.1
 
 2. Edit config files in `$HADOOP_HOME/etc/hadoop`:
 
+```xml
+<?xml version="1.0"?>
+<!-- core-site.xml -->
+<configuration>
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://localhost/</value>
+  </property>
+</configuration>
 ```
 
-
-
-  
-    fs.defaultFS
-    hdfs://localhost/
-  
-
-```
-
-```
-
-
-
-  
-    dfs.replication
-    1
-  
-
+```xml
+<?xml version="1.0"?>
+<!-- hdfs-site.xml -->
+<configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+</configuration>
 ```
 
 3. Config SSH: Hadoop needs to start daemons on hosts of a cluster via SSH connection. A public key is generated to avoid password input.
 
-```
-# ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```bash
+$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
 Verify with:
 
-```
-# ssh localhost
+```bash
+$ ssh localhost
 ```
 
 4. Format HDFS filesystem:
 
-```
-# hdfs namenode -format
+```bash
+$ hdfs namenode -format
 ```
 
 5. Start HDFS:
 
-```
-# start-dfs.sh
+```bash
+$ start-dfs.sh
 Starting namenodes on [localhost]
 localhost: starting namenode, logging to /home/gonwan/hadoop-2.5.2/logs/hadoop-gonwan-namenode-gonwan-mate17.out
 localhost: starting datanode, logging to /home/gonwan/hadoop-2.5.2/logs/hadoop-gonwan-datanode-gonwan-mate17.out
@@ -90,8 +90,8 @@ Starting secondary namenodes [0.0.0.0]
 
 Verify running with `jps` command:
 
-```
-# jps
+```bash
+$ jps
 2535 NameNode
 2643 DataNode
 2931 Jps
@@ -100,11 +100,11 @@ Verify running with `jps` command:
 
 6. Some tests:
 
-```
-# hadoop fs -ls /
-# hadoop fs -mkdir /test
-# hadoop fs -put ~/.bashrc /
-# hadoop fs -ls /
+```bash
+$ hadoop fs -ls /
+$ hadoop fs -mkdir /test
+$ hadoop fs -put ~/.bashrc /
+$ hadoop fs -ls /
 Found 2 items
 -rw-r--r-- 1 gonwan supergroup        215 2016-04-19 16:07 /.bashrc
 drwxr-xr-x   - gonwan supergroup          0 2016-04-19 16:06 /test
@@ -112,8 +112,8 @@ drwxr-xr-x   - gonwan supergroup          0 2016-04-19 16:06 /test
 
 7. Stop HDFS:
 
-```
-# stop-dfs.sh
+```bash
+$ stop-dfs.sh
 ```
 
 8. If there is an error like:

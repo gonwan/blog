@@ -28,33 +28,33 @@ During the **second phase**, which occurs when templates are instantiated at a p
 
 To summarize: _nondependent names_ are looked up in first phase, _qualified dependent names_ are looked up in second phase, and _unqualified dependent names_ are looked up in both phases. Some code to illustrate how this works:
 
-```
-#include 
+```cpp
+#include <iostream>
 
-template 
+template <typename T>
 struct Base {
     typedef int I;
 };
 
-template 
-struct Derived : Base {
+template <typename T>
+struct Derived : Base<T> {
     void foo() {
-        //typename Base::I i = 1.024;
+        //typename Base<T>::I i = 1.024;
         I i = 1.024;
         std::cout << i << std::endl;
     }
 };
 
 template <>
-struct Base {
+struct Base<void> {
     //const static int I = 0;
     typedef double I;
 };
 
 int main() {
-    Derived d1;
+    Derived<bool> d1;
     d1.foo();
-    Derived d2;
+    Derived<void> d2;
     d2.foo();
     return 0;
 }
@@ -73,7 +73,7 @@ temp1.cpp:13:22: error: ‘i’ was not declared in this scope
 
 Another code snippet:
 
-```
+```cpp
 #ifdef _USE_STRUCT
 /* ADL of nondependent names in two-phase lookup should
  * only works for types that have an associated namespace. */
@@ -84,7 +84,7 @@ struct Int {
 typedef int Int;
 #endif
 
-template 
+template <typename T>
 void f(T i) {
     g(i);
 };

@@ -9,6 +9,7 @@ tags:
 
 Continue with last article, we will try to write an identical application to use OO features including: encapsulation, inheritance, polymorphism, properties, meta info and event-driven mechanism. Java supports the 3 basic features in language level. It uses interfaces to implements event-driven. To implements properties and meta info, we have to write our own code. We want to implements API like `someObject.setProperty(prop-name, prop-value)`. I write my own `NewObject` class:
 
+```java
 package my;
 
 import java.lang.reflect.Field;
@@ -20,10 +21,10 @@ import my.annotation.ClassInfoList;
 import my.annotation.Property;
 import my.annotation.PropertyAccess;
 
-/\*\*
- \* We just set/get values as Object type. End users know the exact type of the
- \* property, and they can do the conversion themselves.
- \*/
+/**
+ * We just set/get values as Object type. End users know the exact type of the
+ * property, and they can do the conversion themselves.
+ */
 public class NewObject {
 
     private static String makeGetPropertyName(Field field) {
@@ -42,11 +43,11 @@ public class NewObject {
         return "set" + Character.toUpperCase(fieldName.charAt(0)) + fieldName.substring(1);
     }
 
-    /\*\*
-     \* Get property
-     \* @param name
-     \* @return
-     \*/
+    /**
+     * Get property
+     * @param name
+     * @return
+     */
     public Object getProperty(String name) {
         Class klass = this.getClass();
         Field field = null;
@@ -88,11 +89,11 @@ public class NewObject {
         return null;
     }
 
-    /\*\*
-     \* Set property
-     \* @param name
-     \* @param value
-     \*/
+    /**
+     * Set property
+     * @param name
+     * @param value
+     */
     public void setProperty(String name, Object value) {
         Class klass = this.getClass();
         Field field = null;
@@ -128,55 +129,56 @@ public class NewObject {
         }
     }
 
-    /\*\*
-     \* Dump class info by given class
-     \* @param klass
-     \*/
+    /**
+     * Dump class info by given class
+     * @param klass
+     */
     public static void dumpClassInfo(Class klass) {
         System.out.println(klass.getCanonicalName() + "(");
-        ClassInfo\[\] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
+        ClassInfo[] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
         for (int i = 0; i < klassInfos.length; i++) {
-            System.out.println(klassInfos\[i\].name() + "=" + klassInfos\[i\].value());
+            System.out.println(klassInfos\[i\].name() + "=" + klassInfos[i].value());
         }
         System.out.println(")");
     }
 
-    /\*\*
-     \* Dump class info of current object
-     \*/
+    /**
+     * Dump class info of current object
+     */
     public void dumpClassInfo() {
         Class klass = this.getClass();
         System.out.println(klass.getCanonicalName() + "(");
-        ClassInfo\[\] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
+        ClassInfo[] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
         for (int i = 0; i < klassInfos.length; i++) {
-            System.out.println(klassInfos\[i\].name() + "=" + klassInfos\[i\].value());
+            System.out.println(klassInfos[i].name() + "=" + klassInfos[i].value());
         }
         System.out.println(")");
     }
 
-    /\*\*
-     \* Get class info by given name
-     \* @param name
-     \* @return
-     \*/
+    /**
+     * Get class info by given name
+     * @param name
+     * @return
+     */
     public String getClassInfo(String name) {
         Class klass = this.getClass();
         ClassInfo\[\] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
         for (int i = 0; i < klassInfos.length; i++) {
-            if (klassInfos\[i\].name().equals(name)) {
-                return klassInfos\[i\].value();
+            if (klassInfos\[i].name().equals(name)) {
+                return klassInfos[i].value();
             }
         }
         return null;
     }
 
 }
+```
 
 To use our `setProperty()`/`getProperty()` method, all classes should derive from the `NewObject` class. To be consistent with the JavaBean convention, we assume that the getter/setter function to be "get"/"set" + capitalize_first_letter_of(member-variable-name).
 
 `Property` annotation and `PropertyAccess` enum are defined to indicate properties:
 
-```
+```java
 // PropertyAccess.java
 package my.annotation;
 
@@ -185,7 +187,7 @@ public enum PropertyAccess {
 }
 ```
 
-```
+```java
 // Property.java
 package my.annotation;
 
@@ -204,7 +206,7 @@ public @interface Property {
 
 `ClassInfo` and `ClassInfoList` annotation are defined to indicate class meta info:
 
-```
+```java
 // ClassInfo.java
 package my.annotation;
 
@@ -221,7 +223,7 @@ public @interface ClassInfo {
 }
 ```
 
-```
+```java
 // ClassInfoList.java
 package my.annotation;
 
@@ -239,7 +241,7 @@ public @interface ClassInfoList {
 
 Let's see how to use them, our `Base` is defined as:
 
-```
+```java
 // Base.java
 package fake;
 

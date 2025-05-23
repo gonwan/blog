@@ -17,17 +17,17 @@ tags:
 
 然后是代码, 有点长:
 
-```
-#include 
-#include 
-#include 
+```cpp
+#include <httpd.h>
+#include <http_protocol.h>
+#include <http_config.h>
 
 
 static int print_item(void* rec, const char* key, const char* value)
 {
   /* rec is a user data pointer */
   request_rec* r = rec;
-  ap_rprintf(r, "%s%s",
+  ap_rprintf(r, "<tr><th>%s</th><td>%s</td></tr>",
       ap_escape_html(r->pool, key), ap_escape_html(r->pool, value));
   /* 0 would stop iterating, any other return value continues */
   return 1;
@@ -37,16 +37,16 @@ static void print_table(request_rec* r, apr_table_t* t,
                       const char* keyhead, const char* valhead)
 {
   /* table header */
-  ap_rputs("", r) ;
+  ap_rputs("<table>", r) ;
   ap_rprintf(r, 
-      "", 
+      "<thead><tr><th>%s</th><th>%s</th></tr></thead>", 
       keyhead, valhead);
   /* table data */
-  ap_rputs("", r);
+  ap_rputs("<tbody>", r);
   apr_table_do(print_item, r, t, NULL);
-  ap_rputs("", r);
+  ap_rputs("</tbody>", r);
   /* table footer */
-  ap_rputs("%s%s", r);
+  ap_rputs("</table>", r);
 }
 
 static int helloworld_handler(request_rec* r)
@@ -60,16 +60,16 @@ static int helloworld_handler(request_rec* r)
   }
   /* generate html header */
   ap_set_content_type(r, "text/html; charset=ascii");
-  ap_rputs("", r);
-  ap_rputs("", r);
-  ap_rputs("Apache HelloWorld Module", r);
-  ap_rputs("", r);
-  ap_rputs("Hello World!", r);
-  ap_rputs("This is the Apache HelloWorld module!", r) ;
+  ap_rputs("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01//EN\">", r);
+  ap_rputs("<html>", r);
+  ap_rputs("<head><title>Apache HelloWorld Module</title></head>", r);
+  ap_rputs("<body>", r);
+  ap_rputs("<h1>Hello World!</h1>", r);
+  ap_rputs("<p>This is the Apache HelloWorld module!</p>", r) ;
   /* print the request headers */
   print_table(r, r->headers_in, "Header", "Value") ;
-  ap_rputs("", r);
-  ap_rputs("", r);
+  ap_rputs("</body>", r);
+  ap_rputs("</html>", r);
   return OK;
 }
 
@@ -94,7 +94,7 @@ module AP_MODULE_DECLARE_DATA helloworld_module =
 
 接下来是编译的问题. 如果用VC 的话, 那么就是简单的把apache, apr, apr-util 的include 和lib 的路径加进去, 基本就通过编译了. 不过有的module 可能会依赖其它module, 个么这个也自己加. 我写了一个简单的Makefile 来编译, 如下:
 
-```
+```makefile
 APACHE=httpd-2.2.13
 
 
@@ -128,11 +128,11 @@ vs2005, vs2008 皆可通过编译. vs 的-I 选项似乎不支持绝对路径, �
 
 把编译出来的\*.so 文件拷贝到Apache 的modules 文件夹下. 最后来修改配置文件. 打开httpd.conf, 添加如下代码:
 
-```
+```apache
 LoadModule helloworld_module modules/mod_helloworld.so
-
+<Location /helloworld>
     SetHandler helloworld
-
+</Location>
 ```
 
 LoadModule 指令用来加载模块, 第一个参数是在代码中导出(export) 的模块名, 第二个参数是模块的路径. 然后来设置映射关系, 凡是URL 是/helloworld 开头的, 都用helloworld 这个handle 来处理, 而helloworld 这个handle, 实际上只是我们在代码中字符串比较用的, 参见helloworld_handler 这个函数.

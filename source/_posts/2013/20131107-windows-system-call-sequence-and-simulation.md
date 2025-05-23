@@ -13,9 +13,9 @@ There are hundreds of documents telling how Windows implements its system call, 
 
 The C code requires only SDK to compile, for I have copied all DDK definitions inline. It opens a `C:\test.txt` file and write `Hello World!` to it. Quite simple. I've tried a HelloWorld console application. But its call sequence is far more complex than I have expected, after I have made some reverse engineering and read some code from [ReactOS](http://www.reactos.org/) project([Wine](http://www.winehq.org/) does not help, since it does not implement a Win32 compatible call sequence in the console case). The code is the basis of our further investigation. It invokes `NtCreateFile()`, `NtWriteFile()` and `NtClose()` in `ntdll.dll` with dynamic loading:
 
-```
-#include 
-#include 
+```cpp
+#include <windows.h>
+#include <stdio.h>
 
 #define FILE_OVERWRITE_IF               0x00000005
 #define FILE_SYNCHRONOUS_IO_NONALERT    0x00000020
@@ -287,9 +287,9 @@ END main
 
 Compile the code with:
 
-```
-# ml /c testnt.asm
-# link /subsystem:console testnt.obj
+```bash
+$ ml /c testnt.asm
+$ link /subsystem:console testnt.obj
 ```
 
 The assembly code of `NtCreateFile()`, `NtWriteFile()` and `NtClose()` are copied directly from `ntdll.dll`. For `NtCreate()`, `25h` is the system service number that will be used to index into the `KiServiceTable`(SSDT, System Service Dispatch Table) to locate the kernel function that handles the call.

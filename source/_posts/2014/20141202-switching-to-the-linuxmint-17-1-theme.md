@@ -13,7 +13,7 @@ No broken visual glitch any more in eclipse. And it seems the new themes include
 
 You can compare with the previous screenshot: [Configuring Ubuntu Themes in Linuxmint 17](https://www.gonwan.com/2014/08/12/configuring-ubuntu-themes-in-linuxmint-17/). The only fix I want to apply is to make the theme look brighter. First, go to `/usr/share/themes/Mint-X-Aqua`. For gtk3 applications, patch with:
 
-```
+```diff
 --- gtk-3.0/gtk-main.css.bak	2014-12-02 14:06:03.864745990 +0800
 +++ gtk-3.0/gtk-main.css	2014-12-02 14:21:32.508879444 +0800
 @@ -1,8 +1,8 @@
@@ -31,7 +31,7 @@ You can compare with the previous screenshot: [Configuring Ubuntu Themes in Linu
 
 For gtk2 applications, patch with:
 
-```
+```diff
 --- gtk-2.0/gtkrc.bak	2014-12-02 14:22:07.798517093 +0800
 +++ gtk-2.0/gtkrc	2014-12-02 14:22:26.575901978 +0800
 @@ -1,6 +1,6 @@

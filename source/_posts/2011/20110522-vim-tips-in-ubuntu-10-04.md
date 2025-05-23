@@ -13,15 +13,15 @@ The objective of this article is to make Vim your programmer's editor.
 
 First, a normal version of Vim should be installed to enable syntax highlighting. The default installation of Ubuntu 10.04 only contains a compact version "vim-tiny":
 
-```
-# sudo apt-get install vim
+```bash
+$ sudo apt-get install vim
 ```
 
 Then copy a local vim configure file:
 
-```
-# cp /etc/vim/vimrc ~/.vimrc
-# vi ~/.vimrc
+```bash
+$ cp /etc/vim/vimrc ~/.vimrc
+$ vi ~/.vimrc
 ```
 
 ### 1. Line Number
@@ -114,14 +114,14 @@ set modeline
 
 Your C/C++ comment may look like one of the following:
 
-```
+```cpp
 /* vi: set ai ts=4 sw=4: */
 /* vim: set ai et ts=4 sw=4: */
 ```
 
 And likely, the Python comments:
 
-```
+```python
 # vi: set ai ts=4 sw=4:
 # vim: set ai et ts=4 sw=4:
 ```
@@ -138,14 +138,14 @@ Read related help by typing:
 
 There are lots of useful scripts in the Vim website that we can use. But Actually, Ubuntu repository also has some of them included:
 
-```
-# sudo apt-get install vim-scripts vim-addon-manager
+```bash
+$ sudo apt-get install vim-scripts vim-addon-manager
 ```
 
 After installation, these scripts are just downloaded, but not installed for your Vim. We list available script by typing:
 
-```
-# vim-addons
+```bash
+$ vim-addons
 ```
 
 Output on Lucid 10.04:
@@ -191,14 +191,14 @@ xmledit                     removed       removed
 
 The Taglist plugin is described here, while OmniCppComplete plugin in next section. Both of them make use of ctags utility. Install it first:
 
-```
-# sudo apt-get install exuberant-ctags
+```bash
+$ sudo apt-get install exuberant-ctags
 ```
 
 Now install the Taglist plugin to your Vim:
 
-```
-# vim-addons install taglist
+```bash
+$ vim-addons install taglist
 ```
 
 When editing a supported file type, Show the taglist window can be opened by one of the following:
@@ -246,9 +246,9 @@ More help info:
 
 Next, Vim provides basic C language completion using ctags. No C++ is supported. Additional languages script can be found in Vim's autoload directory, say `/usr/share/vim/vim72/autoload`. But you should generate necessary ctags index files first. For libc6 header files:
 
-```
-# cd ~/.vim 
-# ctags --c-kinds=+p --fields=+aS --extra=+q -f libc /usr/include/* /usr/include/arpa/* /usr/include/bits/* /usr/include/sys/*
+```bash
+$ cd ~/.vim
+$ ctags --c-kinds=+p --fields=+aS --extra=+q -f libc /usr/include/* /usr/include/arpa/* /usr/include/bits/* /usr/include/sys/*
 ```
 
 And add lines to .vimrc file:
@@ -278,16 +278,16 @@ More help info:
 
 Note, the `ccomplete` does not work well in C++ completion. So we need to install `OmniCppComplete` plugin:
 
-```
-# vim-addons install omnicppcomplete
+```bash
+$ vim-addons install omnicppcomplete
 ```
 
 Generate ctags index for libstdc++ and qt4:
 
-```
-# cd ~/.vim
-# ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f libcpp /usr/include/c++
-# ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f libqt4 /usr/include/qt4
+```bash
+$ cd ~/.vim
+$ ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f libcpp /usr/include/c++
+$ ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++ -f libqt4 /usr/include/qt4
 ```
 
 And add lines to .vimrc file:

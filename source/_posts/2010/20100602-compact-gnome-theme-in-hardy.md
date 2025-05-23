@@ -12,16 +12,16 @@ Refer to: [http://martin.ankerl.com/2008/10/10/how-to-make-a-compact-gnome-theme
 
 I chosen the Glossy theme and made a compact one. I tried to make smallest changes and it was enough.
 
-```
-# sudo cp -r /usr/share/themes/Glossy/ /usr/share/themes/GlossyCompact/
-# cd /usr/share/themes/GlossyCompact/
-# sudo gedit index.theme
+```bash
+$ sudo cp -r /usr/share/themes/Glossy/ /usr/share/themes/GlossyCompact/
+$ cd /usr/share/themes/GlossyCompact/
+$ sudo gedit index.theme
 ```
 
 Modify the name and comments, save.
 
-```
-# sudo gedit gtk-2.0/gtkrc
+```bash
+$ sudo gedit gtk-2.0/gtkrc
 ```
 
 Add the following line:

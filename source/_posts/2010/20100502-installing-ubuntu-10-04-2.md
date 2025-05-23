@@ -12,8 +12,8 @@ Some additional words:
 
 Today, I finally reverted to use pidgin instead of emphathy. There's a plugin call "musictracker" which displays the "now playing" info.
 
-```
-# sudo apt-get install pidgin-musictracker
+```bash
+$ sudo apt-get install pidgin-musictracker
 ```
 
 [![lucid_pidgin_now_playing](images/4571001642_86ef5b4d66_z.jpg)](http://www.flickr.com/photos/gonwan1985/4571001642 "lucid_pidgin_now_playing by Binhao Qian, on Flickr")

@@ -25,22 +25,22 @@ Fortunately, a new build target `localmodconfig` was added in [kernel 2.6.32](ht
 
 The build time was dramatically decreased to 16min to build only 244 modules. It could still boot my VM to desktop, and everything was working fine. However, it failed to mount an \*.iso file, since the module was not in lsmod when building I think. To use localmodconfig target, run:
 
-```
-# yes '' | make localmodconfig
+```bash
+$ yes '' | make localmodconfig
 ```
 
 It may end up with errors. Please ignore, a new .config file is already generated. Then remember to turn off the `CONFIG_DEBUG_KERNEL` option in the .config file, as mentioned in my previous article.
 
 Then [ccache](http://ccache.samba.org/) is used. I downloaded the source code and built myself, since the 3.x version seems to be faster than 2.4.x version:
 
-```
-# tar xzvf ccache-3.1.9.tar.gz
-# cd ccache-3.1.9/
-# ./configure
-# make
-# sudo make install
-# sudo ln -s /usr/local/bin/ccache /usr/local/bin/gcc
-# sudo ln -s /usr/local/bin/ccache /usr/local/bin/cc
+```bash
+$ tar xzvf ccache-3.1.9.tar.gz
+$ cd ccache-3.1.9/
+$ ./configure
+$ make
+$ sudo make install
+$ sudo ln -s /usr/local/bin/ccache /usr/local/bin/gcc
+$ sudo ln -s /usr/local/bin/ccache /usr/local/bin/cc
 ```
 
 Default prefix(`/usr/local`) is used here. Last 2 lines created symbolic links(named as the compiler) to ccache, to let ccache masquerade as the compiler. This is suggested in ccache's man page.
@@ -53,8 +53,8 @@ The first run creates the cache, and the second benefits from the cache. That's 
 
 To display ccache statistics, run:
 
-```
-# ccache -s
+```bash
+$ ccache -s
 cache directory                     /home/gonwan/.ccache
 cache hit (direct)                  2232
 cache hit (preprocessed)              14

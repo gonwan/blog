@@ -10,13 +10,15 @@ tags:
 
 ### 1. Environment
 
-\- windows xp - gcc-4.4 - boost-1.43
+- windows xp
+- gcc-4.4
+- boost-1.43
 
 ### 2. auto_ptr
 
 A smart pointer is an abstract data type that simulates a pointer while providing additional features, such as automatic garbage collection or bounds checking. There's `auto_ptr` in C++03 library for general use. But it's not so easy to deal with it. You may encounter pitfalls or limitations. The main drawback of `auto_ptr` is that it has the transfer-of-ownership semantic. I just walk through it. Please read comments in code carefully:
 
-```
+```cpp
 int *test_auto_ptr_exp() {
     auto_ptr p(new int(1));
     throw runtime_error("auto_ptr test exception.");
@@ -82,7 +84,7 @@ While, _lvalues_ name objects that persist beyond a single expression. For examp
 
 We may have another whole post to address the _rvalue_ feature. Now, let's take a look of the basic usage. Please carefully reading the comments:
 
-```
+```cpp
 unique_ptr get_unique_ptr(int i) {
     return unique_ptr (new int(i));
 }
@@ -109,7 +111,7 @@ One can ONLY make a copy of an rvalue `unique_ptr`. This confirms no ownership i
 
 Some more snippet:
 
-```
+```cpp
 struct aclass {
     aclass() { cout << "in aclass::ctor()" << endl; }
     ~aclass() { cout << "in aclass::dtor()" << endl; }
@@ -153,7 +155,7 @@ A `shared_ptr` is used to represent shared ownership; that is, when two pieces o
 
 Following snippet shows the use count changes when using `shared_ptr`. The use count changes from 0 to 3, then changes back to 0:
 
-```
+```cpp
 struct bclass {
     int i;
     bclass(int i) { this->i = i; }
@@ -187,7 +189,7 @@ void test_shared_ptr_basic() {
 
 Snippets showing pointer type conversion:
 
-```
+```cpp
 void test_shared_ptr_convertion() {
     /* p is deleted accurately without custom deleter */
     shared_ptr p(new aclass);
@@ -204,7 +206,7 @@ The `void` type can be used directly without a custom deleter, which is required
 
 Unlike `auto_ptr`, Since `shared_ptr` can be _shared_, it can be used in STL containers:
 
-```
+```cpp
 typedef shared_ptr bclass_ptr;
 
 struct bclass_ops {
@@ -239,7 +241,7 @@ void test_shared_ptr_containers() {
 
 `weak_ptr` objects are used for breaking cycles in data structures. See snippet:
 
-```
+```cpp
 struct mynode {
     int i;
     shared_ptr snext;
@@ -265,7 +267,7 @@ If we use uncomment to use `shared_ptr`, _head_ is not freed since there still o
 
 This class is only available in Boost. Since `unique_ptr` is already there in C++0x, this class may be thought as redundant. Snippet is also simple:
 
-```
+```cpp
 void test_scoped_ptr() {
     /* simple solution for simple needs */
     scoped_ptr p(new aclass);

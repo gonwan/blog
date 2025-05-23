@@ -27,7 +27,7 @@ COM, Component Object Model, 看名字, 应该知道这是一个基于组件的�
 
 然后就是继承了, 这也是COM 所用的方法. 首先声明一个IFastString 的接口, 然后是具体的 FastString 类. 并export 出一个全局函数来创建和返回FastString 的实例. 这个函数给dll 外的客户端代码调用, 是对外的唯一需要link 的接口. 由于我们得到了IFastString 的一个实例, 且有它的头文件(即所有操作声明), 所以我们就可以调用所有IFastString 的操作而不用link 到dll 中具体的操作实现. 好像很难懂, 看代码吧:
 
-```
+```cpp
 // IFastString.h
 class IFastString
 {

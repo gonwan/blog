@@ -9,24 +9,24 @@ tags:
 
 Currently reading _[C++ Templates: The Complete Guide](http://www.amazon.com/C-Templates-The-Complete-Guide/dp/0201734842/)_ these days. Just summarize confusions about template function overload & specialization.
 
-```
-#include 
+```cpp
+#include <iostream>
 using namespace std;
 
-template 
+template <typename T>
 void foo(T) {
     cout << "in foo(T)" << endl;    
 }
 
 /* overload only */
-template 
+template <typename T>
 void foo(T *) {
     cout << "in foo(T *)" << endl;
 }
 
 /* full specialization of foo(T *) */
 template <>
-void foo(int *) {
+void foo<int>(int *) {
     cout << "in foo(int *)" << endl;
 }
 
@@ -40,32 +40,32 @@ int main()
 
 It first selects `foo(T *)` over `foo(T)`, and use the specialized version `foo<int>(int *)`.
 
-```
-#include 
+```cpp
+#include <iostream>
 using namespace std;
 
-template 
+template <typename T>
 void foo(T) {
     cout << "in foo(T)" << endl;    
 }
 
 /* overload only */
-template 
+template <typename T>
 void foo(T *) {
     cout << "in foo(T *)" << endl;
 }
 
 /* full specialization of foo(T) */
 template <>
-void foo(int *) {
+void foo<int *>(int *) {
     cout << "in foo(int *)" << endl;
 }
 
 #if 0
 /* function partial specialization, not allowed in c++ specification. */
-template 
-void foo(T *) {
-    cout << "in foo(T *)" << endl;
+template <typename T>
+void foo<T *>(T *) {
+    cout << "in foo<T *>(T *)" << endl;
 }
 #endif
 

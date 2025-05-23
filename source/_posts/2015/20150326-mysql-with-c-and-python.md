@@ -11,12 +11,12 @@ Backup here:
 
 #### 1. C++
 
-```
+```cpp
 /*
  * # gcc test_mysql.c -o test_mysql -lmysqlclient -pedantic -Wall -Wextra
  */
-#include 
-#include 
+#include <stdio.h>
+#include <mysql/mysql.h>
 
 int main()
 {
@@ -78,7 +78,7 @@ int main()
 
 #### 2. Python
 
-```
+```python
 #!/usr/bin/python
 # sudo apt-get install python-mysql.connector
 # sudo apt-get install python3-mysql.connector

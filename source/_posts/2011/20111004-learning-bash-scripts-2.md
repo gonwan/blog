@@ -13,7 +13,7 @@ tags:
 
 When creating a shell script file, you must specify the shell you are using in the first line of the file. The format for this is:
 
-```
+```bash
 #!/bin/bash
 # This script displays the date and who's logged on
 date
@@ -26,7 +26,7 @@ In a normal shell script line, the pound sign(#) is used as a comment line. A co
 
 The `echo` command can display a simple text string if you add the string following the command.
 
-```
+```bash
 #!/bin/bash
 # basic usage
 echo This is a test.
@@ -68,7 +68,7 @@ The backtick allows you to assign the output of a shell command to a variable.
 
 \>: output redirect >>: output redirect append data <: input redirect <<: inline input redirect
 
-```
+```bash
 # wc << EOF
 > test string 1
 > test string 2
@@ -82,7 +82,7 @@ The inline input redirection symbol is the double less-than symbol (<<). Besides
 
 ### 4. Math Expression
 
-```
+```bash
 #!/bin/bash
 var1=10
 var2=3
@@ -110,7 +110,7 @@ The bash shell mathematical operators support only integer arithmetic. The most 
 
 The bash shell _if_ statement runs the command defined on the _if_ line. If the exit status of the command is zero (the command completed successfully), the commands listed under the _then_ section are executed. If the exit status of the command is anything else, the then commands aren't executed, and the bash shell moves on to the next command in the script.
 
-```
+```bash
 #!/bin/bash
 user=gonwan
 user2=test2
@@ -147,7 +147,7 @@ The `test` command provides a way to test different conditions in an _if-then_ s
 
 <table border="1"><tbody><tr><td>Comparison</td><td>Description</td></tr><tr><td>n1 -eq n2</td><td>Check if n1 is equal to n2.</td></tr><tr><td>n1 -ge n2</td><td>Check if n1 is greater than or equal to n2.</td></tr><tr><td>n1 -gt n2</td><td>Check if n1 is greater than n2.</td></tr><tr><td>n1 -le n2</td><td>Check if n1 is less than or equal to n2.</td></tr><tr><td>n1 -lt n2</td><td>Check if n1 is less than n2.</td></tr><tr><td>n1 -ne n2</td><td>Check if n1 is not equal to n2.</td></tr></tbody></table>
 
-```
+```bash
 #!/bin/bash
 val1=10
 val2=11
@@ -173,7 +173,7 @@ However, The `test` command wasn't able to handle the floating-point value. You 
 
 Trying to determine if one string is less than or greater than another is where things start getting tricky. There are two problems that often plague shell programmers when trying to use the greater-than or less-than features of the test command: - The greater-than and less-than symbols must be escaped, or the shell will use them as redirection symbols, with the string values as filenames. - The greater-than and less-than order is not the same as that used with the sort command.
 
-```
+```bash
 #!/bin/bash
 val1=ben
 val2=mike
@@ -199,7 +199,7 @@ While the [BashFAQ](http://mywiki.wooledge.org/BashFAQ/031) said: As of bash 4.1
 
 Well, this is easy, just walk through the snippet:
 
-```
+```bash
 #!/bin/bash
 case $USER in
 gonwan | barbara)

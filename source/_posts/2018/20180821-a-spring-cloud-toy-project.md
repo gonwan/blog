@@ -57,41 +57,37 @@ The project includes:
 
 ### Building Docker Images
 
-```
-export BUILD_NAME=2.0.0
-mvn clean package docker:build
+```bash
+$ export BUILD_NAME=2.0.0
+$ mvn clean package docker:build
 ```
 
 In case of running out of disk space, clean up unused images and volumes with:
 
-```
-docker rmi $(docker images -f "dangling=true" -q)
-docker volume prune
-
+```bash
+$ docker rmi $(docker images -f "dangling=true" -q)
+$ docker volume prune
 ```
 
 ### Running Docker Compose
 
-```
-export BUILD_NAME=2.0.0
-docker-compose -f docker/docker-compose.yml up
-
+```bash
+$ export BUILD_NAME=2.0.0
+$ docker-compose -f docker/docker-compose.yml up
 ```
 
 Or with separate services:
 
-```
-docker-compose -f docker/docker-compose.yml up authentication-service organization-service license-service
-
+```bash
+$ docker-compose -f docker/docker-compose.yml up authentication-service organization-service license-service
 ```
 
 ### Running Kubernetes
 
 NOTE: Kubernetes does not support environment variable substitution by default.
 
-```
-kubectl create -f kubernetes/kubernetes.yml
-
+```bash
+$ kubectl create -f kubernetes/kubernetes.yml
 ```
 
 ### Use Cases
@@ -102,18 +98,17 @@ Suppose you are using the kubernetes deployment.
 
 `curl` is used here, and 31004 is the cluster-wide port of the Zuul gateway server:
 
-```
-# curl -u eagleeye:thisissecret http://172.16.87.12:31004/api/auth/oauth/token -X POST -d "grant_type=password&scope=webclient&username=user&password=password1"
+```bash
+$ curl -u eagleeye:thisissecret http://172.16.87.12:31004/api/auth/oauth/token -X POST -d "grant_type=password&scope=webclient&username=user&password=password1"
 {"access_token":"d3b817dc-fb7a-4e65-a080-d0e34c0dc4d5","token_type":"bearer","refresh_token":"a5d12d05-78ff-4170-ab4f-b9c4e9886358","expires_in":41496,"scope":"webclient"}
-
 ```
 
 #### Get organization info
 
 Use the token returned from previous request.
 
-```
-# curl -H "Authorization: Bearer d3b817dc-fb7a-4e65-a080-d0e34c0dc4d5" http://172.16.87.12:31004/api/organization/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a
+```bash
+$ curl -H "Authorization: Bearer d3b817dc-fb7a-4e65-a080-d0e34c0dc4d5" http://172.16.87.12:31004/api/organization/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a
 {"id":"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a","name":"customer-crm-co","contactName":"Mark Balster","contactEmail":"mark.balster@custcrmco.com","contactPhone":"823-555-1212"}
 
 ```
@@ -122,8 +117,8 @@ Use the token returned from previous request.
 
 Use the token returned from previous request.
 
-```
-# curl -H "Authorization: Bearer d3b817dc-fb7a-4e65-a080-d0e34c0dc4d5" http://172.16.87.12:31004/api/license/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a
+```bash
+$ curl -H "Authorization: Bearer d3b817dc-fb7a-4e65-a080-d0e34c0dc4d5" http://172.16.87.12:31004/api/license/v1/organizations/e254f8c-c442-4ebe-a82a-e2fc1d1ff78a/licenses/f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a
 {"id":"f3831f8c-c338-4ebe-a82a-e2fc1d1ff78a","organizationId":"e254f8c-c442-4ebe-a82a-e2fc1d1ff78a","organizationName":"customer-crm-co","contactName":"Mark Balster","contactPhone":"823-555-1212","contactEmail":"mark.balster@custcrmco.com","productName":"CustomerPro","licenseType":"user","licenseMax":100,"licenseAllocated":5,"comment":null}
 ```
 
@@ -131,21 +126,19 @@ Use the token returned from previous request.
 
 Every response contains a correlation ID to help diagnose possible failures among service call. Run with `curl -v` to get it:
 
-```
-# curl -v ...
+```bash
+$ curl -v ...
 ...
 < sc-correlation-id: 3265b50156556c05
 ...
-
 ```
 
 Search it in Zipkin to get all trace info, including latencies if you are interested in. ![zipkin-1](images/zipkin-1.png) ![zipkin-2](images/zipkin-2.png)
 
 The license service caches organization info in Redis, prefixed with `organizations:`. So you may want to clear them to get a complete tracing of cross service invoke.
 
-```
-redis-cli -h 172.16.87.12 -c del $(redis-cli -h 172.16.87.12 -c keys organizations* | gawk '{ print $1 }')
-
+```bash
+$ redis-cli -h 172.16.87.12 -c del $(redis-cli -h 172.16.87.12 -c keys organizations* | gawk '{ print $1 }')
 ```
 
 ### Working with OAuth2

@@ -13,17 +13,17 @@ Today, I built the mainline kernel v2.6.33.4 on Lucid. Most instruments were tak
 
 1. Unpack:
 
-```
-# tar -jxf linux-2.6.33.4.tar.bz2
+```bash
+$ tar -jxf linux-2.6.33.4.tar.bz2
 ```
 
 2. Config:
 
-```
-# cd linux-2.6.33.4
-# cp /boot/config-`uname -r` .config
-# yes '' | make oldconfig
-# make menuconfig
+```bash
+$ cd linux-2.6.33.4
+$ cp /boot/config-`uname -r` .config
+$ yes '' | make oldconfig
+$ make menuconfig
 ```
 
 The last line is optional. The wiki said:
@@ -34,20 +34,20 @@ The last line is optional. The wiki said:
 
 3. Build:
 
-```
-# make-kpkg clean
-# CONCURRENCY_LEVEL=`getconf _NPROCESSORS_ONLN` fakeroot make-kpkg --initrd --append-to-version=-custom --revision=2.6.33.4-1 kernel_image kernel_headers
+```bash
+$ make-kpkg clean
+$ CONCURRENCY_LEVEL=`getconf _NPROCESSORS_ONLN` fakeroot make-kpkg --initrd --append-to-version=-custom --revision=2.6.33.4-1 kernel_image kernel_headers
 ```
 
 After all, two files were generated. It contains 2772 modules. You may find the usage of "--append-to-version" and "--revision" options here: \*) linux-headers-2.6.33.4-custom_2.6.33.4-1_i386.deb \*) linux-image-2.6.33.4-custom_2.6.33.4-1_i386.deb
 
 4. Install:
 
-```
-# sudo dpkg -i linux-headers-2.6.33.4-custom_2.6.33.4-1_i386.deb
-# sudo dpkg -i linux-image-2.6.33.4-custom_2.6.33.4-1_i386.deb
-# sudo update-initramfs -c -k 2.6.33.4-custom
-# sudo update-grub
+```bash
+$ sudo dpkg -i linux-headers-2.6.33.4-custom_2.6.33.4-1_i386.deb
+$ sudo dpkg -i linux-image-2.6.33.4-custom_2.6.33.4-1_i386.deb
+$ sudo update-initramfs -c -k 2.6.33.4-custom
+$ sudo update-grub
 ```
 
 The last 2 lines are **NOT** mentioned in the wiki. They are used to generate the initrd image in Lucid. The build also do not generate abi and vmcoreinfo files in /boot.

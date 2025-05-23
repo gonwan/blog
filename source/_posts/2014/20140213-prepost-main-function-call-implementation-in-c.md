@@ -10,8 +10,8 @@ tags:
 
 In C++, pre/post-main function call can be implemented using a global class instance. Its constructor and destructor are invoked automatically before and after the main function. But in C, no such mechanism. Actually, there's a glib [implementation](https://git.gnome.org/browse/glib/tree/glib/gconstructor.h) that can help. You may want to read my previous post about [CRT sections](https://www.gonwan.com/2014/02/13/msvc-crt-initialization/) of MSVC. I just copy the code and do some renaming:
 
-```
-#include 
+```cpp
+#include <stdlib.h>
 #if defined (_MSC_VER)
 #if (_MSC_VER >= 1500)
 /* Visual Studio 2008 and later have __pragma */
@@ -53,13 +53,13 @@ In C++, pre/post-main function call can be implemented using a global class inst
 
 One limitation in glib code is the lack of support for VS2003 and early versions. `#pragma code_seg()` is used to implement the same function:
 
-```
+```cpp
 /*
  * cl ctor.c
  * gcc ctor.c -o ctor
  */
 #include "ctor.h"
-#include 
+#include <stdio.h>
 
 #ifdef HAS_CONSTRUCTORS
 DEFINE_CONSTRUCTOR(before)

@@ -11,14 +11,14 @@ I installed [Cairo-Dock](http://www.glx-dock.org/) when installing Lucid. And it
 
 To disable them, run:
 
-```
-# gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool false
+```bash
+$ gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool false
 ```
 
 And this command to enable them:
 
-```
-# gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool true
+```bash
+$ gconftool-2 -s '/apps/metacity/general/compositing_manager' --type bool true
 ```
 
 Additional info: [http://blogs.gnome.org/metacity/category/compositing/](http://blogs.gnome.org/metacity/category/compositing/)

@@ -15,9 +15,9 @@ The code provides a better build experience, and compiles on my Linux box almost
 
 1. So the first step after downloading and unzipping the code, modify the configure script:
 
-```
-# cd openjdk
-# vi common/autoconf/generated-configure.sh
+```bash
+$ cd openjdk
+$ vi common/autoconf/generated-configure.sh
 ```
 
 Comment out the lines(2 appearances):
@@ -28,9 +28,9 @@ as_fn_error $? "GCC compiler is required. Try setting --with-tools-dir." "$LINEN
 
 2. Now install freetype and run configure:
 
-```
-# brew install freetype
-# bash ./configure --prefix=/Users/gonwan/openjdk-runtime --with-debug-level=slowdebug --with-freetype-include=/usr/local/Cellar/freetype/2.8.1/include/freetype2 --with-freetype-lib=/usr/local/Cellar/freetype/2.8.1/lib --with-milestone=special --with-update-version=u01 --with-build-number=b01
+```bash
+$ brew install freetype
+$ bash ./configure --prefix=/Users/gonwan/openjdk-runtime --with-debug-level=slowdebug --with-freetype-include=/usr/local/Cellar/freetype/2.8.1/include/freetype2 --with-freetype-lib=/usr/local/Cellar/freetype/2.8.1/lib --with-milestone=special --with-update-version=u01 --with-build-number=b01
 ```
 
 A `slowdebug` build disables optimization and helps a lot when debugging. The summary output looks like:
@@ -57,7 +57,7 @@ Build performance summary:
 
 3. Apply the following patch to fix build errors. Partially picked from an official OpenJDK10 [changeset](http://hg.openjdk.java.net/jdk10/jdk10/hotspot/rev/316854ef2fa2):
 
-```
+```diff
 diff -ru openjdk.old/hotspot/src/share/vm/opto/lcm.cpp openjdk/hotspot/src/share/vm/opto/lcm.cpp
 --- openjdk.old/hotspot/src/share/vm/opto/lcm.cpp	2017-12-01 13:24:42.000000000 +0800
 +++ openjdk/hotspot/src/share/vm/opto/lcm.cpp	2017-12-01 13:25:35.000000000 +0800
@@ -110,17 +110,17 @@ diff -ru openjdk.old/jdk/src/macosx/native/sun/osxapp/ThreadUtilities.m openjdk/
 
 ```
 
-```
-# patch -p1 < ../openjdk8.patch
+```bash
+$ patch -p1 < ../openjdk8.patch
 ```
 
 4. Start the build:
 
-```
-# export USE_CLANG=true
-# export COMPILER_WARNINGS_FATAL=false
-# export LFLAGS='-Xlinker -lstdc++'
-# make
+```bash
+$ export USE_CLANG=true
+$ export COMPILER_WARNINGS_FATAL=false
+$ export LFLAGS='-Xlinker -lstdc++'
+$ make
 ```
 
 Lots of warnings, but the build should finish successfully:
@@ -151,7 +151,7 @@ OpenJDK 64-Bit Server VM (build 25.40-b25-debug, mixed mode)
 
 Never used `lldb` before, seems to be compatible with `gdb`:
 
-```
+```bash
 # lldb ./java
 (lldb) target create "./java"
 Current executable set to './java' (x86_64).

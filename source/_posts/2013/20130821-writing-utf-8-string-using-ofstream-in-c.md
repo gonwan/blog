@@ -13,7 +13,7 @@ I've googled a lot to find the answer. But none really solve the problem simply 
 
 Actually, `std::string` supports operation using multibytes characters. This is the base of our solution:
 
-```
+```cpp
 static const char g_cs[] = "\xE4\xBD\xA0\xE5\xA5\xBD";
 
 bool test_std_string()
@@ -40,7 +40,7 @@ bool test_std_string()
 
 I began to investigate the problem, since I cannot find a solution to read/write a UTF-8 string to XML file using [boost::property_tree](http://www.boost.org/doc/libs/1_54_0/doc/html/property_tree.html). Actually, it's a bug and is already fixed in boost 1.47 and later versions. Unfortunately, Ubuntu 12.04 came with boost 1.46.1. When reading non-ASCII characters, some bytes are incorrectly skipped. The failure function is `boost::property_tree::detail::rapidxml::internal::get_index()`. My test code looks like:
 
-```
+```cpp
 static const char g_xml[] = "\n"
     "\n"
         "\xE4\xBD\xA0\xE5\xA5\xBD\n"
@@ -90,7 +90,7 @@ bool test_boost_ptree()
 
 Almost the same structure with the previous function. And finally the `utf8_to_ucs2()` function:
 
-```
+```cpp
 #ifdef _WIN32
 wstring utf8_to_ucs2(const string &input)
 {

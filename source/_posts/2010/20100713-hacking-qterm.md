@@ -10,7 +10,7 @@ tags:
 
 I read source code in [QTerm](http://www.qterm.org/) and [FQTerm](http://code.google.com/p/fqterm/) today. Since I want to find reference for Ascii rendering control in my [QAnsiEditor](http://code.google.com/p/qansieditor/) project. After hours of tracing and debugging, I was able to use the rendering control in simplest code. Here's the patch in src/main.cpp:
 
-```
+```diff
 # diff -ruN qterm-0.5.7/src/main.cpp qterm-0.5.7-1/src/main.cpp
 --- qterm-0.5.7/src/main.cpp 2009-06-14 23:09:32.000000000 +0800
 +++ qterm-0.5.7-1/src/main.cpp 2010-07-14 09:53:06.000000000 +0800

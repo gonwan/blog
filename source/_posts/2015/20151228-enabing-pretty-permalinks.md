@@ -11,28 +11,28 @@ Well.. long time no see. Just have some time to optimize the site for better ana
 
 According to the official [tutorial](http://codex.wordpress.org/Using_Permalinks): 1. Enable `mod_rewrite` in apache2.
 
-```
-# sudo a2enmod rewrite
+```bash
+$ sudo a2enmod rewrite
 ```
 
 2. Enable `FollowSymLinks` option, which is default. 3. Enable `FileInfo` directives. Edit `/etc/apache2/sites-available/yoursite.com.conf`, add:
 
-```
-  
+```apache
+  <Directory /home/yourname/yoursite/>
     Require all granted
     AllowOverride FileInfo
-  
+  </Directory>
 ```
 
 4. Restart apache:
 
-```
-# sudo service apache2 restart
+```bash
+$ sudo service apache2 restart
 ```
 
 **Updated Dec 31, 2015**: Enabling `mod_rewrite` rewrites all requests including the one used by `mod_status`. To disable this, add a rule to the `.htaccess` file.
 
-```
+```apache
 RewriteCond %{REQUEST_URI} !=/server-status
 ```
 

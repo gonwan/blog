@@ -10,8 +10,8 @@ tags:
 
 In company, I use VNC to control remote machines. But in GDM stage, this does not work. Maybe VNC server in Ubuntu is a service in Gnome session. The solution is to use XDMCP(X Display Manager Control Protocol). Using Ubuntu, "xnest" package should be installed on both server and client side. It's a nested X server that simply relays all its requests to another X server, where it runs as a client:
 
-```
-# sudo apt-get install xnest
+```bash
+$ sudo apt-get install xnest
 ```
 
 In server side,  go to System --> Administration --> Login Window, or simply run "gdmsetup". Go to "Remote" tab, set value to "Same as Local".

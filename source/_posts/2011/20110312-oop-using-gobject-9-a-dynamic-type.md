@@ -14,12 +14,12 @@ We can call `g_type_register_dynamic()` to register a dynamic type. When used in
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 // bartype.h
 #ifndef BAR_TYPE_H_
 #define BAR_TYPE_H_
 
-#include 
+#include <glib-object.h>
 
 /* Bar type class struct */
 typedef struct _BarTypeClass {
@@ -41,7 +41,7 @@ void bar_type_register_type(GTypeModule *type_module);
 #endif /* BAR_TYPE_H_ */
 ```
 
-```
+```cpp
 // bartype.c
 #include "bartype.h"
 
@@ -97,12 +97,12 @@ Also note the `bar_type_class_finalize()` function. We use it to override the `f
 
 Let's move on to the module type. This type inherits `GTypeModule`:
 
-```
+```cpp
 // fakemodule.h
 #ifndef FAKE_MODULE_H_
 #define FAKE_MODULE_H_
 
-#include 
+#include <glib-object.h>
 
 /* module object struct */
 typedef struct _FakeModule {
@@ -121,7 +121,7 @@ GType fake_module_get_type();
 #endif /* FAKE_MODULE_H_ */
 ```
 
-```
+```cpp
 // fakemodule.c
 #include "fakemodule.h"
 
@@ -181,12 +181,12 @@ GType fake_module_get_type() {
 
 Our test code:
 
-```
+```cpp
 // main.c
 #include "footype.h"
 #include "bartype.h"
 #include "fakemodule.h"
-#include 
+#include <glib-object.h>
 
 /*
  * Module entry point. If you implement a real shared library module,

@@ -16,16 +16,16 @@ Copied from [Wikipedia](http://en.wikipedia.org/wiki/Intrinsic_function):
 
 A code snippet is written to check the code generation when intrinsic is enabled or not:
 
-```
+```cpp
 /*
  * # gcc -S intrinsic.c -o intrinsic.s
  * # gcc -S -fno-builtin intrinsic.c -o intrinsic2.s
  * # cl /c /Oi intrinsic.c /FAs /Faintrinsic.asm
  * # cl /c intrinsic.c /FAs /Faintrinsic2.asm
  */
-#include 
-#include 
-#include 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 const char *c = "Hello World!";
 char c2[16];
@@ -109,13 +109,13 @@ There _are_ `abs()` and `memcpy()` now. General MSVC intrinsic can be found [her
 
 Intrinsic is easier than [inline assembly](https://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is used to increase performance in most cases. Both gcc and MSVC provide intrinsic support for Intel's MMX, SSE and SSE2 instrument set. Code snippet to use MMX:
 
-```
+```cpp
 /*
  * # gcc -O2 -S -mmmx intrinsic_mmx.c -o intrinsic_mmx.s
  * # cl /O2 /c intrinsic_mmx.c /FAs /Faintrinsic_mmx.asm
  */
-#include 
-#include 
+#include <stdio.h>
+#include <mmintrin.h>
 
 int main()
 {

@@ -11,8 +11,8 @@ There's a series of C++ FAQ: [http://www.parashift.com/c++-faq/pointers-to-membe
 
 Let's write some demo code:
 
-```
-#include 
+```cpp
+#include <iostream>
 using namespace std;
 
 class A
@@ -68,14 +68,14 @@ Both are run on 32bit systems. Sizes of pointer-to-member-function are not confi
 
 Perhaps the best-known use of this technique comes from the C++ Standard the conversion that allows the state of iostreams to be queried uses it.
 
-```
+```cpp
 if (std::cin) {  // Is the stream ok?
 }
 ```
 
 But at least in gcc/libstdc++, its implementation uses `bool` and `void *` conversion operations. In `basic_ios` class:
 
-```
+```cpp
 public:
     //@{
     /**
@@ -85,7 +85,7 @@ public:
      *  "if (!a_stream) ..." and "while (a_stream) ..."
      */
     operator void*() const
-    { return this->fail() ? 0 : const_cast(this); }
+    { return this->fail() ? 0 : const_cast<basic_ios*>(this); }
 
     bool
     operator!() const

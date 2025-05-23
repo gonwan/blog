@@ -15,7 +15,7 @@ GDI 的目标是提供一种设备无关的绘图方式, 要支持不同的monit
 
 我们还是以以下的window procedure 代码为例:
 
-```
+```cpp
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     HDC         hdc;
@@ -57,13 +57,13 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 我们通过SelectObject() 这个API 来设置这些属性. 以Brush 为例, 可以使用系统与定义的Brush:
 
-```
+```cpp
 SelectObject(hdc, GetStockObject (WHITE_PEN));
 ```
 
 也可以使用自定义的Brush:
 
-```
+```cpp
 HBRUSH hbrhRed = CreateSolidBrush(RGB(255, 0, 0));
 HBRUSH hbrhOrig = SelectObject(hdc, hbrhRed);
 // Do some drawing with the read brush here...
@@ -95,7 +95,7 @@ DIB(Device-Independent Bitmap) 设备独立的位图, DDB(Device-Dependent Bitma
 
 bitmap, 位图, 就是把一张图的所有颜色信息按照pixel 来存储, 所以我们可以把一个DIB 读到内存中, 并把这些按pixel 存储的信息放在一个数组中. 注意, 这里不仅仅是bmp 图片, jpg, png 等其它图片格式, 如果要画到GDI 的DC 上, 都要经过这写操作步骤. 这些步骤搞定之后, 我们可以调用SetDIBitsToDevice() 函数来把这些数组中的信息画到一个DC 上去, 注意倒数第二个参数:
 
-```
+```cpp
 int SetDIBitsToDevice(
    HDC hdc,                 // handle to DC
    int XDest,               // x-coord of destination upper-left corner

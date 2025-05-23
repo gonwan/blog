@@ -20,9 +20,9 @@ Set "Port Mode" to "Host Pipe", check "Create Pipe" and set "Port/File Path" to 
 
 #### 2. Install minicom
 
-```
-# sudo apt-get install minicom
-# sudo minicom -s
+```bash
+$ sudo apt-get install minicom
+$ sudo minicom -s
 ```
 
 The second command setups `minicom` with an interactive menu. Select "Serial port setup", and set "Serial Device" as "unix#/tmp/vbox"(without quotes). "Save setup as dfl" and "Exit from Minicom".
@@ -31,9 +31,9 @@ The second command setups `minicom` with an interactive menu. Select "Serial por
 
 Now boot your Linux guest. Run the following command, and it should output something like:
 
-```
-# su
-# stty -F /dev/ttyS0 -a
+```bash
+$ su
+$ stty -F /dev/ttyS0 -a
 speed 9600 baud; rows 0; columns 0; line = 0;
 intr = ^C; quit = ^; erase = ^?; kill = ^U; eof = ^D; eol = ;
 eol2 = ; swtch = ; start = ^Q; stop = ^S; susp = ^Z; rprnt = ^R;
@@ -47,20 +47,20 @@ The guest here is CentOS5, and the serial device is `/dev/ttyS0`.
 
 Start `minicom` on your host:
 
-```
-# minicom
+```bash
+$ minicom
 ```
 
 Echo something from your guest and redirect to `/dev/ttyS0`. You host should get the message in `minicom`.
 
-```
-# echo "sent from rhel5 guest" > /dev/ttyS0
+```bash
+$ echo "sent from rhel5 guest" > /dev/ttyS0
 ```
 
 To read from the host, cat the device in guest so that you can do the input in `minicom`:
 
-```
-# cat /dev/ttyS0
+```bash
+$ cat /dev/ttyS0
 ```
 
 [![serial_console_2](images/13688596295_7dc6633411_z.jpg)](https://www.flickr.com/photos/gonwan1985/13688596295 "serial_console_2 by Binhao Qian, on Flickr")
@@ -107,8 +107,8 @@ GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8"
 
 And update grub:
 
-```
-# sudo update-grub
+```bash
+$ sudo update-grub
 ```
 
 One additional step for Ubuntu, is to enable getty(8) for serial console by your own. Ubuntu uses upstart init system, we need to create a file called `/etc/init/ttyS0.conf` containing the following:

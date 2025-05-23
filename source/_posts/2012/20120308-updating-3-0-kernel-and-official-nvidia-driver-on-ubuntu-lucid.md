@@ -12,18 +12,18 @@ Ubuntu Lucid(10.04) originally ships with 2.6.32 kernel. But on my T420 thinkpad
 
 ### 1. Add X-Updates PPA
 
-```
-# sudo apt-add-repository ppa:ubuntu-x-swat/x-updates
-# sudo apt-get update
-# sudo apt-get install nvidia-current
+```bash
+$ sudo apt-add-repository ppa:ubuntu-x-swat/x-updates
+$ sudo apt-get update
+$ sudo apt-get install nvidia-current
 ```
 
 These commands install official nvidia driver. Currently, it's the 295.20 version.
 
 ### 2. Enable Nvidia Driver
 
-```
-# sudo update-alternatives --config gl_conf
+```bash
+$ sudo update-alternatives --config gl_conf
 ```
 
 This will let you to choose opengl engines. Select nvidia over mesa. This will also enable nvidia Xorg drivers, blacklist nouveau driver and add nvidia-xconfig into /usr/bin. You may find warnings like:
@@ -35,16 +35,16 @@ update-alternatives: warning: skip creation of /usr/lib32/libvdpau_nvidia.so bec
 
 Just ignore them, seems to be safe.
 
-```
-# sudo nvidia-xconfig
+```bash
+$ sudo nvidia-xconfig
 ```
 
 This will generate new /etc/X11/xorg.conf file for your Nvidia card. If you cannot find the command, the original location is: /usr/lib/nvidia-current/bin/nvidia-xconfig
 
 ### 3. Fix ld Bindings
 
-```
-# echo "/usr/lib/nvidia-current/tls" | sudo tee -a /etc/ld.so.conf.d/GL.conf > /dev/null
+```bash
+$ echo "/usr/lib/nvidia-current/tls" | sudo tee -a /etc/ld.so.conf.d/GL.conf > /dev/null
 ```
 
 This just add an ld path into /etc/ld.so.conf.d/GL.conf, otherwise, glx module cannot be loaded correctly. Here's the /etc/log/Xorg.0.log segments:
@@ -60,16 +60,16 @@ dlopen: libnvidia-tls.so.295.20: cannot open shared object file: No such file or
 
 Now, update ld runtime bindings and reboot.
 
-```
-# sudo ldconfig
-# sudo reboot
+```bash
+$ sudo ldconfig
+$ sudo reboot
 ```
 
 ### 4. Verify
 
-```
-# sudo apt-get install mesa-utils
-# glxinfo | grep -i opengl
+```bash
+$ sudo apt-get install mesa-utils
+$ glxinfo | grep -i opengl
 ```
 
 If your installation is successful, the output looks like:

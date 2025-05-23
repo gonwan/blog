@@ -11,18 +11,18 @@ tags:
 
 Starting with [1.56](http://www.boost.org/users/history/version_1_56_0.html), `boost/asio` provides `asio::spawn()` to work with coroutines. Just paste the sample code [here](http://www.boost.org/doc/libs/1_60_0/doc/html/boost_asio/example/cpp03/spawn/echo_server.cpp), with minor modifications:
 
-```
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+```cpp
+#include <boost/asio.hpp>
+#include <boost/asio/spawn.hpp>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/enable_shared_from_this.hpp>
+#include <iostream>
 using namespace std;
 using boost::asio::ip::tcp;
 
 
-class session: public boost::enable_shared_from_this
+class session: public boost::enable_shared_from_this<session>
 {
 public:
     explicit session(boost::asio::io_service &io_service)
@@ -73,7 +73,7 @@ void do_accept(boost::asio::io_service &io_service, unsigned short port, boost::
     tcp::acceptor acceptor(io_service, tcp::endpoint(tcp::v4(), port));
     while (true) {
         boost::system::error_code ec;
-        boost::shared_ptr new_session(new session(io_service));
+        boost::shared_ptr<session> new_session(new session(io_service));
         acceptor.async_accept(new_session->socket(), yield[ec]);
         if (!ec) {
             new_session->go();
@@ -96,30 +96,30 @@ int main()
 
 The Python in my previous [article](https://www.gonwan.com/2016/01/11/coroutines-in-python/) can be used to work with the code above. I also tried to write a TCP server with only `boost::coroutines` classes. `select()` is used, since I want the code to be platform independent. **NOTE**: with coroutines, we have only _one_ thread.
 
-```
+```cpp
 #ifdef _WIN32
-#include 
-#include 
-#include 
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
 #pragma comment(lib, "ws2_32.lib")
 #pragma warning(disable: 4996)
 #define sock_send(s, str, len)      send(s, str, len, 0)
 #define sock_close(s)               closesocket(s)
 #else
-#include 
-#include 
-#include 
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
 #define sock_send(s, str, len)      send(s, str, len, MSG_NOSIGNAL)
 #define sock_close(s)               close(s)
 #endif
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+#include <cerrno>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <list>
+#include <boost/bind.hpp>
+#include <boost/coroutine/all.hpp>
+#include <boost/shared_ptr.hpp>
 using namespace std;
 
 
@@ -141,7 +141,7 @@ struct Win32SocketWrapper
 
 class session
 {
-    typedef boost::coroutines::symmetric_coroutine coro_t;
+    typedef boost::coroutines::symmetric_coroutine<void> coro_t;
 public:
     explicit session(int sock)
         : socket_(sock)
@@ -181,7 +181,7 @@ private:
 
 void event_loop(int server_sock)
 {
-    list > session_list;
+    list<boost::shared_ptr<session> > session_list;
     int rc, maxfd, client_sock;
     fd_set rdset;
     struct sockaddr_in client_addr;
@@ -191,7 +191,7 @@ void event_loop(int server_sock)
         FD_ZERO(&rdset);
         FD_SET(server_sock, &rdset);
         maxfd = server_sock;
-        list >::iterator it = session_list.begin();
+        list<boost::shared_ptr<session> >::iterator it = session_list.begin();
         while (it != session_list.end()) {
             if ((*it)->socket() == -1) {
                 session_list.erase(it++);
@@ -211,11 +211,11 @@ void event_loop(int server_sock)
             if (FD_ISSET(server_sock, &rdset)) {
                 client_sock = (int)accept(server_sock, (struct sockaddr *)&client_addr, (socklen_t *)&addr_size);
                 printf("socket[%d] accepted: %s:%d..\n", client_sock, inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
-                boost::shared_ptr new_session(new session(client_sock));
+                boost::shared_ptr<session> new_session(new session(client_sock));
                 new_session->go(); /* go first */
                 session_list.push_back(new_session);
             }
-            for (list >::iterator it = session_list.begin(); it != session_list.end(); ++it) {
+            for (list<boost::shared_ptr<session> >::iterator it = session_list.begin(); it != session_list.end(); ++it) {
                 if (FD_ISSET((*it)->socket(), &rdset)) {
                     (*it)->go();
                 }

@@ -13,14 +13,14 @@ It seems a little easier when building Lucid kernel from ubuntu source.
 
 1. Tools:
 
-```
-# sudo apt-get install fakeroot kernel-wedge build-essential makedumpfile kernel-package
+```bash
+$ sudo apt-get install fakeroot kernel-wedge build-essential makedumpfile kernel-package
 ```
 
 2. Sources:
 
-```
-# sudo apt-get source linux-source-2.6.32
+```bash
+$ sudo apt-get source linux-source-2.6.32
 ```
 
 3. Customize:
@@ -29,11 +29,11 @@ cd into "linux-2.6.32" root.
 
 I selected "core2" as my custom name.
 
-```
-# cp debian.master/control.d/vars.generic debian.master/control.d/vars.core2
-# cp debian.master/abi/2.6.32-21.32/i386/generic debian.master/abi/2.6.32-21.32/i386/core2
-# cp debian.master/abi/2.6.32-21.32/i386/generic.modules debian.master/abi/2.6.32-21.32/i386/core2.modules
-# cp debian.master/config/i386/config.flavour.generic debian.master/config/i386/config.flavour.core2
+```bash
+$ cp debian.master/control.d/vars.generic debian.master/control.d/vars.core2
+$ cp debian.master/abi/2.6.32-21.32/i386/generic debian.master/abi/2.6.32-21.32/i386/core2
+$ cp debian.master/abi/2.6.32-21.32/i386/generic.modules debian.master/abi/2.6.32-21.32/i386/core2.modules
+$ cp debian.master/config/i386/config.flavour.generic debian.master/config/i386/config.flavour.core2
 ```
 
 Then patch some files:
@@ -44,8 +44,8 @@ Then patch some files:
 
 Now, edit the config file. You will have to go through all the flavors for this script to work properly:
 
-```
-# debian/rules editconfigs
+```bash
+$ debian/rules editconfigs
 ```
 
 You should not make changes to any of the configurations until you see the core2 configuration:
@@ -62,16 +62,16 @@ debian/scripts/misc/kernelconfig: line 121: /home/gonwan/linux-2.6.32/debian/scr
 
 Simply add the x permission to all scripts, it's a [known bug](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/273437):
 
-```
-# chmod +x debian/scripts/*
-# chmod +x debian/scripts/misc/*
+```bash
+$ chmod +x debian/scripts/*
+$ chmod +x debian/scripts/misc/*
 ```
 
 4. Build:
 
-```
-# fakeroot debian/rules clean
-# CONCURRENCY_LEVEL=2 AUTOBUILD=1 NOEXTRAS=1 skipabi=true fakeroot debian/rules binary-core2
+```bash
+$ fakeroot debian/rules clean
+$ CONCURRENCY_LEVEL=2 AUTOBUILD=1 NOEXTRAS=1 skipabi=true fakeroot debian/rules binary-core2
 ```
 
 If you got the error like:

@@ -12,17 +12,17 @@ Hardy(8.04) is a little different from all the other versions when building a ke
 
 1. Tools:
 
-```
-# sudo apt-get install build-essential fakeroot linux-kernel-devel kernel-wedge
+```bash
+$ sudo apt-get install build-essential fakeroot linux-kernel-devel kernel-wedge
 ```
 
 2. Sources:
 
 The source will be downloaded in the current directory.
 
-```
-# sudo apt-get source linux-source-2.6.24
-# sudo apt-get source linux-ubuntu-modules-2.6.24
+```bash
+$ sudo apt-get source linux-source-2.6.24
+$ sudo apt-get source linux-ubuntu-modules-2.6.24
 ```
 
 3. Customize:
@@ -31,11 +31,11 @@ cd into "linux-2.6.24" root.
 
 I selected "core2" as my custom name.
 
-```
-# cp debian/control.d/vars.generic debian/control.d/vars.core2
-# cp debian/abi/2.6.24-27.68/i386/generic debian/abi/2.6.24-27.68/i386/core2
-# cp debian/abi/2.6.24-27.68/i386/generic.modules debian/abi/2.6.24-27.68/i386/core2.modules
-# cat debian/config/i386/config debian/config/i386/config.generic > debian/config/i386/config.core2
+```bash
+$ cp debian/control.d/vars.generic debian/control.d/vars.core2
+$ cp debian/abi/2.6.24-27.68/i386/generic debian/abi/2.6.24-27.68/i386/core2
+$ cp debian/abi/2.6.24-27.68/i386/generic.modules debian/abi/2.6.24-27.68/i386/core2.modules
+$ cat debian/config/i386/config debian/config/i386/config.generic > debian/config/i386/config.core2
 ```
 
 Then patch some files:
@@ -46,9 +46,9 @@ Then patch some files:
 
 4. Build:
 
-```
-# fakeroot debian/rules clean
-# CONCURRENCY_LEVEL=2 AUTOBUILD=1 NOEXTRAS=1 skipabi=true fakeroot debian/rules binary-core2
+```bash
+$ fakeroot debian/rules clean
+$ CONCURRENCY_LEVEL=2 AUTOBUILD=1 NOEXTRAS=1 skipabi=true fakeroot debian/rules binary-core2
 ```
 
 If you get errors like:
@@ -60,8 +60,8 @@ If you get errors like:
 
 Run the following command, it is issued by the Makefile:
 
-```
-# rm -rf .config include/config
+```bash
+$ rm -rf .config include/config
 ```
 
 5. Done:
@@ -72,15 +72,15 @@ My PC has a P4-2.6c CPU. It took about 90 minutes to finish. The kernel also con
 
 First, generate prepare scripts:
 
-```
-# cat debian/config/i386/config debian/config/i386/config.generic > .config
-# make prepare scripts
+```bash
+$ cat debian/config/i386/config debian/config/i386/config.generic > .config
+$ make prepare scripts
 ```
 
 cd into "linux-ubuntu-modules-2.6.24-2.6.24"
 
-```
-# cp debian/control.d/vars.generic debian/control.d/vars.core2
+```bash
+$ cp debian/control.d/vars.generic debian/control.d/vars.core2
 ```
 
 Note: Custom modules name must match the custom kernel name, say "core2".
@@ -93,15 +93,15 @@ Then patch some files:
 
 Now generate new debian/control, which includes new custom kernel:
 
-```
-# rm debian/control.stub
-# debian/rules debian/control.stub
+```bash
+$ rm debian/control.stub
+$ debian/rules debian/control.stub
 ```
 
 7. Build modules:
 
-```
-# AUTOBUILD=1 fakeroot debian/rules binary-arch arch=i386 flavours=core2 KDIR=/home/gonwan/Documents/linux-2.6.24
+```bash
+$ AUTOBUILD=1 fakeroot debian/rules binary-arch arch=i386 flavours=core2 KDIR=/home/gonwan/Documents/linux-2.6.24
 ```
 
 8. Done again:

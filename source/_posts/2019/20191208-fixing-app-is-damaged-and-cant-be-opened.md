@@ -9,12 +9,12 @@ Just a reminder when installing 3rdparty software on MacOS.
 
 Starting with MacOS Sierra 10.12, run:
 
-```
-# sudo spctl --master-disable
+```bash
+$ sudo spctl --master-disable
 ```
 
 Starting with MacOS Catalina 10.15, run:
 
-```
-# sudo xattr -d com.apple.quarantine /Applications/<YourApplication>.app
+```bash
+$ sudo xattr -d com.apple.quarantine /Applications/<YourApplication>.app
 ```

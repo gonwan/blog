@@ -15,8 +15,8 @@ Now, follow the official FAQ [here](http://wiki.centos.org/FAQ/CentOS5#head-c79c
 
 From my practice, you MUST follow the de-selection order. Otherwise, it will still require other CDs. The actual installation lasts for about 1 minutes(installation of \*.rpm files). After reboot, the system gives you a minimum installation with only text mode support. Now login with your root account, and make sure your network is ready. Additional components shall be installed manually using yum:
 
-```
-# yum groupinstall "Base" "X Window System" "GNOME Desktop Environment"
+```bash
+$ yum groupinstall "Base" "X Window System" "GNOME Desktop Environment"
 ```
 
 **NOTE**: All group names are case-sensitive.
@@ -51,9 +51,9 @@ In 4.x/3.x, the openoffice suite is outdated, I suggest to not install them. I a
 
 ```
 # For 4.x
-# yum remove kernel-smp kernel-smp-devel kernel-hugemem-devel
+$ yum remove kernel-smp kernel-smp-devel kernel-hugemem-devel
 # For 3.x
-# rpm -e kernel-smp
+$ rpm -e kernel-smp
 ```
 
 There's 4.9 release but no 4.9 \*.iso images. The readme.txt says:

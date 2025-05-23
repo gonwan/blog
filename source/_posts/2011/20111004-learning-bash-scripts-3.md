@@ -13,7 +13,7 @@ This post covers the loop usage of bash shell. **NOTE**: read inline comments ca
 
 ### 1. for loop
 
-```
+```bash
 #!/bin/bash
 
 # loop list, last value remains
@@ -73,7 +73,7 @@ IFS=$IFSHOLD
 
 ### 2. while loop
 
-```
+```bash
 #!/bin/bash
 
 var1=10
@@ -85,7 +85,7 @@ done
 
 ### 3. until loop
 
-```
+```bash
 #!/bin/bash
 
 var1=100
@@ -97,7 +97,7 @@ done
 
 ### 4. break & continue
 
-```
+```bash
 #!/bin/bash
 
 # break
@@ -141,7 +141,7 @@ There may be times when you're in an inner loop but need to stop the outer loop.
 
 Finally, you can either pipe or redirect the output of a loop within your shell script.
 
-```
+```bash
 #!/bin/bash
 
 testfile=testloop.txt

@@ -15,7 +15,7 @@ tags:
 
 这里假设的是我们用的是C++ 来实现COM 组件.　因为C++ 中没有语言级别的interface 的支持, 所以SDK 中interface 实际上被typedef 成了struct, 以保证所有申明的接口都默认就是public 的访问权限. 于是这就涉及到了C++ 中多继承的概念. 先不说COM, 假设已经有如下的类定义:
 
-```
+```cpp
 class ClassA
 {
 };
@@ -36,7 +36,7 @@ class ClassD : public ClassB, public ClassC
 
 知道了以上这些之后, 再来看如下代码:
 
-```
+```cpp
 int main()
 {
     ClassD *pD = new ClassD;

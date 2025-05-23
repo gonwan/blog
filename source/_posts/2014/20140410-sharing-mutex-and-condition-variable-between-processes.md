@@ -10,7 +10,7 @@ tags:
 
 As title, the key is to set an attribute(`PTHREAD_PROCESS_SHARED`) to the mutex/condition variable using `pthread_mutexattr_setpshared()` or `pthread_condattr_setpshared()`. Without these function calls, the parent in the following code will not get signaled forever.
 
-```
+```c
 /*
  * gcc mutex.c -o mutex -lrt
  */

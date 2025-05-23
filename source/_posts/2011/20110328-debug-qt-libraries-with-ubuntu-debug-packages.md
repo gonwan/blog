@@ -14,9 +14,9 @@ In previous [articles](https://www.gonwan.com/2010/07/07/using-ubuntu-debug-pack
 
 Our simple application:
 
-```
+```cpp
 // main.cpp
-#include 
+#include <QtCore/QString>
 int main() {
     QString s = "1234567";
     int i = s.indexOf('3');
@@ -37,27 +37,27 @@ CONFIG += console debug_and_release
 
 1. Build your debug version of application:
 
-```
-# qmake-qt4
-# make debug
+```bash
+$ qmake-qt4
+$ make debug
 ```
 
 2. Install Qt's debug package:
 
-```
-# sudo apt-get install libqt4-debug
+```bash
+$ sudo apt-get install libqt4-debug
 ```
 
 3. Install the Qt source:
 
-```
-# sudo apt-get source libqt4-debug
+```bash
+$ sudo apt-get source libqt4-debug
 ```
 
 Now you can start debugging your application. Since Qt's debug symbols are installed in /usr/lib, It does not follow the GDB's global debug directory described [here](http://sourceware.org/gdb/onlinedocs/gdb/Separate-Debug-Files.html). We should tell GDB to load these symbols manually:
 
-```
-# gdb ./DebugQt
+```bash
+$ gdb ./DebugQt
 GNU gdb 6.8-debian
 ...
 (gdb) b main

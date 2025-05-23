@@ -38,52 +38,52 @@ a) Setup Perl environment, add `%Perl%/bin` to `%PATH%`. b) Also add awk, path t
 
 g) Patch zlib: Download the patch from: [http://www.apache.org/dist/httpd/binaries/win32/patches_applied/zlib-1.2.3-vc32-2005-rcver.patch](http://www.apache.org/dist/httpd/binaries/win32/patches_applied/zlib-1.2.3-vc32-2005-rcver.patch). This patch contains minor fixes and enable generation of \*.pdb files. Copy the patch file into `zlib` subdirectory, swith to the directory in cmd.exe and run the command:
 
-```
-# patch -p0 < zlib-1.2.3-vc32-2005-rcver.patch
+```bash
+$ patch -p0 < zlib-1.2.3-vc32-2005-rcver.patch
 ```
 
 h) Patch openssl: Download the patch from: [http://www.apache.org/dist/httpd/binaries/win32/patches_applied/openssl-0.9.8k-vc32.patch](http://www.apache.org/dist/httpd/binaries/win32/patches_applied/openssl-0.9.8k-vc32.patch). This patch will correct a link issue with zlib and enable generation of \*.pdb files. Copy the patch file into `openssl` subdirectory, swith to the directory in cmd.exe and run the command:
 
-```
-# patch -p0 < openssl-0.9.8k-vc32.patch
+```bash
+$ patch -p0 < openssl-0.9.8k-vc32.patch
 ```
 
 i) Build zlib:
 
-```
-# nmake -f win32Makefile.msc
+```bash
+$ nmake -f win32Makefile.msc
 ```
 
 j) Build openssl:
 
-```
-# perl Configure no-rc5 no-idea enable-mdc2 enable-zlib VC-WIN32 -I../zlib -L../zlib
-# msdo_masm.bat
-# nmake -f msntdll.mak
+```bash
+$ perl Configure no-rc5 no-idea enable-mdc2 enable-zlib VC-WIN32 -I../zlib -L../zlib
+$ msdo_masm.bat
+$ nmake -f msntdll.mak
 ```
 
 k) Patch Apache: There's an issue in the Makefile.win that build Apache in 2.2.13: [https://issues.apache.org/bugzilla/show_bug.cgi?id=47659](https://issues.apache.org/bugzilla/show_bug.cgi?id=47659). Download the patch against branch into the %Apache% directory and run the command:
 
-```
-# patch -p0 < r799070_branch_makefile_fix.diff
+```bash
+$ patch -p0 < r799070_branch_makefile_fix.diff
 ```
 
 l) Build Apache using command line: Now you can buid Apache by:
 
-```
-# nmake -f Makefile.win _apache[d|r]
+```bash
+$ nmake -f Makefile.win _apache[d|r]
 ```
 
 And install Apache by:
 
-```
-# nmake -f Makefile.win install[d|r]
+```bash
+$ nmake -f Makefile.win install[d|r]
 ```
 
 m) Build Apache using Visual Studio 2005: There's also a flaw in the \*.vcproj conversion of \*.dsp through Visual Studio 2005. We must run a perl script to fix it first:
 
-```
-# perl srclibaprbuildcvtdsp.pl -2005
+```bash
+$ perl srclibaprbuildcvtdsp.pl -2005
 ```
 
 Now, everything are OK. In Visual Studio 2005, open the Apache.dsw and convert all \*.dsp files to \*.vcproj files. Then build the project "BuildBin". The project "InstallBin" project will distribute all the project in the Apache solution.

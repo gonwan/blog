@@ -11,7 +11,7 @@ The article is originally inspired by this one: [http://www.openrce.org/articles
 
 A simple example:
 
-```
+```cpp
 class CBase {
     int a;
 public:
@@ -102,7 +102,7 @@ You see: When using virtual inheritance, an additional vbptr is added into class
 
 Now, here is a complex example:
 
-```
+```cpp
 class CBase1 {
     int a1;
 public:

@@ -23,7 +23,7 @@ There are also GUI libraries to fill this requirements: 1) WPF, 2) Qt. My applic
 
 Using Qt, I call QWidget::setWindowOpacity() to set whole transparency of a window(Pic-2). Qt 4.5 is just released. There's a new translucency attribute in QWidget class. I use it to realize per-pixel alpha blending(Pic-3). Here's Sample code:
 
-```
+```cpp
 void TransparentWindow::setTranslucent()
 {
     setWindowOpacity(1.0);

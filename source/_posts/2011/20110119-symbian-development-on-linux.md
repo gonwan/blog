@@ -40,21 +40,21 @@ When App TRK is installed, connect the phone to the PC using the USB cable. Sele
 
 On Linux, phone should appear as the /dev/ttyUSB1 device, however if you are running an old kernel, you may need to force the USB module to be loaded correctly before the device will appear:
 
-```
-# lsusb
+```bash
+$ lsusb
 ```
 
 Note the identifier on the line where your Symbian device appears. Then execute the following, using the first and second part of the identifier in place of XXX, respectively.
 
-```
-# sudo rmmod usbserial
-# sudo modprobe usbserial vendor=0x0XXX product=0x0XXX
+```bash
+$ sudo rmmod usbserial
+$ sudo modprobe usbserial vendor=0x0XXX product=0x0XXX
 ```
 
 For my C5-03, It's:
 
-```
-# sudo modprobe usbserial vendor=0x0421 product=0x03e6
+```bash
+$ sudo modprobe usbserial vendor=0x0421 product=0x03e6
 ```
 
 The rmmod step may fail if the module is not already loaded, but that is harmless.

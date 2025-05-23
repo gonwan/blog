@@ -57,38 +57,38 @@ movl $0xffffffff, %eax
 
 Last, I'd like to use `ndisasm`(install `nasm` package to get it) to illustrate how jump instruments are encoded, including short jump, near jump and far jump:
 
-```
-# echo -e "\x74\x00" | ndisasm -
+```bash
+$ echo -e "\x74\x00" | ndisasm -
 00000000  7400              jz 0x2
 00000002  0A                db 0x0a
-# echo -e "\x74\xfe" | ndisasm -
+$ echo -e "\x74\xfe" | ndisasm -
 00000000  74FE              jz 0x0
 00000002  0A                db 0x0a
-# echo -e "\x0f\x84\x00\x00" | ndisasm -
+$ echo -e "\x0f\x84\x00\x00" | ndisasm -
 00000000  0F840000          jz word 0x4
 00000004  0A                db 0x0a
-# echo -e "\x0f\x84\xfc\xff" | ndisasm -
+$ echo -e "\x0f\x84\xfc\xff" | ndisasm -
 00000000  0F84FCFF          jz word 0x0
 00000004  0A                db 0x0a
-# echo -e "\x0f\x84\x00\x00\x00\x00" | ndisasm - -b 32
+$ echo -e "\x0f\x84\x00\x00\x00\x00" | ndisasm - -b 32
 00000000  0F8400000000      jz dword 0x6
 00000006  0A                db 0x0a
-# echo -e "\x0f\x84\xfa\xff\xff\xff" | ndisasm - -b 32
+$ echo -e "\x0f\x84\xfa\xff\xff\xff" | ndisasm - -b 32
 00000000  0F84FAFFFFFF      jz dword 0x0
 00000006  0A                db 0x0a
-# echo -e "\xeb\x00" | ndisasm -
+$ echo -e "\xeb\x00" | ndisasm -
 00000000  EB00              jmp short 0x2
 00000002  0A                db 0x0a
-# echo -e "\xe9\x00\x00" | ndisasm -
+$ echo -e "\xe9\x00\x00" | ndisasm -
 00000000  E90000            jmp word 0x3
 00000003  0A                db 0x0a
-# echo -e "\xe9\x00\x00\x00\x00" | ndisasm - -b32
+$ echo -e "\xe9\x00\x00\x00\x00" | ndisasm - -b32
 00000000  E900000000        jmp dword 0x5
 00000005  0A                db 0x0a
-# echo -e "\xea\x00\x00\x34\x12" | ndisasm -
+$ echo -e "\xea\x00\x00\x34\x12" | ndisasm -
 00000000  EA00003412        jmp word 0x1234:0x0
 00000005  0A                db 0x0a
-# echo -e "\xea\x00\x00\x00\x00\x34\x12" | ndisasm - -b 32
+$ echo -e "\xea\x00\x00\x00\x00\x34\x12" | ndisasm - -b 32
 00000000  EA000000003412    jmp dword 0x1234:0x0
 00000007  0A                db 0x0a
 ```

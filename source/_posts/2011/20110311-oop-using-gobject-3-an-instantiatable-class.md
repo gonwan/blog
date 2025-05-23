@@ -12,7 +12,7 @@ We will make fundamental type instantiatable and complete our first usage sample
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 /* Foo object struct */
 typedef struct _Foo {
     /*
@@ -27,7 +27,7 @@ typedef struct _Foo {
 
 Also, we re-define the class struct:
 
-```
+```cpp
 /* Foo class struct */
 typedef struct _FooClass {
     /*
@@ -51,7 +51,7 @@ void foo_class_set_i(int i) {
 
 The registry function also need modification:
 
-```
+```cpp
 GType foo_get_type() {
     static GType foo_type = 0;
     if (foo_type == 0) {
@@ -82,7 +82,7 @@ We assigned the `instance_init()` callback. It is called when a instance of our 
 
 Let's see how to create an instance:
 
-```
+```cpp
 int main() {
     g_type_init();
     my_dump_type(foo_get_type());

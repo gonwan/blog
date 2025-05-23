@@ -10,9 +10,9 @@ tags:
 
 Code snippet:
 
-```
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <boost/shared_ptr.hpp>
 
 class A {
 public:
@@ -48,17 +48,15 @@ int main() {
 }
 ```
 
-**
-
 Output:
 
-```
-binson@binson-precise:~$ g++ ptr.cpp -o ptr
-binson@binson-precise:~$ ./ptr
+```bash
+$ g++ ptr.cpp -o ptr
+$ ./ptr
 in A::A().
 in B::B().
-binson@binson-precise:~$ g++ -D_USE_SHARED_PTR ptr.cpp -o ptr
-binson@binson-precise:~$ ./ptr
+$ g++ -D_USE_SHARED_PTR ptr.cpp -o ptr
+$ ./ptr
 in A::A().
 in B::B().
 in A::~A().

@@ -11,10 +11,10 @@ UCK stands for Ubuntu Customization Kit: [https://launchpad.net/uck](https://lau
 
 We can use PPA to install it:
 
-```
-# sudo apt-add-repository ppa:uck-team/uck-stable
-# sudo apt-get update
-# sudo apt-get install uck
+```bash
+$ sudo apt-add-repository ppa:uck-team/uck-stable
+$ sudo apt-get update
+$ sudo apt-get install uck
 ```
 
 And you'll find it in under "System Tools" section of your menu. Follow the wizard to create your own Ubuntu image. It will extract your Ubuntu image, and also the squashfs on it. 5G free disk space is required under `~/tmp`. The final customized image locates as `~/tmp/remaster-new-files/livecd.iso`.

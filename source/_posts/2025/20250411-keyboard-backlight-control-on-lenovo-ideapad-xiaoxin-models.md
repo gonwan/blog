@@ -12,7 +12,7 @@ tags:
 
 Ever found the keyboard backlight annoying? It keeps turning on when booting Windows, and there is no configuration to disable it permanently in any Lenovo Utilities.
 
-Just did some reverse engineering to find how to control keyboard backlight programmatically. The principal is simple, use `.\EnergyDrv` device exposed by Lenovo ACPI energy management driver. It is capable of controlling all keyboard backlight levels. Also other capabilities available :) . See code:
+Just did some reverse engineering to find how to control keyboard backlight programmatically. The principal is simple, use `\\.\EnergyDrv` device exposed by Lenovo ACPI energy management driver. It is capable of controlling all keyboard backlight levels. Also other capabilities available :) . See code:
 
 ```c
 #include <windows.h>
@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     /* open */
-    HANDLE drv_handle = CreateFileA("\\.\\EnergyDrv", GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    HANDLE drv_handle = CreateFileA("\\\\.\\EnergyDrv", GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
     if (drv_handle == INVALID_HANDLE_VALUE) {
         fprintf(stderr, "Error: Failed to find device, make sure Lenovo energy management driver is installed!\n");
         return -1;

@@ -13,8 +13,8 @@ tags:
 
 1. Install build tool packages:
 
-```
-# sudo apt-get install build-essential dh-make debhelper devscripts
+```bash
+$ sudo apt-get install build-essential dh-make debhelper devscripts
 ```
 
 2. Get the source package, exact it into ~/packages/qastrologer. The directory structure should like: ~/packages/qastrologer/qastrologer-<version>/<source>. The <source> directory contains your \*.pro file.
@@ -39,8 +39,8 @@ I referred to the guild here: [http://wiki.maemo.org/Packaging_a_Qt_application]
 
 4. Run dh_make. This will create the basic debian package structure.
 
-```
-# dh_make -s -c gpl --createorig
+```bash
+$ dh_make -s -c gpl --createorig
 ```
 
 We are generating a single binary package and licensed with GPL. After running the command, a "debian" subdirectory is created. Now we need to fill in more useful infomations.
@@ -60,8 +60,8 @@ QMAKE = qmake-qt4
 
 Last line ensures we use Qt4. I referred to the source of minitube project. You can access it via:
 
-```
-# sudo apt-get source minitube
+```bash
+$ sudo apt-get source minitube
 ```
 
 6. "control" file:
@@ -92,12 +92,12 @@ Note, the default "control" file uses "${shlibs:Depends}" and "${misc:Depends}" 
 
 For full build of the package (build source, deb, clean...) run:
 
-```
-# dpkg-buildpackage -rfakeroot
+```bash
+$ dpkg-buildpackage -rfakeroot
 ```
 
 Instead if you have a big package, you can also build only the deb file with:
 
-```
-# fakeroot debian/rules binary
+```bash
+$ fakeroot debian/rules binary
 ```

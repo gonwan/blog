@@ -26,7 +26,7 @@ My class is so-called `MysqlStreamTemplate`:
 
 So, here is my class. **NOTE**: closing our `Statement` & `Connection` requires explicit invoke of `Stream#close()`:
 
-```
+```java
 import javax.sql.DataSource;
 import java.io.Closeable;
 import java.sql.Connection;
@@ -49,7 +49,7 @@ public class MysqlStreamTemplate {
         this.dataSource = dataSource;
     }
 
-    public Stream query(String sql) throws SQLException {
+    public Stream<Map> query(String sql) throws SQLException {
         return new MysqlStreamQuery().stream(sql);
     }
 
@@ -58,7 +58,7 @@ public class MysqlStreamTemplate {
         private Connection connection;
         private Statement statement;
 
-        public Stream stream(String sql) throws SQLException {
+        public Stream<Map> stream(String sql) throws SQLException {
             connection = dataSource.getConnection();
             /*
              * MySQL ResultSets are completely retrieved and stored in memory (com.mysql.jdbc.RowDataStatic). Or
@@ -76,9 +76,9 @@ public class MysqlStreamTemplate {
             int columns = rs.getMetaData().getColumnCount();
             Map resultMap = new HashMap(columns);
             /* NOTE: Manually invoking of Stream.close() is required to close the MySQL statement and connection. */
-            Stream resultStream = StreamSupport.stream(new Spliterators.AbstractSpliterator(Long.MAX_VALUE, Spliterator.ORDERED | Spliterator.NONNULL | Spliterator.IMMUTABLE) {
+            Stream<Map> resultStream = StreamSupport.stream(new Spliterators.AbstractSpliterator<Map>(Long.MAX_VALUE, Spliterator.ORDERED | Spliterator.NONNULL | Spliterator.IMMUTABLE) {
                 @Override
-                public boolean tryAdvance(Consumer action) {
+                public boolean tryAdvance(Consumer<? super Map> action) {
                     try {
                         if (!rs.next()) {
                             return false;
@@ -121,31 +121,31 @@ public class MysqlStreamTemplate {
 
 Read inline comments for additional details. Now the response entry and controller mapping:
 
-```
+```java
 import java.util.Map;
 import java.util.stream.Stream;
 
 public class ApiStreamResponse extends Response {
 
     /* requires jackson-datatype-jdk8 2.9.0 */
-    private Stream result;
+    private Stream<Map> result;
 
-    public ApiStreamResponse(Stream result) {
+    public ApiStreamResponse(Stream<Map> result) {
         this.result = result;
     }
 
-    public Stream getResult() {
+    public Stream<Map> getResult() {
         return result;
     }
 
-    public void setResult(Stream result) {
+    public void setResult(Stream<Map> result) {
         this.result = result;
     }
 
 }
 ```
 
-```
+```java
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -168,7 +168,7 @@ public class ApiController {
     private MysqlClient mysqlClient;
 
     @RequestMapping(path = "/v1", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Callable getV1() {
+    public Callable<ApiResponse> getV1() {
         return () -> {
             String r = mysqlClient.executeToJson(MysqlClient.SQL).getLeft();
             return new ApiResponse(r);
@@ -176,9 +176,9 @@ public class ApiController {
     }
 
     @RequestMapping(path = "/v2", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Callable getV2() {
+    public Callable<ApiStreamResponse> getV2() {
         return () -> {
-            Stream r = mysqlClient.executeToStream(MysqlClient.SQL);
+            Stream<Map> r = mysqlClient.executeToStream(MysqlClient.SQL);
             return new ApiStreamResponse(r);
         };
     }
@@ -190,8 +190,8 @@ Complete code can be find on my GitHub [repository](https://github.com/gonwan/re
 
 My simple benchmark script looks like:
 
-```
-# ab -c 30 -n 3000 http://localhost:5050/api
+```bash
+$ ab -c 30 -n 3000 http://localhost:5050/api
 ```
 
 Dramatic improvements in memory usage as shown in jconsole, especially Old Gen: ![all_memory](images/all_memory.png) ![old_gen_memory](images/old_gen_memory.png)

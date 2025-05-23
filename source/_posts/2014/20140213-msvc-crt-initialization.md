@@ -21,7 +21,7 @@ This post provides a detailed view of the MSDN article [CRT Initialization](http
 
 Let's run our VS debugger to further investigate the CRT implementation. I'm using VS2010, and a global instance of class `A` is declared and initialized:
 
-```
+```cpp
 class A
 {
 public:
@@ -69,7 +69,7 @@ Now set the breakpoints in the constructor and destructor, and start debugging. 
 
 `_initterm` is defined as follow. It is used to walk through `__xc_a` and `__xc_z` mentioned above:
 
-```
+```cpp
 // crt0dat.c
 void __cdecl _initterm (
         _PVFV * pfbegin,
@@ -96,7 +96,7 @@ void __cdecl _initterm (
 
 `__xc_a`, `__xc_z` and other section groups are defined as:
 
-```
+```cpp
 // crt0dat.c
 /*
  * pointers to initialization sections

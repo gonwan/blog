@@ -10,7 +10,7 @@ tags:
 
 MSVC's inline assembly is easier to use, as compared to [gcc's version](https://www.gonwan.com/2013/10/22/gcc-inline-assembly/). It is easier to write right code than wrong one, I think. Still a simple add function is used to illustrate:
 
-```
+```cpp
 int add1(int a, int b)
 {
     return a + b;
@@ -19,7 +19,7 @@ int add1(int a, int b)
 
 The corresponding inline version:
 
-```
+```cpp
 int add2(int a, int b)
 {
     __asm {
@@ -39,8 +39,8 @@ Symbols in C/C++ code can be used directly in inline assembly. This is much more
 
 Let's see the generated code:
 
-```
-# cl /c /FA testasm_windows.c
+```bash
+$ cl /c /FA testasm_windows.c
 ```
 
 Output:
@@ -63,7 +63,7 @@ _TEXT ENDS
 
 Function parameters are located in `[ebp+12]` and `[ebp+8]` as referred by symbol `a` and `b`. Then, what happened if registers other than scratch registers are specified?
 
-```
+```cpp
 int add3(int a, int b)
 {
     __asm {
@@ -101,7 +101,7 @@ As you see, MSVC automatically preserves `ebx` for us. From MSDN:
 
 Let's see the case when stdcall calling convention is used:
 
-```
+```cpp
 int __stdcall add4(int a, int b)
 {
     __asm {
@@ -133,7 +133,7 @@ In stdcall, stack is cleaned up by callee. So, there's a `ret 8` before return. 
 
 MSVC also supports fastcall calling convention, but it causes register conflicts as mentioned on MSDN, and is not recommended. Just test it here, the code happens to work:)
 
-```
+```cpp
 int __fastcall add5(int a, int b)
 {
     __asm {
@@ -169,7 +169,7 @@ Function parameters are passed in `ecx` and `edx` when using fastcall. But they 
 
 Last, we can tell MSVC that we want to write our own prolog/epilog code sequences using `__declspec(naked)` directive:
 
-```
+```cpp
 __declspec(naked) int __cdecl add6(int a, int b)
 {
     __asm {

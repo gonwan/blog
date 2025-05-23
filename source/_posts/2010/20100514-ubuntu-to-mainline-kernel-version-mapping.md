@@ -14,7 +14,7 @@ Then I found the following address: [http://kernel.ubuntu.com/~kernel-ppa/info/k
 
 To further verify the version, I install the linux-source package. In /usr/src/linux-source-2.6.32.tar.bz2!/linux-source-2.6.32/Makefile:
 
-```
+```makefile
 VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 32
@@ -23,13 +23,13 @@ EXTRAVERSION = .11+drm33.2
 
 But it is a modified version. To get the original kernel package, run the command:
 
-```
-# sudo apt-get source linux-source-2.6.32
+```bash
+$ sudo apt-get source linux-source-2.6.32
 ```
 
 There files will be downloaded: linux_2.6.32-22.33.dsc, linux_2.6.32.orig.tar.gz, linux_2.6.32-22.33.diff.gz. \*.dsc is a signature, \*.orig.tar.gz is the original source, \*.diff.gz is the patch. In the case of packages made specifically for ubuntu, the last of these is not downloaded and the first usually won't have "orig" in the name. In /usr/src/linux-source-2.6.32.orig.tar.gz!/linux-source-2.6.32/Makefile:
 
-```
+```makefile
 VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 32

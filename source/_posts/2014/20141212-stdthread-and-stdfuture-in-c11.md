@@ -14,9 +14,9 @@ This is a quick note to chapter 4 of [C++ Concurrency in Action](http://www.amaz
 
 In C++11, It's quite simple to create a separate thread using `std::thread`. Following code will simply output "hello world" or "world hello":
 
-```
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <thread>
 using namespace std;
 
 void foo(const char *s) {
@@ -36,16 +36,16 @@ int main() {
 
 If you need synchronization between threads, there are `std::mutex` and `std::condition_variable`. The semantics are the same with that in pthread library. Here's a simple producer/consumer demo:
 
-```
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <chrono>
+#include <condition_variable>
+#include <mutex>
+#include <queue>
+#include <thread>
 using namespace std;
 
-queue q;
+queue<int> q;
 mutex m;
 condition_variable c;
 const chrono::milliseconds ms(1000);
@@ -64,7 +64,7 @@ void producer() {
 
 void consumer() {
     while (true) {
-        unique_lock lk(m);
+        unique_lock<mutex> lk(m);
         c.wait(lk, [](){ return !q.empty(); });
         int i = q.front();
         cout << "popping " << i << endl;
@@ -87,9 +87,9 @@ int main() {
 
 C++11 also simplifies our work with one-off events with `std::future`. `std::future` provides a mechanism to access the result of asynchronous operations. It can be used with `std::async()`, `std::packaged_task` and `std::promise`. Starting with `std::async()`:
 
-```
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <future>
 using namespace std;
 
 void foo(const char *s) {
@@ -102,8 +102,8 @@ int bar(int a, int b) {
 
 int main() {
     /* auto will be simpler */
-    future f = std::async(foo, "hello");
-    future f2 = std::async(launch::async, bar, 1, 2);
+    future<void> f = std::async(foo, "hello");
+    future<int> f2 = std::async(launch::async, bar, 1, 2);
     /* f.get() is required if f is deferred by the library */
     //f.get();
     /* std::async() can return a value */
@@ -121,9 +121,9 @@ When testing With gcc-4.8, `foo()` is not called. But with VC++2013, it does out
 
 With `std::async()`, we cannot control when our callback function is invoked. That's what `std::packaged_task` is designed to deal with. It's just a wrapper to callables. We can request an associated `std::future` from it. And when a `std::packaged_task` is invoked and finished, the associated future will be ready:
 
-```
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <future>
 using namespace std;
 
 void foo() {
@@ -136,9 +136,9 @@ int bar(int a, int b) {
 }
 
 /* associate with tasks */
-packaged_task pt(foo);
-packaged_task pt2(bar);
-
+packaged_task<void()> pt(foo);
+packaged_task<int(int,int)> pt2(bar);
+ 
 void waiter() {
     /* get associated future */
     auto f = pt.get_future();
@@ -171,13 +171,13 @@ You may also need to get notified in the middle of a task. `std::promise` can he
 
 Future and Promise are the two separate sides of an asynchronous operation. `std::promise` is used by the "producer/writer", while `std::future` is used by the "consumer/reader". The reason it is separated into these two interfaces is to hide the "write/set" functionality from the "consumer/reader":
 
-```
-#include 
-#include 
+```cpp
+#include <iostream>
+#include <future>
 using namespace std;
 
-promise p;
-promise p2;
+promise<bool> p;
+promise<int> p2;
 
 void waiter() {
     /* get associated future */

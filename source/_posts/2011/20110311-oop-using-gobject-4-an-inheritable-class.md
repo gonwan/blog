@@ -14,12 +14,12 @@ Here's comes our Base type:
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 // base.h
 #ifndef BASE_H_
 #define BASE_H_
 
-#include 
+#include <glib-object.h>
 
 /* Base object struct */
 typedef struct _Base {
@@ -51,7 +51,7 @@ GType base_get_type();
 #endif /* BASE_H_ */
 ```
 
-```
+```cpp
 // base.c
 #include "base.h"
 

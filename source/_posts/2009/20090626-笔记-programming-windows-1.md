@@ -15,7 +15,7 @@ tags:
 
 先看一段最最最入门的代码, 这边写的代码都是纯C 代码:
 
-```
+```cpp
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow)
 {
     MessageBoxA(NULL, "Hello World !", "Hello", MB_OK) ;
@@ -29,7 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 接下来是一个Unicode 的问题, 上面的代码用到的其实是ANSI 编码的API, 从windows nt 开始, Unicode 已经是windows 的内建编码了, 所以Unicode 版本的程序在windows nt 之后的版本会运行的更快一些. 然而windows nt 之前的os 就不一定能运行了. 还是看代码:
 
-```
+```cpp
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR szCmdLine, int iCmdShow)
 {
     MessageBoxW(NULL, L"Hello World !", L"Hello", MB_OK) ;
@@ -39,7 +39,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR szCmdLin
 
 区别有这样几个: WinMain-->wWinMain, PSTR-->PWSTR, MessageBoxA-->MessageBoxW, "Hello"-->L"Hello". 其实就是把函数改成Unicode 版本, 字符串改成宽字符. 我们也可以写一个ANSI 和Unicode 通用的版本:
 
-```
+```cpp
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PTSTR szCmdLine, int iCmdShow)
 {
     MessageBox(NULL, TEXT("Hello World !"), TEXT("Hello"), MB_OK) ;
@@ -53,7 +53,7 @@ _tWinMain 实际上是一个宏定义(macro)(注意下划线), 它会根据编�
 
 接下来看一个稍微复杂一些的代码:
 
-```
+```cpp
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PTSTR szCmdLine, int iCmdShow)
@@ -176,13 +176,13 @@ Dialog 可以分成2 类, modal 和modeless(注意拼写=v=). 具体概念我就
 
 一个modal 的dialog 调用DialogBox() 函数创建, 一个modeless 的dialog 调用CreateDialog() 创建. 跟CreateWindow() 的调用一样, 我们也要把一个所谓的dialog procedure 当作参数传进去. 一下是这个procedure 的signature:
 
-```
+```cpp
 INT_PTR CALLBACK DialogProc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 ```
 
 对比window procedure:
 
-```
+```cpp
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 ```
 
@@ -192,7 +192,7 @@ dialog 不会收到WM_CREATE 消息, 但是会收到对应的WM_INITDIALOG 消�
 
 最后, 书上有这样一句话: Unlike messages to modal dialog boxes and message boxes, messages to modeless dialog boxes come through your program's message queue. The message queue must be altered to pass these messages to the dialog box window procedure. 然后说我们要调用IsDialogMessage() 这个API 来传递message. 经过实践, 上面那句话的意思其实是说: modeless dialog 跟window 一样, 默认不支持Tab 键的遍历等键盘消息处理, 但是调用了这个IsDialogMessage() 之后, 所有标记过WS_TABSTOP 的子控件就都支持了. MSDN 上还说, 传入的window 句柄不一定要是dialog, window 也可以. 通过这种方法, 我们通过CreateWindow() 出来的window 也毫不费力的实现Tab 的遍历了. 于是最终, 我们的message loop 的代码大概是这样的(假设hDlgModeless 是一个modeless 的dialog 的handle):
 
-```
+```cpp
 while(GetMessage(&msg, NULL, 0, 0))
 {
     if (hDlgModeless == 0 ¦¦ !IsDialogMessage(hDlgModeless, &msg))

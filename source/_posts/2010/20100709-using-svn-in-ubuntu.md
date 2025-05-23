@@ -10,17 +10,17 @@ tags:
 
 Since I chose SVN as my VCS in google code, a SVN GUI client may be helpful. I found kdesvn. It's free, powerful, and just there in the Ubuntu repository:
 
-```
-# sudo apt-get install kdesvn
-# sudo apt-get install konqueror
+```bash
+$ sudo apt-get install kdesvn
+$ sudo apt-get install konqueror
 ```
 
 The 2nd line is used to fix the bookmark issue in kdesvn :).
 
 Then invoke the line below first:
 
-```
-# svn help
+```bash
+$ svn help
 ```
 
 This will create a default configuration directory for SVN in ~/.subversion/. In fact, any SVN command will do. There are configuration files located in /etc/subversion/. But they seems to be of no use.
@@ -29,8 +29,8 @@ Note, kdesvn will use SVN configuration files when perform operations. Now, we n
 
 ### 1. Proxy
 
-```
-# gedit ~/.subversion/servers &
+```bash
+$ gedit ~/.subversion/servers &
 ```
 
 Uncomment and modify the following lines in \[global\] section:
@@ -48,8 +48,8 @@ SVN 1.6 added gnome/gnome-keyring and kde/kwallet credentials management support
 
 #### 2.1 SVN 1.4.6 (Ubuntu 8.04, Hardy)
 
-```
-# gedit ~/.subversion/config &
+```bash
+$ gedit ~/.subversion/config &
 ```
 
 Uncomment and modify the following lines in \[auth\] section:
@@ -67,8 +67,8 @@ Note: you cannot find an option in kdesvn's configuration to set a user/password
 
 If you do not want to save password, set the 2 values as that in Hardy. But they are deprecated and moved to ~/.subversion/servers.
 
-```
-# gedit ~/.subversion/servers &
+```bash
+$ gedit ~/.subversion/servers &
 ```
 
 Uncomment and modify the following lines in \[global\] section:
@@ -80,8 +80,8 @@ store-auth-creds = no
 
 Then the ~/.subversion/config file:
 
-```
-# gedit ~/.subversion/config &
+```bash
+$ gedit ~/.subversion/config &
 ```
 
 Uncomment and modify the following lines in \[auth\] section. Set to empty:

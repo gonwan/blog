@@ -19,28 +19,28 @@ So I managed to reuse the default theme of Ubuntu within the cinnamon desktop fr
 
 Here's what I did:
 
-```
-# sudo apt-get install light-themes
+```bash
+$ sudo apt-get install light-themes
 ```
 
 This installs the Ubuntu themes. Now edit the theme to add support for Nemo:
 
-```
-# cd /usr/share/themes/Ambiance/gtk-3.0/
-# sudo vi gtk-main.css
+```bash
+$ cd /usr/share/themes/Ambiance/gtk-3.0/
+$ sudo vi gtk-main.css
 ```
 
 Add one line to the end of the file:
 
-```
+```css
 @import url("apps/nemo.css");
 ```
 
 Create the new nemo.css file:
 
-```
-# sudo cp apps/nautilus.css apps/nemo.css
-# sudo vi apps/nemo.css
+```bash
+$ sudo cp apps/nautilus.css apps/nemo.css
+$ sudo vi apps/nemo.css
 ```
 
 Replace all "nautilus" with "nemo", "Nautilus" with "Nemo":

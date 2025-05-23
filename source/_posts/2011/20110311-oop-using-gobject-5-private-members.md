@@ -16,7 +16,7 @@ Recall our definition of `Base` type:
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 /* Base object struct */
 typedef struct _Base {
     GTypeInstance parent;
@@ -34,7 +34,7 @@ typedef struct _BaseClass {
 
 It expose the visibility of `base_instance_i` field. We should keep encapsulation in OOP. GObject library has support for this. We can define the class as:
 
-```
+```cpp
 /* private data of Base object */
 typedef struct _FakeBasePrivate FakeBasePrivate;
 
@@ -72,7 +72,7 @@ typedef struct _FakeBaseClass {
 
 We declare a new `FakeBasePrivate` struct to contain all private field used in `FakeBase` type. And the private struct is defined in \*.c file, so its internal representation remains invisible. Then in \*.c file, we got:
 
-```
+```cpp
 struct _FakeBasePrivate {
     gint id;
     gchar *name;

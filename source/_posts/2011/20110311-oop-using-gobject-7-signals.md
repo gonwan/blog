@@ -12,7 +12,7 @@ Signals in GObject are used to support a event-driven programming. Signals can b
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 static void fake_base_class_init(FakeBaseClass *klass, gpointer data) {
     // ...
     /* signals */
@@ -26,7 +26,7 @@ static void fake_base_class_init(FakeBaseClass *klass, gpointer data) {
 
 Like properties, signals can be inherited too. Use signals like:
 
-```
+```cpp
 int main() {
     // ...
     FakeBase *base = (FakeBase *)g_object_new(FAKE_TYPE_BASE, NULL);
@@ -55,7 +55,7 @@ int main() {
 
 The callback functions are defined simply like:
 
-```
+```cpp
 void print_int1(GObject *sender, int i, gpointer data) {
     if (FAKE_IS_DERIVED(sender)) {
         g_print("Invoking print_int1(): derived.i=%d\n", i);

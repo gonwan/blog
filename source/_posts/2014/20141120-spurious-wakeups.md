@@ -12,7 +12,7 @@ tags:
 
 One of the two basic synchronisation primitives in multithreaded programming is called "condition variables". Here's a small example:
 
-```
+```cpp
 bool something_happened;
 boost::mutex m;
 boost::condition_variable c;
@@ -34,7 +34,7 @@ Here, the call to "c.wait()" unlocks the mutex (allowing the other thread to eve
 
 But why do we need the while loop, can't we write:
 
-```
+```cpp
     if (!something_happened) {
         c.wait(m);
     }

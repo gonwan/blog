@@ -29,7 +29,7 @@ The implementation can be found in this [commit](https://hg.python.org/cpython/r
 
 I wrote a echo server/client sample to try corutines. Server code first:
 
-```
+```python
 #!/usr/bin/python3
 import asyncio
 
@@ -63,7 +63,7 @@ loop.close()
 
 Client code here, or you can simply use `telnet` command:
 
-```
+```python
 #!/usr/bin/python3
 import asyncio
 
@@ -113,7 +113,7 @@ EOF
 
 With Python 3.5 on Ubuntu 16.04, we can also use `async`/`await`:
 
-```
+```python
 #!/usr/bin/python3
 import asyncio
 

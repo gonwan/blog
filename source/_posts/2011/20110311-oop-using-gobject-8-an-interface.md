@@ -12,7 +12,7 @@ Interfaces usage in library is like class usage. We need to define a interface s
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 typedef struct _FakeIServer FakeIServer; /* dummy object */
 typedef struct _FakeIServerInterface {
     GTypeInterface parent;
@@ -22,7 +22,7 @@ typedef struct _FakeIServerInterface {
 
 Then we register the interface using `g_type_register_static()` with `G_TYPE_INTERFACE` as first parameter. For interfaces, we only need to assign `base_init()` and `base_finalize()`callbacks.
 
-```
+```cpp
 static void fake_iserver_base_init(gpointer g_class) {
     static gboolean is_initialized = FALSE;
     if (!is_initialized) {
@@ -50,7 +50,7 @@ As described in the [official document](http://library.gnome.org/devel/gobject/s
 
 Let's define the type which implements the interface:
 
-```
+```cpp
 // fakedesktop.h
 #ifndef FAKE_DESKTOP_H_
 #define FAKE_DESKTOP_H_
@@ -90,7 +90,7 @@ GType fake_desktop_get_type();
 
 Note the naming convention I used here. Our `FakeDesktop` class will implement the `FakeIServer` interface and another `FakeIClient` interface. This time do not use corresponding interface struct as the first members of `FakeDesktop` and `FakeDesktopClass`. Interface info will be added dynamically when initialize a real instance of `FakeDesktop`. Let's move to the \*.c code:
 
-```
+```cpp
 // fakedesktop.c
 #include "fakedesktop.h"
 #include "fakeiface.h"
@@ -157,7 +157,7 @@ Note the `g_type_add_interface_static()` function call to add interface info. Th
 
 Finally, the test code:
 
-```
+```cpp
 // main.c
 #include "fakeiface.h"
 #include "fakedesktop.h"

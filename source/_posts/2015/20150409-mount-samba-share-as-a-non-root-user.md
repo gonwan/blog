@@ -9,14 +9,14 @@ tags:
 
 I used to access windows share folders directly in nautilus, or mount them like:
 
-```
-# mount -t cifs -o username=,password= /// /mnt/
+```bash
+$ mount -t cifs -o username=,password= /// /mnt/
 ```
 
 The problem is, they can be accessed only by root. The solution is adding a simple `uid` option like:
 
-```
-# sudo mount -t cifs -o uid=,username=,password=,domain= /// /mnt/ -vvv
+```bash
+$ sudo mount -t cifs -o uid=,username=,password=,domain= /// /mnt/ -vvv
 ```
 
 See: [http://wiki.centos.org/TipsAndTricks/WindowsShares](http://wiki.centos.org/TipsAndTricks/WindowsShares)

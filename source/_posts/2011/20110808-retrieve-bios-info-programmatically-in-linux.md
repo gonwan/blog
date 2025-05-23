@@ -9,19 +9,19 @@ tags:
 
 Generally, BIOS info can be found by **dmidecode** utility(run as root), like:
 
-```
-# dmidecode --type bios
+```bash
+$ dmidecode --type bios
 ```
 
 Here, I retrieve it by using **libhd** library provided in **hwinfo** utility:
 
-```
+```c
 /* bios.c */
-#include 
-#include 
-#include 
-#include 
-#include 
+#include <hd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 /* install libhd-dev/libhd-devel packages to build */
 

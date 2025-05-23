@@ -12,8 +12,8 @@ There's an official page on gcc website: [https://sourceware.org/gdb/wiki/STLSup
 
 Under Ubuntu 12.04(Precise), simply install the libstdc++6 debug package. It includes the python script for pretty printers:
 
-```
-# sudo apt-get install libstdc++6-4.6-dbg
+```bash
+$ sudo apt-get install libstdc++6-4.6-dbg
 ```
 
 Create a `.gdbinit` file in your home directory, with the content:
@@ -29,15 +29,15 @@ end
 
 My test program looks like:
 
-```
-#include 
-#include 
+```cpp
+#include <string>
+#include <vector>
 using namespace std;
 
 int main()
 {
     string s = "test";
-    vector vi;
+    vector<int> vi;
     vi.push_back(1);
     vi.push_back(2);
     vi.push_back(3);
@@ -47,13 +47,13 @@ int main()
 
 Build it with debugging enabled(-g):
 
-```
-# g++ -g test.cpp -o test
+```bash
+$ g++ -g test.cpp -o test
 ```
 
 Debug it with GDB:
 
-```
+```bash
 # gdb -q test 
 Reading symbols from /home/gonwan/test...done.
 (gdb) b 12
@@ -72,8 +72,8 @@ $2 = std::vector of length 3, capacity 4 = {1, 2, 3}
 
 Without pretty printers, the output is tedious and hard to understand:
 
-```
-$ gdb -q test 
+```bash
+$ gdb -q test
 Reading symbols from /home/gonwan/test...done.
 (gdb) set print pretty
 (gdb) b 12
@@ -110,14 +110,14 @@ $2 = {
 
 Under Ubuntu 14.04(Trusty), the 4.8 version of debug package should be installed:
 
-```
-# sudo apt-get install libstdc++6-4.8-dbg
+```bash
+$ sudo apt-get install libstdc++6-4.8-dbg
 ```
 
 There's an additional step. Since GDB in Trusty is built with python3, not python2, and the python scripts for pretty printers are in python2 syntax. A simple conversion is required:
 
-```
-# sudo 2to3 -w /usr/share/gcc-4.8/python/libstdcxx/v6/printers.py
+```bash
+$ sudo 2to3 -w /usr/share/gcc-4.8/python/libstdcxx/v6/printers.py
 ```
 
 Backup it before conversion if neccessary.

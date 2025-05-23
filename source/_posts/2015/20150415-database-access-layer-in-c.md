@@ -11,25 +11,25 @@ tags:
 
 We have JDBC in Java... and [SOCI](http://soci.sourceforge.net/) in C++... Well, it's not so easy as it should be. To build with cmake:
 
-```
-# mkdir ../build
-# cd ../build
-# set ORACLE_HOME=C:\oraclexe\app\oracle\product\10.2.0\server
-# cmake -G "Visual Studio 9 2008" -DMYSQL_INCLUDE_DIR="C:\Program Files\MySQL\MySQL Server 5.5\include" -DMYSQL_LIBRARIES="C:\Program Files\MySQL\MySQL Server 5.5\lib\libmysql.lib" ../soci-3.2.3
+```bash
+$ mkdir ../build
+$ cd ../build
+$ set ORACLE_HOME=C:\oraclexe\app\oracle\product\10.2.0\server
+$ cmake -G "Visual Studio 9 2008" -DMYSQL_INCLUDE_DIR="C:\Program Files\MySQL\MySQL Server 5.5\include" -DMYSQL_LIBRARIES="C:\Program Files\MySQL\MySQL Server 5.5\lib\libmysql.lib" ../soci-3.2.3
 ```
 
 The documents seem outdated, many options do not work. Just managed to figure out from the \*.cmake source files. You can also download the oracle instant client SDK, and re-arrange the directory structure for build.
 
 Code snippet I extracted from its unit tests:
 
-```
+```cpp
 #include "soci.h"
 #include "soci-mysql.h"
 //#include "soci-oracle.h"
-#include 
-#include 
-#include 
-#include 
+#include <ctime>
+#include <string>
+#include <iostream>
+#include <sstream>
 using namespace std;
 
 int main()
@@ -62,22 +62,22 @@ int main()
                 const soci::column_properties &props = v.get_properties(i);
                 switch (props.get_data_type()) {
                 case soci::dt_string:
-                    ss << v.get(i);
+                    ss << v.get<string>(i);
                     break;
                 case soci::dt_double:
-                    ss << v.get(i);
+                    ss << v.get<double>(i);
                     break;
                 case soci::dt_integer:
-                    ss << v.get(i);
+                    ss << v.get<int>(i);
                     break;
                 case soci::dt_long_long:
-                    ss << v.get(i);
+                    ss << v.get<long long>(i);
                     break;
                 case soci::dt_unsigned_long_long:
-                    ss << v.get(i);
+                    ss << v.get<unsigned long long>(i);
                     break;
                 case soci::dt_date:
-                    tm dt = v.get(i);
+                    tm dt = v.get<tm>(i);
                     ss << asctime(&dt);
                     break;
                 }
@@ -102,8 +102,8 @@ int main()
 
 It's due to SELinux security feature. Simply workaround it with:
 
-```
-# chcon -t texrel_shlib_t *.so*
+```bash
+$ chcon -t texrel_shlib_t *.so*
 ```
 
 2. Oracle uses `oraociei11.dll` or `libociei.so` for client data. They are both large files(110+MB), since they support multiple languages. Instead, you can use `oraociicus11.dll`(30+MB) or `libociicus.so`(10-MB). These files contain only English support.

@@ -22,7 +22,7 @@ ICMP echo reply   = IP header + ICMP header + ICMP custom data
 
 There are several ICMP message types defined in RFC 792, but we only care about the echo type. So here's our definition of a IP header and a ICMP header:
 
-```
+```cpp
 /* RFC 791, 20 bytes */
 typedef struct _ip_header_t {
     u_char  vihl;      /* version & header length */
@@ -49,7 +49,7 @@ typedef struct _icmp_header_t {
 
 Our customized ICMP echo request/reply definition with self-defined data field:
 
-```
+```cpp
 /* data length */
 #define DATALEN 64
 /* ICMP Echo Request */
@@ -76,13 +76,13 @@ typedef struct _icmp_echo_reply_t {
 
 The raw socket is created with:
 
-```
+```cpp
 sock = (int)socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
 ```
 
 Sending a ICMP echo request:
 
-```
+```cpp
 #define ICMP_ECHO       8
 /* send echo request */
 int send_echo_request(/*in*/ int sock, /*in*/ struct sockaddr_in *sockaddr, /*in*/ int seq, /*int*/ const char* pattern)
@@ -118,7 +118,7 @@ int send_echo_request(/*in*/ int sock, /*in*/ struct sockaddr_in *sockaddr, /*in
 
 We simply use the checksum algorithm found in the original ping program from Mike Muuss.
 
-```
+```cpp
 u_short in_cksum(u_short *addr, int len)
 {
     register int nleft = len;
@@ -153,7 +153,7 @@ u_short in_cksum(u_short *addr, int len)
 
 Now, receiving a ICMP echo reply:
 
-```
+```cpp
 int recv_echo_reply(/*in*/ int sock, /*in*/ int use_icmp_socket, /*out*/ int *ttl, /*out*/ icmp_echo_request_t *reply)
 {
     int rc;
@@ -211,7 +211,7 @@ int recv_echo_reply(/*in*/ int sock, /*in*/ int use_icmp_socket, /*out*/ int *tt
 
 You may have noticed the if/else clause in the receive function. The `use_icmp_socket` flag is used to tell which socket type is used when sending a ICMP message. In linux kernel 3.0, a new socket type is introduced to reduce the possibility to use a raw socket that only send ICMP echo messages. Thus, the classic ping utility can be no longer a +s(setuid) one. A ICMP socket can be created with:
 
-```
+```cpp
 /* icmp socket available in kernel 3.0 */
 /* # echo 1000 1000 | sudo tee -a /proc/sys/net/ipv4/ping_group_range */
 sock = (int)socket(AF_INET, SOCK_DGRAM, IPPROTO_ICMP);
@@ -221,7 +221,7 @@ Note the difference in the second parameter. A kernel parameter(`/proc/sys/net/i
 
 When using a raw socket, the TTL value is in the IP header. While, the TTL value is in the socket ancillary data when using a ICMP socket, the reply data does not contain IP header any more. And we must set a socket option explicitly to retrieve the TTL value:
 
-```
+```cpp
 int hold = 1;
 if (setsockopt(sock, SOL_IP, IP_RECVTTL, (char *)&hold, sizeof(hold))) {
     fprintf(stderr, "setsockopt(IP_RECVTTL) error.\n");
@@ -230,7 +230,7 @@ if (setsockopt(sock, SOL_IP, IP_RECVTTL, (char *)&hold, sizeof(hold))) {
 
 Let's put them all together:
 
-```
+```cpp
 #define ICMP_ECHOREPLY  0
 #define ICMP_UNREACH    3
 
@@ -362,8 +362,8 @@ int ping(const char *host, int loop)
 
 All code compiles and works under Ubuntu 12.04(gcc4.6), Windows XP(VS2005) and Windows 7(VS2010) with administrator/root privilege. After enabling the ICMP socket parameter, root privilege is not required under linux. The output may look like:
 
-```
-gonwan@gonwan-precise:~/eclipse/workspace/ping$ ./ping www.google.com
+```bash
+$ ./ping www.google.com
 PING www.google.com (74.125.31.99) 56(84) bytes of data.
 Request timed out.
 64 bytes from www.google.com (74.125.31.99): icmp_req=1 ttl=46 time=62 ms
@@ -373,7 +373,14 @@ Request timed out.
 3 packets transmitted, 2 received, 33% packet loss, time 128 ms
 rtt min/avg/max = 62/64/66 ms
 
-
 ```
 
-**Reference**: - RFC 791: [http://tools.ietf.org/html/rfc791](http://tools.ietf.org/html/rfc791) - RFC 792: [http://tools.ietf.org/html/rfc792](http://tools.ietf.org/html/rfc792) - Implement ping in C: [http://www.ibm.com/developerworks/cn/linux/network/ping/](http://www.ibm.com/developerworks/cn/linux/network/ping/) - Raw Socket and ICMP: [http://courses.cs.vt.edu/cs4254/fall04/slides/raw_6.pdf](http://courses.cs.vt.edu/cs4254/fall04/slides/raw_6.pdf) - Linux Kernel 3.0: [http://kernelnewbies.org/Linux_3.0](http://kernelnewbies.org/Linux_3.0) - IPv4: Add ICMP Socket Kind: [http://lwn.net/Articles/420800/](http://lwn.net/Articles/420800/) - Patch for Userspace ping: [ftp://ftp.intelib.org/pub/segoon/iputils-ss020927-pingsock.diff](ftp://ftp.intelib.org/pub/segoon/iputils-ss020927-pingsock.diff) - Wine Implementation: [http://fossies.org/dox/wine-1.4.1/icmp_8c_source.html](http://fossies.org/dox/wine-1.4.1/icmp_8c_source.html)
+**Reference**:
+- RFC 791: [http://tools.ietf.org/html/rfc791](http://tools.ietf.org/html/rfc791)
+- RFC 792: [http://tools.ietf.org/html/rfc792](http://tools.ietf.org/html/rfc792)
+- Implement ping in C: [http://www.ibm.com/developerworks/cn/linux/network/ping/](http://www.ibm.com/developerworks/cn/linux/network/ping/)
+- Raw Socket and ICMP: [http://courses.cs.vt.edu/cs4254/fall04/slides/raw_6.pdf](http://courses.cs.vt.edu/cs4254/fall04/slides/raw_6.pdf)
+- Linux Kernel 3.0: [http://kernelnewbies.org/Linux_3.0](http://kernelnewbies.org/Linux_3.0)
+- IPv4: Add ICMP Socket Kind: [http://lwn.net/Articles/420800/](http://lwn.net/Articles/420800/)
+- Patch for Userspace ping: [ftp://ftp.intelib.org/pub/segoon/iputils-ss020927-pingsock.diff](ftp://ftp.intelib.org/pub/segoon/iputils-ss020927-pingsock.diff)
+- Wine Implementation: [http://fossies.org/dox/wine-1.4.1/icmp_8c_source.html](http://fossies.org/dox/wine-1.4.1/icmp_8c_source.html)

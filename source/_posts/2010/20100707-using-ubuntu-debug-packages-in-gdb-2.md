@@ -14,19 +14,19 @@ From last blog, I've demostrated the usage of Ubuntu \*-dbg packages. However, n
 
 I googled a lot, but was not able to find a solution. So I decided to build the debug version of the two library myself. Here are steps for libcurl:
 
-```
-# sudo apt-get source libcurl3-dbg
-# cd curl-7.19.7/
-# ./configure --prefix=/usr/local --enable-debug --enable-static=0
-# make
+```bash
+$ sudo apt-get source libcurl3-dbg
+$ cd curl-7.19.7/
+$ ./configure --prefix=/usr/local --enable-debug --enable-static=0
+$ make
 ```
 
 After all, the compiled binary is located in /home/gonwan/testgdb/curl-7.19.7/lib/.libs/. **Note**, this is a hidden folder.
 
 Here comes our test code:
 
-```
-#include 
+```c
+#include <curl/curl.h>
 int main() {
     curl_easy_init();
     return 0;
@@ -35,14 +35,14 @@ int main() {
 
 Build commands:
 
-```
-# gcc -g testcurl.c -o testcurl /usr/lib/libcurl.so.4
+```bash
+$ gcc -g testcurl.c -o testcurl /usr/lib/libcurl.so.4
 ```
 
 I use /usr/lib/libcurl.so.4 instead of lcurl, since lcurl will link the binary to /usr/lib/libcurl-gnutls.so.4. But I currently cannot afford it :(. Last, start our GDB:
 
-```
-# LD_LIBRARY_PATH=/home/gonwan/testgdb/curl-7.19.7/lib/.libs/ gdb ./testcurl
+```bash
+$ LD_LIBRARY_PATH=/home/gonwan/testgdb/curl-7.19.7/lib/.libs/ gdb ./testcurl
 GNU gdb (GDB) 7.1-ubuntu
 ...
 Reading symbols from /home/gonwan/testgdb/testcurl...done.
@@ -64,26 +64,26 @@ curl_easy_init () at easy.c:372
 
 It prints the backtrace now, though I'm not so accustomed to console debugging. I add the LD_LIBRARY_PATH environment to let our test program find our homemade version of libcurl.so.4. In fact, we can run ldd like following lines. You see the re-direction?
 
-```
-# ldd ./testcurl | grep libcurl
+```bash
+$ ldd ./testcurl | grep libcurl
     libcurl.so.4 => /usr/lib/libcurl.so.4 (0x00943000)
-# LD_LIBRARY_PATH=/home/gonwan/testgdb/curl-7.19.7/lib/.libs/ ldd ./testcurl | grep libcurl
+$ LD_LIBRARY_PATH=/home/gonwan/testgdb/curl-7.19.7/lib/.libs/ ldd ./testcurl | grep libcurl
     libcurl.so.4 => /home/gonwan/testgdb/curl-7.19.7/lib/.libs/libcurl.so.4 (0x00318000)
 ```
 
 Later, I successfully made it possible to debug Qt source code in IDE. I chose QtCreator, since it has both windows and linux version, and it's easy to install and configure. I also built my homemade version of Qt:
 
-```
-# sudo apt-get source libqt4-dbg
-# cd qt4-x11-4.6.2/
-# ./configure -prefix /usr/local -debug-and-release -no-qt3support -no-webkit -no-script -no-scripttools -no-xmlpatterns -no-phonon -no-multimedia -no-declarative -make libs -nomake tools -nomake examples -nomake demos -nomake docs -nomake translations -fast
-# make
+```bash
+$ sudo apt-get source libqt4-dbg
+$ cd qt4-x11-4.6.2/
+$ ./configure -prefix /usr/local -debug-and-release -no-qt3support -no-webkit -no-script -no-scripttools -no-xmlpatterns -no-phonon -no-multimedia -no-declarative -make libs -nomake tools -nomake examples -nomake demos -nomake docs -nomake translations -fast
+$ make
 ```
 
 I only built the most common modules, excluding webkit, script, xmlpatterns, phonon, multimedia and declarative modules. It took only 25 minutes to finish (An entire build under windows may take 3 - 4 hours.). After all, start your QtCreator, create a Qt console project with the source below:
 
-```
-#include 
+```cpp
+#include <QtCore/QString>
 int main() {
     QString s = "1234567";
     int i = s.indexOf('3');

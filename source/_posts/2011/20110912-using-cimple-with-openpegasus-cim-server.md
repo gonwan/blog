@@ -12,32 +12,32 @@ This post just walk through the usage of [CIMPLE](http://simplewbem.org/) and [O
 
 In CentOS 5.x, just install OpenPegasus(2.9.1) from yum:
 
-```
-# yum install tog-pegasus tog-pegasus-devel
+```bash
+$ yum install tog-pegasus tog-pegasus-devel
 ```
 
 We install the devel package since CIMPLE needs to build against it. I used CIMPLE 1.2.4. Before build it, we should fix broken symbolic links of OpenPegasus package, otherwise link error occurs:
 
-```
-# ln -s /usr/lib/libpegconfig.so.1 /usr/lib/libpegconfig.so
-# ln -s /usr/lib/libpeglistener.so.1 /usr/lib/libpeglistener.so
-# ln -s /usr/lib/libpegprm.so.1 /usr/lib/libpegprm.so
-# ln -s /usr/lib/libpegprovidermanager.so.1 /usr/lib/libpegprovidermanager.so
+```bash
+$ ln -s /usr/lib/libpegconfig.so.1 /usr/lib/libpegconfig.so
+$ ln -s /usr/lib/libpeglistener.so.1 /usr/lib/libpeglistener.so
+$ ln -s /usr/lib/libpegprm.so.1 /usr/lib/libpegprm.so
+$ ln -s /usr/lib/libpegprovidermanager.so.1 /usr/lib/libpegprovidermanager.so
 ```
 
-There's also a trivial bug which prevent CIMPLE from generating CMPI version of makefiles. Edit _${CIMPLE}/src/tools/genmak/main.cpp_, find line "case 'c'", and change to "case 'C'". Now configure and make:
+There's also a trivial bug which prevent CIMPLE from generating CMPI version of makefiles. Edit `${CIMPLE}/src/tools/genmak/main.cpp`, find line "case 'c'", and change to "case 'C'". Now configure and make:
 
-```
-# ./configure --prefix=/usr --with-pegasus=/usr --with-cmpi=/usr/include/Pegasus/Provider/CMPI
-# make
-# make install
+```bash
+$ ./configure --prefix=/usr --with-pegasus=/usr --with-cmpi=/usr/include/Pegasus/Provider/CMPI
+$ make
+$ make install
 ```
 
 Aha!! Another annoying bug: wrong permissions in \*.tar.gz source package. Fix with:
 
-```
-# chmod 644 /usr/share/cimple/mak/*.mak
-# chmod 755 /usr/share/cimple/mak/*.sh
+```bash
+$ chmod 644 /usr/share/cimple/mak/*.mak
+$ chmod 755 /usr/share/cimple/mak/*.sh
 ```
 
 Demo code refers to CIMPLE official tutorial. It can be found in source package. A repository.mof file is created first:
@@ -57,22 +57,22 @@ class VicePresident
 };
 ```
 
-Run _genproj_ to generate class files, provider files, and module files:
+Run `genproj` to generate class files, provider files, and module files:
 
-```
-# genproj President President VicePresident
+```bash
+$ genproj President President VicePresident
 ```
 
-Generate makefiles using _genmak_. First line is for OpenPegasus adapter, while second line for CMPI adapter:
+Generate makefiles using `genmak`. First line is for OpenPegasus adapter, while second line for CMPI adapter:
 
-```
-# genmak President *.cpp
-# genmak -C President *.cpp
+```bash
+$ genmak President *.cpp
+$ genmak -C President *.cpp
 ```
 
 We implemented `President::get_instance()` and `President::enum_instance()` in our code:
 
-```
+```cpp
 Get_Instance_Status President_Provider::get_instance(
     const President* model,
     President*& instance)
@@ -139,10 +139,10 @@ If `get_instance()` returns `GET_INSTANCE_UNSUPPORTED`, the adapter satisﬁes t
 
 After making your module, a registration is required for OpenPegasus CIM server. Start your server and register. The shared library should also be copied to OpenPegasus's providers folder manually:
 
-```
-# cp libPresident.so /usr/lib/Pegasus/providers
-# /etc/init.d/tog-pegasus start
-# regmod -c ./libPresident.so
+```bash
+$ cp libPresident.so /usr/lib/Pegasus/providers
+$ /etc/init.d/tog-pegasus start
+$ regmod -c ./libPresident.so
 Using Pegasus C++ provider interface
 Creating class VicePresident (root/cimv2)
 Creating class President (root/cimv2)
@@ -152,8 +152,8 @@ Registering President_Provider (class President)
 
 To unregister this provider, run:
 
-```
-# regmod -u -c ./libPresident.so
+```bash
+$ regmod -u -c ./libPresident.so
 Using Pegasus C++ provider interface
 Unregistering VicePresident_Provider (class VicePresident)
 Deleted class VicePresident
@@ -163,8 +163,8 @@ Deleted class President
 
 You may want to dump MOF registration instance for your provide:
 
-```
-# regmod -d ./libPresident.so
+```bash
+$ regmod -d ./libPresident.so
 instance of PG_ProviderModule
 {
     Name = "President_Module";
@@ -214,21 +214,21 @@ instance of PG_ProviderCapabilities
 
 Install command line utilities and test OpenPegasus server:
 
-```
-# yum install sblim-wbemcli
-# yum install sblim-cmpi-base
-# wbemcli ecn https://:@localhost:5989/root/cimv2
-# wbemcli -nl ei https://:@localhost:5989/root/cimv2:Linux_Processor
+```bash
+$ yum install sblim-wbemcli
+$ yum install sblim-cmpi-base
+$ wbemcli ecn https://:@localhost:5989/root/cimv2
+$ wbemcli -nl ei https://:@localhost:5989/root/cimv2:Linux_Processor
 ```
 
 Test our President provider:
 
-```
-# wbemcli ei https://:@localhost:5989/root/cimv2:President
+```bash
+$ wbemcli ei https://:@localhost:5989/root/cimv2:President
 localhost:5989/root/cimv2:President.Number=1 Number=1,First="George",Last="Washington"
 localhost:5989/root/cimv2:President.Number=2 Number=2,First="John",Last="Adams"
 localhost:5989/root/cimv2:President.Number=3 Number=3,First="Thomas",Last="Jefferson"
-# wbemcli gi https://:@localhost:5989/root/cimv2:President.Number=1
+$ wbemcli gi https://:@localhost:5989/root/cimv2:President.Number=1
 localhost:5989/root/cimv2:President.Number="1" Number=1,First="George",Last="Washington"
 ```
 

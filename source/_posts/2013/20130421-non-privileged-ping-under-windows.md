@@ -10,7 +10,7 @@ tags:
 
 Continue with last article, only paste code here:
 
-```
+```cpp
 int ping(/*in*/ const char *ip, /*out*/ int *ttl, /*out*/ int *diff)
 {
     HANDLE hIcmpFile;

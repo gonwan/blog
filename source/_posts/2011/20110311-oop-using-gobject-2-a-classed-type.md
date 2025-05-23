@@ -12,7 +12,7 @@ In last article, we defined a fundamental type. But nothing can be done with it.
 
 **NOTE**: PLEASE READ ALL COMMENT CAREFULLY.
 
-```
+```cpp
 typedef struct _FooClass {
     /*
      * Official document:
@@ -31,7 +31,7 @@ typedef struct _FooClass {
 
 When registering our fundamental type, additional field in `GTypeInfo` and `GTypeFundamentalInfo` are filled:
 
-```
+```cpp
 GType foo_get_type() {
     static GType foo_type = 0;
     if (foo_type == 0) {
@@ -60,7 +60,7 @@ GType foo_get_type() {
 
 Now, let's implement our `foo_class_init()` function. This function is used to initialize fields and assign virtual functions in most time:
 
-```
+```cpp
 void foo_class_bar();
 
 void foo_class_init(FooClass *klass, gpointer data) {
@@ -76,7 +76,7 @@ void foo_class_bar() {
 
 Now, we've finished our definition of the class struct. Let's see how to use it:
 
-```
+```cpp
 int main() {
     g_type_init();
     my_dump_type(foo_get_type());

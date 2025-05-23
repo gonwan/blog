@@ -10,15 +10,15 @@ tags:
 
 Just take a simple note here. The Boost Multi-index Containers Library provides a class template named `multi_index_container` which enables the construction of containers maintaining one or more _indices_ with different sorting and access semantics.
 
-```
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
-#include 
+```cpp
+#include <string>
+#include <ostream>
+#include <boost/multi_index_container.hpp>
+#include <boost/multi_index/ordered_index.hpp>
+#include <boost/multi_index/identity.hpp>
+#include <boost/multi_index/member.hpp>
+#include <boost/multi_index/tag.hpp>
+#include <boost/lambda/lambda.hpp>
 using namespace std;
 using namespace boost::multi_index;
 
@@ -58,11 +58,11 @@ typedef multi_index_container<
     employee,
     indexed_by<
         /* sort by employee::operator< */
-        ordered_unique >,
-        /* sort by less on m_hire */
-        ordered_non_unique >,
-        /* sort by less on m_auth */
-        ordered_non_unique, member >
+        ordered_unique<identity<employee> >,
+        /* sort by less<int> on m_hire */
+        ordered_non_unique<member<employee, int, &employee::m_hire> >,
+        /* sort by less<auth> on m_auth */
+        ordered_non_unique<tag<auth_t>, member<employee, auth, &employee::m_auth> >
     >
 > employee_set;
 
@@ -75,13 +75,13 @@ int main()
     es.insert(employee(4, "222", "222pass", 2015, 0));
     es.insert(employee(5, "555", "555pass", 2014, 0)); /* dup */
     typedef employee_set::nth_index<1>::type hire_index_t;
-    typedef employee_set::index::type auth_index_t;
+    typedef employee_set::index<auth_t>::type auth_index_t;
     cout << "Get a view to index #1 (m_hire).." << endl;
     hire_index_t &hire_index = es.get<1>();
-    std::copy(hire_index.begin(), hire_index.end(), ostream_iterator(cout, "\n"));
+    std::copy(hire_index.begin(), hire_index.end(), ostream_iterator<employee>(cout, "\n"));
     cout << "Get a view to index tag auth_t (m_auth).." << endl;
-    const auth_index_t &auth_index = es.get();
-    std::copy(auth_index.begin(), auth_index.end(), ostream_iterator(cout, "\n"));
+    const auth_index_t &auth_index = es.get<auth_t>();
+    std::copy(auth_index.begin(), auth_index.end(), ostream_iterator<employee>(cout, "\n"));
     cout << "Find.." << endl;
     hire_index_t::iterator it = hire_index.find(2015);
 #if 0
@@ -95,8 +95,8 @@ int main()
 #endif
     cout << (*it) << endl;
     cout << "Find all.." << endl;
-    pair pr = auth_index.equal_range(auth("555", ""));
-    std::copy(pr.first, pr.second, ostream_iterator(cout, "\n"));
+    pair<auth_index_t::const_iterator, auth_index_t::const_iterator> pr = auth_index.equal_range(auth("555", ""));
+    std::copy(pr.first, pr.second, ostream_iterator<employee>(cout, "\n"));
     return 0;
 }
 ```

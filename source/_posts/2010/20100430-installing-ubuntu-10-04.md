@@ -16,16 +16,16 @@ There's something to mention about installation.
 
 I installed lucid from harddisk. There's an lock issue when modifying the partition table. We should umount the iso first:
 
-```
-# sudo umount -l /isodevice
+```bash
+$ sudo umount -l /isodevice
 ```
 
 ### 1. grub
 
 The original grub installation will not probe Windows OSes. See [here](https://bugs.launchpad.net/ubuntu/+source/ubiquity/+bug/570765). So you must do it manually.
 
-```
-# sudo /usr/sbin/grub-mkconfig > /boot/grub/grub.cfg
+```bash
+$ sudo /usr/sbin/grub-mkconfig > /boot/grub/grub.cfg
 ```
 
 ### 2. qterm
@@ -40,10 +40,10 @@ Pidgin is replaced with emphathy. Emphathy is not as powerful as pidgin. But it 
 
 These are video/audio players. Please install essential codecs. Otherwise, almost nothing could be played and seek function is not available.
 
-```
-# sudo apt-get install gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse
-# sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse
-# sudo apt-get install libavcodec-extra-52 libavutil-extra-49
+```bash
+$ sudo apt-get install gstreamer0.10-plugins-bad gstreamer0.10-plugins-bad-multiverse
+$ sudo apt-get install gstreamer0.10-plugins-ugly gstreamer0.10-plugins-ugly-multiverse
+$ sudo apt-get install libavcodec-extra-52 libavutil-extra-49
 ```
 
 Now, almost all media formats can be played. Also, media plugins in firefox works.
@@ -60,8 +60,8 @@ The gimp is not installed by defaut, so...
 
 I'm running on a Thinkpad T60 machine. The brightness function key works correctly, but the volume button does not. Then I found that the hotkey mask should be enabled: [http://swiss.ubuntuforums.org/showthread.php?t=1328016](http://swiss.ubuntuforums.org/showthread.php?t=1328016) [http://www.thinkwiki.org/wiki/thinkpad-acpi](http://www.thinkwiki.org/wiki/thinkpad-acpi) After all, I add following line in the startup script, /etc/rc.local:
 
-```
-# cp /sys/devices/platform/thinkpad_acpi/hotkey_all_mask /sys/devices/platform/thinkpad_acpi/hotkey_mask
+```bash
+$ cp /sys/devices/platform/thinkpad_acpi/hotkey_all_mask /sys/devices/platform/thinkpad_acpi/hotkey_mask
 ```
 
 Then the volume button works. The play/pause/stop/prev/next buttons also work in rhythmbox.
@@ -70,8 +70,8 @@ Then the volume button works. The play/pause/stop/prev/next buttons also work in
 
 I want to mount all windows partitions when boot. So /etc/fstab file should be edited automatically using pysdm:
 
-```
-# sudo apt-get install pysdm
+```bash
+$ sudo apt-get install pysdm
 ```
 
 For ntfs partitions, default option is OK. For fat32 partitins, add the "utf8=1" string. Or you may want to edit fstab manually. You can copy from /etc/mtab file and do some little modification. For me, the added modified lines are:
@@ -88,16 +88,16 @@ For ntfs partitions, default option is OK. For fat32 partitins, add the "utf8=1"
 
 ### 9. restricted packages
 
-```
-# sudo apt-get install ubuntu-restricted-extras
+```bash
+$ sudo apt-get install ubuntu-restricted-extras
 ```
 
 This will install some other useful packages. The open-source java packages are included but not necessary. Unmark them and install sun's packages instead.
 
 ### 10. modify reserved space
 
-```
-# sudo tune2fs -m 3 /dev/sda2
+```bash
+$ sudo tune2fs -m 3 /dev/sda2
 ```
 
 ### 11. ctrl+alt+backspace

@@ -11,11 +11,11 @@ tags:
 
 Generally, A logger is a singleton class. The declaration may look like:
 
-```
+```cpp
 #ifndef _LOGGER_H
 #define _LOGGER_H
 
-#include 
+#include <string>
 
 class Logger
 {
@@ -43,12 +43,12 @@ Another big issue is that we must add a new parameter to the `GetInstance` funct
 
 By utilizing TLS (thread-local storage), we can easily solve the above issues. Every logger will be thread-local, say every thread has its own logger instance which is stored in its thread context. Here comes the declaration for our new `Logger` class, `boost::thread_specific_ptr` from [boost](http://www.boost.org/) library is used to simplify our TLS operations:
 
-```
+```cpp
 #ifndef _LOGGER2_H
 #define _LOGGER2_H
 
-#include 
-#include 
+#include <string>
+#include <boost/thread.hpp>
 
 class Logger
 {
@@ -68,11 +68,11 @@ private:
 
 Simply use `boost::thread_specific_ptr` to wrap the original 2 static variables, and they will be in TLS automatically, that's all. The implementation:
 
-```
+```cpp
 #include "logger2.h"
-#include 
-#include 
-#include 
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
 
 using namespace std;
 
@@ -108,9 +108,9 @@ void Logger::Write(const char *format, ...)
 
 Our test code:
 
-```
-#include 
-#include 
+```cpp
+#include <boost/date_time.hpp>
+#include <boost/thread.hpp>
 /*
  * actually, we do not matter which header file to include,
  * since they have compatible public interface, compatible ABI.
