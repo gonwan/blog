@@ -1,6 +1,8 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "blog",
+  "description": "My personal blog",
+  "author": "gonwan <gonwan@gmail.com>",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "hexo generate",
