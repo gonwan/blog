@@ -96,14 +96,14 @@ If you want to integrate with gnome-keyring or kwallet, modify the line to conta
 
 In kdesvn, go to Settings --> Configure Kdesvn --> Subversion, check the "Store passwords into KDE Kwallet" option. It's the default configuration. Make sure that the option and the "password-stores" value are consistent. Otherwise, our kdesvn fail to commit code. When a kdesvn prompts to ask for username/password, check "Store password (into KDE Wallet)" option. Then you can view your saved login information in KWallet Manager application:
 
-[![](images/4777151306_6f5435338d.jpg)](http://www.flickr.com/photos/49942740@N00/4777151306/)
+![lucid_kwallet](../../images/2010/lucid_kwallet.jpg)
 
 Some other screenshot of kdesvn in Lucid:
 
 Main Window:
 
-[![lucid_kdesvn](images/4777151300_c50f5feb2f_z.jpg)](http://www.flickr.com/photos/gonwan1985/4777151300 "lucid_kdesvn by Binhao Qian, on Flickr")
+![lucid_kdesvn](../../images/2010/lucid_kdesvn.jpg)
 
 Revision Tree:
 
-[![lucid_kdesvn_2](images/4777151304_67dd3a7f40_z.jpg)](http://www.flickr.com/photos/gonwan1985/4777151304 "lucid_kdesvn_2 by Binhao Qian, on Flickr")
+![lucid_kdesvn_2](../../images/2010/lucid_kdesvn_2.jpg)

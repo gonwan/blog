@@ -30,9 +30,9 @@ Installing qt_installer.sis is enough.
 
 4. Configure your QtCreator, add QtSimulator and QtSymbian versions. The Qt4 page should be something like:
 
-[![qt_symbian_1](images/5370531978_ea924b3a87_z.jpg)](http://www.flickr.com/photos/gonwan1985/5370531978 "qt_symbian_1 by Binhao Qian, on Flickr")
+![qt_symbian_1](../../images/2011/qt_symbian_1.jpg)
 
-5. Now, create a simple GUI application and add desktop/simulator/device targets, so that you can run on all of them. [![qt_symbian_2](images/5370550738_966729e563_o.png)](http://www.flickr.com/photos/gonwan1985/5370550738 "qt_symbian_2 by Binhao Qian, on Flickr")
+5. Now, create a simple GUI application and add desktop/simulator/device targets, so that you can run on all of them. ![qt_symbian_2](../../images/2011/qt_symbian_2.jpg)
 
 6. Run on phone.
 
@@ -61,6 +61,6 @@ The rmmod step may fail if the module is not already loaded, but that is harmles
 
 In QtCreator, go to Projects --> Targets --> Symbian Device, refresh the serial port, select USB1 and connect to your phone.
 
-[![qt_symbian_3](images/5369971337_67f5b51996_z.jpg)](http://www.flickr.com/photos/gonwan1985/5369971337 "qt_symbian_3 by Binhao Qian, on Flickr")
+![qt_symbian_3](../../images/2011/qt_symbian_3.jpg)
 
 Congratulations! you've done. Select Symbian device as your target and click run button. This will package, deploy and run your application on your phone. Simple, Huhhh?

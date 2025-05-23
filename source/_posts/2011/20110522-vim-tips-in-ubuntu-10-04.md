@@ -229,7 +229,7 @@ More help:
 
 Vim include basic support for code completion. The simplest way is to use <Ctrl-p>. Vim will search your include headers and do insertion. See the screenshot:
 
-[![vim_ctrlp](images/5746665104_6f34e57521.jpg)](http://www.flickr.com/photos/gonwan1985/5746665104/)
+![vim_ctrlp](../../images/2011/vim_ctrlp.jpg)
 
 The include search path can be set by:
 
@@ -264,11 +264,11 @@ Omni completion can be issued by <Ctrl-x>_<Ctrl-o>.
 
 Screenshot showing function prototype:
 
-[![vim_omni_c1](images/5746744228_68243a2ef3.jpg)](http://www.flickr.com/photos/gonwan1985/5746744228/)
+![vim_omni_c1](../../images/2011/vim_omni_c1.jpg)
 
 Screenshot showing struct member completion:
 
-[![vim_omni_c2](images/5746200187_2f2cdcc857.jpg)](http://www.flickr.com/photos/gonwan1985/5746200187/)
+![vim_omni_c2](../../images/2011/vim_omni_c2.jpg)
 
 More help info:
 
@@ -308,11 +308,11 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]  " see :help omnicpp-faq
 
 You may encounter problems when completing STL functions. Refer to `:help omnicpp-faq` and find the solution. Anyway, it works all good for me. Here're screenshots showing STL and Qt code completion:
 
-[![vim_omni_cpp1](images/5746625195_a63af8e1c9.jpg)](http://www.flickr.com/photos/gonwan1985/5746625195/)
+![vim_omni_cpp1](../../images/2011/vim_omni_cpp1.jpg)
 
-[![vim_omni_cpp2](images/5746625207_e897a6e76d.jpg)](http://www.flickr.com/photos/gonwan1985/5746625207/)
+![vim_omni_cpp2](../../images/2011/vim_omni_cpp2.jpg)
 
-**!!!NOTE!!!** : The _tags_ file for current file must be generated for OmniCppComplete to work. I've set _Ctrl+F12_ as the accelerate key. Otherwise, you'll get "Pattern not found" error. More help:
+**!!!NOTE!!!** : The `tags` file for current file must be generated for OmniCppComplete to work. I've set `Ctrl+F12` as the accelerate key. Otherwise, you'll get "Pattern not found" error. More help:
 
 ```
 :help omnicpp-options

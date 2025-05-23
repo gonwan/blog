@@ -29,4 +29,4 @@ Don't worry. The final image is already created. `isohybrid` is in `syslinux` pa
 
 Now you can use the image like the source image. Either burn it or use it to install from harddisk. I integrated all Chinese supports, codecs and some development tools. See screenshot of my livecd:
 
-[![ubuntu_uck](images/7986046431_fdb8f051e6_z.jpg)](http://www.flickr.com/photos/gonwan1985/7986046431 "ubuntu_uck by Binhao Qian, on Flickr")
+![ubuntu_uck](../../images/2012/ubuntu_uck.jpg)

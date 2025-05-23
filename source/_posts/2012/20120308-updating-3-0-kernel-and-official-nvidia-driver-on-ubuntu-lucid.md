@@ -84,4 +84,4 @@ OpenGL extensions:
 
 After installing the driver, hedgewars shows 120fps. While it used to show 4fps. It's a great improvement. :)
 
-[![hedgewars](images/6963740713_6580285442_z.jpg)](http://www.flickr.com/photos/gonwan1985/6963740713 "hedgewars by Binhao Qian, on Flickr")
+![hedgewars](../../images/2012/hedgewars.jpg)

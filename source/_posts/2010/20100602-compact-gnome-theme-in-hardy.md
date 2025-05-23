@@ -32,6 +32,6 @@ gtk-icon-sizes = "panel-menu=20,20:gtk-menu=16,16:gtk-button=16,16:gtk-small-too
 
 Ok, now let's compare the result:
 
-[![theme_glossy](images/4641411335_ebeec6b293_z.jpg)](http://www.flickr.com/photos/gonwan1985/4641411335 "theme_glossy by Binhao Qian, on Flickr")
+![theme_glossy](../../images/2010/theme_glossy.jpg)
 
-[![theme_glossy_compact](images/4641411233_05716ff8a5_z.jpg)](http://www.flickr.com/photos/gonwan1985/4641411233 "theme_glossy_compact by Binhao Qian, on Flickr")
+![theme_glossy_compact](../../images/2010/theme_glossy_compact.jpg)

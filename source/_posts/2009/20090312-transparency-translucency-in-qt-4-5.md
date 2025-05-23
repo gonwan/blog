@@ -13,7 +13,7 @@ tags:
 
 I don't really know the exact difference between "transparency" and "translucency". But the flowing pictures of my running application may show you.
 
-[![](images/3348259235_334ec02540.jpg)](http://farm4.static.flickr.com/3446/3348259235_bb903ff087_o.jpg)
+![qt_translucent](../../images/2009/qt_translucent.jpg)
 
 Pic-1 shows a normal dialog with gradient background filled. Pic-2 add opacity ability to the whole dialog(transparent). While Pic-3 only add opacity to the dialog's background(per-pixel, translucency).
 

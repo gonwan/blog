@@ -41,7 +41,7 @@ If the value is "NO", the "firstboot" utility is skipped and GDM is displayed di
 
 Here is the GDM screenshot after all above steps:
 
-[![centos5_gdm](images/5989997912_02cec9fe6d_z.jpg)](http://www.flickr.com/photos/gonwan1985/5989997912 "centos5_gdm by Binhao Qian, on Flickr")
+![centos5_gdm](../../images/2011/centos5_gdm.jpg)
 
 **PS**:
 

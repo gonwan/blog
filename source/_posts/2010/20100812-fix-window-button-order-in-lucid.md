@@ -32,10 +32,10 @@ Search "menu_focused_normal", there are four lines regarding graphics drawing of
 
 OK, you're done.
 
-[![lucid_menu_icon](images/4884126279_515ee61a8f_z.jpg)](http://www.flickr.com/photos/gonwan1985/4884126279 "lucid_menu_icon by Binhao Qian, on Flickr")
+![lucid_menu_icon](../../images/2010/lucid_menu_icon.jpg)
 
 **Update Feb 17, 2012**: You can simply run:
 
-```
-# gconftool-2 -t string -s /apps/metacity/general/button_layout :minimize,maximize,close
+```bash
+$ gconftool-2 -t string -s /apps/metacity/general/button_layout :minimize,maximize,close
 ```

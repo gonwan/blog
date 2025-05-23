@@ -20,6 +20,6 @@ In client side, go to Applications --> Internet --> Terminal Server Client, or s
 
 Here's my screenshot. The output of command "who" and "ifconfig" had different IP addresses:
 
-[![ubuntu_xdmcp](images/4799757878_9182b870a3_z.jpg)](http://www.flickr.com/photos/gonwan1985/4799757878 "ubuntu_xdmcp by Binhao Qian, on Flickr")
+![ubuntu_xdmcp](../../images/2010/ubuntu_xdmcp.jpg)
 
 Since xnest sends and receive all X Server data, it consumes a lot of bandwith. On my laptop using wireless networking, it's somewhat slow.

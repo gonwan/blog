@@ -112,7 +112,7 @@ This time, it took 30 minutes and consumed 300M storage. Two \*.deb files were b
 
 Just double-click or install using the dpkg utility. Here's my screen-shot:
 
-[![hardy_kernel](images/4616309778_6ffc815e60_z.jpg)](http://www.flickr.com/photos/gonwan1985/4616309778 "hardy_kernel by Binhao Qian, on Flickr")
+![hardy_kernel](../../images/2010/hardy_kernel.jpg)
 
 10. Reference:
 

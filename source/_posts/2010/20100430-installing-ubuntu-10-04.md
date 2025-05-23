@@ -50,7 +50,7 @@ Now, almost all media formats can be played. Also, media plugins in firefox work
 
 ### 5. fglrx
 
-This is the graphics driver for ATI cards. You may experience better performance and effects. But after I installed it, I could not play Warcraft III using wine. So I reverted to the original default graphics driver, and it works. [![ubuntu1004_warcraft3](images/4565244995_b44b0b6316.jpg)](http://www.flickr.com/photos/49942740@N00/4565244995/) To play other 3D games, make sure your have turned off compiz firstly.
+This is the graphics driver for ATI cards. You may experience better performance and effects. But after I installed it, I could not play Warcraft III using wine. So I reverted to the original default graphics driver, and it works. ![ubuntu1004_warcraft3](../../images/2010/ubuntu1004_warcraft3.jpg) To play other 3D games, make sure your have turned off compiz firstly.
 
 ### 6. gimp
 

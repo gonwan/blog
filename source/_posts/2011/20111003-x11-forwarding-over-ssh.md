@@ -28,4 +28,4 @@ I use Ubuntu as host, and CentOS as guest in VirtualBox. The default _NAT_ netwo
 
 Here gives a screenshot: ubuntu-tweak is running on CentOS:
 
-[![ssh_x11forwarding](images/6207527608_e49949fdf2_z.jpg)](http://www.flickr.com/photos/gonwan1985/6207527608 "ssh_x11forwarding by Binhao Qian, on Flickr")
+![ssh_x11forwarding](../../images/2011/ssh_x11forwarding.jpg)

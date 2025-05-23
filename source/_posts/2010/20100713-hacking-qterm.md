@@ -62,7 +62,7 @@ I read source code in [QTerm](http://www.qterm.org/) and [FQTerm](http://code.go
 
 The screenshot of standalone mode:
 
-[![qterm057_1](images/4791037730_4246bd8302_z.jpg)](http://www.flickr.com/photos/gonwan1985/4791037730 "qterm057_1 by Binhao Qian, on Flickr")
+![qterm057_1](../../images/2010/qterm057_1.jpg)
 
 The complete patch and patched source can be found here:
 

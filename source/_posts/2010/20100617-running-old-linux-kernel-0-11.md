@@ -38,4 +38,4 @@ boot: floppy
 
 Now let's see the screenshot when running the classic kernel:
 
-[![linux011_bochs_simulation](images/4709029731_2168683ab5_z.jpg)](http://www.flickr.com/photos/gonwan1985/4709029731 "linux011_bochs_simulation by Binhao Qian, on Flickr")
+![linux011_bochs_simulation](../../images/2010/linux011_bochs_simulation.jpg)
