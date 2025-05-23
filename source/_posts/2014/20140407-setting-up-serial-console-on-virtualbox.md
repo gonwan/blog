@@ -16,7 +16,7 @@ In the settings page, Check "Enable Serial Port", set "Port Number" to "COM1". T
 
 Set "Port Mode" to "Host Pipe", check "Create Pipe" and set "Port/File Path" to "/tmp/vbox". Seems it utilizes a named pipe. These settings work even if the host does not have a physical serial device.
 
-[![serial_console_1](images/13688192553_8a30594134_z.jpg)](https://www.flickr.com/photos/gonwan1985/13688192553 "serial_console_1 by Binhao Qian, on Flickr")
+![serial_console_1](../../images/2014/serial_console_1.jpg)
 
 #### 2. Install minicom
 
@@ -63,7 +63,7 @@ To read from the host, cat the device in guest so that you can do the input in `
 $ cat /dev/ttyS0
 ```
 
-[![serial_console_2](images/13688596295_7dc6633411_z.jpg)](https://www.flickr.com/photos/gonwan1985/13688596295 "serial_console_2 by Binhao Qian, on Flickr")
+![serial_console_2](../../images/2014/serial_console_2.jpg)
 
 #### 5. Kernel configuration
 
@@ -89,7 +89,9 @@ That's all for CentOS 5/6. There's no need to modify `/etc/inittab` or `/etc/sec
 
 Now, reboot your guest CentOS. The boot information should now displayed in your `minicom`. Finally, it will provide you with a login shell.
 
-[![serial_console_3](images/13689334244_24aa2b5b93_z.jpg)](https://www.flickr.com/photos/gonwan1985/13689334244 "serial_console_3 by Binhao Qian, on Flickr") You can verify that there's a new line added into `/etc/inittab` to enable getty(8) and execute a login shell:
+![serial_console_3](../../images/2014/serial_console_3.jpg)
+
+You can verify that there's a new line added into `/etc/inittab` to enable getty(8) and execute a login shell:
 
 ```
 co:2345:respawn:/sbin/agetty ttyS0 9600 vt100-nav
@@ -132,8 +134,10 @@ Reboot you Ubuntu guest, and the serial device should work as it is with CentOS.
 
 The serial device shows as COM1 in Windows XP as previously set. With a simple echo and redirect, our host can receive the message.
 
-[![serial_console_4](images/13689802104_6b8c202f77_z.jpg)](https://www.flickr.com/photos/gonwan1985/13689802104 "serial_console_4 by Binhao Qian, on Flickr")
+![serial_console_4](../../images/2014/serial_console_4.jpg)
 
 #### 8. Windows as host
 
-Settings of VirtualBox under Windows is almost the same as that under Linux. But we set "Port/File Path" to "\\\.\\pipe\\vbox", instead of "/tmp/vbox". After the configuration of kernel and getty(8), we can use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to connect. Simply set "Connection type" to "Serial", and "Serial line" to "\\\.\\pipe\\vbox". [![serial_console_5](images/13691081063_d70e51c8fc_z.jpg)](https://www.flickr.com/photos/gonwan1985/13691081063 "serial_console_5 by Binhao Qian, on Flickr")
+Settings of VirtualBox under Windows is almost the same as that under Linux. But we set "Port/File Path" to "\\\.\\pipe\\vbox", instead of "/tmp/vbox". After the configuration of kernel and getty(8), we can use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to connect. Simply set "Connection type" to "Serial", and "Serial line" to "\\\.\\pipe\\vbox".
+
+![serial_console_5](../../images/2014/serial_console_5.jpg)

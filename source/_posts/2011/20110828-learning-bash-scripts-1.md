@@ -25,7 +25,7 @@ When you log in to the Linux system, the bash shell starts as a login shell. The
 
 If you start a bash shell without logging into a system (such as if you just type bash at a CLI prompt), you start what's called an interactive shell. The interactive shell doesn't act like the login shell, but it still provides a CLI prompt for you to enter commands.
 
-If bash is started as an interactive shell, it doesn't process the _/etc/profile_ file. Instead, it checks for the _.bashrc_ file in the user's HOME directory.
+If bash is started as an interactive shell, it doesn't process the `/etc/profile` file. Instead, it checks for the `.bashrc` file in the user's HOME directory.
 
 #### Non-interactive Shell
 

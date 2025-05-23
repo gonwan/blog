@@ -194,7 +194,11 @@ My simple benchmark script looks like:
 $ ab -c 30 -n 3000 http://localhost:5050/api
 ```
 
-Dramatic improvements in memory usage as shown in jconsole, especially Old Gen: ![all_memory](images/all_memory.png) ![old_gen_memory](images/old_gen_memory.png)
+Dramatic improvements in memory usage as shown in jconsole, especially Old Gen:
+
+![all_memory](../../images/2017/all_memory.png)
+
+![old_gen_memory](../../images/2017/old_gen_memory.png)
 
 Some raw data from jmap:
 

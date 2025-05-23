@@ -133,7 +133,11 @@ $ curl -v ...
 ...
 ```
 
-Search it in Zipkin to get all trace info, including latencies if you are interested in. ![zipkin-1](images/zipkin-1.png) ![zipkin-2](images/zipkin-2.png)
+Search it in Zipkin to get all trace info, including latencies if you are interested in.
+
+![zipkin_1](../../images/2018/zipkin_1.png)
+
+![zipkin_2](../../images/2018/zipkin_2.png)
 
 The license service caches organization info in Redis, prefixed with `organizations:`. So you may want to clear them to get a complete tracing of cross service invoke.
 
@@ -151,4 +155,6 @@ The organization service and license service have Swagger integration. Access vi
 
 ### Spring Boot Admin Integration
 
-Spring Boot Admin is integrated into the eureka server. Access via: `http://${eureka-server}:8761/admin`. ![sba-1](images/sba-1.png)
+Spring Boot Admin is integrated into the eureka server. Access via: `http://${eureka-server}:8761/admin`.
+
+![sba_1](../../images/2018/sba_1.png)

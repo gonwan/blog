@@ -11,11 +11,11 @@ Finally switched from Ubuntu to Linuxmint after the 14.04 release. The distribut
 
 After trying Linuxmint 17 in VirtualBox, I found the color of its default theme is not so good. The mixture of grey and light green, sometimes made it a bit hard to detect borders. It also made me feel comfortless when using eclipse:
 
-[![mint17-1](images/14874793356_81f042bca1_z.jpg)](https://www.flickr.com/photos/gonwan1985/14874793356 "mint17-1 by Binhao Qian, on Flickr")
+![mint17_1](../../images/2014/mint17_1.jpg)
 
 So I managed to reuse the default theme of Ubuntu within the cinnamon desktop from Linuxmint:
 
-[![mint17-2](images/14897431142_0f4e5cf95f_z.jpg)](https://www.flickr.com/photos/gonwan1985/14897431142 "mint17-2 by Binhao Qian, on Flickr")
+![mint17_2](../../images/2014/mint17_2.jpg)
 
 Here's what I did:
 

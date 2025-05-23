@@ -7,7 +7,9 @@ tags:
   - "linuxmint"
 ---
 
-Just upgraded to Linuxmint 17.1. Themes in the distribution were greatly improved. They've done a better job than Ubuntu, so I switched to the mint theme. [![mint17-3](images/15741443810_386089ae8d_z.jpg)](https://www.flickr.com/photos/gonwan1985/15741443810 "mint17-3 by Binhao Qian, on Flickr")
+Just upgraded to Linuxmint 17.1. Themes in the distribution were greatly improved. They've done a better job than Ubuntu, so I switched to the mint theme.
+
+![mint17_3](../../images/2014/mint17_3.jpg)
 
 No broken visual glitch any more in eclipse. And it seems the new themes include fixes for the black background color for tooltips issue. See eclipse FAQ [here](http://wiki.eclipse.org/IRC_FAQ#Black_background_color_for_tooltips_on_Linux.2FUbuntu.2FGTK).
 
