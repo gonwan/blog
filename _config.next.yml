@@ -21,6 +21,8 @@ post_meta:
   updated_at:
     enable: false
 
+mobile_layout_economy: true
+
 codeblock:
   theme:
     light: github
