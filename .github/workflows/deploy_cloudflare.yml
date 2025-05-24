@@ -11,6 +11,7 @@ jobs:
           sparse-checkout: |
             .
             scripts
+            source/_data
             source/_posts
             source/categories
             source/tags

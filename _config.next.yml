@@ -1,3 +1,7 @@
+custom_file_path:
+  variable: source/_data/variables.styl
+  style: source/_data/styles.styl
+
 scheme: Gemini
 
 menu:
