@@ -3,10 +3,51 @@ scheme: Gemini
 menu:
   home: / || fa fa-home
   about: /about/ || fa fa-user
+  tags: /tags/ || fa fa-tags
+  categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
 
 sidebar:
   display: always
+
+toc:
+  number: false
+
+post_meta:
+  updated_at:
+    enable: false
+
+codeblock:
+  theme:
+    light: github
+    dark: github
+  copy_button:
+    enable: true
+
+github_banner:
+  enable: true
+  permalink: https://github.com/gonwan
+
+font:
+  enable: true
+  global:
+    external: false
+    family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"
+    size:
+  title:
+    external: false
+    family:
+    size:
+  headings:
+    external: false
+    family:
+    size:
+  posts:
+    external: false
+    family:
+  codes:
+    external: false
+    family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace
 
 motion:
   enable: false

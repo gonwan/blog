@@ -12,6 +12,8 @@ jobs:
             .
             scripts
             source/_posts
+            source/categories
+            source/tags
       - uses: actions/setup-node@v4
         with:
           node-version: 18
