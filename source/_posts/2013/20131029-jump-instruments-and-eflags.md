@@ -24,7 +24,7 @@ Actually, a conditional jump checks flags in the **EFLAGS** control register. Fr
 > 
 > OF (bit 11) Overflow flag: Set if the integer result is too large a positive number or too small a negative number (excluding the sign-bit) to fit in the destination operand; cleared otherwise. This flag indicates an overflow condition for signed-integer (two’s complement) arithmetic.
 
-And again from vol 2a, section _Jcc Jump if Condition is met_, more details. I just copy content from [here](http://www.unixwiz.net/techtips/x86-jumps.html):
+And again from vol 2a, section *Jcc Jump if Condition is met*, more details. I just copy content from [here](http://www.unixwiz.net/techtips/x86-jumps.html):
 
 | Instruction | Description | signed? | Flags | short jump opcodes | near jump opcodes |
 | --- | --- | --- | --- | --- | --- |

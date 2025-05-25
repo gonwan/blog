@@ -32,7 +32,7 @@ class ClassD : public ClassB, public ClassC
 
 可以把ClassA 想像成IUnknown 接口, ClassB 和ClassC 想像成接口类, ClassD 就是实现类. COM 的标准是不允许使用虚拟基类, 即被注释掉的virtual 关键字, 理由是各厂家的编译器在实现这个feature 的时候, 二进制的格式不统一. 这里牵涉到一个vptr(virtual pointer), vtbl(virtual table) 的概念. 简单来说, C++ 中任何带有虚函数的类都会存在vptr 和vtbl, 它们的作用就是负责动态绑定. vptr 和vtbl 都是编译器生成而程序员是不能手动控制的(有些编译器指令大概可以). vptr 是一个指针指向vtbl, vtbl 是一个类似数组的东西, 它保存了当前类中所有虚函数的实际绑定地址.
 
-更详细的内容可以参考: <<Inside the C++ Object Model>> 第4.3 节. 然后有一段代码可以帮助更好的理解vptr 和vtbl: [http://www.go4expert.com/forums/showthread.php?t=8403](http://www.go4expert.com/forums/showthread.php?t=8403)
+更详细的内容可以参考: \<\<Inside the C++ Object Model\>\> 第4.3 节. 然后有一段代码可以帮助更好的理解vptr 和vtbl: [http://www.go4expert.com/forums/showthread.php?t=8403](http://www.go4expert.com/forums/showthread.php?t=8403)
 
 知道了以上这些之后, 再来看如下代码:
 

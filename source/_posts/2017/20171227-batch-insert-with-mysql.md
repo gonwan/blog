@@ -10,7 +10,7 @@ tags:
   - "spring"
 ---
 
-Adopting to using Spring Data JPA these day, there is a [post](https://vladmihalcea.com/2017/10/17/9-high-performance-tips-when-using-mysql-with-jpa-and-hibernate/) saying: _IDENTITY generator disables JDBC batch inserts_. To figure out the impact, create a table with 10 data fields and an auto-increment id for testing. I am using MySQL 5.7.20 / MariaDB 10.3.3 / Spring Data JPA 1.11.8 / Hibernate 5.0.12.
+Adopting to using Spring Data JPA these day, there is a [post](https://vladmihalcea.com/2017/10/17/9-high-performance-tips-when-using-mysql-with-jpa-and-hibernate/) saying: *IDENTITY generator disables JDBC batch inserts*. To figure out the impact, create a table with 10 data fields and an auto-increment id for testing. I am using MySQL 5.7.20 / MariaDB 10.3.3 / Spring Data JPA 1.11.8 / Hibernate 5.0.12.
 
 ```sql
 CREATE TABLE `t_user` (

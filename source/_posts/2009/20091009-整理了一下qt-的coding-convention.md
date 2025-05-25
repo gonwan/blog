@@ -25,4 +25,7 @@ tags:
 
 Qt 的coding convention 跟Java 的非常像. 私以为加上匈牙利命名法会更好一些. 其实又参考了wxWidgets 的部分代码, 由于它不用命名空间, 所以枚举的命名有些小不一样.
 
-参考: [Designing Qt-Style C++ APIs](http://doc.trolltech.com/qq/qq13-apis.html) [Qt - CodingConventions](http://qt.gitorious.org/qt/pages/CodingConventions) [Qt - CodingStyle](http://qt.gitorious.org/qt/pages/QtCodingStyle)
+**参考**:
+- [Designing Qt-Style C++ APIs](http://doc.trolltech.com/qq/qq13-apis.html)
+- [Qt - CodingConventions](http://qt.gitorious.org/qt/pages/CodingConventions)
+- [Qt - CodingStyle](http://qt.gitorious.org/qt/pages/QtCodingStyle)

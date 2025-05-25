@@ -80,8 +80,8 @@ DeleteObject(SelectObject(hdc, hbrhOrig));
 
 其它的映射模式包括: MM_LOMETRIC, MM_HIMETRIC, MM_LOENGLISH, MM_HIENGLISH, MM_TWIPS, MM_ISOTROPIC, MM_ANISOTROPIC. 前5 个映射模式只是逻辑坐标的不同, 而x 轴和y 轴坐标都是等比例映射缩放的, 后两种映射模式允许非等比例的坐标映射. 具体的映射规则请查阅MSDN, 因为非常非常的麻烦, 丸子只给出一个映射的计算公式, 其中(xWinOrg, yWinOrg) 是逻辑坐标的原点, (xViewOrg, yViewOrg) 是视点坐标的原点:
 
-- _xViewport = (xWindow - xWinOrg) \* xViewExt/xWinExt + xViewOrg_
-- _yViewport = (yWindow - yWinOrg) \* yViewExt/yWinExt + yViewOrg_
+- *xViewport = (xWindow - xWinOrg) \* xViewExt/xWinExt + xViewOrg*
+- *yViewport = (yWindow - yWinOrg) \* yViewExt/yWinExt + yViewOrg*
 
 这些数值当然不需要手动计算, GDI 主要提供了这样5 个函数来进行坐标映射的操作: SetMapMode(), SetWindowOrgEx(), SettWindowExtEx(), SetViewportOrgEx(), SetViewportExtEx().
 

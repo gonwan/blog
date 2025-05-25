@@ -7,13 +7,13 @@ tags:
   - "apache"
 ---
 
-最近看了这本<<The Apache Modules Book>>: [http://www.amazon.com/gp/product/B000SEGRM8/](http://www.amazon.com/gp/product/B000SEGRM8/), 记录一下.
+最近看了这本\<\<The Apache Modules Book\>\>: [http://www.amazon.com/gp/product/B000SEGRM8/](http://www.amazon.com/gp/product/B000SEGRM8/), 记录一下.
 
 每次我们学一个新的东西的时候, 似乎都会写一个程序叫做"hello world", 今天的目的也在于此. 看这本书的目的主要是为了了解Apache 的扩展性到底是如何做到的. Apache 主要提供了hook, filter, provider 等机制. 其次, 就是Apache 的跨平台和平台相关的优化. 本人对这些东西的了解还比较粗浅, 本书感觉也只是在大量的贴Apache 的源码, 所以还是要看Apache 的manual. 最后, Apache 的源码确实写的非常有参考价值, 很多东西我都不知道原来能那么用的.
 
 好了, 进正题, 我们要写的是一个"hello world" 的generator module. 运行的结果如图:
 
-[![apache_1_1](http://farm4.staticflickr.com/3161/3925163160_13f2cb7e0d_z.jpg?zz=1)](http://www.flickr.com/photos/gonwan1985/3925163160 "apache_1_1 by Binhao Qian, on Flickr")
+![apache_1_1](../../images/2009/apache_1_1.jpg)
 
 然后是代码, 有点长:
 

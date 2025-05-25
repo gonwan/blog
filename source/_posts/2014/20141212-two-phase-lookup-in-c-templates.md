@@ -10,9 +10,9 @@ tags:
 
 This is a quick note to [C++ Templates: The Complete Guide](http://www.amazon.com/C-Templates-The-Complete-Guide/dp/0201734842/). Name Taxonomy comes first in chapter 9:
 
-**Qualified name**: This term is not defined in the standard, but we use it to refer to names that undergo so-called _qualified lookup_. Specifically, this is a qualified-id or an unqualified-id that is used after an explicit member access operator (`.` or `->`). Examples are `S::x`, `this->f`, and `p->A::m`. However, just `class_mem` in a context that is implicitly equivalent to `this->class_mem` is not a qualified name: The member access must be explicit.
+**Qualified name**: This term is not defined in the standard, but we use it to refer to names that undergo so-called *qualified lookup*. Specifically, this is a qualified-id or an unqualified-id that is used after an explicit member access operator (`.` or `->`). Examples are `S::x`, `this->f`, and `p->A::m`. However, just `class_mem` in a context that is implicitly equivalent to `this->class_mem` is not a qualified name: The member access must be explicit.
 
-**Unqualified name**: An unqualified-id that is not a qualified name. This is not a standard term but corresponds to names that undergo what the standard calls _unqualified lookup_.
+**Unqualified name**: An unqualified-id that is not a qualified name. This is not a standard term but corresponds to names that undergo what the standard calls *unqualified lookup*.
 
 **Dependent name**: A name that depends in some way on a template parameter. Certainly any qualified or unqualified name that explicitly contains a template parameter is dependent. Furthermore, a qualified name that is qualified by a member access operator (`.` or `->`) is dependent if the type of the expression on the left of the access operator depends on a template parameter. In particular, `b` in `this->b` is a dependent name when it appears in a template. Finally, the identifier `ident` in a call of the form `ident(x, y, z)` is a dependent name if and only if any of the argument expressions has a type that depends on a template parameter.
 

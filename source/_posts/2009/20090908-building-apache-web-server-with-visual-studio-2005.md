@@ -94,4 +94,5 @@ It's quite simple. After build the project "InstallBin", open the property page 
 
 ### 5. Reference
 
-a) [Compiling Apache for Microsoft Windows](http://httpd.apache.org/docs/2.2/platform/win_compiling.html) b) [Apache 2.2.9 command line build with the Windows 2008 SDK](http://www.apachelounge.com/viewtopic.php?t=2560)
+- [Compiling Apache for Microsoft Windows](http://httpd.apache.org/docs/2.2/platform/win_compiling.html)
+- [Apache 2.2.9 command line build with the Windows 2008 SDK](http://www.apachelounge.com/viewtopic.php?t=2560)

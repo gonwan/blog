@@ -7,7 +7,7 @@ tags:
   - "com"
 ---
 
-今天开始重新拜读Don Box 的经典著作<<Essential COM>>.
+今天开始重新拜读Don Box 的经典著作\<\<Essential COM\>\>.
 
 之所以是重看, 是因为去年看的时候完全都不得要领, 光前两章就看了一个星期, 还没完全懂. 一年的修炼之后, 两个小时看完了第一章, 理解度应该在90%以上了.
 
@@ -47,4 +47,4 @@ IFastString *CreateFastString(const char *psz)
 
 于是我们继续coding, 首先创建了一个IFastSting 的实例, 然后转成IPersistentObject 的实例使用持久化的功能. 但是用完之后, 我们要销毁实例的时候, 到底应该如何delete? 因为多重继承的问题, 我们到底销毁 IFastString 的实例, 还是IPersistentObject 的实例, 还是都要销毁? 这个问题对于简单的代码来说, 很容易解决, 只需要销毁一个就可以了, 但是当FastString 继承了很多的接口的时候, 可能就会搞不清. 针对这个问题, COM 引入了引用计数(reference count) 这个东西. 每当用接口来返回创建的FastString 对象的时候, 引用计数加一, 包括转换接口对象的情况. 而销毁接口对象的时候, 简单的把引用计数减一, 计数为零的时候实际销毁对象. 这两个操作对应的是COM 中AddRef() 和Release() 操作. 而对于转换对象接口, 不要依赖于C++ 的RTTI 实现, 因为这也是编译器相关的. 在最后附的例子代码中, 我们自己写两个一个DynamicCast() 函数来负责这项工作, 这个函数在COM 里的对象函数是 QueryInterface().
 
-好了, 第一章就此结束, 初看会比较复杂, 但是当你把design pattern啊, windows 系统的其它部件的设计都有所了解的时候, 就会很容易理解. 侯捷童鞋有这样一篇文章: [From Cpp to COM](http://www.newasp.net/tech/program/20176.html), 建议看一下, 里面还推荐了两本书<<Inside C++ Object Model>> 和<<Inside COM>>.
+好了, 第一章就此结束, 初看会比较复杂, 但是当你把design pattern啊, windows 系统的其它部件的设计都有所了解的时候, 就会很容易理解. 侯捷童鞋有这样一篇文章: [From Cpp to COM](http://www.newasp.net/tech/program/20176.html), 建议看一下, 里面还推荐了两本书\<\<Inside C++ Object Model\>\> 和\<\<Inside COM\>\>.

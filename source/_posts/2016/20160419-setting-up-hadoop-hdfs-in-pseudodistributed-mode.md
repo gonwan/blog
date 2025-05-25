@@ -10,7 +10,7 @@ tags:
 
 Well, new to the big data world.
 
-Following Appendix A in the book _[Hadoop: The Definitive Guide, 4th Ed](http://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632/)_, just get it to work. I'm running Ubuntu 14.04.
+Following Appendix A in the book *[Hadoop: The Definitive Guide, 4th Ed](http://www.amazon.com/Hadoop-Definitive-Guide-Tom-White/dp/1491901632/)*, just get it to work. I'm running Ubuntu 14.04.
 
 1. Download and unpack the hadoop package, and set environment variables in your `~/.bashrc`.
 

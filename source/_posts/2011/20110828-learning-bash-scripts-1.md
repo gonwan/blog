@@ -38,7 +38,7 @@ To accommodate that situation, the bash shell provides the BASH_ENV environment 
 
 ### 2. Terminfo Database
 
-The terminfo database is a set of files that identify the characteristics of various terminals that can be used on the Linux system. The Linux system stores the terminfo data for each terminal type as a separate file in the terminfo database directory. The location of this directory often varies from distribution to distribution. Some common locations are _/usr/share/terminfo_, _/etc/terminfo_, and _/lib/terminfo_.
+The terminfo database is a set of files that identify the characteristics of various terminals that can be used on the Linux system. The Linux system stores the terminfo data for each terminal type as a separate file in the terminfo database directory. The location of this directory often varies from distribution to distribution. Some common locations are `/usr/share/terminfo`, `/etc/terminfo`, and `/lib/terminfo`.
 
 Since the terminfo database files are binary, you cannot see the codes within these files. However, you can use the `infocmp` command to convert the binary entries into text.
 

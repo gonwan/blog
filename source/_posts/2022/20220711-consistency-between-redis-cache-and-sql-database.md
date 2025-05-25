@@ -47,8 +47,8 @@ Hmm, let’s set it to be even shorter, what about 5 seconds? Well, you have ind
 The algorithm for cache aside pattern is:
 
 - **For immutable operations (read):**
-    - _Cache hit:_ return data from Redis directly, with no query to MySQL;
-    - _Cache miss:_ query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
+    - *Cache hit*: return data from Redis directly, with no query to MySQL;
+    - *Cache miss*: query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
 - **For mutable operations (create, update, delete):**
     - Create, update or delete the data to MySQL;
     - Delete the entry in Redis _(always delete rather than update the cache, the new value will be inserted when next cache miss)_.
@@ -68,8 +68,8 @@ This approach would mostly work for common use cases. In fact, cache aside is th
 The algorithm for the 1st variant of cache aside pattern is:
 
 - **For immutable operations (read):**
-    - _Cache hit:_ return data from Redis directly, with no query to MySQL;
-    - _Cache miss:_ query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
+    - *Cache hit*: return data from Redis directly, with no query to MySQL;
+    - *Cache miss*: query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
 - **For mutable operations (create, update, delete):**
     - Delete the entry in Redis;
     - Create, update or delete the data to MySQL.
@@ -83,8 +83,8 @@ According to the analysis above, assuming extreme conditions will not happen, bo
 The algorithm for the 2nd variant of cache aside pattern is:
 
 - **For immutable operations (read):**
-    - _Cache hit:_ return data from Redis directly, with no query to MySQL;
-    - _Cache miss:_ query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
+    - *Cache hit*: return data from Redis directly, with no query to MySQL;
+    - *Cache miss*: query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
 - **For mutable operations (create, update, delete):**
     - Create, update or delete the data to MySQL;
     - Create, update or delete the entry in Redis.
@@ -133,8 +133,8 @@ The drawbacks of write behind pattern are similar. First, many cache layers do n
 The algorithm for double delete pattern is:
 
 - **For immutable operations (read):**
-    - _Cache hit:_ return data from Redis directly, with no query to MySQL;
-    - _Cache miss:_ query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
+    - *Cache hit*: return data from Redis directly, with no query to MySQL;
+    - *Cache miss*: query MySQL to get the data _(can use read replicas to improve performance)_, save the returned data to Redis, return the result to client.
 - **For mutable operations (create, update, delete):**
     - Delete the entry in Redis;
     - Create, update or delete the data to MySQL;

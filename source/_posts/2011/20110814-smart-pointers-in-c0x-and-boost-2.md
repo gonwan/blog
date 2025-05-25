@@ -74,7 +74,7 @@ void test_auto_ptr_errors() {
 
 To resolve the drawbacks, C++0x deprecates usage of `auto_ptr`, and `unique_ptr` is the replacement. `unique_ptr` makes use of a new C++ langauge feature called *rvalue reference* which is similar to our current (left) reference (*&*), but spelled (*&&*). GCC implemented this feature in 4.3, but `unique_ptr` is only available begin from 4.4.
 
-What is _rvalue_?
+What is *rvalue*?
 
 *rvalues* are temporaries that evaporate at the end of the full-expression in which they live ("at the semicolon"). For example, *1729*, *x + y*, *std::string("meow")*, and *x++* are all rvalues.
 
@@ -145,7 +145,7 @@ void test_unique_ptr_custom_deleter() {
 }
 ```
 
-`unique_ptr` can hold pointers to an array. `unique_ptr` defines _deleter_s to free memory of its internal pointer. There are pre-defined `default_deleter` using `delete` and `delete[]`(array) for general deallocation. You can also define your customized ones. In addition, a `void` type can be used.
+`unique_ptr` can hold pointers to an array. `unique_ptr` defines *deleter*s to free memory of its internal pointer. There are pre-defined `default_deleter` using `delete` and `delete[]`(array) for general deallocation. You can also define your customized ones. In addition, a `void` type can be used.
 
 **NOTE**: To compile the code, you must specify the `-std=c++0x` flag.
 
@@ -204,7 +204,7 @@ void test_shared_ptr_convertion() {
 
 The `void` type can be used directly without a custom deleter, which is required in `unique_ptr`. Actually, `shared_ptr` has already save the exact type info in its constructor. Refer to source code for details :). And `static_pointer_cast` function is used to convert between pointer types.
 
-Unlike `auto_ptr`, Since `shared_ptr` can be _shared_, it can be used in STL containers:
+Unlike `auto_ptr`, Since `shared_ptr` can be *shared*, it can be used in STL containers:
 
 ```cpp
 typedef shared_ptr bclass_ptr;
