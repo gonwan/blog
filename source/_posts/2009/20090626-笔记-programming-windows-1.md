@@ -164,11 +164,9 @@ TranslateMessage() 的作用是用来转换键盘消息. 当我们按下一个�
 
 关于子控件的自定义有3 种方法或者说概念, 从最简单的说起:
 
-a) Owner Draw: 这种方法一般用来定制子控件的外观. 举个例子, 如果要owner-draw 一个push button 的外观, 那么这个button 的style 里要有BS_OWNERDRAW 这个flag. window procedure 回调函数遇到owner-draw 的控件时, 会收到一个WM_DRAWITEM 的消息, 你要做的就是在这个消息处理中把button 画出来.
-
-b) Sub-classing: 这种方法一般用来定制子控件的行为. 还是以push button 为例, button 的点击的默认行为是发送一个WM_COMMAND 消息给父窗口, 那么我们怎么修改这个默认行为呢? 由于button 这类系统与定义的控件的window procedure 都是在windows 系统中写死的, 我们只能想办法替换这个window procedure 回调函数. 具体的方法是调用SetWindowLong() 这个API, 并传入DWL_DLGPROC 这个flag.
-
-c) Custom Control: 不用说了, 最全面的方法. 如果你要完全定义一个全新的子控件. 你需要完全自己coding 所有的代码, 调用RegisterClass(), CreateWindow(), 实现window procedure 回调函数. 很大的工程那...
+- Owner Draw: 这种方法一般用来定制子控件的外观. 举个例子, 如果要owner-draw 一个push button 的外观, 那么这个button 的style 里要有BS_OWNERDRAW 这个flag. window procedure 回调函数遇到owner-draw 的控件时, 会收到一个WM_DRAWITEM 的消息, 你要做的就是在这个消息处理中把button 画出来.
+- Sub-classing: 这种方法一般用来定制子控件的行为. 还是以push button 为例, button 的点击的默认行为是发送一个WM_COMMAND 消息给父窗口, 那么我们怎么修改这个默认行为呢? 由于button 这类系统与定义的控件的window procedure 都是在windows 系统中写死的, 我们只能想办法替换这个window procedure 回调函数. 具体的方法是调用SetWindowLong() 这个API, 并传入DWL_DLGPROC 这个flag.
+- Custom Control: 不用说了, 最全面的方法. 如果你要完全定义一个全新的子控件. 你需要完全自己coding 所有的代码, 调用RegisterClass(), CreateWindow(), 实现window procedure 回调函数. 很大的工程那...
 
 ### 5. Dialog 对话框
 

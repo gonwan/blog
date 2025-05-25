@@ -10,15 +10,23 @@ tags:
 
 ### 1. Source
 
-a) apache 2.2.13: [http://www.apache.org/dist/httpd/httpd-2.2.13-win32-src.zip](http://www.apache.org/dist/httpd/httpd-2.2.13-win32-src.zip) b) zlib 1.2.3 (for mod_deflate): [http://www.zlib.net/zlib-1.2.3.tar.gz](http://www.zlib.net/zlib-1.2.3.tar.gz) c) openssl 0.9.8k (for mod_ssl): [http://www.openssl.org/source/openssl-0.9.8k.tar.gz](http://www.openssl.org/source/openssl-0.9.8k.tar.gz)
+- apache 2.2.13: [http://www.apache.org/dist/httpd/httpd-2.2.13-win32-src.zip](http://www.apache.org/dist/httpd/httpd-2.2.13-win32-src.zip)
+- zlib 1.2.3 (for mod_deflate): [http://www.zlib.net/zlib-1.2.3.tar.gz](http://www.zlib.net/zlib-1.2.3.tar.gz)
+- openssl 0.9.8k (for mod_ssl): [http://www.openssl.org/source/openssl-0.9.8k.tar.gz](http://www.openssl.org/source/openssl-0.9.8k.tar.gz)
 
 ### 2. Tools
 
-a) ActivePerl: [http://aspn.activestate.com/ASPN/Downloads/ActivePerl/](http://aspn.activestate.com/ASPN/Downloads/ActivePerl/) b) awk & patch tools: [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html)
+- ActivePerl: [http://aspn.activestate.com/ASPN/Downloads/ActivePerl/](http://aspn.activestate.com/ASPN/Downloads/ActivePerl/)
+- awk & patch tools: [http://gnuwin32.sourceforge.net/packages.html](http://gnuwin32.sourceforge.net/packages.html)
 
 ### 3. Steps
 
-a) Setup Perl environment, add `%Perl%/bin` to `%PATH%`. b) Also add awk, path tools to `%PATH%`. c) Decompress the apache source code to `%Apache%`, `D:Apache` maybe. d) Decompress the zlib into `srclib` subdirectory named `zlib`. e) Decompress the openssl into `srclib` subdirectory named `openssl`. f) Now the source tree should look like:
+- Setup Perl environment, add `%Perl%/bin` to `%PATH%`.
+- Also add awk, path tools to `%PATH%`.
+- Decompress the apache source code to `%Apache%`, `D:Apache` maybe.
+- Decompress the zlib into `srclib` subdirectory named `zlib`.
+- Decompress the openssl into `srclib` subdirectory named `openssl`.
+- Now the source tree should look like:
 
 ```
 %Apache%

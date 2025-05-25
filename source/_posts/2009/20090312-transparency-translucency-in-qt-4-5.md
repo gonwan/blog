@@ -32,4 +32,6 @@ void TransparentWindow::setTranslucent()
 }
 ```
 
-The demo project can be found [here](http://cid-481cbe104492a3af.skydrive.live.com/self.aspx/share/dev/TransparentWindow.zip). Note: a) Make sure you have Qt 4.5 installed to build the project. b) The translucent window's type should be set to Qt::FramelessWindowHint.
+The demo project can be found [here](http://cid-481cbe104492a3af.skydrive.live.com/self.aspx/share/dev/TransparentWindow.zip). Note:
+- Make sure you have Qt 4.5 installed to build the project.
+- The translucent window's type should be set to Qt::FramelessWindowHint.

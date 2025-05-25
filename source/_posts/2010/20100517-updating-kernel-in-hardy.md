@@ -117,7 +117,8 @@ $ AUTOBUILD=1 fakeroot debian/rules binary-arch arch=i386 flavours=core2 KDIR=/h
 8. Done again:
 
 This time, it took 30 minutes and consumed 300M storage. Two `*.deb` files were built:
-- linux-headers-lum-2.6.24-27-core2_2.6.24-27.45_i386.deb - linux-ubuntu-modules-2.6.24-27-core2_2.6.24-27.45_i386.deb
+- linux-headers-lum-2.6.24-27-core2_2.6.24-27.45_i386.deb
+- linux-ubuntu-modules-2.6.24-27-core2_2.6.24-27.45_i386.deb
 
 9. Install kernel:
 
