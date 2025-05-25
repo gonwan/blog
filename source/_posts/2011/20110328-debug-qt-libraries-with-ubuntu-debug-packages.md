@@ -24,7 +24,7 @@ int main() {
 }
 ```
 
-Our \*.pro file, you should enable the debug build:
+Our `*.pro` file, you should enable the debug build:
 
 ```
 # DebugQt.pro

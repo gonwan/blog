@@ -27,7 +27,7 @@ Update grub and reboot:
 $ sudo update-grub
 ```
 
-**Updated Oct 4, 2021**: if using Windows guest, also use OpenGL render to avoid high CPU usage. Edit \*.vmx file and add:
+**Updated Oct 4, 2021**: if using Windows guest, also use OpenGL render to avoid high CPU usage. Edit `*.vmx` file and add:
 
 ```
 mks.enableMTLRenderer = "FALSE"

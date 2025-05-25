@@ -102,4 +102,16 @@ $ sudo tune2fs -m 3 /dev/sda2
 
 ### 11. ctrl+alt+backspace
 
-See [here](http://www.ubuntugeek.com/enable-ctrl-alt-backspace-in-ubuntukubuntu-10-04lucid-lynx.html): Since Ubuntu 9.04, the Ctrl-Alt-Backspace key combination to force a restart of X is now disabled by default, to eliminate the problem of accidentally triggering the key combination. In addition, the Ctrl-Alt-Backspace option is now configured as an X keymap (XKB) option, replacing the X server "DontZap" option and allowing per-user configuration of this setting. As a result, enabling or disabling the Ctrl+Alt+Backspace shortcut can now be done easily from the desktop. - Enabling Ctrl-Alt-Backspace for Ubuntu 10.04 \*\* Select "System" -> "Preferences" -> "Keyboard". \*\* Select the "Layouts" tab and click on the "Layout Options" button. \*\* Select "Key sequence to kill the X server" and enable "Control + Alt + Backspace". - Enabling Ctrl-Alt-Backspace for Kubuntu 10.04 \*\* Click on the Application launcher and select "System Settings". \*\* Click on "Regional & Language". \*\* Select "Keyboard Layout". \*\* Click on "Enable keyboard layouts" (in the Layout tab). \*\* Select the "Advanced" tab. Then select "Key sequence to kill the X server" and enable "Control + Alt + Backspace".
+See [here](http://www.ubuntugeek.com/enable-ctrl-alt-backspace-in-ubuntukubuntu-10-04lucid-lynx.html): Since Ubuntu 9.04, the Ctrl-Alt-Backspace key combination to force a restart of X is now disabled by default, to eliminate the problem of accidentally triggering the key combination. In addition, the Ctrl-Alt-Backspace option is now configured as an X keymap (XKB) option, replacing the X server "DontZap" option and allowing per-user configuration of this setting.
+
+As a result, enabling or disabling the Ctrl+Alt+Backspace shortcut can now be done easily from the desktop.
+- Enabling Ctrl-Alt-Backspace for Ubuntu 10.04
+  - Select "System" -> "Preferences" -> "Keyboard".
+  - Select the "Layouts" tab and click on the "Layout Options" button.
+  - Select "Key sequence to kill the X server" and enable "Control + Alt + Backspace".
+- Enabling Ctrl-Alt-Backspace for Kubuntu 10.04
+  - Click on the Application launcher and select "System Settings".
+  - Click on "Regional & Language".
+  - Select "Keyboard Layout".
+  - Click on "Enable keyboard layouts" (in the Layout tab).
+  - Select the "Advanced" tab. Then select "Key sequence to kill the X server" and enable "Control + Alt + Backspace".

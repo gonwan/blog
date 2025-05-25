@@ -27,7 +27,7 @@ But it is a modified version. To get the original kernel package, run the comman
 $ sudo apt-get source linux-source-2.6.32
 ```
 
-There files will be downloaded: linux_2.6.32-22.33.dsc, linux_2.6.32.orig.tar.gz, linux_2.6.32-22.33.diff.gz. \*.dsc is a signature, \*.orig.tar.gz is the original source, \*.diff.gz is the patch. In the case of packages made specifically for ubuntu, the last of these is not downloaded and the first usually won't have "orig" in the name. In /usr/src/linux-source-2.6.32.orig.tar.gz!/linux-source-2.6.32/Makefile:
+There files will be downloaded: linux_2.6.32-22.33.dsc, linux_2.6.32.orig.tar.gz, linux_2.6.32-22.33.diff.gz. `*.dsc` is a signature, `*.orig.tar.gz` is the original source, `*.diff.gz` is the patch. In the case of packages made specifically for ubuntu, the last of these is not downloaded and the first usually won't have "orig" in the name. In /usr/src/linux-source-2.6.32.orig.tar.gz!/linux-source-2.6.32/Makefile:
 
 ```makefile
 VERSION = 2
@@ -36,4 +36,4 @@ SUBLEVEL = 32
 EXTRAVERSION =
 ```
 
-And after installed the source, the version number became same as that in the \*.deb package.
+And after installed the source, the version number became same as that in the `*.deb` package.

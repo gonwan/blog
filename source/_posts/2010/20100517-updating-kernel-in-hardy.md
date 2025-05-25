@@ -40,9 +40,13 @@ $ cat debian/config/i386/config debian/config/i386/config.generic > debian/confi
 
 Then patch some files:
 
-\*) debian/scripts/misc/getabis: From: getall i386 386 generic server virtual To: getall i386 386 generic server virtual core2
+- debian/scripts/misc/getabis:
+  - From: getall i386 386 generic server virtual
+  - To: getall i386 386 generic server virtual core2
 
-\*) debian/rules.d/i386.mk: From: flavours = 386 generic To: flavours = 386 generic core2
+- debian/rules.d/i386.mk:
+  - From: flavours = 386 generic
+  - To: flavours = 386 generic core2
 
 4. Build:
 
@@ -66,7 +70,10 @@ $ rm -rf .config include/config
 
 5. Done:
 
-My PC has a P4-2.6c CPU. It took about 90 minutes to finish. The kernel also consumed about 2G storage. After all, three \*.deb files were generated: \*) linux-headers-2.6.24-27-core2_2.6.24-27.69_i386.deb \*) linux-image-2.6.24-27-core2_2.6.24-27.69_i386.deb \*) linux-image-debug-2.6.24-27-core2_2.6.24-27.69_i386.deb
+My PC has a P4-2.6c CPU. It took about 90 minutes to finish. The kernel also consumed about 2G storage. After all, three `*.deb` files were generated:
+- linux-headers-2.6.24-27-core2_2.6.24-27.69_i386.deb
+- linux-image-2.6.24-27-core2_2.6.24-27.69_i386.deb
+- linux-image-debug-2.6.24-27-core2_2.6.24-27.69_i386.deb
 
 6. Customize modules:
 
@@ -87,9 +94,12 @@ Note: Custom modules name must match the custom kernel name, say "core2".
 
 Then patch some files:
 
-\*) debian/rules.d/i386.mk: From: flavours = 386 generic To: flavours = 386 generic core2
-
-\*) debian/rules.d/0-common-vars.mk (To prevent error in build step, debian/rules.d/3-udebs.mk): From: disable_d_i = no To: disable_d_i = true
+- debian/rules.d/i386.mk:
+  - From: flavours = 386 generic
+  - To: flavours = 386 generic core2
+- debian/rules.d/0-common-vars.mk (To prevent error in build step, debian/rules.d/3-udebs.mk):
+  - From: disable_d_i = no
+  - To: disable_d_i = true
 
 Now generate new debian/control, which includes new custom kernel:
 
@@ -106,7 +116,8 @@ $ AUTOBUILD=1 fakeroot debian/rules binary-arch arch=i386 flavours=core2 KDIR=/h
 
 8. Done again:
 
-This time, it took 30 minutes and consumed 300M storage. Two \*.deb files were built: \*) linux-headers-lum-2.6.24-27-core2_2.6.24-27.45_i386.deb \*) linux-ubuntu-modules-2.6.24-27-core2_2.6.24-27.45_i386.deb
+This time, it took 30 minutes and consumed 300M storage. Two `*.deb` files were built:
+- linux-headers-lum-2.6.24-27-core2_2.6.24-27.45_i386.deb - linux-ubuntu-modules-2.6.24-27-core2_2.6.24-27.45_i386.deb
 
 9. Install kernel:
 

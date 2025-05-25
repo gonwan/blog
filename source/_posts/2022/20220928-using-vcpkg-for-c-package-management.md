@@ -35,7 +35,7 @@ Export `vcpkg-2022.08.15` directory as `${VCPKG_ROOT}`.
 
 ### 3. Install drogon framework for demo
 
-The drogon framework is a high performance application framework, including client & server supports. vcpkg builds static(\*.a) library by default, use `x64-linux-dynamic` for dynamic(\*.so) library. The repo version requires g++-8 to build, install from CentOS SCL:
+The drogon framework is a high performance application framework, including client & server supports. vcpkg builds static(`*.a`) library by default, use `x64-linux-dynamic` for dynamic(`*.so`) library. The repo version requires g++-8 to build, install from CentOS SCL:
 
 ```bash
 $ yum install centos-release-scl

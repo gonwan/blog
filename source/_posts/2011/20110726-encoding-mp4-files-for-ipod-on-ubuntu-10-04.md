@@ -18,7 +18,7 @@ $ sudo apt-get --yes --quiet --allow-unauthenticated install medibuntu-keyring
 $ sudo apt-get --quiet update
 ```
 
-**NOTE**: ffmpeg utility in Lucid release does not support \*.rm/\*.rmvb yet.
+**NOTE**: ffmpeg utility in Lucid release does not support `*.rm`/`*.rmvb` yet.
 
 Then install mencoder and codecs:
 
@@ -26,7 +26,7 @@ Then install mencoder and codecs:
 $ sudo apt-get install mencoder libavcodec-extra-52 libavformat-extra-52
 ```
 
-Now you can convert videos. Here's a sample to convert a \*.rmvb(848x480) to a \*.mp4(320x240):
+Now you can convert videos. Here's a sample to convert a `*.rmvb`(848x480) to a `*.mp4`(320x240):
 
 ```bash
 $ mencoder -oac lavc -ovc lavc -lavcopts acodec=libfaac:abitrate=96:aglobal=1:vcodec=mpeg4:vbitrate=500:vglobal=1 -vf scale=320:180,harddup -vf-add expand=:240 -ofps 24000/1001 -of lavf source.rmvb -o target.mp4
@@ -36,7 +36,7 @@ Modify fps/codec/bitrate values as you wish. The aglobal & vglobal options seem 
 
 In order to keep video aspect after scaling, the output file should be 360x204. we use the -vf-add filter to add black band to the top and bottom of it. Other command line options, please refer to its manpage.
 
-Lastly, install gtkpod to import your \*.mp4 files.
+Lastly, install gtkpod to import your `*.mp4` files.
 
 **Updated Mar 27, 2012**: The above command line is for iPod Nano. For high quality H264 encoding used in iPod Touch or iPhone, run:
 

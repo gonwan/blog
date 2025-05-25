@@ -88,7 +88,7 @@ GType fake_desktop_get_type();
 #endif /* FAKE_DESKTOP_H_ */
 ```
 
-Note the naming convention I used here. Our `FakeDesktop` class will implement the `FakeIServer` interface and another `FakeIClient` interface. This time do not use corresponding interface struct as the first members of `FakeDesktop` and `FakeDesktopClass`. Interface info will be added dynamically when initialize a real instance of `FakeDesktop`. Let's move to the \*.c code:
+Note the naming convention I used here. Our `FakeDesktop` class will implement the `FakeIServer` interface and another `FakeIClient` interface. This time do not use corresponding interface struct as the first members of `FakeDesktop` and `FakeDesktopClass`. Interface info will be added dynamically when initialize a real instance of `FakeDesktop`. Let's move to the `*.c` code:
 
 ```cpp
 // fakedesktop.c

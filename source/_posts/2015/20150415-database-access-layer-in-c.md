@@ -18,7 +18,7 @@ $ set ORACLE_HOME=C:\oraclexe\app\oracle\product\10.2.0\server
 $ cmake -G "Visual Studio 9 2008" -DMYSQL_INCLUDE_DIR="C:\Program Files\MySQL\MySQL Server 5.5\include" -DMYSQL_LIBRARIES="C:\Program Files\MySQL\MySQL Server 5.5\lib\libmysql.lib" ../soci-3.2.3
 ```
 
-The documents seem outdated, many options do not work. Just managed to figure out from the \*.cmake source files. You can also download the oracle instant client SDK, and re-arrange the directory structure for build.
+The documents seem outdated, many options do not work. Just managed to figure out from the `*.cmake` source files. You can also download the oracle instant client SDK, and re-arrange the directory structure for build.
 
 Code snippet I extracted from its unit tests:
 

@@ -9,7 +9,7 @@ tags:
   - "ubuntu"
 ---
 
-Today, I updated my kernel using the official \*.deb file to 2.6.33.3. This may be the easiest way: [http://kernel.ubuntu.com/~kernel-ppa/mainline/v2.6.33.3-lucid/](http://kernel.ubuntu.com/~kernel-ppa/mainline/v2.6.33.3-lucid/). Since 2.6.33 supports DRM natively, my update was so smoothly.
+Today, I updated my kernel using the official `*.deb` file to 2.6.33.3. This may be the easiest way: [http://kernel.ubuntu.com/~kernel-ppa/mainline/v2.6.33.3-lucid/](http://kernel.ubuntu.com/~kernel-ppa/mainline/v2.6.33.3-lucid/). Since 2.6.33 supports DRM natively, my update was so smoothly.
 
 ![lucid_kernel_1](../../images/2010/lucid_kernel_1.jpg)
 

@@ -66,11 +66,16 @@ public class NewObject {
                     || property.value() == PropertyAccess.READWRITE) {
                 String methodName = makeGetPropertyName(field);
                 try {
-                    /\*\*
-                     \* We can also get the value directly as below, but this
-                     \* bypass the getter function which is wrong. 
-                     \* `* field.setAccessible(true);                      * Object value = field.get(this);                      * field.setAccessible(false);                      * return value;                      *` 
-                     \*/
+                    /**
+                     * We can also get the value directly as below, but this
+                     * bypass the getter function which is wrong.
+                     * <code>
+                     * field.setAccessible(true);
+                     * Object value = field.get(this);
+                     * field.setAccessible(false);
+                     * return value;
+                     * </code>
+                     */
                     Method getMethod = klass.getMethod(methodName);
                     return getMethod.invoke(this);
                 } catch (IllegalAccessException e) {
@@ -137,7 +142,7 @@ public class NewObject {
         System.out.println(klass.getCanonicalName() + "(");
         ClassInfo[] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
         for (int i = 0; i < klassInfos.length; i++) {
-            System.out.println(klassInfos\[i\].name() + "=" + klassInfos[i].value());
+            System.out.println(klassInfos[i].name() + "=" + klassInfos[i].value());
         }
         System.out.println(")");
     }
@@ -264,12 +269,12 @@ public class Base extends NewObject {
     @Property(PropertyAccess.READWRITE)
     private String name;
 
-    private List basePrintIntListeners;
-    private List basePrintStringListeners;
+    private List<IPrintInt> basePrintIntListeners;
+    private List<IPrintString> basePrintStringListeners;
 
     public Base() {
-        basePrintIntListeners = new LinkedList();
-        basePrintStringListeners = new LinkedList();
+        basePrintIntListeners = new LinkedList<IPrintInt>();
+        basePrintStringListeners = new LinkedList<IPrintString>();
     }
 
     public int getId() {

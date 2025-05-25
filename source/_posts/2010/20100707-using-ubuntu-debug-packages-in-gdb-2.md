@@ -10,7 +10,7 @@ tags:
   - "ubuntu"
 ---
 
-From last blog, I've demostrated the usage of Ubuntu \*-dbg packages. However, not all \*-dbg packages seem to work as libssl0.9.8-dbg. For instance, libcurl3-dbg and libqt4-dbg packages do not work. I'm afraid some debug info are missing in these two packages. I'm not sure.
+From last blog, I've demostrated the usage of Ubuntu `*-dbg` packages. However, not all `*-dbg` packages seem to work as libssl0.9.8-dbg. For instance, libcurl3-dbg and libqt4-dbg packages do not work. I'm afraid some debug info are missing in these two packages. I'm not sure.
 
 I googled a lot, but was not able to find a solution. So I decided to build the debug version of the two library myself. Here are steps for libcurl:
 
@@ -95,4 +95,4 @@ Build the project in debug mode. And now, here's the magic: Go to Project tab --
 
 ![qtcreator_qt4debug](../../images/2010/qtcreator_qt4debug.jpg)
 
-In order to load our homemade \*.so, we can also run "make install".
+In order to load our homemade `*.so`, we can also run "make install".

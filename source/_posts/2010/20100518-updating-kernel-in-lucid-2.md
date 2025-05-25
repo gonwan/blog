@@ -38,9 +38,12 @@ $ cp debian.master/config/i386/config.flavour.generic debian.master/config/i386/
 
 Then patch some files:
 
-\*) debian.master/etc/getabis: From: getall i386 generic generic-pae 386 To: getall i386 generic generic-pae 386 core2
-
-\*) debian.master/rules.d/i386.mk: From: flavours = generic generic-pae 386 To: flavours = generic generic-pae 386 core2
+- debian.master/etc/getabis:
+  - From: getall i386 generic generic-pae 386
+  - To: getall i386 generic generic-pae 386 core2
+- debian.master/rules.d/i386.mk:
+  - From: flavours = generic generic-pae 386
+  - To: flavours = generic generic-pae 386 core2
 
 Now, edit the config file. You will have to go through all the flavors for this script to work properly:
 
@@ -98,7 +101,9 @@ Add option "no_dumpfile=true" to the last command line. And there will be no vmc
 
 I found that Lucid has 2675 driver modules while Hardy has only 1921. It seems the kernel was greatly enhanced between the two releases.
 
-My T60 has a Duo Core 1.83G CPU. It took about 90 minutes to finish. The kernel also consumed about 4G storage T.T. After all, two \*.deb files were generated: \*) linux-headers-2.6.32-22-core2_2.6.32-22.33_i386.deb \*) linux-image-2.6.32-22-core2_2.6.32-22.33_i386.deb
+My T60 has a Duo Core 1.83G CPU. It took about 90 minutes to finish. The kernel also consumed about 4G storage T.T. After all, two `*.deb` files were generated:
+- linux-headers-2.6.32-22-core2_2.6.32-22.33_i386.deb
+- linux-image-2.6.32-22-core2_2.6.32-22.33_i386.deb
 
 6. Others:
 

@@ -17,9 +17,9 @@ tags:
 $ sudo apt-get install build-essential dh-make debhelper devscripts
 ```
 
-2. Get the source package, exact it into ~/packages/qastrologer. The directory structure should like: ~/packages/qastrologer/qastrologer-<version>/<source>. The <source> directory contains your \*.pro file.
+2. Get the source package, exact it into ~/packages/qastrologer. The directory structure should like: ~/packages/qastrologer/qastrologer-<version>/<source>. The <source> directory contains your `*.pro` file.
 
-3. Add install section in \*.pro file. Otherwise, the built package contains not binary:
+3. Add install section in `*.pro` file. Otherwise, the built package contains not binary:
 
 ```
 unix {

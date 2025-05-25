@@ -143,9 +143,16 @@ fi
 
 The `test` command provides a way to test different conditions in an *if-then* statement. If the condition listed in the test command evaluates to true, the test command exits with a zero exit status code, making the *if-then* statement behave in much the same way that *if-then* statements work in other programming languages. If the condition is false, the test command exits with a 1, which causes the *if-then* statement to fail.
 
-##### \*) Numeric Comparisons
+##### 5.2.1 Numeric Comparisons
 
-<table border="1"><tbody><tr><td>Comparison</td><td>Description</td></tr><tr><td>n1 -eq n2</td><td>Check if n1 is equal to n2.</td></tr><tr><td>n1 -ge n2</td><td>Check if n1 is greater than or equal to n2.</td></tr><tr><td>n1 -gt n2</td><td>Check if n1 is greater than n2.</td></tr><tr><td>n1 -le n2</td><td>Check if n1 is less than or equal to n2.</td></tr><tr><td>n1 -lt n2</td><td>Check if n1 is less than n2.</td></tr><tr><td>n1 -ne n2</td><td>Check if n1 is not equal to n2.</td></tr></tbody></table>
+| Comparison | Description                                 |
+| ---------- | ------------------------------------------- |
+| n1 -eq n2  | Check if n1 is equal to n2.                 |
+| n1 -ge n2  | Check if n1 is greater than or equal to n2. |
+| n1 -gt n2  | Check if n1 is greater than n2.             |
+| n1 -le n2  | Check if n1 is less than or equal to n2.    |
+| n1 -lt n2  | Check if n1 is less than n2.                |
+| n1 -ne n2  | Check if n1 is not equal to n2.             |
 
 ```bash
 #!/bin/bash
@@ -165,11 +172,32 @@ fi
 
 However, The `test` command wasn't able to handle the floating-point value. You may also notice usage of double parentheses. It provide advanced mathematical formulas for comparisons, no escape is needed in it:
 
-<table border="1"><tbody><tr><td>Symbol</td><td>Description</td></tr><tr><td>val++</td><td>Post-increment</td></tr><tr><td>val--</td><td>Post-decrement</td></tr><tr><td>++val</td><td>Pre-increment</td></tr><tr><td>--val</td><td>Pre-decrement</td></tr><tr><td>!</td><td>Logical negation</td></tr><tr><td>∼</td><td>Bitwise negation</td></tr><tr><td>**</td><td>Exponentiation</td></tr><tr><td>&lt;&lt;</td><td>Left bitwise shift</td></tr><tr><td>&gt;&gt;</td><td>Right bitwise shift</td></tr><tr><td>&amp;</td><td>Bitwise Boolean AND</td></tr><tr><td>|</td><td>Bitwise Boolean OR</td></tr><tr><td>**</td><td>Exponentiation</td></tr><tr><td>&amp;&amp;</td><td>&amp;&amp; Logical AND</td></tr><tr><td>||</td><td>Logical OR</td></tr></tbody></table>
+| Symbol | Description         |
+| ------ | ------------------- |
+| val++  | Post-increment      |
+| val--  | Post-decrement      |
+| ++val  | Pre-increment       |
+| --val  | Pre-decrement       |
+| !      | Logical negation    |
+| ∼      | Bitwise negation    |
+| **     | Exponentiation      |
+| <<     | Left bitwise shift  |
+| >>     | Right bitwise shift |
+| &      | Bitwise Boolean AND |
+| \|     | Bitwise Boolean OR  |
+| &&     | Logical AND         |
+| \|\|   | Logical OR          |
 
-##### \*) String Comparisons
+##### 5.2.2 String Comparisons
 
-<table border="1"><tbody><tr><td>Comparison</td><td>Description</td></tr><tr><td>str1 = str2</td><td>Check if str1 is the same as string str2.</td></tr><tr><td>str1 != str2</td><td>Check if str1 is not the same as str2.</td></tr><tr><td>str1 &lt; str2</td><td>Check if str1 is less than str2.</td></tr><tr><td>str1 &gt; str2</td><td>Check if str1 is greater than str2.</td></tr><tr><td>-n str1</td><td>Check if str1 has a length greater than zero.</td></tr><tr><td>-z str1</td><td>Check if str1 has a length of zero.</td></tr></tbody></table>
+| Comparison   | Description                                   |
+| ------------ | --------------------------------------------- |
+| str1 = str2  | Check if str1 is the same as string str2.     |
+| str1 != str2 | Check if str1 is not the same as str2.        |
+| str1 < str2  | Check if str1 is less than str2.              |
+| str1 > str2  | Check if str1 is greater than str2.           |
+| -n str1      | Check if str1 has a length greater than zero. |
+| -z str1      | Check if str1 has a length of zero.           |
 
 Trying to determine if one string is less than or greater than another is where things start getting tricky. There are two problems that often plague shell programmers when trying to use the greater-than or less-than features of the test command: - The greater-than and less-than symbols must be escaped, or the shell will use them as redirection symbols, with the string values as filenames. - The greater-than and less-than order is not the same as that used with the sort command.
 

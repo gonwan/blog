@@ -246,10 +246,21 @@ At the end of my note, Let me summarize to compare GObject library with C++ impl
 
 1. Member Variables:
 
-<table style="text-align: center; width: 500px;" border="1" cellspacing="0" cellpadding="0"><tbody><tr><td>GObject</td><td>C++</td></tr><tr><td>in class struct</td><td>class meta info</td></tr><tr><td>in object struct</td><td>class instance member</td></tr><tr><td>global variable</td><td>class static member</td></tr></tbody></table>
+| GObject          | C++                   |
+| ---------------- | --------------------- |
+| in class struct  | class meta info       |
+| in object struct | class instance member |
+| global variable  | class static member   |
 
 2. Function Callbacks:
 
-<table style="text-align: center; width: 700px;" border="1" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 200px;">GObject</td><td>C++</td></tr><tr><td>base_init</td><td>init class dynamic meta info</td></tr><tr><td>base_finalize</td><td>finalize dynamic class meta info, only dynamic types use it</td></tr><tr><td>class_init</td><td>init class static meta info</td></tr><tr><td>class_finalize</td><td>finalize class static meta info, only dynamic types use it</td></tr><tr><td>instance_init</td><td>init instace, like C++ constructor</td></tr><tr><td>override finalize in GObjectClass</td><td>finalize instance, like C++ destructor</td></tr></tbody></table>
+| GObject                           | C++                                                         |
+| --------------------------------- | ----------------------------------------------------------- |
+| base_init                         | init class dynamic meta info                                |
+| base_finalize                     | finalize dynamic class meta info, only dynamic types use it |
+| class_init                        | init class static meta info                                 |
+| class_finalize                    | finalize class static meta info, only dynamic types use it  |
+| instance_init                     | init instace, like C++ constructor                          |
+| override finalize in GObjectClass | finalize instance, like C++ destructor                      |
 
 All source code is available in my skydrive: [http://cid-481cbe104492a3af.office.live.com/browse.aspx/share/dev/TestOO](http://cid-481cbe104492a3af.office.live.com/browse.aspx/share/dev/TestOO). In the TestGObject-{date}.zip/TestGObject7 folder.

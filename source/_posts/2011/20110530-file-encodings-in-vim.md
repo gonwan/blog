@@ -30,7 +30,12 @@ And Vim does not store BOM when saving by default. To enable/disable BOM saving,
 
 I've attached a series of text files to learn the usage. These text file all contains string "123你好", but saved in different encodings. Let's list their code points first:
 
-<table><tbody align="center"><tr><td></td><td>1</td><td>2</td><td>3</td><td>你</td><td>好</td></tr><tr><td>GBK</td><td>0x31</td><td>0x32</td><td>0x33</td><td>0xc4e3</td><td>0xbac3</td></tr><tr><td>Big5</td><td>0x31</td><td>0x32</td><td>0x33</td><td>0xa741</td><td>0xa66e</td></tr><tr><td>Unicode</td><td>0x31</td><td>0x32</td><td>0x33</td><td>0x4f60</td><td>0x597d</td></tr><tr><td>UTF-8 encoded</td><td>0x31</td><td>0x32</td><td>0x33</td><td>0xe4bda0</td><td>0xe5a5bd</td></tr></tbody></table>
+|               | 1    | 2    | 3    | 你       | 好       |
+| ------------- | ---- | ---- | ---- | -------- | -------- |
+| GBK           | 0x31 | 0x32 | 0x33 | 0xc4e3   | 0xbac3   |
+| Big5          | 0x31 | 0x32 | 0x33 | 0xa741   | 0xa66e   |
+| Unicode       | 0x31 | 0x32 | 0x33 | 0x4f60   | 0x597d   |
+| UTF-8 encoded | 0x31 | 0x32 | 0x33 | 0xe4bda0 | 0xe5a5bd |
 
 And our hexdump's here, note the byte order:
 

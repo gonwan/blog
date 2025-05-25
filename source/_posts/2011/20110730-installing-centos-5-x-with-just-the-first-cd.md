@@ -22,7 +22,7 @@ Now, follow the official FAQ [here](http://wiki.centos.org/FAQ/CentOS5#head-c79c
 > - If you want to avoid using more than one CD but want to install more than just the minimal set of packages, you could also consider doing a network installation. A network installation ISO (called boot.iso) is available from the 5/os/\<arch\>/images/ directory on CentOS mirrors.
 > - This latter mode of installation, however, is only really reliable via a LAN (an Intranet installation) and not via the Internet.
 
-From my practice, you MUST follow the de-selection order. Otherwise, it will still require other CDs. The actual installation lasts for about 1 minutes(installation of \*.rpm files). After reboot, the system gives you a minimum installation with only text mode support. Now login with your root account, and make sure your network is ready. Additional components shall be installed manually using yum:
+From my practice, you MUST follow the de-selection order. Otherwise, it will still require other CDs. The actual installation lasts for about 1 minutes(installation of `*.rpm` files). After reboot, the system gives you a minimum installation with only text mode support. Now login with your root account, and make sure your network is ready. Additional components shall be installed manually using yum:
 
 ```bash
 $ yum groupinstall "Base" "X Window System" "GNOME Desktop Environment"
@@ -65,7 +65,7 @@ $ yum remove kernel-smp kernel-smp-devel kernel-hugemem-devel
 $ rpm -e kernel-smp
 ```
 
-There's 4.9 release but no 4.9 \*.iso images. The readme.txt says:
+There's 4.9 release but no 4.9 `*.iso` images. The readme.txt says:
 
 > - The upstream provider did not respin media for the 4.9 release and therefore the CentOS project will also not respin our install media.
 > - Installs moving forward will be off the 4.8 media and an upgrade will move you from version 4.8 to version 4.9.

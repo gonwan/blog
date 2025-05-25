@@ -36,13 +36,13 @@ a) Setup Perl environment, add `%Perl%/bin` to `%PATH%`. b) Also add awk, path t
 　　+ ...
 ```
 
-g) Patch zlib: Download the patch from: [http://www.apache.org/dist/httpd/binaries/win32/patches_applied/zlib-1.2.3-vc32-2005-rcver.patch](http://www.apache.org/dist/httpd/binaries/win32/patches_applied/zlib-1.2.3-vc32-2005-rcver.patch). This patch contains minor fixes and enable generation of \*.pdb files. Copy the patch file into `zlib` subdirectory, swith to the directory in cmd.exe and run the command:
+g) Patch zlib: Download the patch from: [http://www.apache.org/dist/httpd/binaries/win32/patches_applied/zlib-1.2.3-vc32-2005-rcver.patch](http://www.apache.org/dist/httpd/binaries/win32/patches_applied/zlib-1.2.3-vc32-2005-rcver.patch). This patch contains minor fixes and enable generation of `*.pdb` files. Copy the patch file into `zlib` subdirectory, swith to the directory in cmd.exe and run the command:
 
 ```bash
 $ patch -p0 < zlib-1.2.3-vc32-2005-rcver.patch
 ```
 
-h) Patch openssl: Download the patch from: [http://www.apache.org/dist/httpd/binaries/win32/patches_applied/openssl-0.9.8k-vc32.patch](http://www.apache.org/dist/httpd/binaries/win32/patches_applied/openssl-0.9.8k-vc32.patch). This patch will correct a link issue with zlib and enable generation of \*.pdb files. Copy the patch file into `openssl` subdirectory, swith to the directory in cmd.exe and run the command:
+h) Patch openssl: Download the patch from: [http://www.apache.org/dist/httpd/binaries/win32/patches_applied/openssl-0.9.8k-vc32.patch](http://www.apache.org/dist/httpd/binaries/win32/patches_applied/openssl-0.9.8k-vc32.patch). This patch will correct a link issue with zlib and enable generation of `*.pdb` files. Copy the patch file into `openssl` subdirectory, swith to the directory in cmd.exe and run the command:
 
 ```bash
 $ patch -p0 < openssl-0.9.8k-vc32.patch
@@ -80,13 +80,13 @@ And install Apache by:
 $ nmake -f Makefile.win install[d|r]
 ```
 
-m) Build Apache using Visual Studio 2005: There's also a flaw in the \*.vcproj conversion of \*.dsp through Visual Studio 2005. We must run a perl script to fix it first:
+m) Build Apache using Visual Studio 2005: There's also a flaw in the `*.vcproj` conversion of `*.dsp` through Visual Studio 2005. We must run a perl script to fix it first:
 
 ```bash
 $ perl srclibaprbuildcvtdsp.pl -2005
 ```
 
-Now, everything are OK. In Visual Studio 2005, open the Apache.dsw and convert all \*.dsp files to \*.vcproj files. Then build the project "BuildBin". The project "InstallBin" project will distribute all the project in the Apache solution.
+Now, everything are OK. In Visual Studio 2005, open the Apache.dsw and convert all `*.dsp` files to `*.vcproj` files. Then build the project "BuildBin". The project "InstallBin" project will distribute all the project in the Apache solution.
 
 ### 4. Debugging with Visual Studio 2005
 

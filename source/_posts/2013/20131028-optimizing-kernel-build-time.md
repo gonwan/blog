@@ -23,7 +23,7 @@ Fortunately, a new build target `localmodconfig` was added in [kernel 2.6.32](ht
 
 > It runs "lsmod" to find all the modules loaded on the current running system. It will read all the Makefiles to map which CONFIG enables a module. It will read the Kconfig files to find the dependencies and selects that may be needed to support a CONFIG. Finally, it reads the .config file and removes any module "=m" that is not needed to enable the currently loaded modules. With this tool, you can strip a distro .config of all the unuseful drivers that are not needed in our machine, and it will take much less time to build the kernel.
 
-The build time was dramatically decreased to 16min to build only 244 modules. It could still boot my VM to desktop, and everything was working fine. However, it failed to mount an \*.iso file, since the module was not in lsmod when building I think. To use localmodconfig target, run:
+The build time was dramatically decreased to 16min to build only 244 modules. It could still boot my VM to desktop, and everything was working fine. However, it failed to mount an `*.iso` file, since the module was not in lsmod when building I think. To use localmodconfig target, run:
 
 ```bash
 $ yes '' | make localmodconfig

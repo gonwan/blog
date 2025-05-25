@@ -50,7 +50,15 @@ int ping(/*in*/ const char *ip, /*out*/ int *ttl, /*out*/ int *diff)
 
 `IcmpSendEcho()` is used to send ICMP messages which does not require administrator privilege. I summarize all cases in which raw socket, icmp api or system ping approach may fail:
 
-<table style="text-align: center;" border="1" cellspacing="0" cellpadding="0"><tbody><tr><td colspan="2"></td><td>raw socket</td><td>icmp api</td><td>system ping</td></tr><tr><td rowspan="3" width="100">Windows XP</td><td width="100">Administrator</td><td width="150">OK</td><td width="190">OK</td><td width="190">OK</td></tr><tr><td>User</td><td>WSAEACCES in sendto()</td><td>OK</td><td>OK</td></tr><tr><td>Guest</td><td>WSAEACCES in sendto()</td><td>OK</td><td>OK</td></tr><tr><td rowspan="4">Windows 7</td><td>Administrator</td><td>WSAEACCES in socket()</td><td>OK</td><td>OK</td></tr><tr><td>User</td><td>WSAEACCES in socket()</td><td>OK</td><td>OK</td></tr><tr><td>Guest</td><td>WSAEACCES in socket()</td><td>ERROR_ACCESS_DENIED in IcmpCreateFile()</td><td>Unable to contact IP driver. General failure.</td></tr><tr><td>Run as Administrator</td><td>OK</td><td>OK</td><td>OK</td></tr></tbody></table>
+|            |       Account        |      raw socket       |                icmp api                 |                  system ping                  |
+| :--------: | :------------------: | :-------------------: | :-------------------------------------: | :-------------------------------------------: |
+| Windows XP |    Administrator     |          OK           |                   OK                    |                      OK                       |
+|            |         User         | WSAEACCES in sendto() |                   OK                    |                      OK                       |
+|            |        Guest         | WSAEACCES in sendto() |                   OK                    |                      OK                       |
+| Windows 7  |    Administrator     | WSAEACCES in socket() |                   OK                    |                      OK                       |
+|            |         User         | WSAEACCES in socket() |                   OK                    |                      OK                       |
+|            |        Guest         | WSAEACCES in socket() | ERROR_ACCESS_DENIED in IcmpCreateFile() | Unable to contact IP driver. General failure. |
+|            | Run as Administrator |          OK           |                   OK                    |                      OK                       |
 
 You may ask what's the difference between "Administrator" and "Run as Administrator", the answer comes from [stackoverflow](http://stackoverflow.com/questions/13711425/run-as-administrator-vs-administrator-group):
 

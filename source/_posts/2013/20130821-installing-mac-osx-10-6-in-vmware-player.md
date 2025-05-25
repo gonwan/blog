@@ -12,7 +12,7 @@ Macintosh really has a fantastic UI. I once installed OSX 10.3 successfully usin
 
 1. Create a new VM and select the OS type as "FreeBSD".
 
-2. Close the VMware player. Open the \*.vmx file find the line:
+2. Close the VMware player. Open the `*.vmx` file find the line:
 
 ```
 guestOS = "freebsd"
@@ -32,7 +32,7 @@ Start VMware player again. The OS type is now set to "Mac OSX 10.6 Server":
 
 ![osx106_2](../../images/2013/osx106_2.jpg)
 
-4. I used EmpireEFI v1085 to boot and install OSX 10.6, please find both images for your own. When EmpireEFI boots finishes, mount the OSX 10.6 image and press F5 to refresh. VMware player 5.0.2 supports \*.dmg file directly, please select all files to find the image:
+4. I used EmpireEFI v1085 to boot and install OSX 10.6, please find both images for your own. When EmpireEFI boots finishes, mount the OSX 10.6 image and press F5 to refresh. VMware player 5.0.2 supports `*.dmg` file directly, please select all files to find the image:
 
 ![osx106_3](../../images/2013/osx106_3.jpg)
 

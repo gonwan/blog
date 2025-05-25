@@ -126,7 +126,7 @@ release:
 
 vs2005, vs2008 皆可通过编译. vs 的-I 选项似乎不支持绝对路径, 所以编译之前请修改$(APACHE) 变量. 另外, 发现一个问题就是, debug 编译的Apache 不能加载release 编译的module. 后来发现是vs2005/2008 的CRT dll的SxS 的问题. 所以, Apache 和module 的编译器最好是同一版本和配置, 这样CRT 才能被正确加载进来. 或者就是静态链接到CRT.
 
-把编译出来的\*.so 文件拷贝到Apache 的modules 文件夹下. 最后来修改配置文件. 打开httpd.conf, 添加如下代码:
+把编译出来的`*.so` 文件拷贝到Apache 的modules 文件夹下. 最后来修改配置文件. 打开httpd.conf, 添加如下代码:
 
 ```apache
 LoadModule helloworld_module modules/mod_helloworld.so

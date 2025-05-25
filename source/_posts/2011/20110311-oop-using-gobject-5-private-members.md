@@ -70,7 +70,7 @@ typedef struct _FakeBaseClass {
 } FakeBaseClass;
 ```
 
-We declare a new `FakeBasePrivate` struct to contain all private field used in `FakeBase` type. And the private struct is defined in \*.c file, so its internal representation remains invisible. Then in \*.c file, we got:
+We declare a new `FakeBasePrivate` struct to contain all private field used in `FakeBase` type. And the private struct is defined in `*.c` file, so its internal representation remains invisible. Then in `*.c` file, we got:
 
 ```cpp
 struct _FakeBasePrivate {

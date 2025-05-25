@@ -33,7 +33,7 @@ $ make
 $ make install
 ```
 
-Aha!! Another annoying bug: wrong permissions in \*.tar.gz source package. Fix with:
+Aha!! Another annoying bug: wrong permissions in `*.tar.gz` source package. Fix with:
 
 ```bash
 $ chmod 644 /usr/share/cimple/mak/*.mak

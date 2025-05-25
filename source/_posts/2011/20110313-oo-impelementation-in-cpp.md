@@ -137,7 +137,7 @@ void QBase::emitBasePrintString(QString str) {
 }  // namespace Fake
 ```
 
-Just note the forward declaration of `QBasePrivate` private class. It is define in \*.c file, and cannot be used by client applications. We defined a `d_ptr` protected member variable of this type to hold all private data values. Qt library provideds a series of easy-to-use macros to support this scheme to implementation:
+Just note the forward declaration of `QBasePrivate` private class. It is define in `*.c` file, and cannot be used by client applications. We defined a `d_ptr` protected member variable of this type to hold all private data values. Qt library provideds a series of easy-to-use macros to support this scheme to implementation:
 
 ```cpp
 // qglobal.h
