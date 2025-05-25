@@ -2,7 +2,7 @@
 title: "OOP Using GObject (6) - Properties"
 date: "2011-03-11 14:19:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

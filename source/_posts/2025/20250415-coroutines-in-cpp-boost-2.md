@@ -2,8 +2,7 @@
 title: "Coroutines in C++/Boost (2)"
 date: "2025-04-15 22:15:28"
 categories: 
-  - "cc"
-  - "os"
+  - "cpp"
 tags: 
   - "boost"
   - "c20"

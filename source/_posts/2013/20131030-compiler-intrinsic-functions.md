@@ -2,7 +2,7 @@
 title: "Compiler Intrinsic Functions"
 date: "2013-10-30 09:49:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "assembly"
   - "gcc"

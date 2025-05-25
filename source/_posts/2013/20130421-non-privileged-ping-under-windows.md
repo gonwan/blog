@@ -2,7 +2,7 @@
 title: "Non-privileged ping Under Windows"
 date: "2013-04-21 13:13:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "icmp"
   - "ping"

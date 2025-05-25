@@ -2,7 +2,7 @@
 title: "Using CIMPLE with OpenPegasus CIM Server"
 date: "2011-09-12 18:13:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "centos"
   - "cim"

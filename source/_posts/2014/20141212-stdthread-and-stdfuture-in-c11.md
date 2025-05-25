@@ -2,7 +2,7 @@
 title: "std::thread and std::future in C++11"
 date: "2014-12-12 13:01:09"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "c0x"
   - "multithreading"

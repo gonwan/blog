@@ -2,7 +2,7 @@
 title: "Writing UTF-8 String Using ofstream in C++"
 date: "2013-08-21 06:47:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "boost"
   - "unicode"

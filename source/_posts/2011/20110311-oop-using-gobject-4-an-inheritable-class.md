@@ -2,7 +2,7 @@
 title: "OOP Using GObject (4) - An Inheritable Class"
 date: "2011-03-11 09:06:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

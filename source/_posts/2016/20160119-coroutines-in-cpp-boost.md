@@ -2,7 +2,7 @@
 title: "Coroutines in C++/Boost"
 date: "2016-01-19 03:37:54"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "asynchronous"
   - "boost"

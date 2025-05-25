@@ -2,7 +2,7 @@
 title: "Smart Pointers in C++0x and Boost"
 date: "2011-08-14 15:29:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "boost"
   - "c0x"

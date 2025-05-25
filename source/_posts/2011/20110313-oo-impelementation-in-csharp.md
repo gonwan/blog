@@ -2,7 +2,7 @@
 title: "OO Impelementation in C#"
 date: "2011-03-13 11:09:00"
 categories: 
-  - "net"
+  - "dotnet"
 tags: 
   - "oop"
 ---

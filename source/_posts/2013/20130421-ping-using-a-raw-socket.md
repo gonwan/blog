@@ -2,7 +2,7 @@
 title: "ping Using a Raw Socket"
 date: "2013-04-21 10:49:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "icmp"
   - "ping"

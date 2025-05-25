@@ -2,7 +2,6 @@
 title: "Some Wordpress Hardening Work"
 date: "2025-04-29 18:03:56"
 categories: 
-  - "linux"
   - "tools"
 tags: 
   - "apache"

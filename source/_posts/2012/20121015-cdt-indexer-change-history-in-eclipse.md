@@ -2,7 +2,7 @@
 title: "CDT Indexer Change History in Eclipse"
 date: "2012-10-15 04:55:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "eclipse"
 ---

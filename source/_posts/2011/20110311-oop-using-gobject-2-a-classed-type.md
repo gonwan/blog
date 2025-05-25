@@ -2,7 +2,7 @@
 title: "OOP Using GObject (2) - A Classed Type"
 date: "2011-03-11 07:39:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

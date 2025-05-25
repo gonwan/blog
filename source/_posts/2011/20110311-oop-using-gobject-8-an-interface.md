@@ -2,7 +2,7 @@
 title: "OOP Using GObject (8) - An interface"
 date: "2011-03-11 18:29:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

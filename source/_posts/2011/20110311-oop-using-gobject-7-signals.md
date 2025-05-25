@@ -2,7 +2,7 @@
 title: "OOP Using GObject (7) - Signals"
 date: "2011-03-11 14:36:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

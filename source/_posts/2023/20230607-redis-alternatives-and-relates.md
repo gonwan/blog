@@ -3,7 +3,6 @@ title: "Redis Alternatives and Relates"
 date: "2023-06-07 07:33:48"
 categories: 
   - "database"
-  - "tools"
 tags: 
   - "keydb"
   - "redis"

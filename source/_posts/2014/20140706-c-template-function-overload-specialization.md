@@ -2,7 +2,7 @@
 title: "C++ Template Function Overload & Specialization"
 date: "2014-07-06 18:26:18"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "template"
 ---

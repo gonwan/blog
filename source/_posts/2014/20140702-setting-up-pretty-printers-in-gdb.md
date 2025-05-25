@@ -2,7 +2,7 @@
 title: "Setting up Pretty Printers in GDB"
 date: "2014-07-02 09:21:30"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "debugging"
   - "gdb"

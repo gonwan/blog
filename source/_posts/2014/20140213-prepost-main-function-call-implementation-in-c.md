@@ -2,7 +2,7 @@
 title: "Pre/Post-main Function Call Implementation in C"
 date: "2014-02-13 10:46:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gcc"
   - "msvc"

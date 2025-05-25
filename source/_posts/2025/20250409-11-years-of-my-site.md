@@ -2,7 +2,6 @@
 title: "11 Years of My Site"
 date: "2025-04-09 21:17:04"
 categories: 
-  - "linux"
   - "tools"
 tags: 
   - "wordpress"

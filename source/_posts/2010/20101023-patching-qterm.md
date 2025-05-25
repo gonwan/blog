@@ -2,7 +2,7 @@
 title: "Patching QTerm"
 date: "2010-10-23 18:36:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "qt"
   - "qterm"

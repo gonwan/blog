@@ -2,7 +2,7 @@
 title: "OOP Using GObject (3) - An Instantiatable Class"
 date: "2011-03-11 08:10:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

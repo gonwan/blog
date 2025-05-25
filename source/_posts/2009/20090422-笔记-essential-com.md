@@ -2,7 +2,7 @@
 title: "笔记 - Essential COM"
 date: "2009-04-22 04:54:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "com"
 ---

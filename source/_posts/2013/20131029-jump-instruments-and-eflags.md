@@ -2,7 +2,7 @@
 title: "Jump Instruments and EFLAGS"
 date: "2013-10-29 12:25:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "assembly"
   - "x86"

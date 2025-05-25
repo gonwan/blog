@@ -2,7 +2,7 @@
 title: "整理了一下Qt 的coding convention"
 date: "2009-10-09 06:20:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "qt"
 ---

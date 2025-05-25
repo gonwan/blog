@@ -2,7 +2,7 @@
 title: "Pointer-to-function Vs Pointer-to-member-function"
 date: "2013-06-25 05:53:00"
 categories: 
-  - "cc"
+  - "cpp"
 ---
 
 There's a series of C++ FAQ: [http://www.parashift.com/c++-faq/pointers-to-members.html](http://www.parashift.com/c++-faq/pointers-to-members.html). And one of it addresses some technical details:

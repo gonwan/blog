@@ -2,7 +2,7 @@
 title: "OO Impelementation in C++"
 date: "2011-03-13 09:51:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "oop"
   - "qt"

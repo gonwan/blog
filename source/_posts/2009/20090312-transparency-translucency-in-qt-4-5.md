@@ -2,7 +2,7 @@
 title: "Transparency & Translucency in Qt 4.5"
 date: "2009-03-12 11:20:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "qt"
   - "translucency"

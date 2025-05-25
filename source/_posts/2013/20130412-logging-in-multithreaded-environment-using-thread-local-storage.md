@@ -2,7 +2,7 @@
 title: "Logging in Multithreaded Environment Using Thread-Local Storage"
 date: "2013-04-12 09:25:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "boost"
   - "multithreading"

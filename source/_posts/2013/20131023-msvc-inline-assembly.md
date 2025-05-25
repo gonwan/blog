@@ -2,7 +2,7 @@
 title: "MSVC Inline Assembly"
 date: "2013-10-23 07:48:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "inline-assembly"
   - "msvc"

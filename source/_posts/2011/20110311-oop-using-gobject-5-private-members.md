@@ -2,7 +2,7 @@
 title: "OOP Using GObject (5) - Private Members"
 date: "2011-03-11 09:39:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "gobject"
   - "oop"

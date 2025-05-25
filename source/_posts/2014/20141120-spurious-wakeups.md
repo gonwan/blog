@@ -2,7 +2,7 @@
 title: "Spurious Wakeups"
 date: "2014-11-20 13:13:01"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "boost"
   - "multithreading"

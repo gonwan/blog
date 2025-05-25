@@ -2,7 +2,7 @@
 title: "Debug Qt Libraries with Ubuntu Debug Packages"
 date: "2011-03-28 09:51:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "debugging"
   - "gdb"

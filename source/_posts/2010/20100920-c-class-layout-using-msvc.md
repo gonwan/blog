@@ -2,7 +2,7 @@
 title: "C++ Class Layout Using MSVC"
 date: "2010-09-20 17:28:00"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "msvc"
 ---
