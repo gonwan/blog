@@ -1,6 +1,7 @@
 ---
-title: "OO Impelementation in C#"
+title: "OO Implementation in C#"
 date: "2011-03-13 11:09:00"
+permalink: /2011/03/13/oo-implementation-in-csharp.html
 categories: 
   - "dotnet"
 tags: 

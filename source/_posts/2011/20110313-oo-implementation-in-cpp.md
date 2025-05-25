@@ -1,6 +1,7 @@
 ---
-title: "OO Impelementation in C++"
+title: "OO Implementation in C++"
 date: "2011-03-13 09:51:00"
+permalink: /2011/03/13/oo-implementation-in-cpp.html
 categories: 
   - "cpp"
 tags: 
