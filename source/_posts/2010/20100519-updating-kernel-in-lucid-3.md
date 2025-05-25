@@ -54,4 +54,4 @@ The last 2 lines are **NOT** mentioned in the wiki. They are used to generate th
 
 5. Reference:
 
-[http://ubuntuforums.org/showthread.php?p=9120942](http://ubuntuforums.org/showthread.php?p=9120942)
+- [http://ubuntuforums.org/showthread.php?p=9120942](http://ubuntuforums.org/showthread.php?p=9120942)

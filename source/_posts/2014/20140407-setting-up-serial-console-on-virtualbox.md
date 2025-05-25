@@ -138,6 +138,6 @@ The serial device shows as COM1 in Windows XP as previously set. With a simple e
 
 #### 8. Windows as host
 
-Settings of VirtualBox under Windows is almost the same as that under Linux. But we set "Port/File Path" to "\\\.\\pipe\\vbox", instead of "/tmp/vbox". After the configuration of kernel and getty(8), we can use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to connect. Simply set "Connection type" to "Serial", and "Serial line" to "\\\.\\pipe\\vbox".
+Settings of VirtualBox under Windows is almost the same as that under Linux. But we set "Port/File Path" to `\\.\pipe\vbox`, instead of `/tmp/vbox`. After the configuration of kernel and getty(8), we can use [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to connect. Simply set "Connection type" to "Serial", and "Serial line" to "\\.\pipe\vbox`.
 
 ![serial_console_5](../../images/2014/serial_console_5.jpg)

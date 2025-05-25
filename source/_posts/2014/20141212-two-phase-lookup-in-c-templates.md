@@ -26,7 +26,7 @@ During the **first phase**, nondependent names are looked up while the template 
 
 During the **second phase**, which occurs when templates are instantiated at a point called the point of instantiation(POI), dependent qualified names are looked up (with the template parameters replaced with the template arguments for that specific instantiation), and an additional ADL is performed for the unqualified dependent names.
 
-To summarize: _nondependent names_ are looked up in first phase, _qualified dependent names_ are looked up in second phase, and _unqualified dependent names_ are looked up in both phases. Some code to illustrate how this works:
+To summarize: `nondependent names` are looked up in first phase, `qualified dependent names` are looked up in second phase, and `unqualified dependent names` are looked up in both phases. Some code to illustrate how this works:
 
 ```cpp
 #include <iostream>

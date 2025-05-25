@@ -56,4 +56,5 @@ $ cl hello.cpp /link /subsystem:console,5.01
 
 I also built a simple MFC application(dynamic link to MFC) with Windows XP target in VS2012. It runs fine under Windows XP with MFC DLLs copied in the same directory. From VS2010, the SxS assembly is not used any more. All you need to do is copy the dependent DLLs to the application directory and run.
 
-Reference: [http://blogs.msdn.com/b/vcblog/archive/2012/10/08/10357555.aspx](http://blogs.msdn.com/b/vcblog/archive/2012/10/08/10357555.aspx)
+Reference:
+- [http://blogs.msdn.com/b/vcblog/archive/2012/10/08/10357555.aspx](http://blogs.msdn.com/b/vcblog/archive/2012/10/08/10357555.aspx)

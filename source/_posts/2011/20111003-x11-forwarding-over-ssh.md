@@ -24,7 +24,7 @@ Now connect your server by command below. The -X flag enables X11 forwarding, th
 $ ssh -X @
 ```
 
-I use Ubuntu as host, and CentOS as guest in VirtualBox. The default _NAT_ network mode does not allow you to access a guest from host. I just change the network mode to _Host-only Network_, and the problem is solved.
+I use Ubuntu as host, and CentOS as guest in VirtualBox. The default `NAT` network mode does not allow you to access a guest from host. I just change the network mode to *Host-only Network*, and the problem is solved.
 
 Here gives a screenshot: ubuntu-tweak is running on CentOS:
 

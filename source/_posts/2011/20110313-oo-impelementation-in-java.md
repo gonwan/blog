@@ -162,9 +162,9 @@ public class NewObject {
      */
     public String getClassInfo(String name) {
         Class klass = this.getClass();
-        ClassInfo\[\] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
+        ClassInfo[] klassInfos = klass.getAnnotation(ClassInfoList.class).value();
         for (int i = 0; i < klassInfos.length; i++) {
-            if (klassInfos\[i].name().equals(name)) {
+            if (klassInfos[i].name().equals(name)) {
                 return klassInfos[i].value();
             }
         }

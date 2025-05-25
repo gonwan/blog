@@ -33,7 +33,7 @@ Note, kdesvn will use SVN configuration files when perform operations. Now, we n
 $ gedit ~/.subversion/servers &
 ```
 
-Uncomment and modify the following lines in \[global\] section:
+Uncomment and modify the following lines in `[global]` section:
 
 ```
 http-proxy-host = 
@@ -52,7 +52,7 @@ SVN 1.6 added gnome/gnome-keyring and kde/kwallet credentials management support
 $ gedit ~/.subversion/config &
 ```
 
-Uncomment and modify the following lines in \[auth\] section:
+Uncomment and modify the following lines in `[auth]` section:
 
 ```
 store-passwords = no
@@ -71,7 +71,7 @@ If you do not want to save password, set the 2 values as that in Hardy. But they
 $ gedit ~/.subversion/servers &
 ```
 
-Uncomment and modify the following lines in \[global\] section:
+Uncomment and modify the following lines in `[global]` section:
 
 ```
 store-passwords = no

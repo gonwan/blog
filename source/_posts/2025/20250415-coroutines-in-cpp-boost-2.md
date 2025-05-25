@@ -24,7 +24,7 @@ From `boost`:
 
 So C++20 coroutines are asymmetric ones. A coroutine only knows its parent. With the dependency, symmetric coroutines can be chained, just like a normal function calls another one. No `goto` semantics as with a symmetric one.
 
-C++23 generators are also asymmetric. They are resumed repeatedly to _generate_ a series of return values.
+C++23 generators are also asymmetric. They are resumed repeatedly to *generate* a series of return values.
 
 ### 2. Stackless vs Stackful
 

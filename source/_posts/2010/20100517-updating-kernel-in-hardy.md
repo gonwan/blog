@@ -116,4 +116,6 @@ Just double-click or install using the dpkg utility. Here's my screen-shot:
 
 10. Reference:
 
-\- [https://help.ubuntu.com/community/Kernel/Compile](https://help.ubuntu.com/community/Kernel/Compile) - [http://blog.avirtualhome.com/2009/09/08/how-to-compile-a-kernel-for-ubuntu-jaunty-revised/](http://blog.avirtualhome.com/2009/09/08/how-to-compile-a-kernel-for-ubuntu-jaunty-revised/) - [http://ubuntuforums.org/showthread.php?t=912322](http://ubuntuforums.org/showthread.php?t=912322)
+- [https://help.ubuntu.com/community/Kernel/Compile](https://help.ubuntu.com/community/Kernel/Compile)
+- [http://blog.avirtualhome.com/2009/09/08/how-to-compile-a-kernel-for-ubuntu-jaunty-revised/](http://blog.avirtualhome.com/2009/09/08/how-to-compile-a-kernel-for-ubuntu-jaunty-revised/)
+- [http://ubuntuforums.org/showthread.php?t=912322](http://ubuntuforums.org/showthread.php?t=912322)

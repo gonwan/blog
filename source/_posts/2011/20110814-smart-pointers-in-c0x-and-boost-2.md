@@ -72,17 +72,17 @@ void test_auto_ptr_errors() {
 
 ### 3. unique_ptr
 
-To resolve the drawbacks, C++0x deprecates usage of `auto_ptr`, and `unique_ptr` is the replacement. `unique_ptr` makes use of a new C++ langauge feature called _rvalue reference_ which is similar to our current (left) reference (_&_), but spelled (_&&_). GCC implemented this feature in 4.3, but `unique_ptr` is only available begin from 4.4.
+To resolve the drawbacks, C++0x deprecates usage of `auto_ptr`, and `unique_ptr` is the replacement. `unique_ptr` makes use of a new C++ langauge feature called *rvalue reference* which is similar to our current (left) reference (*&*), but spelled (*&&*). GCC implemented this feature in 4.3, but `unique_ptr` is only available begin from 4.4.
 
 What is _rvalue_?
 
-_rvalues_ are temporaries that evaporate at the end of the full-expression in which they live ("at the semicolon"). For example, _1729_, _x + y_, _std::string("meow")_, and _x++_ are all rvalues.
+*rvalues* are temporaries that evaporate at the end of the full-expression in which they live ("at the semicolon"). For example, *1729*, *x + y*, *std::string("meow")*, and *x++* are all rvalues.
 
-While, _lvalues_ name objects that persist beyond a single expression. For example, _obj_, _\*ptr_, _ptr\[index\]_, and _++x_ are all lvalues.
+While, *lvalues* name objects that persist beyond a single expression. For example, *obj*, *\*ptr*, *ptr[index]*, and *++x* are all lvalues.
 
-**NOTE**: It's important to remember: _lvalueness_ versus _rvalueness_ is a property of expressions, not of objects.
+**NOTE**: It's important to remember: *lvalueness* versus *rvalueness* is a property of expressions, not of objects.
 
-We may have another whole post to address the _rvalue_ feature. Now, let's take a look of the basic usage. Please carefully reading the comments:
+We may have another whole post to address the *rvalue* feature. Now, let's take a look of the basic usage. Please carefully reading the comments:
 
 ```cpp
 unique_ptr get_unique_ptr(int i) {
@@ -107,7 +107,7 @@ void test_unique_ptr_basic() {
 }
 ```
 
-One can ONLY make a copy of an rvalue `unique_ptr`. This confirms no ownership issues occur like that of `auto_ptr`. Since temporary values cannot be referenced after the current expression, it is impossible for two `unique_ptr` to refer to a same pointer. You may also noticed the _move_ function. We will also discuss it in a later post.
+One can ONLY make a copy of an rvalue `unique_ptr`. This confirms no ownership issues occur like that of `auto_ptr`. Since temporary values cannot be referenced after the current expression, it is impossible for two `unique_ptr` to refer to a same pointer. You may also noticed the `move()` function. We will also discuss it in a later post.
 
 Some more snippet:
 
@@ -145,7 +145,7 @@ void test_unique_ptr_custom_deleter() {
 }
 ```
 
-`unique_ptr` can hold pointers to an array. `unique_ptr` defines _deleter_s to free memory of its internal pointer. There are pre-defined `default_deleter` using _delete_ and _delete\[\]_(array) for general deallocation. You can also define your customized ones. In addition, a `void` type can be used.
+`unique_ptr` can hold pointers to an array. `unique_ptr` defines _deleter_s to free memory of its internal pointer. There are pre-defined `default_deleter` using `delete` and `delete[]`(array) for general deallocation. You can also define your customized ones. In addition, a `void` type can be used.
 
 **NOTE**: To compile the code, you must specify the `-std=c++0x` flag.
 
@@ -259,7 +259,7 @@ void test_weak_ptr() {
 }
 ```
 
-If we use uncomment to use `shared_ptr`, _head_ is not freed since there still one reference to it when exiting the function. By using `weak_ptr`, this code works fine.
+If we use uncomment to use `shared_ptr`, *head* is not freed since there still one reference to it when exiting the function. By using `weak_ptr`, this code works fine.
 
 ### 6. scoped_ptr
 

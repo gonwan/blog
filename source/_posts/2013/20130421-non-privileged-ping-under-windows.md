@@ -54,6 +54,6 @@ int ping(/*in*/ const char *ip, /*out*/ int *ttl, /*out*/ int *diff)
 
 You may ask what's the difference between "Administrator" and "Run as Administrator", the answer comes from [stackoverflow](http://stackoverflow.com/questions/13711425/run-as-administrator-vs-administrator-group):
 
-> \- When an user from the administrator group logs on, the user is allocated two tokens: a token with all privileges, and a token with reduced privileges. When that user creates a new process, the process is by default handed the reduced privilege token. So, although the user has administrator rights, she does not exercise them by default. This is a "Good Thing".
+> - When an user from the administrator group logs on, the user is allocated two tokens: a token with all privileges, and a token with reduced privileges. When that user creates a new process, the process is by default handed the reduced privilege token. So, although the user has administrator rights, she does not exercise them by default. This is a "Good Thing".
 > 
-> \- To exercise those rights the user must start the process with elevated rights. For example, by using the "Run as administrator" verb. When she does this, the full token is handed to the new process and the full range of rights can be exercised.
+> - To exercise those rights the user must start the process with elevated rights. For example, by using the "Run as administrator" verb. When she does this, the full token is handed to the new process and the full range of rights can be exercised.

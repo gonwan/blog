@@ -94,7 +94,7 @@ int main()
 }
 ```
 
-The Python in my previous [article](https://www.gonwan.com/2016/01/11/coroutines-in-python/) can be used to work with the code above. I also tried to write a TCP server with only `boost::coroutines` classes. `select()` is used, since I want the code to be platform independent. **NOTE**: with coroutines, we have only _one_ thread.
+The Python in my previous [article](https://www.gonwan.com/2016/01/11/coroutines-in-python/) can be used to work with the code above. I also tried to write a TCP server with only `boost::coroutines` classes. `select()` is used, since I want the code to be platform independent. **NOTE**: with coroutines, we have only **one** thread.
 
 ```cpp
 #ifdef _WIN32

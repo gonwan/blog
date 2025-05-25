@@ -7,7 +7,7 @@ tags:
   - "template"
 ---
 
-Currently reading _[C++ Templates: The Complete Guide](http://www.amazon.com/C-Templates-The-Complete-Guide/dp/0201734842/)_ these days. Just summarize confusions about template function overload & specialization.
+Currently reading *[C++ Templates: The Complete Guide](http://www.amazon.com/C-Templates-The-Complete-Guide/dp/0201734842/)* these days. Just summarize confusions about template function overload & specialization.
 
 ```cpp
 #include <iostream>

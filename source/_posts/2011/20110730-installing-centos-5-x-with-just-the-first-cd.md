@@ -11,7 +11,16 @@ Since the DVD size of CentOS 5.x is largely increased(1.7G for 3.x, 2.3G for 4.x
 
 Now, follow the official FAQ [here](http://wiki.centos.org/FAQ/CentOS5#head-c79c201900d22f163a445f134fcc6c916eb3cb6e):
 
-> \- You can do a minimal install that just requires the first CD by performing the following two steps during the installation: \*\* During the category/task selection, deselect all package categories, and choose the "Customize now" option at the bottom of screen. \*\* During the customized package selection, deselect everything ( including the Base group ). - There are reports that more than CD 1 is required in the following case: \*\* If you use some software raid options (this will also require CD 2 and 5) \*\* If you use encrypted filesystems - When the anaconda installer notes that additional disks will be required but you desire a one CD install, the quick answer is one or more of the following approaches: \*\* Trim back and do a minimal install. Then once the install is up and running, pull in more packages with yum and add more options later. - If you want to avoid using more than one CD but want to install more than just the minimal set of packages, you could also consider doing a network installation. A network installation ISO (called boot.iso) is available from the 5/os/<arch>/images/ directory on CentOS mirrors. - This latter mode of installation, however, is only really reliable via a LAN (an Intranet installation) and not via the Internet.
+> - You can do a minimal install that just requires the first CD by performing the following two steps during the installation:
+>   - During the category/task selection, deselect all package categories, and choose the "Customize now" option at the bottom of screen.
+>   - During the customized package selection, deselect everything ( including the Base group ).
+> - There are reports that more than CD 1 is required in the following case:
+>   - If you use some software raid options (this will also require CD 2 and 5)
+>   - If you use encrypted filesystems
+> - When the anaconda installer notes that additional disks will be required but you desire a one CD install, the quick answer is one or more of the following approaches:
+>   - Trim back and do a minimal install. Then once the install is up and running, pull in more packages with yum and add more options later.
+> - If you want to avoid using more than one CD but want to install more than just the minimal set of packages, you could also consider doing a network installation. A network installation ISO (called boot.iso) is available from the 5/os/\<arch\>/images/ directory on CentOS mirrors.
+> - This latter mode of installation, however, is only really reliable via a LAN (an Intranet installation) and not via the Internet.
 
 From my practice, you MUST follow the de-selection order. Otherwise, it will still require other CDs. The actual installation lasts for about 1 minutes(installation of \*.rpm files). After reboot, the system gives you a minimum installation with only text mode support. Now login with your root account, and make sure your network is ready. Additional components shall be installed manually using yum:
 
@@ -58,7 +67,9 @@ $ rpm -e kernel-smp
 
 There's 4.9 release but no 4.9 \*.iso images. The readme.txt says:
 
-> \- The upstream provider did not respin media for the 4.9 release and therefore the CentOS project will also not respin our install media. - Installs moving forward will be off the 4.8 media and an upgrade will move you from version 4.8 to version 4.9. - We do this to maintain compatibility with 3rd party kernel drivers which are designed to be installed as part of the installation process.
+> - The upstream provider did not respin media for the 4.9 release and therefore the CentOS project will also not respin our install media.
+> - Installs moving forward will be off the 4.8 media and an upgrade will move you from version 4.8 to version 4.9.
+> - We do this to maintain compatibility with 3rd party kernel drivers which are designed to be installed as part of the installation process.
 
 Run "yum update" to update from 4.8 to 4.9. For me, about 300M contents were downloaded.
 

@@ -19,7 +19,10 @@ There are three ways of starting a bash shell: - As a default login shell at log
 
 When you log in to the Linux system, the bash shell starts as a login shell. The login shell looks for four different startup files to process commands from. The following is the order in which the bash shell processes the files:
 
-\- _/etc/profile_ - _$HOME/.bash_profile_ - _$HOME/.bash_login_ - _$HOME/.profile_
+- `/etc/profile`
+- `$HOME/.bash_profile`
+- `$HOME/.bash_login`
+- `$HOME/.profile`
 
 #### Interactive Shell
 

@@ -33,16 +33,16 @@ The demo project is initialized from [https://github.com/carnellj/spmia-chapter1
 
 The project includes:
 
-- \[eureka-server\]: Service for service discovery. Registered services are shown on its web frontend, running at 8761 port.
-- \[config-server\]: Service for config file management. Config files can be accessed via: `http://${config-server}:8888/${appname}/${profile}`. Where `${appname}` is `spring.application.name` and `${profile}` is something like `dev`, `prd` or `default`.
-- \[zipkin-server\]: Service to aggregate distributed tracing data, working with [spring-cloud-sleuth](https://github.com/spring-cloud/spring-cloud-sleuth/). It runs at 9411 port. All cross service requests, message bus delivery are traced by default.
-- \[zuul-server\]: Gateway service to route requests, running at 5555 port.
-- \[authentication-service\]: OAuth2 enabled authentication service running at 8901. Redis is used for token cache. JWT support is also included. Spring Cloud Security 2.0 saves a lot when building this kind of services.
-- \[organization-service\]: Application service holding organization information, running at 8085. It also acts as an OAuth2 client to `authentication-service` for authorization.
-- \[license-service\]: Application service holding license information, running at 8080. It also acts as an OAuth2 client to `authentication-service` for authorization.
-- \[config\]: Config files hosted to be accessed by `config-server`.
-- \[docker\]: Docker compose support.
-- \[kubernetes\]: Kubernetes support.
+- `[eureka-server]`: Service for service discovery. Registered services are shown on its web frontend, running at 8761 port.
+- `[config-server]`: Service for config file management. Config files can be accessed via: `http://${config-server}:8888/${appname}/${profile}`. Where `${appname}` is `spring.application.name` and `${profile}` is something like `dev`, `prd` or `default`.
+- `[zipkin-server]`: Service to aggregate distributed tracing data, working with [spring-cloud-sleuth](https://github.com/spring-cloud/spring-cloud-sleuth/). It runs at 9411 port. All cross service requests, message bus delivery are traced by default.
+- `[zuul-server]`: Gateway service to route requests, running at 5555 port.
+- `[authentication-service]`: OAuth2 enabled authentication service running at 8901. Redis is used for token cache. JWT support is also included. Spring Cloud Security 2.0 saves a lot when building this kind of services.
+- `[organization-service]`: Application service holding organization information, running at 8085. It also acts as an OAuth2 client to `authentication-service` for authorization.
+- `[license-service]`: Application service holding license information, running at 8080. It also acts as an OAuth2 client to `authentication-service` for authorization.
+- [config]`: Config files hosted to be accessed by `config-server`.
+- `[docker]`: Docker compose support.
+- `[kubernetes]`: Kubernetes support.
 
 **NOTE**: The new OAuth2 support in Spring is actively being developed. All functions are merging into core Spring Security 5. As a result, current implementation is suppose to change. See:
 

@@ -57,4 +57,4 @@ Why this address? It's not defined by Intel nor Microsoft. It was decided by IBM
 
 > BIOS developer team decided 0x7C00 because:
 > 
-> \- They wanted to leave as much room as possible for the OS to load itself within the 32KB. - 8086/8088 used 0x0 - 0x3FF for interrupts vector, and BIOS data area was after it. - The boot sector was 512 bytes, and stack/data area for boot program needed more 512 bytes. - So, 0x7C00, the last 1024B of 32KB was chosen.
+> - They wanted to leave as much room as possible for the OS to load itself within the 32KB. - 8086/8088 used 0x0 - 0x3FF for interrupts vector, and BIOS data area was after it. - The boot sector was 512 bytes, and stack/data area for boot program needed more 512 bytes. - So, 0x7C00, the last 1024B of 32KB was chosen.

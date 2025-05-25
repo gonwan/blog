@@ -9,7 +9,7 @@ tags:
   - "profiling"
 ---
 
-While reading _Understanding the JVM - Advanced Features and Best Practices, Second Edition_ ([in Chinese](https://www.amazon.cn/dp/B00D2ID4PK/)) recently, there is a guide in chapter one to build JVM from source. It is based on OpenJDK7, which only works when using a Java6/Java7 VM as build bootstrap. Java8 bootstrap has more strict code checks and will finally fail the build. So, I just switched to a more recent [OpenJDK8](http://jdk.java.net/java-se-ri/8) code. The file name is `openjdk-8u40-src-b25-10_feb_2015.zip`.
+While reading *Understanding the JVM - Advanced Features and Best Practices, Second Edition* ([in Chinese](https://www.amazon.cn/dp/B00D2ID4PK/)) recently, there is a guide in chapter one to build JVM from source. It is based on OpenJDK7, which only works when using a Java6/Java7 VM as build bootstrap. Java8 bootstrap has more strict code checks and will finally fail the build. So, I just switched to a more recent [OpenJDK8](http://jdk.java.net/java-se-ri/8) code. The file name is `openjdk-8u40-src-b25-10_feb_2015.zip`.
 
 The code provides a better build experience, and compiles on my Linux box almost out of box. But remember, do not use a gcc compiler >= gcc-6. It defaults to C++14 and breaks the build. On macOS, the build scripts seem only support gcc. Actually, a clang compiler is required to build the objc code.
 

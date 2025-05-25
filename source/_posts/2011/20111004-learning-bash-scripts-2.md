@@ -100,7 +100,7 @@ echo The result is $var7
 
 The `expr` command allowed the processing of equations from the command line. Note the spaces around operator is necessary. Escape character(backslash) is used to identify any characters that may be misinterpreted by the shell before being passed to the `expr` command.
 
-Bash also provides a much easier way of performing mathematical equations. In bash, when assigning a mathematical value to a variable, you can enclose the mathematical equation using a dollar sign and square brackets ($\[ operation \]).
+Bash also provides a much easier way of performing mathematical equations. In bash, when assigning a mathematical value to a variable, you can enclose the mathematical equation using a dollar sign and square brackets (`$[ operation ]`).
 
 The bash shell mathematical operators support only integer arithmetic. The most popular solution uses the built-in bash calculator, called `bc`.
 
@@ -108,7 +108,7 @@ The bash shell mathematical operators support only integer arithmetic. The most 
 
 #### 5.1 if/else
 
-The bash shell _if_ statement runs the command defined on the _if_ line. If the exit status of the command is zero (the command completed successfully), the commands listed under the _then_ section are executed. If the exit status of the command is anything else, the then commands aren't executed, and the bash shell moves on to the next command in the script.
+The bash shell *if* statement runs the command defined on the *if* line. If the exit status of the command is zero (the command completed successfully), the commands listed under the *then* section are executed. If the exit status of the command is anything else, the then commands aren't executed, and the bash shell moves on to the next command in the script.
 
 ```bash
 #!/bin/bash
@@ -141,7 +141,7 @@ fi
 
 #### 5.2 test
 
-The `test` command provides a way to test different conditions in an _if-then_ statement. If the condition listed in the test command evaluates to true, the test command exits with a zero exit status code, making the _if-then_ statement behave in much the same way that _if-then_ statements work in other programming languages. If the condition is false, the test command exits with a 1, which causes the _if-then_ statement to fail.
+The `test` command provides a way to test different conditions in an *if-then* statement. If the condition listed in the test command evaluates to true, the test command exits with a zero exit status code, making the *if-then* statement behave in much the same way that *if-then* statements work in other programming languages. If the condition is false, the test command exits with a 1, which causes the *if-then* statement to fail.
 
 ##### \*) Numeric Comparisons
 
@@ -193,7 +193,7 @@ The double bracketed expression uses the standard string comparison used in the 
 
 Capitalized letters are treated as less than lowercase letters in the `test` command. However, when you put the same strings in a file and use the `sort` command, the lowercase letters appear first. This is due to the ordering technique each command uses. The `test` command uses standard ASCII ordering, using each character's ASCII numeric value to determine the sort order. The `sort` command uses the sorting order defined for the system locale language settings. For the English language, the locale settings specify that lowercase letters appear before uppercase letters in sorted order.
 
-While the [BashFAQ](http://mywiki.wooledge.org/BashFAQ/031) said: As of bash 4.1, string comparisons using `<` or `>` respect the current locale when done in `[[`, but **not** in `[` or `test`. In fact, `[` and `test` have _never_ used locale collating order even though past man pages _said_ they did. Bash versions prior to 4.1 do not use locale collating order for `[[` either. So you get opposite result when running on CentOS-5.7(bash-3.2) and Ubuntu-10.04(bash-4.1) with `[[` operator. And bash-4.1 is consistent with `sort` command now.
+While the [BashFAQ](http://mywiki.wooledge.org/BashFAQ/031) said: As of bash 4.1, string comparisons using `<` or `>` respect the current locale when done in `[[`, but **not** in `[` or `test`. In fact, `[` and `test` have *never* used locale collating order even though past man pages *said* they did. Bash versions prior to 4.1 do not use locale collating order for `[[` either. So you get opposite result when running on CentOS-5.7(bash-3.2) and Ubuntu-10.04(bash-4.1) with `[[` operator. And bash-4.1 is consistent with `sort` command now.
 
 #### 5.3 case
 
