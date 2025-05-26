@@ -102,3 +102,8 @@ theme: next
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+# Added by me
+symbols_count_time:
+  total_symbols: false
+  total_time: false

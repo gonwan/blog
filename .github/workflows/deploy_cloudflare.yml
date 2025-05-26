@@ -13,6 +13,7 @@ jobs:
             scripts
             source/_data
             source/_posts
+            source/about
             source/categories
             source/tags
       - uses: actions/setup-node@v4

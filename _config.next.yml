@@ -21,6 +21,9 @@ toc:
   number: false
   expand_all: true
 
+footer:
+  since: 2025
+
 post_meta:
   item_text: false
   updated_at:
