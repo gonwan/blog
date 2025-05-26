@@ -47,7 +47,7 @@ Big real mode(or [unreal mode](http://en.wikipedia.org/wiki/Unreal_mode)) is use
 
 Protected mode can also refer 4G memory. But BIOS is mainly written for real mode, big real mode is a better choice for addressing.
 
-Then, BIOS continues to  find a bootable device, see [wikipedia](http://en.wikipedia.org/wiki/BIOS):
+Then, BIOS continues to find a bootable device, see [wikipedia](http://en.wikipedia.org/wiki/BIOS):
 
 > The BIOS selects candidate boot devices using information collected by POST and configuration information from EEPROM, CMOS RAM or, in the earliest PCs, DIP switches. Option ROMs may also influence or supplant the boot process defined by the motherboard BIOS ROM. The BIOS checks each device in order to see if it is bootable. For a disk drive or a device that logically emulates a disk drive, such as a USB Flash drive or perhaps a tape drive, to perform this check the BIOS attempts to load the first sector (boot sector) from the disk to address 7C00 hexadecimal, and checks for the boot sector signature 0x55 0xAA in the last two bytes of the sector. If the sector cannot be read (due to a missing or blank disk, or due to a hardware failure), or if the sector does not end with the boot signature, the BIOS considers the disk unbootable and proceeds to check the next device. Another device such as a network adapter attempts booting by a procedure that is defined by its option ROM (or the equivalent integrated into the motherboard BIOS ROM). The BIOS proceeds to test each device sequentially until a bootable device is found, at which time the BIOS transfers control to the loaded sector with a jump instruction to its first byte at address 7C00 hexadecimal (1 KiB below the 32 KiB mark).
 

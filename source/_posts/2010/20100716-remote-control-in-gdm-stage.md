@@ -14,7 +14,7 @@ In company, I use VNC to control remote machines. But in GDM stage, this does no
 $ sudo apt-get install xnest
 ```
 
-In server side,  go to System --> Administration --> Login Window, or simply run "gdmsetup". Go to "Remote" tab, set value to "Same as Local".
+In server side, go to System --> Administration --> Login Window, or simply run "gdmsetup". Go to "Remote" tab, set value to "Same as Local".
 
 In client side, go to Applications --> Internet --> Terminal Server Client, or simply run "tsclient". You'll find the XDMCP protocol type can be selected now. Enter your server address to connect.
 

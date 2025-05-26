@@ -9,7 +9,7 @@ tags:
   - "ubuntu"
 ---
 
-    This article applies to Ubuntu 8.04/10.04. I referred to the instruction here: [http://ubuntuforums.org/showthread.php?t=51003](http://ubuntuforums.org/showthread.php?t=51003). And I'll use my [qastrologer](http://code.google.com/p/qansieditor/source/browse/trunk/qastrologer/) project to demo the building procedure.
+This article applies to Ubuntu 8.04/10.04. I referred to the instruction here: [http://ubuntuforums.org/showthread.php?t=51003](http://ubuntuforums.org/showthread.php?t=51003). And I'll use my [qastrologer](http://code.google.com/p/qansieditor/source/browse/trunk/qastrologer/) project to demo the building procedure.
 
 1. Install build tool packages:
 

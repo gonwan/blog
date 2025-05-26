@@ -26,7 +26,7 @@ $ QT_DEBUG_PLUGINS=1 QT_AUTO_SCREEN_SCALE_FACTOR=1 QT_QPA_PLATFORMTHEME=?? QT_ST
 $ QT_DEBUG_PLUGINS=1 QT_AUTO_SCREEN_SCALE_FACTOR=1 QT_QPA_PLATFORMTHEME=qt5ct QT_STYLE_OVERRIDE= vlc
 ```
 
-|   | has theme? | has style? | QT_QPA<br/>_PLATFORMTHEME | QT_STYLE<br/>_OVERRIDE | Description |
+|  | has theme? | has style? | QT_QPA<br/>_PLATFORMTHEME | QT_STYLE<br/>_OVERRIDE | Description |
 | --- | --- | --- | --- | --- | --- |
 | Gtk2 | Yes | Yes | gtk2 | gtk2 or empty | Good for widgets, indicators in radio button and checkbox can be styled, follows current Gtk theme. But It has HiDPI issues, and certainly not maintained. |
 | Gtk3 | Yes | No | gtk3 or empty | values in qt5ct | No style plugin. Fusion is used by default, which is not consistent with other themed Gtk applications. |

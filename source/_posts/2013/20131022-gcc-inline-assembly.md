@@ -207,7 +207,7 @@ add8:
     ret
 ```
 
-%eax is moved to %eax? gcc selected %eax and %edx as general registers to use.  The code accidentally does the right job, but it is still a potential pitfall. Clobber list can be used to avoid this:
+%eax is moved to %eax? gcc selected %eax and %edx as general registers to use. The code accidentally does the right job, but it is still a potential pitfall. Clobber list can be used to avoid this:
 
 ```cpp
 int add9(int a, int b)

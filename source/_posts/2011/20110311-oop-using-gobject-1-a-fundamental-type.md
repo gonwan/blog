@@ -8,7 +8,7 @@ tags:
   - "oop"
 ---
 
-These days, I tried to write C code with OO support. I found [GObject](http://library.gnome.org/devel/gobject/stable/) is such a well-designed library to simplify my implementation. However, the official documents is not so clear sometimes.  It do not provide sufficient information about all its stuff. I had to write my own demo applications to test the usage of some function. Moreover, the source code were also checked for reference.
+These days, I tried to write C code with OO support. I found [GObject](http://library.gnome.org/devel/gobject/stable/) is such a well-designed library to simplify my implementation. However, the official documents is not so clear sometimes. It do not provide sufficient information about all its stuff. I had to write my own demo applications to test the usage of some function. Moreover, the source code were also checked for reference.
 
 There are 3 types in GObject type system: Fundamental, static and dynamic. Fundamental types are top-most types. The do not have parent types. They are seldom used, since all fundamental types are pre-defined rather than user-defined.
 

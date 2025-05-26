@@ -13,7 +13,7 @@ tags:
 
 Feature matrix of NoSQL databases, listed in Appendix of [Seven Databases in Seven Weeks](http://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921/):
 
-|   | MongoDB | CouchDB | Riak | Redis | PostgreSQL | Neo4j | HBase |
+|   | MongoDB | CouchDB | Riak | Redis | PostgreSQL | Neo4j | HBase |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Genre | Document | Document | Key-value | Key-value | Relational | Graph | Columnar |
 | Version | 2.0 | 1.1 | 1.0 | 2.4 | 9.1 | 1.7 | 0.90.3 |
@@ -27,7 +27,7 @@ Feature matrix of NoSQL databases, listed in Appendix of [Seven Databases in Sev
 | Mapreduce | JavaScript | JavaScript | JavaScript, Erlang | No | No | No (in the distributed sense) | Hadoop |
 | Scalable | Datacenter | Datacenter (via BigCouch) | Datacenter | Cluster (via master-slave) | Cluster (via add-ons) | Cluster (via HA) | Datacenter |
 | Durability | Write-ahead journaling, Safe mode | Crash-only | Durable write quorum | Append-only log | ACID | ACID | Write-ahead logging |
-|   | MongoDB | CouchDB | Riak | Redis | PostgreSQL | Neo4j | HBase |
+|   | MongoDB | CouchDB | Riak | Redis | PostgreSQL | Neo4j | HBase |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Secondary Indexes | Yes | Yes | Yes | No | Yes | Yes (via Lucene) | No |
 | Versioning | No | Yes | Yes | No | No | No | Yes |
