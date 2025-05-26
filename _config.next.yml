@@ -51,3 +51,7 @@ local_search:
   top_n_per_article: 1
   unescape: false
   preload: false
+
+google_analytics:
+  tracking_id: G-35NDVTJNTY
+  only_pageview: false
