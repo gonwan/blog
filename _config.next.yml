@@ -18,8 +18,15 @@ toc:
   number: false
 
 post_meta:
+  item_text: false
   updated_at:
     enable: false
+
+symbols_count_time:
+  separated_meta: true
+  item_text_total: false
+
+tag_icon: true
 
 mobile_layout_economy: true
 
@@ -46,15 +53,15 @@ font:
 motion:
   enable: false
 
+google_analytics:
+  tracking_id: G-35NDVTJNTY
+  only_pageview: false
+
 local_search:
   enable: true
   top_n_per_article: 1
   unescape: false
   preload: false
-
-google_analytics:
-  tracking_id: G-35NDVTJNTY
-  only_pageview: false
 
 giscus:
   enable: true
