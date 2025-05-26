@@ -5,7 +5,7 @@ categories:
   - "tools"
 ---
 
-In early days of August, I finished reading the book <\<\windows internals 4e\>\>: [http://www.amazon.com/Microsoft-Windows-Internals-4th-Server/dp/0735619174](http://www.amazon.com/Microsoft-Windows-Internals-4th-Server/dp/0735619174)
+In early days of August, I finished reading the book \<\<windows internals 4e\>\>: [http://www.amazon.com/Microsoft-Windows-Internals-4th-Server/dp/0735619174](http://www.amazon.com/Microsoft-Windows-Internals-4th-Server/dp/0735619174)
 
 There's a concept called dynamic volume. The volume type we commonly used are called basic volume. Basic volumes and dynamic volumes differ in ability to extend storage beyond one physical disk. The basic partitions are confined to one disk and their size is fixed. Dynamic volumes allow to adjust size and to add more free space either from the same disk or another physical disk.
 

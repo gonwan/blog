@@ -2,7 +2,7 @@
 title: "Benchmark for Web Frameworks (2)"
 date: "2023-06-02 03:26:39"
 categories: 
-  - "cc"
+  - "cpp"
 tags: 
   - "benchmark"
   - "framework"

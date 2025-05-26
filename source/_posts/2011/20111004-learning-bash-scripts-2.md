@@ -4,7 +4,7 @@ date: "2011-10-04 09:13:00"
 categories: 
   - "linux"
 tags: 
-  - "bash-2"
+  - "bash"
   - "shell"
   - "ubuntu"
 ---
