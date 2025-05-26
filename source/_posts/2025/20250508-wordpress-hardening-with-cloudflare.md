@@ -153,6 +153,9 @@ Error pages are also cached here. Minor pages are like `/tags/...` and `/categor
 
 With all configurations above, the cache hit rate is about 70% - 90% in average. All configurations are monitored and adjusted this week. Wordpress is a legacy monolithic application. It is all-purpose and it can do almost anything regarding content management with plugins. It mixes frontend and backend. It mixes content service and content administration. All those mess make it tricky to setup and tweak correctly.
 
-Some alternatives are found: [Ghost](https://ghost.org): The most ideal one, with some drawbacks. a. It does not use html or markdown for contents. b. Plugin installation may require manual file operations. File overwrites are possible. c. Is a raw customized html page possible? [Kirby](https://getkirby.com/): It is lightweight, but I do not want php any more. [Strapi](https://strapi.io/) and other headless CMS: not so user friendly or costs time to adapt.
+Some alternatives are found:
+- [Ghost](https://ghost.org): The most ideal one, with some drawbacks. a. It does not use html or markdown for contents. b. Plugin installation may require manual file operations. File overwrites are possible. c. Is a raw customized html page possible?
+- [Kirby](https://getkirby.com/): It is lightweight, but I do not want php any more.
+- [Strapi](https://strapi.io/) and other headless CMS: not so user friendly or costs time to adapt.
 
 Maybe a simple SSG-based blog is the final destination. No more php, no more CDN, no more endless plugins, no more tricky config and hardening work.
