@@ -55,3 +55,17 @@ local_search:
 google_analytics:
   tracking_id: G-35NDVTJNTY
   only_pageview: false
+
+giscus:
+  enable: true
+  repo: gonwan/blog
+  repo_id: R_kgDOOushVA
+  category: General
+  category_id: DIC_kwDOOushVM4CqjX-
+  mapping: pathname
+  reactions_enabled: 1
+  emit_metadata: 0
+  theme: light
+  lang: en
+  input_position: bottom
+  loading: lazy
