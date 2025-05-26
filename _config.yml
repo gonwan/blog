@@ -107,3 +107,10 @@ deploy:
 symbols_count_time:
   total_symbols: false
   total_time: false
+
+sitemap:
+  path: 
+    - sitemap.xml
+  rel: false
+  tags: false
+  categories: false

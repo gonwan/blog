@@ -1,0 +1,6 @@
+User-agent: AhrefsBot
+User-agent: MJ12bot
+User-agent: Baiduspider
+Disallow: /
+ 
+Sitemap: https://www.gonwan.com/sitemap.xml
