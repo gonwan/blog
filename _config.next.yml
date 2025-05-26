@@ -14,8 +14,12 @@ menu:
 sidebar:
   display: always
 
+avatar:
+  url: https://bimg.gonwan.com/avatar_512x512.jpg
+
 toc:
   number: false
+  expand_all: true
 
 post_meta:
   item_text: false
@@ -36,6 +40,10 @@ codeblock:
     dark: github
   copy_button:
     enable: true
+
+back2top:
+  enable: true
+  scrollpercent: true
 
 github_banner:
   enable: true
