@@ -50,8 +50,7 @@ Here's a summary of how coroutine is implemented in most popular programming lan
 | C# | n/a | (Y2012) async, await/yield in C# 5.0 |
 | Javascript | n/a | (Y2017) async, await/yield in ES 2017 |
 | PHP | (Y2021) Fiber in PHP 8.1 | n/a |
-| Go | (Y2012) Goroutine in Go 1.0  
-(Y2020) asynchronously preemptible in 1.14 | n/a |
+| Go | (Y2012) Goroutine in Go 1.0<br />(Y2020) asynchronously preemptible in 1.14 |n/a|
 | Objective-C | n/a | n/a |
 | Swift | n/a | (Y2021) async, await/yield in Swift 5.5 |
 | Rust | n/a | (Y2019) async, await in Rust 1.39 |

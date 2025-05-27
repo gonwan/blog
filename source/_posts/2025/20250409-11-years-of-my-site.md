@@ -72,7 +72,7 @@ maxretry = 3
 port = http,https
 ```
 
-Make sure package `python3-pyinotify` and `python3-system` are installed. Restart Fail2ban.
+Make sure package `python3-pyinotify` and `python3-systemd` are installed. Restart Fail2ban.
 
 ### 3. Akismet not working
 
