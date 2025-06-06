@@ -1,6 +1,10 @@
-User-agent: AhrefsBot
-User-agent: MJ12bot
-User-agent: Baiduspider
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: YandexBot
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: *
 Disallow: /
- 
+
 Sitemap: https://www.gonwan.com/sitemap.xml
