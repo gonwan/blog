@@ -13,7 +13,7 @@ tags:
 
 ### 1. Font Selection in Qt
 
-In Qt6, default font selection has changed, see [QTBUG-58610](https://bugreports.qt.io/browse/QTBUG-58610). In Qt5, it used legacy API `GetStockObject(DEFAULT_GUI_FONT)` to obtain the default GUI font, which returns `MS Shell Dlg 2, 8pt`. In Qt6, it switched to use `SystemParametersInfo(SPI_GETNONCLIENTMETRICS)`, which returns `Segoe UI, 9pt` using English language, and `Microsoft YaHei UI, 9pt` using Chinese language.
+In Qt6, default font selection has changed, see [QTBUG-58610](https://bugreports.qt.io/browse/QTBUG-58610). In Qt5, it used legacy API `GetStockObject(DEFAULT_GUI_FONT)` to obtain the default GUI font, which returns `MS Shell Dlg 2, 8pt`. In Qt6, it switched to use `SystemParametersInfo(SPI_GETNONCLIENTMETRICS)`, which returns `Segoe UI, 9pt` using English user language, and `Microsoft YaHei UI, 9pt` using Chinese user language.
 
 #### 1.1 Font Substitution
 
@@ -246,7 +246,7 @@ int main(int argc, char *argv[])
     fallbackFonts();
 
     QMainWindow window;
-#if QT_VERSION < 0x060000
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     window.setWindowTitle("Qt5 Font - " + fontEngine);
 #else
     window.setWindowTitle("Qt6 Font - " + fontEngine);
@@ -318,17 +318,17 @@ The invoking chain to the `DirectWrite` engine, when calling `QPainter::drawText
 
 ```
 QPainter::drawText()
-+-- QPainter::drawTextItem()
-    +-- QPainterPrivate::drawTextItem()
-        +-- QPaintEngine::drawTextItem()
-            +-- QWindowsFontEngineDirectWrite::bitmapForGlyph()
+--> QPainter::drawTextItem()
+    --> QPainterPrivate::drawTextItem()
+        --> QPaintEngine::drawTextItem()
+            --> QWindowsFontEngineDirectWrite::bitmapForGlyph()
 ```
 The invoking chain when showing a text `QLabel`:
 ```
 QLabel::paintEvent()
-+-- QStyle::drawItemText()
-    +-- QPainter::drawText()
-        +-- /* same as above */
+--> QStyle::drawItemText()
+    --> QPainter::drawText()
+        --> /* same as above */
 ```
 
 #### 4.3 Default Fonts
@@ -351,11 +351,11 @@ void QWindowsTheme::refreshFonts()
 ### 5. Font Settings in 3rd-party Applications
 
 - [vlc](https://code.videolan.org/videolan/vlc): Uses Qt5/`FreeType` in 3.0 versions, and [switched](https://code.videolan.org/videolan/vlc/-/merge_requests/4783) to Qt6/`DirectWrite` in 4.0.
-- [telegram](https://github.com/telegramdesktop/tdesktop): [Patches](https://github.com/desktop-app/patches/blob/master/qtbase_5.15.17/0003-fix-windows-font-fallback.patch) Qt font fallback list. 
-- [qbittorrent](https://github.com/qbittorrent/qBittorrent): [Suggested](https://github.com/qbittorrent/qBittorrent/issues/13853) to use `FreeType` if there is blurry text.
-- [smplayer](https://github.com/smplayer-dev/smplayer): No specific font tweak, all Qt command line switches work.
-- [obs](https://github.com/obsproject/obs-studio): Uses customized fonts and qss. 
-- [free download manager](https://www.freedownloadmanager.org/): Close-sourced. The font seems to be hardcoded to `SimSum` if Chinese language is set.
+- [telegram](https://github.com/telegramdesktop/tdesktop): Qt6 based. [Patches](https://github.com/desktop-app/patches/blob/master/qtbase_5.15.17/0003-fix-windows-font-fallback.patch) Qt font fallback list.
+- [qbittorrent](https://github.com/qbittorrent/qBittorrent): Qt6 based. `Microsoft YaHei UI` is automatically chosen under Chinese user language, and renders great. Also [suggested](https://github.com/qbittorrent/qBittorrent/issues/13853) to use `FreeType` if there is blurry text.
+- [smplayer](https://github.com/smplayer-dev/smplayer): Qt5 based. No specific font tweak, all Qt command line switches work.
+- [obs](https://github.com/obsproject/obs-studio): Qt6 based. Uses customized fonts and qss.
+- [free download manager](https://www.freedownloadmanager.org/): Qt6 based, close-sourced. The font seems to be hardcoded to `SimSum` even if Chinese user language is set.
 
 ### 6. Conclusion
 
