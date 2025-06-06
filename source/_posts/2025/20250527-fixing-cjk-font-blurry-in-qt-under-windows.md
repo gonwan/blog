@@ -138,7 +138,7 @@ Qt5 vs Qt6 again, with fallback fonts and Qt5 replacing default font to `Segoe U
 
 ![qt5_vs_qt6_fallback](../../images/2025/qt5_vs_qt6_fallback.png)
 
-The screenshot was taken under English user language, Chinese fonts renders fallback to `Arial`. While Qt6 does renders better under Chinese user language. Chinese fonts fallback to `Microsoft YaHei UI` in this case. You can also find that, disabling font hinting(` QFont::PreferNoHinting`) really makes it more smooth. As of Qt 6.9, features are actively being added to the `DirectWrite` engine, see [here](https://github.com/qt/qtbase/commits/dev/src/gui/text/windows/qwindowsfontenginedirectwrite.cpp). I am not able to find which commit made the difference, seems to be [this one](https://github.com/qt/qtbase/commit/407a98d94fb05780f30e77463fb2bd535041a044).
+The screenshot was taken under English user language, Chinese fonts fallback to `Arial`. While Qt6 does render better under Chinese user language. Chinese fonts fallback to `Microsoft YaHei UI` in this case. You can also find that, disabling font hinting(` QFont::PreferNoHinting`) really makes it more smooth. As of Qt 6.9, features are actively being added to the `DirectWrite` engine, see [here](https://github.com/qt/qtbase/commits/dev/src/gui/text/windows/qwindowsfontenginedirectwrite.cpp). I am not able to find which commit made the difference, seems to be [this one](https://github.com/qt/qtbase/commit/407a98d94fb05780f30e77463fb2bd535041a044).
 
 ![qt5_vs_qt6_fallback_cn](../../images/2025/qt5_vs_qt6_fallback_cn.png)
 
@@ -359,7 +359,7 @@ void QWindowsTheme::refreshFonts()
 
 ### 6. Conclusion
 
-If Qt5 is used, set default font to `Segoe UI` as shown in my previous demo code. Add font fallback list.
+If Qt5 is used, set default font to `Segoe UI` as shown in my demo code. Add font fallback list.
 
 If Qt6 is used, Adding font fallback list is enough.
 
@@ -379,4 +379,4 @@ In both cases, disable font hinting for a more smooth rendering. In Qt5, switchi
 
 - Chinese user language, Chinese system language:
 
-![chm_cn_lang_cn_admin](D:\work\github\blog\source\images\2025\chm_cn_lang_cn_admin.png)
+![chm_cn_lang_cn_admin](../../images/2025/chm_cn_lang_cn_admin.png)
