@@ -1,5 +1,5 @@
 ---
-title: Fixing CJK Font Blurry in Qt under Windows
+title: "Fixing CJK Font Blurry in Qt under Windows"
 date: "2025-05-27 07:57:21"
 categories: 
   - "cpp"

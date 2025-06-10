@@ -5,7 +5,7 @@ categories:
   - "cpp"
 tags: 
   - "boost"
-  - "c20"
+  - "cpp20"
   - "coroutine"
 ---
 
