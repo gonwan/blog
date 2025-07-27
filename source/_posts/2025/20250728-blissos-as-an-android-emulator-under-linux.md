@@ -78,7 +78,7 @@ JNIManager Failed to call method create with signiture (I)Lcom/netease/neox/NXMa
 ```
 Do not know how to solve this. I believe it used to work before Sep, 2024.
 
-- `BlissOS 14.10.3` is broken. The game fails to connect to its server. They disabled `virtwifi` in 14.10.3 build. Add `VIRT_WIFI=1` to kernel parameter to rollback the behavior. Another one is caused by `KernelSU` update, See [here](https://github.com/tiann/KernelSU/issues/2113). Add `syscall_hardening=off` to kernel parameter to workaround it.
+- `BlissOS` 14.10.3 is broken. The game fails to connect to its server. They disabled `virtwifi` in 14.10.3 build. Add `VIRT_WIFI=1` to kernel parameter to rollback the behavior. Another one is caused by `KernelSU` update, See [here](https://github.com/tiann/KernelSU/issues/2113). Add `syscall_hardening=off` to kernel parameter to workaround it.
 
 ### 5. Vulkan Support
 
@@ -109,3 +109,4 @@ Disable security completely and restart `libvirtd` service.
 
 With all the issues listed above. I think it is better to use `MumuPlayer` for Android emulation, especially games from Mainland China. They just add obstacles for unofficial or unknown emulator environments. Combination of `QEMU` and `BlissOS` cannot always bypass these limitations.
 
+If a game provides a Windows client, running with `wine` or `steam/proton` is also an alternative.
