@@ -65,7 +65,10 @@ video=1920x1200 CODEC2_LEVEL=0 OMX_NO_YUV420=1
 
 ### 4. Known Issues
 
-I am a `阴阳师`(Chinese version of [Onmyoji](https://play.google.com/store/apps/details?id=com.netease.onmyoji.gb&hl=en_US)) player, there are several issues:
+I am a `阴阳师`(Chinese version of [Onmyoji](https://play.google.com/store/apps/details?id=com.netease.onmyoji.gb&hl=en_US)) player. The game should now launch.
+![qemu_blissos_yys](../../images/2025/qemu_blissos_yys.webp)
+
+But there are several issues:
 
 - Only Android accounts are supported. The installation `*.apk` is downloaded from [official store](https://mumu.163.com/games/) of `MumuPlayer`. It is in native `x86_64` ABI, and does support iOS account when running in `MumuPlayer`. Seems `Netease` has added some environment checks.
 
@@ -75,7 +78,7 @@ JNIManager Failed to call method create with signiture (I)Lcom/netease/neox/NXMa
 ```
 Do not know how to solve this. I believe it used to work before Sep, 2024.
 
-- `BlissOS 14.10.3` is broken. The app fails to connect to its server. They disabled `virtwifi` in 14.10.3 build. Add `VIRT_WIFI=1` to kernel parameter to rollback the behavior. Another one is caused by `KernelSU` update, See [here](https://github.com/tiann/KernelSU/issues/2113). Add `syscall_hardening=off` to kernel parameter to workaround it.
+- `BlissOS 14.10.3` is broken. The game fails to connect to its server. They disabled `virtwifi` in 14.10.3 build. Add `VIRT_WIFI=1` to kernel parameter to rollback the behavior. Another one is caused by `KernelSU` update, See [here](https://github.com/tiann/KernelSU/issues/2113). Add `syscall_hardening=off` to kernel parameter to workaround it.
 
 ### 5. Vulkan Support
 
