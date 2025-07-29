@@ -78,7 +78,11 @@ JNIManager Failed to call method create with signiture (I)Lcom/netease/neox/NXMa
 ```
 Do not know how to solve this. I believe it used to work before Sep, 2024.
 
-- `BlissOS` 14.10.3 is broken. The game fails to connect to its server. They disabled `virtwifi` in 14.10.3 build. Add `VIRT_WIFI=1` to kernel parameter to rollback the behavior. Another one is caused by `KernelSU` update, See [here](https://github.com/tiann/KernelSU/issues/2113). Add `syscall_hardening=off` to kernel parameter to workaround it.
+**Updated Jul 29, 2025**: [`Bluestacks`](https://www.bluestacks.com/) in bare-metal and virtual machine environment are both known to load maps, other than `MumuPlayer`. The normal version(`arm64` ABI) should be used. The `x86_64` ABI version also does not work.
+
+![vmware_bluestacks_yys](../../images/2025/vmware_bluestacks_yys.webp) 
+
+- `BlissOS` 14.10.3 is broken. The game fails to connect to its server. They disabled `VirtWifi` in 14.10.3 build. Add `VIRT_WIFI=1` to kernel parameter to rollback the behavior. Another one is caused by `KernelSU` update, See [here](https://github.com/tiann/KernelSU/issues/2113). Add `syscall_hardening=off` to kernel parameter to workaround it.
 
 ### 5. Vulkan Support
 
