@@ -35,6 +35,10 @@ symbols_count_time:
 
 tag_icon: true
 
+text_align:
+  desktop: left
+  mobile: left
+
 mobile_layout_economy: true
 
 codeblock:
@@ -60,6 +64,8 @@ font:
   codes:
     external: false
     family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace
+
+fancybox: true
 
 motion:
   enable: false
