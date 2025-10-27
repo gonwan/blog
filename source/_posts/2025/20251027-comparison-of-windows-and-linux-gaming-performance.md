@@ -62,7 +62,7 @@ Linux gives much more FPS(~35%) than Windows.
 ![vic3_2k_middle_linux_settings](../../images/2025/vic3_2k_middle_linux_settings.webp)
 
 Linux gives slightly more FPS(~10%) than Windows.
-
+<!-- more -->
 
 #### 2.3 Age of Wonders 4
 
