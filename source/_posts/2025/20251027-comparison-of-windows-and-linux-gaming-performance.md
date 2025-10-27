@@ -14,7 +14,7 @@ tags:
   - "witcher3"
 ---
 
-In this post, I will compare gaming performance under Windows and Linux, with 5 games on my Lenovo Ideapad(Xiaoxin in Chinese version) laptop.
+Just read [ROG Xbox Ally runs better on Linux than the Windows it ships with](https://www.tomshardware.com/video-games/handheld-gaming/rog-xbox-ally-runs-better-on-linux-than-the-windows-it-ships-with-new-test-shows-up-to-32-percent-higher-fps-with-more-stable-framerates-and-quicker-sleep-resume-times). I will share my experience and compare gaming performance under Windows and Linux, with 5 games on my Lenovo Ideapad/Xiaoxin laptop.
 
 ### 1. Environment
 - Hardware
@@ -66,7 +66,7 @@ Linux gives slightly more FPS(~10%) than Windows.
 
 #### 2.3 Age of Wonders 4
 
-[Age of Wonders 4](https://store.steampowered.com/app/1669000/Age_of_Wonders_4/) only provides DX12 under Windows. All benchmarks are running 1080P or 2K, middle quality preset.
+[Age of Wonders 4](https://store.steampowered.com/app/1669000/Age_of_Wonders_4/) only provides DX12 under Windows. All benchmarks are running 1080P or 2K, middle quality preset. The in-game help page is chosen to measure, because it gives the most GPU stress. The adventure map generally runs under higher FPS.
 
 - Windows DX12 1080P - 21 FPS
 ![aow4_1080p_middle_windows_dx12_fps21](../../images/2025/aow4_1080p_middle_windows_dx12_fps21.webp)
