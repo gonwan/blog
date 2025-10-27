@@ -103,7 +103,7 @@ In `Caching/Configuration`, set `Browser Cache TTL` to `Respect Existing Headers
 Go to `Rules/Overview` to add a cache rule.
 
 ```
-(req.url.extension.is_one_of("css", "js", "gif", "jpg", "png", "svg", "ico", "woff", "woff2"))
+(req.url.extension.is_one_of("css", "js", "gif", "jpg", "png", "webp", "svg", "ico", "woff", "woff2"))
 ```
 
 ```
