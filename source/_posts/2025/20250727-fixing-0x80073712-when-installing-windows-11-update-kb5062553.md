@@ -1,8 +1,8 @@
 ---
 title: Fixing 0x80073712 When Installing Windows 11 Update KB5062553
+date: 2025-07-27 18:12:56
 categories:
   - "windows"
-date: 2025-07-27 18:12:56
 ---
 
 `0x80073712` means `ERROR_SXS_COMPONENT_STORE_CORRUPT`. Searched a lot, tried to fix it using `sfc` and `dism` commands, nothing helps. Finally, was able to fix it using windows recovery.

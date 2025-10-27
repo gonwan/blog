@@ -1,12 +1,12 @@
 ---
 title: "CHM display in CJK languages"
+date: 2025-05-28 14:42:18
 categories:
   - "cpp"
 tags: 
   - "chm"
   - "encodings"
   - "unicode"
-date: 2025-05-28 14:42:18
 ---
 
 Although CHM is through as a legacy format for documents, still a few documents are using it, including `wxWdigets` and `Python`(up to 3.10). [uchmviewer](https://github.com/eBookProjects/uChmViewer)([kchmviewer](https://github.com/gyunaev/kchmviewer)) is a cross-platform CHM viewer. It seems to be the only one that works under Linux. [xchm](https://github.com/rzvncj/xCHM) has poor support for CJK languages. [okular](https://github.com/KDE/okular) has performance issues when viewing CHM, and they removed support in recent versions. [SumatraPDF](https://github.com/sumatrapdfreader/sumatrapdf) is also an alternative under Windows.

@@ -1,5 +1,6 @@
 ---
 title: BlissOS as An Android Emulator Under Linux
+date: 2025-07-28 22:15:06
 categories:
   - "linux"
 tags:
@@ -9,7 +10,6 @@ tags:
   - "mumu-player"
   - "onmyoji"
   - "ubuntu"
-date: 2025-07-28 22:15:06
 ---
 
 Should work under LinuxMint 21/22, Ubuntu 22.04/24.04.
