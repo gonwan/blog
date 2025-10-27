@@ -37,7 +37,7 @@ All FPS values are raw frame values measured by Steam overlay, without FSR addit
 
 #### 2.1 Crusader Kings III
 
-[Crusader Kings III](https://store.steampowered.com/app/1158310/Crusader_Kings_III/) provides Vulkan on Windows and Linux. All benchmarks are running 2K, middle quality preset.
+[Crusader Kings III](https://store.steampowered.com/app/1158310/Crusader_Kings_III/) provides Vulkan on Windows and Linux. All benchmarks are running 2K, middle quality preset. A fixed version 1.16.2 is used.
 
 - Windows Vulkan - 29 FPS
 ![ck3_2k_middle_windows_vulkan_fps29](../../images/2025/ck3_2k_middle_windows_vulkan_fps29.webp)
@@ -50,7 +50,7 @@ Linux gives much more FPS(~35%) than Windows.
 
 #### 2.2 Victoria 3
 
-[Victoria3](https://store.steampowered.com/app/529340/Victoria_3/) provides DX11/Vulkan under Windows, and Vulkan under Linux. All benchmarks are running 2K, middle quality preset.
+[Victoria 3](https://store.steampowered.com/app/529340/Victoria_3/) provides DX11/Vulkan under Windows, and Vulkan under Linux. All benchmarks are running 2K, middle quality preset. A fixed version 1.9.8 is used.
 
 - Windows DX11 - 18 FPS
 ![vic3_2k_middle_windows_dx11_fps18](../../images/2025/vic3_2k_middle_windows_dx11_fps18.webp)
@@ -66,7 +66,7 @@ Linux gives slightly more FPS(~10%) than Windows.
 
 #### 2.3 Age of Wonders 4
 
-[Age of Wonders 4](https://store.steampowered.com/app/1669000/Age_of_Wonders_4/) only provides DX12 under Windows. All benchmarks are running 1080P or 2K, middle quality preset. The in-game help page is chosen to measure, because it gives the most GPU stress. The adventure map generally runs under higher FPS.
+[Age of Wonders 4](https://store.steampowered.com/app/1669000/Age_of_Wonders_4/) only provides DX12 under Windows. All benchmarks are running 1080P or 2K, middle quality preset. The in-game help page is chosen to measure, because it gives the most GPU stress. The adventure map generally runs at a higher FPS.
 
 - Windows DX12 1080P - 21 FPS
 ![aow4_1080p_middle_windows_dx12_fps21](../../images/2025/aow4_1080p_middle_windows_dx12_fps21.webp)
