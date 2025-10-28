@@ -35,10 +35,6 @@ symbols_count_time:
 
 tag_icon: true
 
-text_align:
-  desktop: left
-  mobile: left
-
 mobile_layout_economy: true
 
 codeblock:
