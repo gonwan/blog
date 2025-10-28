@@ -27,7 +27,7 @@ Go to `Windows Security` app --> `Virus & threat protection` --> `Virus & threat
 
 #### 2.1 Victoria 3
 
-`Paradox` updates their games in high frequency. Shaders are generated every time, which takes a lot of time. [Victoria3](https://store.steampowered.com/app/529340/Victoria_3/) generates about 600MB+ shaders. A fixed version 1.9.8 is used to measure the start time.
+`Paradox` updates their games in high frequency. Shaders are generated every time, which takes a lot of time. [Victoria 3](https://store.steampowered.com/app/529340/Victoria_3/) generates about 600MB+ shaders. A fixed version 1.9.8 is used to measure the start time.
 
 |            | Exclusion? | Shader Cached? | Run1 | Run2 |
 | :--------: | :--------: | :------------: | :--: | :--: |
@@ -55,9 +55,9 @@ In both games, the warm start time is reduced by ~10% after excluding them in Wi
 
 ### 3. RSR
 
-`RSR`(Radeon Super Resolution) upscaling can be used to improve the video quality for games that does not support `FSR`. **NOTE**: If you screenshot to compare `RSR` and `non-RSR` version of image quality, they are the same. `RSR` is a in-driver feature, screenshot utilities do not read the optimized images.
+`RSR`(Radeon Super Resolution) upscaling can be used to improve the video quality for games that do not support `FSR`(FidelityFX Super Resolution). **NOTE**: If you take screenshots to compare `RSR` and `non-RSR` versions of image quality, they are the same. `RSR` is a in-driver feature, screenshot utilities do not read the optimized images.
 
-Here's a comparison among different graphic settings, though these images are shot under Linux. `RSR` version under Windows looks just like the middle one under Linux. The `RSR` version makes the text more readable, and increases sharpness to provide clearer graphics.
+Here's a comparison among different graphic settings, though these images are shot under Linux. The `RSR` version under Windows looks just like the middle one under Linux. The `RSR` version makes the text more readable, and increases sharpness to provide clearer graphics.
 
 ![vic3_comparison](../../images/2025/vic3_comparison.webp)
 
