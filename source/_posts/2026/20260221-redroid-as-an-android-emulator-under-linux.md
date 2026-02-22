@@ -95,7 +95,7 @@ $ ./scrcpy -s localhost:5555 --audio-codec=aac --audio-encoder=OMX.google.aac.en
 
 The Android OS should now appear. Open the `Magisk` app. It will reboot to finish installation.
 
-### Install Apps and Games
+### 4. Install Apps and Games
 
 ```bash
 $ ./adb install some_app.apk
@@ -107,7 +107,7 @@ With [aida64](https://www.aida64.com/downloads/latesta64droid) and [termux](http
 | ---------------------------------------------------- | ---------------------------------------------------- |
 | ![redroid_home](../../images/2026/redroid_aida64_1.webp) | ![redroid_home](../../images/2026/redroid_aida64_2.webp) |
 
-Note: I set `androidboot.redroid_gpu_mode=host` to pass through the host GPU, which dramatically improves the graphic performance. Surprisingly, it also has add`Vulkan` support. Otherwise, `SwiftShader` or `LLVM`-based software render is used.
+Note: I set `androidboot.redroid_gpu_mode=host` to pass through the host GPU, which dramatically improves the graphic performance. Surprisingly, it also has add `Vulkan` support. Otherwise, `SwiftShader` or `LLVM`-based software render is used.
 
 The issue previously mentioned is also resolved. When playing `阴阳师`(Chinese version of [Onmyoji](https://play.google.com/store/apps/details?id=com.netease.onmyoji.gb&hl=en_US)), all maps do not load. I was finally able to collect the detailed logs:
 ```plain
