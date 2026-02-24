@@ -16,6 +16,8 @@ Also see my previous post: [BlissOS as An Android Emulator Under Linux](https://
 
 `Redroid`(Remote-Android) is a docker-based solution for Android emulation, GPU enabled, super fast. It is also easy to deploy and use.
 
+What is the difference between `Waydroid`? `Redroid` runs in docker, it won't pollute your host environment with `Waydroid` packages. `Redroid` also supports remote access, while `Waydroid` does not. You can even build a cloud environment above it. Though, `Waydroid` should provide better performance, since no video encoding/decoding and redirection exist.
+
 I'm using LinuxMint 22 / Ubuntu 24.04. Should also work under other Linux OS. Android 12 and 14 are verified to work.
 
 ### 1. Pull Redroid Docker Images
@@ -108,6 +110,8 @@ With [aida64](https://www.aida64.com/downloads/latesta64droid) and [termux](http
 | ![redroid_home](../../images/2026/redroid_aida64_1.webp) | ![redroid_home](../../images/2026/redroid_aida64_2.webp) |
 
 Note: I set `androidboot.redroid_gpu_mode=host` to pass through the host GPU, which dramatically improves the graphic performance. Surprisingly, it also has add `Vulkan` support. Otherwise, `SwiftShader` or `LLVM`-based software render is used.
+
+If you have an Nvidia GPU, hardware acceleration is likely to fail. See [here](https://github.com/remote-android/redroid-doc/issues/282) for details. The `virtio-gpu` approach are recommended by the author.
 
 The issue previously mentioned is also resolved. When playing `阴阳师`(Chinese version of [Onmyoji](https://play.google.com/store/apps/details?id=com.netease.onmyoji.gb&hl=en_US)), all maps do not load. I was finally able to collect the detailed logs:
 ```plain
