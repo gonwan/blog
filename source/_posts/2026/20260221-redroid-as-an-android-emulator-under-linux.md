@@ -1,5 +1,5 @@
 ---
-title: Redroid as An Android Emulator Under Linux
+title: "Redroid as An Android Emulator Under Linux"
 date: 2026-02-21 22:15:06
 categories:
   - "linux"

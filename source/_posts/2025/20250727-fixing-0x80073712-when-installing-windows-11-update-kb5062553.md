@@ -1,5 +1,5 @@
 ---
-title: Fixing 0x80073712 When Installing Windows 11 Update KB5062553
+title: "Fixing 0x80073712 When Installing Windows 11 Update KB5062553"
 date: 2025-07-27 18:12:56
 categories:
   - "windows"

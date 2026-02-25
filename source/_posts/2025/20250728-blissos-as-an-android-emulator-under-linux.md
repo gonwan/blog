@@ -1,5 +1,5 @@
 ---
-title: BlissOS as An Android Emulator Under Linux
+title: "BlissOS as An Android Emulator Under Linux"
 date: 2025-07-28 22:15:06
 categories:
   - "linux"
