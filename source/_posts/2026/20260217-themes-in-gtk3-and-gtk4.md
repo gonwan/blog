@@ -12,7 +12,7 @@ tags:
   - "linuxmint"
 ---
 
-Also see my previous post: [https://www.gonwan.com/2025/04/13/uniform-look-for-qt-and-gtk-applications](Uniform look for Qt and GTK applications).
+Also see my previous post: [Uniform look for Qt and GTK applications](https://www.gonwan.com/2025/04/13/uniform-look-for-qt-and-gtk-applications).
 
 It is really frustrated to find that libadwaita applications are entirely not themed. Gtk guys are breaking things! again!!
 
@@ -419,7 +419,7 @@ Alternatively, `GTK_THEME` can be used:
 $ GTK_THEME=Arc adwaita-1-demo
 ```
 
-`GTK_DEBUG=interactive` is helpful debugging feature for inspecting theme and other info inside a gtk application.
+`GTK_DEBUG=interactive` is a helpful debugging feature for inspecting theme and other info inside a gtk application.
 
 ### 5. Themes in Distributions
 
