@@ -20,7 +20,7 @@ Well, just want to dig more here. I'm running LinuxMint 22.3 / Ubuntu 24.04.
 
 ### 1. Default Looks
 
-Write a simplest gtk3/gtk4 window with a button:
+Write a minimum gtk3/gtk4 window with a button:
 
 ```c
 // gcc gtk4.c -o gtk4 `pkg-config --cflags --libs gtk4`
@@ -423,7 +423,7 @@ $ GTK_THEME=Arc adwaita-1-demo
 
 ### 5. Themes in Distributions
 
-#### 4.1 Ubuntu
+#### 5.1 Ubuntu
 
 Ubuntu patches libadwaita to support theme switching when changing accent color in `gnome-control-panel`:
 
@@ -440,19 +440,19 @@ libadwaita-1 (1.5.0-1ubuntu1) noble; urgency=medium
 
 No such patch found in upstream [Debian package](https://packages.debian.org/trixie/libadwaita-1-0).
 
-#### 4.2 LinuxMint
+#### 5.2 LinuxMint
 
-LinuxMint ignores the patch above, it uses its own [libadwaita fork](https://github.com/linuxmint/libadwaita) instead. In both Ubuntu and LinuxMint, theme changing is notified from `GSettings` and [`XDG Desktop Portal`](https://flatpak.github.io/xdg-desktop-portal/). For a libadwaita application, only `accent color`, `color-scheme` and `high_contrast` are affected, the libadwaita widget style stays unchanged. The fork is more like a backport of accent color support in [libadwaita 1.6](https://github.com/GNOME/libadwaita/commit/f7583f801caeda027e7f8e99f2e72bba2458d1b1#diff-2d1d2817730ace352e87c70e192633b5985ca34bd52702a0192739ac2cb0d60a).
+LinuxMint ignores the patch above, it uses its own [libadwaita fork](https://github.com/linuxmint/libadwaita) instead. In both Ubuntu and LinuxMint, theme changing is notified from `GSettings` and [`XDG Desktop Portal`](https://flatpak.github.io/xdg-desktop-portal/). For a libadwaita application, only `accent color`, `color-scheme` and `high_contrast` are affected, the libadwaita widget style stays unchanged. The fork is more like a backport of accent color support in [libadwaita 1.6](https://github.com/GNOME/libadwaita/commit/f7583f801caeda027e7f8e99f2e72bba2458d1b1).
 
-#### 4.3 ArchLinux
+#### 5.3 ArchLinux
 
 There is a AUR package [libadwaita-without-adwaita](https://aur.archlinux.org/packages/libadwaita-without-adwaita-git), which is a patched version of libadwaita to respect gtk4 themes. It is different from patches from Ubuntu and LinuxMint, where the entire gtk4 theme is applied for libadwaita applications.
 
-#### 4.4 Fedora
+#### 5.4 Fedora
 
 Seems Fedora uses vanilla Gnome, there is no such patch for libadwaita.
 
-### 5. Flatpak
+### 6. Flatpak
 
 Flatpak does not respect system themes by default, themes in `/usr` are not accessible by it. The recommend solution is to use packaged themes.
 
@@ -470,7 +470,7 @@ $ flatpak override --user --filesystem=xdg-config/gtk-4.0
 
 Refer to [official document](https://docs.flatpak.org/en/latest/desktop-integration.html#theming) for more details.
 
-### 6. Alternative Themes
+### 7. Alternative Themes
 
 Given there are so many [gtk3/gtk4 themes](https://www.gnome-look.org/browse?cat=135&ord=rating), `arc theme` is still the best one. I want a compact theme with mixed light and dark blocks. I don't like full-light or full-dark themes. I like light blocks with dark background to help me focus on the content.
 
@@ -485,7 +485,7 @@ Alternative themes:
 
 Unfortunately, no one works better than the great arc theme. Some themes have too much contrast. Some themes just have visual bugs.
 
-### 7. Conclusion
+### 8. Conclusion
 
 The Gnome guys are right to an extent. libadwaita forces users not to theme the original apps. Thus, all libadwaita apps can have a unified look, in several years maybe. libadwaita with Gnome HIG actually does a good job, in my opinion. I suggest to only theme gtk2, gtk3 and gtk4 apps without libadwaita, but not libadwaita apps. Leave them as-is. See articles from Gnome developers:
 
