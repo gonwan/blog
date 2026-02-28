@@ -477,11 +477,12 @@ Given there are so many [gtk3/gtk4 themes](https://www.gnome-look.org/browse?cat
 Alternative themes: 
 
 - [Qogir](https://github.com/vinceliuice/Qogir-theme), arc theme derivative.
-
 - [Matcha](https://github.com/vinceliuice/Matcha-gtk-theme), arc theme derivative.
 - [Celestial](https://github.com/zquestz/celestial-gtk-theme), arc theme derivative.
 - [Orchis](https://github.com/vinceliuice/Orchis-theme), [`materia theme`](https://github.com/nana-4/materia-theme) derivative.
 - [Vimix](https://github.com/vinceliuice/Vimix-gtk-themes), `materia theme` derivative.
+- [Nordic](https://github.com/EliverLara/Nordic)
+- [Dracula](https://github.com/dracula/gtk)
 
 Unfortunately, no one works better than the great arc theme. Some themes have too much contrast. Some themes just have visual bugs.
 

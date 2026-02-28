@@ -1,6 +1,6 @@
 ---
 title: "CHM display in CJK languages"
-date: 2025-05-28 14:42:18
+date: "2025-05-28 14:42:18"
 categories:
   - "cpp"
 tags: 
