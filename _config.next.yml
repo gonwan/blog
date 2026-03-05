@@ -61,6 +61,10 @@ font:
     external: false
     family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace
 
+# 11.7.0 required for xychart to render
+mermaid:
+  enable: true
+
 fancybox: true
 
 motion:

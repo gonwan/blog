@@ -63,6 +63,22 @@ $ wrk -c 1000 -t 10 -d 30s http://127.0.0.1:90xx/text
 | [bun](https://github.com/oven-sh/bun)                        | Javascript |   24.14 / 1.3.10 |    254k /s |
 | [actix](https://github.com/actix/actix-web)                  | Rust 1.75  |           4.12.1 |    334k /s |
 
+```mermaid
+---
+config:
+  xyChart:
+    showDataLabel: true
+  themeVariables:
+    xyChart:
+      plotColorPalette: '#5294e2'
+---
+xychart-beta horizontal
+title "Http Server Benchmark"
+x-axis [nginx, libevhtp, drogon, beast, gin, gofiber, hertz, spring-flux, spring-mvc, spring-mvc-vt, spring-mvc-udt, aspnetcore, node, bun, actix]
+y-axis "Throughput (k/s)" 0 --> 350
+bar [102, 254, 320, 220, 194, 272, 268, 170, 47, 68, 61, 125, 178, 254, 334]
+```
+
 It is amazing that `actix` in rust wins the first price. It runs even faster than any C or C++ servers.
 
 Then, `drogon` is the second. It is also an application level framework. `nginx` is here for reference. `libevhtp` is not actively maintained and somehow hard to use. `beast` from `boost` is just another choice in C++. In my previous benchmark, I can remember it did not scale well and got a much lower throughput. It got almost same throughput running in a 4C and 24C Linux machine. Not knowing why, maybe It was running on an outdated CPU and OS(CentOS 7).
