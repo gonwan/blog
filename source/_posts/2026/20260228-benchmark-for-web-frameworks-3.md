@@ -28,10 +28,11 @@ $ wrk -c 1000 -t 10 -d 30s http://127.0.0.1:90xx/text
 ```
 
 ### Environment
+
 - Server: 4C docker
 - Client: 12C host machine, AMD 7840HS, LinuxMint 22.3 / Ubuntu 24.04.
 - All applications are tweaked to work with 4C.
-- All Java applications are properly warmed up before benchmark.
+- All Java & .NET applications are properly warmed up before benchmark.
 - The userland proxy of docker is disabled to eliminate the networking bottleneck. In `/etc/docker/daemon.json`, set the value and restart docker.
 
 ```json
@@ -44,7 +45,7 @@ $ wrk -c 1000 -t 10 -d 30s http://127.0.0.1:90xx/text
 
 | Server                                                       | Language   |          Version | Throughput |
 | ------------------------------------------------------------ | ---------- | ---------------: | ---------: |
-| [nginx](https://nginx.org/)                                  | C          |           1.28.2 |    102k /s |
+| [nginx](https://nginx.org/)                                  | C          |           1.28.2 |    336k /s |
 | [libevhtp](https://github.com/Yellow-Camper/libevhtp) ([libevent](https://github.com/libevent/libevent)) | C          |  1.2.18 / 2.1.12 |    254k /s |
 | [drogon](https://github.com/drogonframework/drogon)          | C++        |            1.8.7 |    320k /s |
 | [beast](https://www.boost.org/doc/libs/latest/libs/beast/doc/html/index.html) | C++        |             1.83 |    220k /s |
@@ -76,12 +77,12 @@ xychart-beta horizontal
 title "Http Server Benchmark"
 x-axis [nginx, libevhtp, drogon, beast, gin, gofiber, hertz, spring-flux, spring-mvc, spring-mvc-vt, spring-mvc-udt, aspnetcore, node, bun, actix]
 y-axis "Throughput (k/s)" 0 --> 350
-bar [102, 254, 320, 220, 194, 272, 268, 170, 47, 68, 61, 125, 178, 254, 334]
+bar [336, 254, 320, 220, 194, 272, 268, 170, 47, 68, 61, 125, 178, 254, 334]
 ```
 
-It is amazing that `actix` in rust wins the first price. It runs even faster than any C or C++ servers.
+It is amazing that `actix` in rust wins the first price. It runs even faster than any C or C++ servers. `nginx` is here for reference.
 
-Then, `drogon` is the second. It is also an application level framework. `nginx` is here for reference. `libevhtp` is not actively maintained and somehow hard to use. `beast` from `boost` is just another choice in C++. In my previous benchmark, I can remember it did not scale well and got a much lower throughput. It got almost same throughput running in a 4C and 24C Linux machine. Not knowing why, maybe It was running on an outdated CPU and OS(CentOS 7).
+Then, `drogon` is the second. It is also an application level framework. `libevhtp` is not actively maintained and somehow hard to use. `beast` from `boost` is just another choice in C++. In my previous benchmark, I can remember it did not scale well and got a much lower throughput. It got almost same throughput running in a 4C and 24C Linux machine. Not knowing why, maybe It was running on an outdated CPU and OS(CentOS 7).
 
 In the Go world, all 3 frameworks give competitive throughput. Setting `GOMAXPROCS` makes large difference in performance. Starting 1.25, Go automatically detects and respects docker CPU limits to set `GOMAXPROCS`.
 
