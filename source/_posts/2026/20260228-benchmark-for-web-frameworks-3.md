@@ -20,11 +20,27 @@ Refer to [the project page](https://github.com/gonwan/webframework-benchmark). A
 
 See [Techempower](https://www.techempower.com/benchmarks/). This repository contains homemade benchmarks for Http servers. Only a single text response is considered, since some servers do not have their builtin Json implementation. Basically, I am benchmarking event loops, with Http implementation.
 
-All server applications are running in a 4C docker environment, while I use [`wrk`](https://github.com/wg/wrk) as the client.
+All server applications are running in a 4C docker environment. After packaging, a server can be launched using docker compose:
+
+```bash
+$ docker compose -f docker-compose.yml up actix
+```
+
+[`wrk`](https://github.com/wg/wrk) is used as the client. Http keep-alive is **enabled** in the benchmark.
 
 ```bash
 # benchmark plaintext
 $ wrk -c 1000 -t 10 -d 30s http://127.0.0.1:90xx/text
+```
+
+### Dependencies
+
+If you are using Ubuntu 24.04 or later, all packages can be installed via `apt-get`:
+
+```bash
+$ sudo apt-get install libssl-dev libevent-dev libevhtp-dev libjsoncpp-dev \
+    libtrantor-dev libdrogon-dev libboost-dev wrk \
+    golang openjdk-21-jdk maven dotnet-sdk-10.0 nodejs rust-all
 ```
 
 ### Environment
@@ -80,7 +96,7 @@ y-axis "Throughput (k/s)" 0 --> 350
 bar [336, 254, 320, 220, 194, 272, 268, 170, 47, 68, 61, 125, 178, 254, 334]
 ```
 
-It is amazing that `actix` in rust wins the first price. It runs even faster than any C or C++ servers. `nginx` is here for reference.
+It is amazing that `actix` in rust wins the first price. It runs even faster than any C/C++ servers. It does gain a bit more QPS when enabling `LTO` optimization. But I choose to not have it. Since all C/C++ servers do not have it, and the optimization can introduce bugs in a production environment. `nginx` is here for reference.
 
 Then, `drogon` is the second. It is also an application level framework. `libevhtp` is not actively maintained and somehow hard to use. `beast` from `boost` is just another choice in C++. In my previous benchmark, I can remember it did not scale well and got a much lower throughput. It got almost same throughput running in a 4C and 24C Linux machine. Not knowing why, maybe It was running on an outdated CPU and OS(CentOS 7).
 
