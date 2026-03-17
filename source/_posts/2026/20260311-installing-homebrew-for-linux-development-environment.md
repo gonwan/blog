@@ -88,7 +88,7 @@ AlmaLinux 9 selects `Source Code Pro Regular 10` as its default monospace font, 
 `homebrew` has bugs running `patchelf`, see [#163826](https://github.com/Homebrew/homebrew-core/issues/163826) and [#258146](https://github.com/Homebrew/homebrew-core/issues/258146). For `gtk+3` and `libadwaita`, we can simply fix them by not running `patchelf` at all. Find bottles in the cache and extract them directly into the `homebrew` installation directory:
 
 ```bash
-$ ls ~/.cache/Homebrew/downloads/*bottle*.tar.gz | grep -iE 'gtk+3|adwaita'
+$ ls ~/.cache/Homebrew/downloads/*bottle*.tar.gz | grep -iE 'gtk|adwaita'
 /home/gonwan/.cache/Homebrew/downloads/0a00657a6b24c00ca122404a34a7ed7af7b88ba48cea9e192d6f7ec101675f51--gtk+3--3.24.51.x86_64_linux.bottle.tar.gz
 /home/gonwan/.cache/Homebrew/downloads/0d02f139507799d4915c97def5e0a717b25ee3e56704b318da8d8aa0e76fa45b--libadwaita--1.8.4.x86_64_linux.bottle.tar.gz
 $ tar xzvf /home/gonwan/.cache/Homebrew/downloads/0a00657a6b24c00ca122404a34a7ed7af7b88ba48cea9e192d6f7ec101675f51--gtk+3--3.24.51.x86_64_linux.bottle.tar.gz -C /home/linuxbrew/.linuxbrew/Cellar/ gtk+3/3.24.51/lib/
