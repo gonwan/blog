@@ -71,10 +71,10 @@ Use a proxy if necessary. `Clink` takes effect automatically every time you star
 $ winget install --id JanDeDobbeleer.OhMyPosh [--proxy http://127.0.0.1:10809]
 ```
 
-For `cmd` to work with it, create a `oh-my-posh.lua` in its installation directory, namely `C:\Program Files (x86)\clink`:
+`Clink` has builtin support for `Oh My Posh`. It allows you to set the prompt using the `clink` command:
 
-```lua
-load(io.popen('oh-my-posh init cmd'):read("*a"))()
+```cmd
+$ clink config prompt use oh-my-posh
 ```
 
 For `powershell` to work, follow their [documents](https://ohmyposh.dev/docs/installation/prompt?shell=powershell).
